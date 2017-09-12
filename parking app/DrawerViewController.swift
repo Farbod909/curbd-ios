@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Pulley
 
-class DrawerViewController: UIViewController {
+class DrawerViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var grabber: UIView!
@@ -25,26 +26,18 @@ class DrawerViewController: UIViewController {
         searchField.leftView = searchFieldPaddingView
         searchField.leftViewMode = UITextFieldViewMode.always
 
+        searchField.delegate = self
+
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
         grabber.layer.masksToBounds = true
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let mainVC = self.parent as? PulleyViewController {
+            mainVC.setDrawerPosition(position: .open)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

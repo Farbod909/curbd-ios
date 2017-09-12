@@ -13,7 +13,7 @@
         <!--Pulley View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PulleyViewController" customModule="Pulley" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" id="BYZ-38-t0r" customClass="PulleyViewController" customModule="Pulley" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,7 +51,7 @@
         <!--Drawer View Controller-->
         <scene sceneID="v5h-te-RJ3">
             <objects>
-                <viewController id="693-38-st5" customClass="DrawerViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="drawerVC" id="693-38-st5" customClass="DrawerViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="naO-aX-tgh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
         <!--Map View Controller-->
         <scene sceneID="35q-3B-mOf">
             <objects>
-                <viewController id="6iT-MS-gLO" customClass="MapViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapVC" id="6iT-MS-gLO" customClass="MapViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yaX-lX-NW2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
