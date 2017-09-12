@@ -10,10 +10,25 @@ import UIKit
 
 class DrawerViewController: UIViewController {
 
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var grabber: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        searchField.backgroundColor = UIColor.clear.withAlphaComponent(0.08)
+        searchField.layer.cornerRadius = 8
+        searchField.layer.masksToBounds = true
+        searchField.layer.borderWidth = 0
+        let searchFieldPaddingView = UIView(
+            frame: CGRect(x: 0, y: 0, width: 10, height: self.searchField.frame.height))
+        searchField.leftView = searchFieldPaddingView
+        searchField.leftViewMode = UITextFieldViewMode.always
+
+        grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
+        grabber.layer.cornerRadius = 3
+        grabber.layer.masksToBounds = true
+
     }
 
     override func didReceiveMemoryWarning() {

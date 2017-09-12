@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,11 +55,42 @@
                     <view key="view" contentMode="scaleToFill" id="naO-aX-tgh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-Ou-gBH">
+                                <rect key="frame" x="20" y="9" width="335" height="38"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="KiB-YY-pYx"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-w2-EGC">
+                                <rect key="frame" x="169" y="-2" width="36" height="5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="TX0-tC-w3e"/>
+                                    <constraint firstAttribute="height" constant="5" id="nhL-eC-xC7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="JeS-w2-EGC" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="-2" id="0BD-yy-lf5"/>
+                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="4" id="Eec-LU-0mi"/>
+                            <constraint firstItem="JeS-w2-EGC" firstAttribute="centerX" secondItem="naO-aX-tgh" secondAttribute="centerX" id="GU4-HI-cuR"/>
+                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="trailing" secondItem="naO-aX-tgh" secondAttribute="trailingMargin" constant="-4" id="JVx-8G-ghm"/>
+                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="9" id="cLn-PL-sBJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="grabber" destination="JeS-w2-EGC" id="hdp-Fc-Cga"/>
+                        <outlet property="searchField" destination="xKa-Ou-gBH" id="AWT-ye-Zh2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl1-Cb-VAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="406"/>
+            <point key="canvasLocation" x="896.79999999999995" y="405.24737631184411"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="35q-3B-mOf">
