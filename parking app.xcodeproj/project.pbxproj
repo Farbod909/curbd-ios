@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		69912ACA76EB44D684149581 /* Pods_parking_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */; };
+		8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C361F67C037000BBBDB /* MapViewController.swift */; };
+		8E136C391F67C069000BBBDB /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* DrawerViewController.swift */; };
 		8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */; };
-		8EDA61101F67A6F000AB6BF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610F1F67A6F000AB6BF1 /* ViewController.swift */; };
 		8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61111F67A6F000AB6BF1 /* Main.storyboard */; };
 		8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */; };
 		8EDA61181F67A6F000AB6BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61161F67A6F000AB6BF1 /* LaunchScreen.storyboard */; };
@@ -18,10 +19,11 @@
 /* Begin PBXFileReference section */
 		6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parking_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F22850BAE5AA1D26E52DB4 /* Pods-parking app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.debug.xcconfig"; sourceTree = "<group>"; };
+		8E136C361F67C037000BBBDB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8E136C381F67C069000BBBDB /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.release.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.release.xcconfig"; sourceTree = "<group>"; };
 		8EDA610A1F67A6F000AB6BF1 /* parking app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "parking app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8EDA610F1F67A6F000AB6BF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8EDA61121F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EDA61171F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,7 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */,
-				8EDA610F1F67A6F000AB6BF1 /* ViewController.swift */,
+				8E136C361F67C037000BBBDB /* MapViewController.swift */,
+				8E136C381F67C069000BBBDB /* DrawerViewController.swift */,
 				8EDA61111F67A6F000AB6BF1 /* Main.storyboard */,
 				8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */,
 				8EDA61161F67A6F000AB6BF1 /* LaunchScreen.storyboard */,
@@ -212,8 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EDA61101F67A6F000AB6BF1 /* ViewController.swift in Sources */,
+				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
+				8E136C391F67C069000BBBDB /* DrawerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
