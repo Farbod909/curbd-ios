@@ -9,7 +9,7 @@
 import UIKit
 import Pulley
 
-class DrawerViewController: UIViewController, UITextFieldDelegate {
+class DrawerViewController: UIViewController, UITextFieldDelegate, PulleyDrawerViewControllerDelegate {
 
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var grabber: UIView!
@@ -31,7 +31,30 @@ class DrawerViewController: UIViewController, UITextFieldDelegate {
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
         grabber.layer.masksToBounds = true
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let mainVC = self.parent as? PulleyViewController {
+            mainVC.setDrawerPosition(position: .partiallyRevealed)
+        }
+    }
+
+    func supportedDrawerPositions() -> [PulleyPosition] {
+        return [.open, .partiallyRevealed, .collapsed]
+    }
+
+    func partialRevealDrawerHeight() -> CGFloat {
+        return 68
+    }
+
+    func collapsedDrawerHeight() -> CGFloat {
+        return 264
+    }
+
+    func drawerPositionDidChange(drawer: PulleyViewController) {
+        if drawer.drawerPosition != .open {
+            searchField.resignFirstResponder()
+        }
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -39,5 +62,4 @@ class DrawerViewController: UIViewController, UITextFieldDelegate {
             mainVC.setDrawerPosition(position: .open)
         }
     }
-
 }
