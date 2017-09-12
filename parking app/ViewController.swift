@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Pulley
 
 class ViewController: UIViewController {
 

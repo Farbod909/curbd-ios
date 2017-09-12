@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69912ACA76EB44D684149581 /* Pods_parking_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */; };
 		8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */; };
 		8EDA61101F67A6F000AB6BF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610F1F67A6F000AB6BF1 /* ViewController.swift */; };
 		8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61111F67A6F000AB6BF1 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parking_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74F22850BAE5AA1D26E52DB4 /* Pods-parking app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.debug.xcconfig"; sourceTree = "<group>"; };
+		8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.release.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.release.xcconfig"; sourceTree = "<group>"; };
 		8EDA610A1F67A6F000AB6BF1 /* parking app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "parking app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDA610F1F67A6F000AB6BF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69912ACA76EB44D684149581 /* Pods_parking_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331146E56EE6703C4D2D401F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74F22850BAE5AA1D26E52DB4 /* Pods-parking app.debug.xcconfig */,
+				8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8EDA61011F67A6F000AB6BF1 = {
 			isa = PBXGroup;
 			children = (
 				8EDA610C1F67A6F000AB6BF1 /* parking app */,
 				8EDA610B1F67A6F000AB6BF1 /* Products */,
+				331146E56EE6703C4D2D401F /* Pods */,
+				F16D7F338935A981FA484837 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = "parking app";
 			sourceTree = "<group>";
 		};
+		F16D7F338935A981FA484837 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EDA611C1F67A6F000AB6BF1 /* Build configuration list for PBXNativeTarget "parking app" */;
 			buildPhases = (
+				36FD6D68314E8E14D0368CC3 /* [CP] Check Pods Manifest.lock */,
 				8EDA61061F67A6F000AB6BF1 /* Sources */,
 				8EDA61071F67A6F000AB6BF1 /* Frameworks */,
 				8EDA61081F67A6F000AB6BF1 /* Resources */,
+				C02569A0571A349BFEEEDEC3 /* [CP] Embed Pods Frameworks */,
+				8511A1A3E52B559EF3BE1E6A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36FD6D68314E8E14D0368CC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8511A1A3E52B559EF3BE1E6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-parking app/Pods-parking app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C02569A0571A349BFEEEDEC3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-parking app/Pods-parking app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8EDA61061F67A6F000AB6BF1 /* Sources */ = {
@@ -205,7 +280,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -250,7 +324,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -261,6 +334,7 @@
 		};
 		8EDA611D1F67A6F000AB6BF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74F22850BAE5AA1D26E52DB4 /* Pods-parking app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2DYNL8A66H;
@@ -274,6 +348,7 @@
 		};
 		8EDA611E1F67A6F000AB6BF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2DYNL8A66H;
@@ -304,6 +379,7 @@
 				8EDA611E1F67A6F000AB6BF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
