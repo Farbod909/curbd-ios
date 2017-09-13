@@ -52,11 +52,15 @@
         <scene sceneID="v5h-te-RJ3">
             <objects>
                 <viewController storyboardIdentifier="drawerVC" id="693-38-st5" customClass="DrawerViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oWd-60-di4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q74-OS-dE0"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="naO-aX-tgh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-Ou-gBH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find parking at address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-Ou-gBH">
                                 <rect key="frame" x="20" y="9" width="335" height="38"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -64,7 +68,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-w2-EGC">
                                 <rect key="frame" x="169" y="-2" width="36" height="5"/>
@@ -74,13 +78,21 @@
                                     <constraint firstAttribute="height" constant="5" id="nhL-eC-xC7"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7aW-sF-rNM">
+                                <rect key="frame" x="0.0" y="59" width="375" height="278"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="JeS-w2-EGC" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="-2" id="0BD-yy-lf5"/>
                             <constraint firstItem="xKa-Ou-gBH" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="4" id="Eec-LU-0mi"/>
+                            <constraint firstItem="Q74-OS-dE0" firstAttribute="top" secondItem="7aW-sF-rNM" secondAttribute="bottom" id="Fja-KV-P07"/>
                             <constraint firstItem="JeS-w2-EGC" firstAttribute="centerX" secondItem="naO-aX-tgh" secondAttribute="centerX" id="GU4-HI-cuR"/>
                             <constraint firstItem="xKa-Ou-gBH" firstAttribute="trailing" secondItem="naO-aX-tgh" secondAttribute="trailingMargin" constant="-4" id="JVx-8G-ghm"/>
+                            <constraint firstItem="7aW-sF-rNM" firstAttribute="top" secondItem="xKa-Ou-gBH" secondAttribute="bottom" constant="12" id="VnC-pw-M8M"/>
                             <constraint firstItem="xKa-Ou-gBH" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="9" id="cLn-PL-sBJ"/>
+                            <constraint firstItem="7aW-sF-rNM" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="-16" id="l9R-OU-anq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7aW-sF-rNM" secondAttribute="trailing" constant="-16" id="xXn-pp-mG3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -96,6 +108,10 @@
         <scene sceneID="35q-3B-mOf">
             <objects>
                 <viewController storyboardIdentifier="mapVC" id="6iT-MS-gLO" customClass="MapViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YOp-Xx-vMK"/>
+                        <viewControllerLayoutGuide type="bottom" id="m16-y9-u89"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yaX-lX-NW2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

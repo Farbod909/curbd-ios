@@ -15,7 +15,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
 
     private let locationManager = LocationManager.shared
-    var loadedInitialCurrentLocation = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +24,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.distanceFilter = kCLDistanceFilterNone;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if !loadedInitialCurrentLocation {
-            centerMapOnLocation(location: locations[0])
-            loadedInitialCurrentLocation = true
-        }
+        centerMapOnLocation(location: locations[0])
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error: \(error)")
     }
 
     func centerMapOnLocation(location: CLLocation) {

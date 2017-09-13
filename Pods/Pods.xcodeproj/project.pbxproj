@@ -10,6 +10,18 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>0CB09C0174FC3EDFAAC4CFBB24F4B9C8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4CBC5E92AF4ADC8E492FC943C4EF1DB8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>13EA0084D4B2FFDDEFC45805FF7D0ECD</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -35,13 +47,6 @@
 			<string>Targets Support Files</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D0935732DAAD155D204728139B97BCC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>27D8D510EF11884238B2EEC900542B33</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>27D8D510EF11884238B2EEC900542B33</key>
 		<dict>
@@ -149,6 +154,18 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
+		<key>30EA85F9B9886EAA5A94608B8A2BF813</key>
+		<dict>
+			<key>fileRef</key>
+			<string>59D0756F55BEE532445C28A3438139D3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>32EA6EC6F06B22785419D9CC3522D5A1</key>
 		<dict>
 			<key>children</key>
@@ -176,6 +193,13 @@
 			<string>97022AAB290FF0A1C9D5DDCD3601138D</string>
 			<key>targetProxy</key>
 			<string>EFD2AC63F61A073D560F47D757CEED43</string>
+		</dict>
+		<key>363E7EB04EFAC8B4C6C1528E51AAF529</key>
+		<dict>
+			<key>fileRef</key>
+			<string>27D8D510EF11884238B2EEC900542B33</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>433CD3331B6C3787F473C941B61FC68F</key>
 		<dict>
@@ -583,7 +607,7 @@
 			<string>8F09BAEA7746F762D56671590EC59AF8</string>
 			<key>buildPhases</key>
 			<array>
-				<string>AA7AEED9C92601F7AFC779080ACBD587</string>
+				<string>AA792D0D61FE9E15E1B3F7D697BAB61A</string>
 				<string>FF8D905B0E1EBB4000CE64531868AB37</string>
 				<string>BDFC3FF58FE89471B7CB443EECAF1045</string>
 			</array>
@@ -628,15 +652,15 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>AA7AEED9C92601F7AFC779080ACBD587</key>
+		<key>AA792D0D61FE9E15E1B3F7D697BAB61A</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>1D0935732DAAD155D204728139B97BCC</string>
-				<string>D1E9281CD27C9CBEA4216284D19B2366</string>
-				<string>AFE0BF69F58451C9D68704E7955B3A64</string>
+				<string>363E7EB04EFAC8B4C6C1528E51AAF529</string>
+				<string>30EA85F9B9886EAA5A94608B8A2BF813</string>
+				<string>0CB09C0174FC3EDFAAC4CFBB24F4B9C8</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -655,13 +679,6 @@
 			<string>Pods-parking app-frameworks.sh</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AFE0BF69F58451C9D68704E7955B3A64</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4CBC5E92AF4ADC8E492FC943C4EF1DB8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>B3030196F26BFED0703D3EDD3519426B</key>
 		<dict>
@@ -960,13 +977,6 @@
 			<string>Pulley-umbrella.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D1E9281CD27C9CBEA4216284D19B2366</key>
-		<dict>
-			<key>fileRef</key>
-			<string>59D0756F55BEE532445C28A3438139D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>D41D8CD98F00B204E9800998ECF8427E</key>
 		<dict>
