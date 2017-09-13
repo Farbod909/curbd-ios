@@ -98,6 +98,7 @@
                     <connections>
                         <outlet property="grabber" destination="JeS-w2-EGC" id="hdp-Fc-Cga"/>
                         <outlet property="searchField" destination="xKa-Ou-gBH" id="AWT-ye-Zh2"/>
+                        <outlet property="searchResultsTableView" destination="7aW-sF-rNM" id="235-q1-kiT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl1-Cb-VAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
