@@ -51,43 +51,7 @@ class DrawerViewController: UIViewController {
             mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
     }
-
-    func performSearch() {
-
-        let mapVC = self.parent?.childViewControllers[0] as! MapViewController
-
-        matchingItems.removeAll()
-        mapVC.mapView.removeAnnotations(mapVC.mapView.annotations)
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchField.text
-        request.region = mapVC.mapView.region
-
-        let search = MKLocalSearch(request: request)
-
-        search.start(completionHandler: {(response, error) in
-
-            if error != nil {
-                print("Error occured in search: \(error!.localizedDescription)")
-            } else if response!.mapItems.count == 0 {
-                print("No matches found")
-            } else {
-                print("Matches found")
-
-                for item in response!.mapItems {
-                    print("Name = \(item.name)")
-                    print("Phone = \(item.phoneNumber)")
-
-                    self.matchingItems.append(item as MKMapItem)
-                    print("Matching items = \(self.matchingItems.count)")
-
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = item.placemark.coordinate
-                    annotation.title = item.name
-                    mapVC.mapView.addAnnotation(annotation)
-                }
-            }
-        })
-    }
+    
 }
 
 extension DrawerViewController: PulleyDrawerViewControllerDelegate {
@@ -127,9 +91,8 @@ extension DrawerViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchField.resignFirstResponder()
         if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .collapsed)
+            mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
-        performSearch()
         return true
     }
 
@@ -155,37 +118,25 @@ extension DrawerViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
         if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .collapsed)
+            mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
 
         let mapVC = self.parent?.childViewControllers[0] as! MapViewController
-
+        mapVC.mapView.removeAnnotations(mapVC.mapView.annotations)
         let completion = searchResults[indexPath.row]
 
         let searchRequest = MKLocalSearchRequest(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
-//            let coordinate = response?.mapItems[0].placemark.coordinate
-//            print(String(describing: coordinate))
             if error != nil {
                 print("Error occured in search: \(error!.localizedDescription)")
-            } else if response!.mapItems.count == 0 {
-                print("No matches found")
             } else {
-                print("Matches found")
-
-                for item in response!.mapItems {
-                    print("Name = \(item.name)")
-                    print("Phone = \(item.phoneNumber)")
-
-                    self.matchingItems.append(item as MKMapItem)
-                    print("Matching items = \(self.matchingItems.count)")
-
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = item.placemark.coordinate
-                    annotation.title = item.name
-                    mapVC.mapView.addAnnotation(annotation)
-                }
+                let coordinate = (response?.mapItems[0].placemark.coordinate)!
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = response?.mapItems[0].name
+                mapVC.mapView.addAnnotation(annotation)
+                mapVC.centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
             }
         }
     }
