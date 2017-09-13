@@ -704,8 +704,14 @@ open class PulleyViewController: UIViewController, UIScrollViewDelegate, PulleyP
                 delegate?.makeUIAdjustmentsForFullscreen?(progress: progress)
                 (drawerContentViewController as? PulleyDrawerViewControllerDelegate)?.makeUIAdjustmentsForFullscreen?(progress: progress)
                 (primaryContentViewController as? PulleyPrimaryContentControllerDelegate)?.makeUIAdjustmentsForFullscreen?(progress: progress)
-                
-                backgroundDimmingView.alpha = progress * backgroundDimmingOpacity
+
+                let startDimmingThreshold: CGFloat = 0.4
+
+                if progress > startDimmingThreshold {
+                    backgroundDimmingView.alpha = (progress - startDimmingThreshold)/(1.0 - startDimmingThreshold) * backgroundDimmingOpacity
+                } else {
+                    backgroundDimmingView.alpha = 0
+                }
                 
                 backgroundDimmingView.isUserInteractionEnabled = true
             }

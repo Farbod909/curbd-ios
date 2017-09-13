@@ -37,7 +37,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     func centerMapOnLocation(location: CLLocation) {
         let regionRadius: CLLocationDistance = 300
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+
+        var newCoordinate = CLLocationCoordinate2D()
+        newCoordinate.latitude = location.coordinate.latitude - 0.0015
+        newCoordinate.longitude = location.coordinate.longitude
+
+
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(newCoordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }

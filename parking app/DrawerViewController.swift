@@ -118,7 +118,7 @@ extension DrawerViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
         if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .partiallyRevealed)
+            mainVC.setDrawerPosition(position: .collapsed)
         }
 
         let mapVC = self.parent?.childViewControllers[0] as! MapViewController
