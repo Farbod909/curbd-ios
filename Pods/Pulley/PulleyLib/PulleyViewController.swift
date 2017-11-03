@@ -579,7 +579,7 @@ open class PulleyViewController: UIViewController, UIScrollViewDelegate, PulleyP
     
     // MARK: Actions
     
-    func dimmingViewTapRecognizerAction(gestureRecognizer: UITapGestureRecognizer)
+    @objc func dimmingViewTapRecognizerAction(gestureRecognizer: UITapGestureRecognizer)
     {
         if gestureRecognizer == dimmingViewTapRecognizer
         {

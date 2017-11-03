@@ -86,7 +86,7 @@ extension DrawerViewController: UITextFieldDelegate {
         }
     }
 
-    func searchFieldDidChange(_ textField: UITextField) {
+    @objc func searchFieldDidChange(_ textField: UITextField) {
         searchCompleter.queryFragment = textField.text!
     }
 
@@ -151,7 +151,7 @@ extension DrawerViewController: UITableViewDelegate {
                 print(coordinate.latitude)
                 print(coordinate.longitude)
 
-                Alamofire.request("http://localhost:8000/parking/nearby_spaces", parameters: parameters, encoding: URLEncoding.queryString).responseJSON { response in
+                Alamofire.request("http://169.234.38.149:8000/parking/nearby_spaces", parameters: parameters, encoding: URLEncoding.queryString).responseJSON { response in
                     let nearbyParkingSpaces = JSON(response.result.value!)
 
                     for (_, parkingSpace):(String, JSON) in nearbyParkingSpaces {
