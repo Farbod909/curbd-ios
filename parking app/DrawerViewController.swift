@@ -9,6 +9,8 @@
 import UIKit
 import Pulley
 import MapKit
+import Alamofire
+import SwiftyJSON
 
 class DrawerViewController: UIViewController {
 
@@ -132,10 +134,36 @@ extension DrawerViewController: UITableViewDelegate {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else {
                 let coordinate = (response?.mapItems[0].placemark.coordinate)!
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = response?.mapItems[0].name
-                mapVC.mapView.addAnnotation(annotation)
+//                let annotation = MKPointAnnotation()
+//                annotation.coordinate = coordinate
+//
+//                annotation.title = response?.mapItems[0].name
+//                mapVC.mapView.addAnnotation(annotation)
+
+                let parameters: Parameters = [
+                    "lat": coordinate.latitude,
+                    "long": coordinate.longitude,
+                    "radius": 0.75,
+                    "start": "2017-09-29T19:03:00",
+                    "end": "2017-09-29T19:07:00",
+                ]
+
+                print(coordinate.latitude)
+                print(coordinate.longitude)
+
+                Alamofire.request("http://localhost:8000/parking/nearby_spaces", parameters: parameters, encoding: URLEncoding.queryString).responseJSON { response in
+                    let nearbyParkingSpaces = JSON(response.result.value!)
+
+                    for (_, parkingSpace):(String, JSON) in nearbyParkingSpaces {
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = CLLocationCoordinate2D(
+                            latitude: parkingSpace["latitude"].doubleValue,
+                            longitude: parkingSpace["longitude"].doubleValue)
+                        mapVC.mapView.addAnnotation(annotation)
+                    }
+
+                }
+
                 mapVC.centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
             }
         }

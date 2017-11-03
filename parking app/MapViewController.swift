@@ -29,7 +29,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestLocation()
 
         logoText.textColor = UIColor.gray.withAlphaComponent(0.8)
-
         logoView.layer.cornerRadius = 10
         logoView.layer.masksToBounds = true
         if !UIAccessibilityIsReduceTransparencyEnabled() {

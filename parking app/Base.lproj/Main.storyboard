@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find parking at address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-Ou-gBH">
-                                <rect key="frame" x="20" y="9" width="335" height="38"/>
+                                <rect key="frame" x="28" y="11" width="319" height="38"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="KiB-YY-pYx"/>
@@ -71,11 +70,11 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-w2-EGC">
-                                <rect key="frame" x="169" y="-2" width="36" height="5"/>
+                                <rect key="frame" x="169" y="3" width="36" height="4"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="TX0-tC-w3e"/>
-                                    <constraint firstAttribute="height" constant="5" id="nhL-eC-xC7"/>
+                                    <constraint firstAttribute="height" constant="4" id="nhL-eC-xC7"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7aW-sF-rNM">
@@ -84,13 +83,13 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="JeS-w2-EGC" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="-2" id="0BD-yy-lf5"/>
-                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="4" id="Eec-LU-0mi"/>
+                            <constraint firstItem="JeS-w2-EGC" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="3" id="0BD-yy-lf5"/>
+                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="12" id="Eec-LU-0mi"/>
                             <constraint firstItem="Q74-OS-dE0" firstAttribute="top" secondItem="7aW-sF-rNM" secondAttribute="bottom" id="Fja-KV-P07"/>
                             <constraint firstItem="JeS-w2-EGC" firstAttribute="centerX" secondItem="naO-aX-tgh" secondAttribute="centerX" id="GU4-HI-cuR"/>
-                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="trailing" secondItem="naO-aX-tgh" secondAttribute="trailingMargin" constant="-4" id="JVx-8G-ghm"/>
-                            <constraint firstItem="7aW-sF-rNM" firstAttribute="top" secondItem="xKa-Ou-gBH" secondAttribute="bottom" constant="12" id="VnC-pw-M8M"/>
-                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="9" id="cLn-PL-sBJ"/>
+                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="trailing" secondItem="naO-aX-tgh" secondAttribute="trailingMargin" constant="-12" id="JVx-8G-ghm"/>
+                            <constraint firstItem="7aW-sF-rNM" firstAttribute="top" secondItem="xKa-Ou-gBH" secondAttribute="bottom" constant="10" id="VnC-pw-M8M"/>
+                            <constraint firstItem="xKa-Ou-gBH" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="11" id="cLn-PL-sBJ"/>
                             <constraint firstItem="7aW-sF-rNM" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="-16" id="l9R-OU-anq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7aW-sF-rNM" secondAttribute="trailing" constant="-16" id="xXn-pp-mG3"/>
                         </constraints>
@@ -103,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl1-Cb-VAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="376"/>
+            <point key="canvasLocation" x="896.79999999999995" y="375.56221889055473"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="35q-3B-mOf">
@@ -121,7 +120,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxi-ST-Y4T">
-                                <rect key="frame" x="19" y="29" width="118" height="42"/>
+                                <rect key="frame" x="19" y="42" width="118" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="NXE-3p-GhO"/>
@@ -129,7 +128,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RI-gi-HEA">
-                                <rect key="frame" x="31.5" y="40" width="93" height="21"/>
+                                <rect key="frame" x="31.5" y="52.5" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -138,7 +137,7 @@
                         <constraints>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="yaX-lX-NW2" secondAttribute="top" id="2uh-lv-RDD"/>
                             <constraint firstAttribute="bottom" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" id="6yD-Np-DJm"/>
-                            <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="Gxi-ST-Y4T" secondAttribute="bottom" constant="-71" id="Ofl-fa-5Td"/>
+                            <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="Gxi-ST-Y4T" secondAttribute="bottom" constant="-84" id="Ofl-fa-5Td"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="yaX-lX-NW2" secondAttribute="leading" id="PmQ-sL-Oes"/>
                             <constraint firstItem="8RI-gi-HEA" firstAttribute="centerY" secondItem="Gxi-ST-Y4T" secondAttribute="centerY" id="WoK-yn-vyp"/>
                             <constraint firstAttribute="trailing" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" id="Y3s-7V-289"/>

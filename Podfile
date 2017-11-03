@@ -5,5 +5,7 @@ target 'parking app' do
   use_frameworks!
 
   pod 'Pulley'
+  pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
 
 end
