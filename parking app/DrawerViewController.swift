@@ -23,6 +23,11 @@ class DrawerViewController: UIViewController {
 
     var matchingItems: [MKMapItem] = [MKMapItem]()
 
+    var arriveDatetimeString: String = ""
+    var leaveDatetimeString: String = ""
+    @IBOutlet weak var arriveDisplayLabel: UILabel!
+    @IBOutlet weak var leaveDisplayLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,12 +51,54 @@ class DrawerViewController: UIViewController {
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
         grabber.layer.masksToBounds = true
+
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:'00'"
+        self.arriveDatetimeString = dateFormatter.string(from: now)
+        self.leaveDatetimeString = dateFormatter.string(from: now)
+        self.arriveDisplayLabel.text = humanReadableDate(self.arriveDatetimeString)
+        self.leaveDisplayLabel.text = humanReadableDate(self.leaveDatetimeString)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         if let mainVC = self.parent as? PulleyViewController {
             mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showArriveVC" {
+            if let viewController = segue.destination as? ArriveLeaveViewController {
+                viewController.mode = "arrive"
+            }
+        } else if segue.identifier == "showLeaveVC" {
+            if let viewController = segue.destination as? ArriveLeaveViewController {
+                viewController.mode = "leave"
+            }
+        }
+    }
+
+    @IBAction func unwindToDrawerViewController(segue: UIStoryboardSegue) {
+        let arriveLeaveVC = segue.source as! ArriveLeaveViewController
+
+        if arriveLeaveVC.mode == "arrive" {
+            self.arriveDatetimeString = arriveLeaveVC.lastSavedDateString
+            self.arriveDisplayLabel.text = humanReadableDate(arriveDatetimeString)
+        } else if arriveLeaveVC.mode == "leave" {
+            self.leaveDatetimeString = arriveLeaveVC.lastSavedDateString
+            self.leaveDisplayLabel.text = humanReadableDate(leaveDatetimeString)
+        }
+    }
+
+    func humanReadableDate(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+        let dateObj = dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "h:mm a, MMM d"
+
+        return dateFormatter.string(from: dateObj!)
     }
     
 }
@@ -63,7 +110,13 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
-        return 68
+        if UIDevice().userInterfaceIdiom == .phone {
+            if UIScreen.main.nativeBounds.height == 2436 {
+                // iPhone X
+                return 94 + 45
+            }
+        }
+        return 68 + 45
     }
 
     func collapsedDrawerHeight() -> CGFloat {
@@ -143,16 +196,18 @@ extension DrawerViewController: UITableViewDelegate {
                 let parameters: Parameters = [
                     "lat": coordinate.latitude,
                     "long": coordinate.longitude,
-                    "radius": 0.75,
-                    "start": "2017-09-29T19:03:00",
-                    "end": "2017-09-29T19:07:00",
+                    "radius": 10,
+                    "start": self.arriveDatetimeString,
+                    "end": self.leaveDatetimeString,
                 ]
 
                 print(coordinate.latitude)
                 print(coordinate.longitude)
 
-                Alamofire.request("http://169.234.38.149:8000/parking/nearby_spaces", parameters: parameters, encoding: URLEncoding.queryString).responseJSON { response in
+                Alamofire.request("http://localhost:8000/parking/nearby_spaces", parameters: parameters, encoding: URLEncoding.queryString).responseJSON { response in
                     let nearbyParkingSpaces = JSON(response.result.value!)
+
+                    print(nearbyParkingSpaces)
 
                     for (_, parkingSpace):(String, JSON) in nearbyParkingSpaces {
                         let annotation = MKPointAnnotation()

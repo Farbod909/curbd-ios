@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
 
         mapView.showsUserLocation = true
+//        mapView.delegate = self
 
         locationManager.delegate = self
         locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -68,3 +69,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 }
+
+//extension MapViewController: MKMapViewDelegate {
+//    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
+//    {
+//        print("hello")
+//    }
+//}
+
