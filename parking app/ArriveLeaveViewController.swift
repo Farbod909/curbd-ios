@@ -13,7 +13,6 @@ class ArriveLeaveViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
 
-    var mode = ""
     var lastSavedDateString = ""
 
     override func viewDidLoad() {

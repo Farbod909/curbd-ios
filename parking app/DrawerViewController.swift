@@ -67,30 +67,6 @@ class DrawerViewController: UIViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showArriveVC" {
-            if let viewController = segue.destination as? ArriveLeaveViewController {
-                viewController.mode = "arrive"
-            }
-        } else if segue.identifier == "showLeaveVC" {
-            if let viewController = segue.destination as? ArriveLeaveViewController {
-                viewController.mode = "leave"
-            }
-        }
-    }
-
-    @IBAction func unwindToDrawerViewController(segue: UIStoryboardSegue) {
-        let arriveLeaveVC = segue.source as! ArriveLeaveViewController
-
-        if arriveLeaveVC.mode == "arrive" {
-            self.arriveDatetimeString = arriveLeaveVC.lastSavedDateString
-            self.arriveDisplayLabel.text = humanReadableDate(arriveDatetimeString)
-        } else if arriveLeaveVC.mode == "leave" {
-            self.leaveDatetimeString = arriveLeaveVC.lastSavedDateString
-            self.leaveDisplayLabel.text = humanReadableDate(leaveDatetimeString)
-        }
-    }
-
     func humanReadableDate(_ dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -106,17 +82,18 @@ class DrawerViewController: UIViewController {
 extension DrawerViewController: PulleyDrawerViewControllerDelegate {
 
     func supportedDrawerPositions() -> [PulleyPosition] {
-        return [.open, .partiallyRevealed, .collapsed]
+        return [.open, .partiallyRevealed] // not supporting .collapsed
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
+        let height: CGFloat = 183
         if UIDevice().userInterfaceIdiom == .phone {
             if UIScreen.main.nativeBounds.height == 2436 {
                 // iPhone X
-                return 94 + 45
+                return height + 26
             }
         }
-        return 68 + 45
+        return height
     }
 
     func collapsedDrawerHeight() -> CGFloat {
@@ -124,11 +101,13 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
     }
 
     func drawerPositionDidChange(drawer: PulleyViewController) {
-        if drawer.drawerPosition != .open {
+        if drawer.drawerPosition == .partiallyRevealed {
+            self.searchResultsTableView.isHidden = true
             searchField.resignFirstResponder()
+        } else {
+            self.searchResultsTableView.isHidden = false
         }
     }
-
 }
 
 extension DrawerViewController: UITextFieldDelegate {
