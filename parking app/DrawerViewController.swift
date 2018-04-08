@@ -12,25 +12,22 @@ import MapKit
 import Alamofire
 import SwiftyJSON
 
+
 class DrawerViewController: UIViewController {
 
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var grabber: UIView!
     @IBOutlet weak var searchResultsTableView: UITableView!
-
-    var searchCompleter = MKLocalSearchCompleter()
-    var searchResults = [MKLocalSearchCompletion]()
-
-    var matchingItems: [MKMapItem] = [MKMapItem]()
-
-    var arriveDatetimeString: String = ""
-    var leaveDatetimeString: String = ""
     @IBOutlet weak var arriveDisplayLabel: UILabel!
     @IBOutlet weak var leaveDisplayLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    var matchingItems: [MKMapItem] = [MKMapItem]()
+    var arriveDatetimeString: String = ""
+    var leaveDatetimeString: String = ""
 
+    func initializeSettings() {
         searchField.backgroundColor = UIColor.clear.withAlphaComponent(0.08)
         searchField.layer.cornerRadius = 8
         searchField.layer.masksToBounds = true
@@ -47,10 +44,14 @@ class DrawerViewController: UIViewController {
 
         searchField.addTarget(self, action: #selector(DrawerViewController.searchFieldDidChange(_:)), for: UIControlEvents.editingChanged)
 
-
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
         grabber.layer.masksToBounds = true
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initializeSettings()
 
         let now = Date()
         let dateFormatter = DateFormatter()
@@ -66,17 +67,6 @@ class DrawerViewController: UIViewController {
             mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
     }
-
-    func humanReadableDate(_ dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-
-        let dateObj = dateFormatter.date(from: dateString)
-        dateFormatter.dateFormat = "h:mm a, MMM d"
-
-        return dateFormatter.string(from: dateObj!)
-    }
-    
 }
 
 extension DrawerViewController: PulleyDrawerViewControllerDelegate {
@@ -97,6 +87,8 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
     }
 
     func collapsedDrawerHeight() -> CGFloat {
+        // We're not supporting this position but the function
+        // has to stay to conform to protocol
         return 264
     }
 

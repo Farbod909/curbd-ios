@@ -186,35 +186,15 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lIL-Rx-ZYi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxi-ST-Y4T">
-                                <rect key="frame" x="19" y="42" width="118" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="NXE-3p-GhO"/>
-                                    <constraint firstAttribute="width" constant="118" id="d2A-JL-91v"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RI-gi-HEA">
-                                <rect key="frame" x="31.5" y="52.5" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="yaX-lX-NW2" secondAttribute="top" id="2uh-lv-RDD"/>
                             <constraint firstAttribute="bottom" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" id="6yD-Np-DJm"/>
-                            <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="Gxi-ST-Y4T" secondAttribute="bottom" constant="-84" id="Ofl-fa-5Td"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="yaX-lX-NW2" secondAttribute="leading" id="PmQ-sL-Oes"/>
-                            <constraint firstItem="8RI-gi-HEA" firstAttribute="centerY" secondItem="Gxi-ST-Y4T" secondAttribute="centerY" id="WoK-yn-vyp"/>
                             <constraint firstAttribute="trailing" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" id="Y3s-7V-289"/>
-                            <constraint firstItem="8RI-gi-HEA" firstAttribute="centerX" secondItem="Gxi-ST-Y4T" secondAttribute="centerX" id="aWa-SO-ptC"/>
-                            <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="Gxi-ST-Y4T" secondAttribute="trailing" constant="-137" id="vAe-hm-iqh"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="logoText" destination="8RI-gi-HEA" id="Zny-yx-oy3"/>
-                        <outlet property="logoView" destination="Gxi-ST-Y4T" id="7tW-SX-DoM"/>
                         <outlet property="mapView" destination="lIL-Rx-ZYi" id="wax-If-2VG"/>
                     </connections>
                 </viewController>

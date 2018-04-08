@@ -10,43 +10,30 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
 
-    @IBOutlet weak var logoView: UIView!
-    @IBOutlet weak var logoText: UILabel!
     @IBOutlet weak var mapView: MKMapView!
 
     private let locationManager = LocationManager.shared
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    func initializeSettings() {
+        mapView.delegate = self
         mapView.showsUserLocation = true
-//        mapView.delegate = self
 
         locationManager.delegate = self
         locationManager.distanceFilter = kCLDistanceFilterNone;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        locationManager.requestLocation()
-
-        logoText.textColor = UIColor.gray.withAlphaComponent(0.8)
-        logoView.layer.cornerRadius = 10
-        logoView.layer.masksToBounds = true
-        if !UIAccessibilityIsReduceTransparencyEnabled() {
-            logoView.backgroundColor = UIColor.clear
-
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-
-            blurEffectView.frame = logoView.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-            logoView.addSubview(blurEffectView)
-        } else {
-            self.view.backgroundColor = UIColor.white
-        }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initializeSettings()
+
+        locationManager.requestLocation()
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         centerMapOnLocation(location: locations[0])
     }
@@ -67,13 +54,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-
 }
 
-//extension MapViewController: MKMapViewDelegate {
-//    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
-//    {
-//        print("hello")
-//    }
-//}
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("hello")
+    }
+}
 
