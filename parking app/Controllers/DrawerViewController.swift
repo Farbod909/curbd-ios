@@ -15,19 +15,40 @@ import SwiftyJSON
 
 class DrawerViewController: UIViewController {
 
-    @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var grabber: UIView!
-    @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var arriveDisplayLabel: UILabel!
     @IBOutlet weak var leaveDisplayLabel: UILabel!
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var searchResultsTableView: UITableView!
 
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
-    var matchingItems: [MKMapItem] = [MKMapItem]()
-    var arriveDatetimeString: String = ""
-    var leaveDatetimeString: String = ""
+    var matchingItems = [MKMapItem]() // I'm not sure what this is?
+    var arriveDate = Date()
+    var leaveDate = Date()
+
+    let partiallyRevealedDrawerHeight: CGFloat = 183
+    let drawerPositions = [
+        PulleyPosition.open,
+        PulleyPosition.partiallyRevealed
+        // not supporting PulleyPosition.collapsed
+    ]
 
     func initializeSettings() {
+        initializeAppearanceSettings()
+
+        searchCompleter.delegate = self
+
+        searchField.delegate = self
+        searchField.addTarget(
+            self, action: #selector(DrawerViewController.searchFieldDidChange(_:)),
+            for: UIControlEvents.editingChanged)
+
+        searchResultsTableView.delegate = self
+        searchResultsTableView.dataSource = self
+    }
+
+    func initializeAppearanceSettings() {
         searchField.backgroundColor = UIColor.clear.withAlphaComponent(0.08)
         searchField.layer.cornerRadius = 8
         searchField.layer.masksToBounds = true
@@ -36,13 +57,6 @@ class DrawerViewController: UIViewController {
             frame: CGRect(x: 0, y: 0, width: 10, height: self.searchField.frame.height))
         searchField.leftView = searchFieldPaddingView
         searchField.leftViewMode = UITextFieldViewMode.always
-
-        searchCompleter.delegate = self
-        searchField.delegate = self
-        searchResultsTableView.delegate = self
-        searchResultsTableView.dataSource = self
-
-        searchField.addTarget(self, action: #selector(DrawerViewController.searchFieldDidChange(_:)), for: UIControlEvents.editingChanged)
 
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
@@ -53,13 +67,8 @@ class DrawerViewController: UIViewController {
         super.viewDidLoad()
         initializeSettings()
 
-        let now = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:'00'"
-        self.arriveDatetimeString = dateFormatter.string(from: now)
-        self.leaveDatetimeString = dateFormatter.string(from: now)
-        self.arriveDisplayLabel.text = humanReadableDate(self.arriveDatetimeString)
-        self.leaveDisplayLabel.text = humanReadableDate(self.leaveDatetimeString)
+        self.arriveDisplayLabel.text = humanReadableDate(self.arriveDate)
+        self.leaveDisplayLabel.text = humanReadableDate(self.leaveDate)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,24 +81,22 @@ class DrawerViewController: UIViewController {
 extension DrawerViewController: PulleyDrawerViewControllerDelegate {
 
     func supportedDrawerPositions() -> [PulleyPosition] {
-        return [.open, .partiallyRevealed] // not supporting .collapsed
+        return drawerPositions
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
-        let height: CGFloat = 183
-        if UIDevice().userInterfaceIdiom == .phone {
-            if UIScreen.main.nativeBounds.height == 2436 {
-                // iPhone X
-                return height + 26
-            }
+        if  UIDevice().userInterfaceIdiom == .phone &&
+            UIScreen.main.nativeBounds.height == 2436 {
+            // iPhone X
+            return partiallyRevealedDrawerHeight + 26
         }
-        return height
+        return partiallyRevealedDrawerHeight
     }
 
     func collapsedDrawerHeight() -> CGFloat {
         // We're not supporting this position but the function
-        // has to stay to conform to protocol
-        return 264
+        // has to stay to conform to protocol.
+        return 0
     }
 
     func drawerPositionDidChange(drawer: PulleyViewController) {
@@ -144,7 +151,7 @@ extension DrawerViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
         if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .collapsed)
+            mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
 
         let mapVC = self.parent?.childViewControllers[0] as! MapViewController
@@ -153,43 +160,20 @@ extension DrawerViewController: UITableViewDelegate {
 
         let searchRequest = MKLocalSearchRequest(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
-        search.start { (response, error) in
+        search.start { response, error in
             if error != nil {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else {
                 let coordinate = (response?.mapItems[0].placemark.coordinate)!
-//                let annotation = MKPointAnnotation()
-//                annotation.coordinate = coordinate
-//
-//                annotation.title = response?.mapItems[0].name
-//                mapVC.mapView.addAnnotation(annotation)
-
-                let parameters: Parameters = [
-                    "lat": coordinate.latitude,
-                    "long": coordinate.longitude,
-                    "radius": 10,
-                    "start": self.arriveDatetimeString,
-                    "end": self.leaveDatetimeString,
-                ]
-
-                print(coordinate.latitude)
-                print(coordinate.longitude)
-
-                Alamofire.request("http://localhost:8000/parking/nearby_spaces", parameters: parameters, encoding: URLEncoding.queryString).responseJSON { response in
-                    let nearbyParkingSpaces = JSON(response.result.value!)
-
-                    print(nearbyParkingSpaces)
-
-                    for (_, parkingSpace):(String, JSON) in nearbyParkingSpaces {
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate = CLLocationCoordinate2D(
-                            latitude: parkingSpace["latitude"].doubleValue,
-                            longitude: parkingSpace["longitude"].doubleValue)
-                        mapVC.mapView.addAnnotation(annotation)
-                    }
-
-                }
-
+                ParkingSpace.findSpaces(
+                    bl_lat: coordinate.latitude-1,
+                    bl_long: coordinate.longitude-1,
+                    tr_lat: coordinate.latitude+1,
+                    tr_long: coordinate.longitude+1,
+                    from: self.arriveDate,
+                    to: self.leaveDate
+                )
+                // display parkingSpaces as annotations
                 mapVC.centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
             }
         }

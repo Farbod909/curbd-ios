@@ -31,6 +31,18 @@ class MapViewController: UIViewController {
 
         locationManager.requestLocation()
     }
+
+    func centerMapOnLocation(location: CLLocation) {
+        let regionRadius: CLLocationDistance = 300
+
+        var newCoordinate = CLLocationCoordinate2D()
+        newCoordinate.latitude = location.coordinate.latitude - 0.0015
+        newCoordinate.longitude = location.coordinate.longitude
+
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(newCoordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -40,19 +52,6 @@ extension MapViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error)")
-    }
-
-    func centerMapOnLocation(location: CLLocation) {
-        let regionRadius: CLLocationDistance = 300
-
-        var newCoordinate = CLLocationCoordinate2D()
-        newCoordinate.latitude = location.coordinate.latitude - 0.0015
-        newCoordinate.longitude = location.coordinate.longitude
-
-
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(newCoordinate,
-                                                                  regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
     }
 }
 

@@ -8,12 +8,16 @@
 
 import Foundation
 
-func humanReadableDate(_ dateString: String) -> String {
+func humanReadableDate(_ date: Date) -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-
-    let dateObj = dateFormatter.date(from: dateString)
     dateFormatter.dateFormat = "h:mm a, MMM d"
 
-    return dateFormatter.string(from: dateObj!)
+    return dateFormatter.string(from: date)
+}
+
+func toISOString(_ date: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-DDTHH:mm:'00'Z"
+
+    return dateFormatter.string(from: date)
 }
