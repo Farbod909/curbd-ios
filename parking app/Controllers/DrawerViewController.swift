@@ -76,6 +76,25 @@ class DrawerViewController: UIViewController {
             mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showArriveLeaveVC" {
+            if let viewController = segue.destination as? ArriveLeaveViewController {
+                viewController.arriveDate = self.arriveDate
+                viewController.leaveDate = self.leaveDate
+            }
+        }
+    }
+
+    @IBAction func unwindToDrawerViewController(segue: UIStoryboardSegue) {
+        let arriveLeaveVC = segue.source as! ArriveLeaveViewController
+
+        self.arriveDate = arriveLeaveVC.arriveDate
+        self.arriveDisplayLabel.text = humanReadableDate(self.arriveDate)
+
+        self.leaveDate = arriveLeaveVC.leaveDate
+        self.leaveDisplayLabel.text = humanReadableDate(self.leaveDate)
+    }
 }
 
 extension DrawerViewController: PulleyDrawerViewControllerDelegate {

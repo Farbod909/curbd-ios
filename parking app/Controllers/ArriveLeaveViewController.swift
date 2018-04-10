@@ -11,17 +11,24 @@ import UIKit
 
 class ArriveLeaveViewController: UIViewController {
 
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var arriveDatePicker: UIDatePicker!
+    @IBOutlet weak var leaveDatePicker: UIDatePicker!
 
-    var lastSavedDateString = ""
+    var arriveDate = Date()
+    var leaveDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let blurEffect = UIBlurEffect(style: .regular)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        self.view.insertSubview(blurEffectView, at: 0)
+        self.arriveDatePicker.setDate(self.arriveDate, animated: false)
+        self.leaveDatePicker.setDate(self.leaveDate, animated: false)
+
+        // uncomment this after figuring out how to set view
+        // background color to clear
+//        let blurEffect = UIBlurEffect(style: .regular)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.view.frame
+//        self.view.insertSubview(blurEffectView, at: 0)
     }
     
     @IBAction func cancel(_ sender: UIButton) {
@@ -29,9 +36,14 @@ class ArriveLeaveViewController: UIViewController {
     }
 
     @IBAction func save(_ sender: UIButton) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:'00'"
-        self.lastSavedDateString = dateFormatter.string(from: datePicker.date)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:'00'"
+//        self.arriveDateString = dateFormatter.string(from: arriveDatePicker.date)
+//        self.leaveDateString = dateFormatter.string(from: leaveDatePicker.date)
+
+        self.arriveDate = arriveDatePicker.date
+        self.leaveDate = leaveDatePicker.date
+
         self.performSegue(withIdentifier: "unwindToDrawer", sender: self)
     }
 }
