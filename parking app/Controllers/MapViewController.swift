@@ -41,7 +41,36 @@ class MapViewController: UIViewController {
 
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(newCoordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
+        mapView.setRegion(coordinateRegion, animated: false)
+    }
+
+    func getNECoordinate() -> CLLocationCoordinate2D {
+        return getCoordinateFromMapRectanglePoint(
+            x: MKMapRectGetMaxX(self.mapView.visibleMapRect),
+            y: self.mapView.visibleMapRect.origin.y)
+    }
+
+    func getNWCoordinate() -> CLLocationCoordinate2D {
+        return getCoordinateFromMapRectanglePoint(
+            x: MKMapRectGetMinX(self.mapView.visibleMapRect),
+            y: self.mapView.visibleMapRect.origin.y)
+    }
+
+    func getSECoordinate() -> CLLocationCoordinate2D {
+        return getCoordinateFromMapRectanglePoint(
+            x: MKMapRectGetMaxX(self.mapView.visibleMapRect),
+            y: MKMapRectGetMaxY(self.mapView.visibleMapRect))
+    }
+
+    func getSWCoordinate() -> CLLocationCoordinate2D {
+        return getCoordinateFromMapRectanglePoint(
+            x: self.mapView.visibleMapRect.origin.x,
+            y: MKMapRectGetMaxY(self.mapView.visibleMapRect))
+    }
+
+    func getCoordinateFromMapRectanglePoint(x: Double, y: Double) -> CLLocationCoordinate2D {
+        let swMapPoint: MKMapPoint = MKMapPointMake(x, y)
+        return MKCoordinateForMapPoint(swMapPoint)
     }
 }
 

@@ -54,17 +54,15 @@ class ParkingSpace {
         ]
 
          Alamofire.request(
-            "http://localhost:8000/api/parking/spaces",
+            baseURL + "/api/parking/spaces",
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
                 let parkingSpacesJSON = JSON(response.result.value!)
 
                 var parkingSpaces = [ParkingSpace]()
-
                 for (_, json):(String, JSON) in parkingSpacesJSON["results"] {
                     parkingSpaces.append(ParkingSpace(json: json))
                 }
-
                 completionHandler(parkingSpaces)
          }
     }

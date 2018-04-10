@@ -8,6 +8,8 @@
 
 import Foundation
 
+let baseURL = "http://192.168.0.104:8000"
+
 func humanReadableDate(_ date: Date) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "h:mm a, MMM d"
