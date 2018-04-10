@@ -38,8 +38,8 @@ class ParkingSpace {
             "bl_long": bl_long,
             "tr_lat": tr_lat,
             "tr_long": tr_long,
-            "start": toISOString(start),
-            "end": toISOString(end),
+            "start": Formatter.iso8601.string(from: start),
+            "end": Formatter.iso8601.string(from: end),
         ]
 
          Alamofire.request(
@@ -47,10 +47,7 @@ class ParkingSpace {
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
                 let parkingSpacesJSON = JSON(response.result.value!)
-
-                for parkingSpaceJSON in parkingSpacesJSON {
-                    print(parkingSpaceJSON)
-                }
+                print(parkingSpacesJSON)
          }
     }
 }

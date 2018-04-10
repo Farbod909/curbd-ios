@@ -15,9 +15,11 @@ func humanReadableDate(_ date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
-func toISOString(_ date: Date) -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "YYYY-MM-DDTHH:mm:'00'Z"
-
-    return dateFormatter.string(from: date)
+extension Formatter {
+    static let iso8601: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime,]
+        formatter.timeZone = TimeZone.current
+        return formatter
+    }()
 }
