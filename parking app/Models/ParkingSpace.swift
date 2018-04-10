@@ -31,7 +31,18 @@ class ParkingSpace {
         self.hostURL = hostURL
     }
 
-    static func findSpaces(bl_lat: Double, bl_long: Double, tr_lat: Double, tr_long: Double, from start: Date, to end: Date) {//, completionHandler: @escaping ([ParkingSpace]) -> Void) {
+    init(json: JSON) {
+        self.features = json["features"].stringValue.components(separatedBy: ", ")
+        self.latitude = json["latitude"].doubleValue
+        self.longitude = json["longitude"].doubleValue
+        self.available_spaces = json["available_spaces"].intValue
+        self.size = json["size"].intValue
+        self.address = json["address"].stringValue
+        self.description = json["description"].stringValue
+        self.hostURL = json["host"].stringValue
+    }
+
+    static func findSpaces(bl_lat: Double, bl_long: Double, tr_lat: Double, tr_long: Double, from start: Date, to end: Date, completionHandler: @escaping ([ParkingSpace]) -> Void) {
 
         let parameters: Parameters = [
             "bl_lat": bl_lat,
@@ -47,7 +58,14 @@ class ParkingSpace {
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
                 let parkingSpacesJSON = JSON(response.result.value!)
-                print(parkingSpacesJSON)
+
+                var parkingSpaces = [ParkingSpace]()
+
+                for (_, json):(String, JSON) in parkingSpacesJSON["results"] {
+                    parkingSpaces.append(ParkingSpace(json: json))
+                }
+
+                completionHandler(parkingSpaces)
          }
     }
 }

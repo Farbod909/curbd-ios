@@ -191,8 +191,10 @@ extension DrawerViewController: UITableViewDelegate {
                     tr_long: coordinate.longitude+1,
                     from: self.arriveDate,
                     to: self.leaveDate
-                )
-                // display parkingSpaces as annotations
+                ) { parkingSpaces in
+                    // annotate each parkingSpace on the map
+                }
+
                 mapVC.centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
             }
         }

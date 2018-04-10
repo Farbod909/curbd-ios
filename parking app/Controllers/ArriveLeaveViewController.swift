@@ -36,14 +36,8 @@ class ArriveLeaveViewController: UIViewController {
     }
 
     @IBAction func save(_ sender: UIButton) {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:'00'"
-//        self.arriveDateString = dateFormatter.string(from: arriveDatePicker.date)
-//        self.leaveDateString = dateFormatter.string(from: leaveDatePicker.date)
-
         self.arriveDate = arriveDatePicker.date
         self.leaveDate = leaveDatePicker.date
-
         self.performSegue(withIdentifier: "unwindToDrawer", sender: self)
     }
 }
