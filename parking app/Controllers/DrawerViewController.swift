@@ -25,7 +25,7 @@ class DrawerViewController: UIViewController {
     var searchResults = [MKLocalSearchCompletion]()
     var matchingItems = [MKMapItem]() // I'm not sure what this is?
     var arriveDate = Date()
-    var leaveDate = Date()
+    var leaveDate = Date(timeInterval: 7200, since: Date())
 
     let partiallyRevealedDrawerHeight: CGFloat = 183
     let drawerPositions = [
