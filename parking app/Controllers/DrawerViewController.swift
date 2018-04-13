@@ -94,6 +94,12 @@ class DrawerViewController: UIViewController {
 
         self.leaveDate = arriveLeaveVC.leaveDate
         self.leaveDisplayLabel.text = self.leaveDate.toHumanReadable()
+
+        let mapVC = self.parent?.childViewControllers[0] as! MapViewController
+        mapVC.locateParkingSpacesOnCurrentMapArea(
+            from: self.arriveDate,
+            to: self.leaveDate,
+            alertIfNotFound: false)
     }
 }
 
@@ -170,12 +176,12 @@ extension DrawerViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
         searchField.text = searchResults[indexPath.row].title
+
         if let mainVC = self.parent as? PulleyViewController {
             mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
 
         let mapVC = self.parent?.childViewControllers[0] as! MapViewController
-        mapVC.mapView.removeAnnotations(mapVC.mapView.annotations)
         let completion = searchResults[indexPath.row]
 
         let searchRequest = MKLocalSearchRequest(completion: completion)
@@ -187,26 +193,10 @@ extension DrawerViewController: UITableViewDelegate {
                 let coordinate = (response?.mapItems[0].placemark.coordinate)!
                 mapVC.mapView.centerOn(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
 
-                // TODO: make sure map is zoomed in before getting bottomLeft and topRight
-
-                let bottomLeft: CLLocationCoordinate2D = mapVC.mapView.getSWCoordinate()
-                let topRight: CLLocationCoordinate2D = mapVC.mapView.getNECoordinate()
-                ParkingSpace.search(
-                    bl_lat: bottomLeft.latitude,
-                    bl_long: bottomLeft.longitude,
-                    tr_lat: topRight.latitude,
-                    tr_long: topRight.longitude,
+                mapVC.locateParkingSpacesOnCurrentMapArea(
                     from: self.arriveDate,
-                    to: self.leaveDate
-                ) { parkingSpaces in
-                    if parkingSpaces.isEmpty {
-                        // alert user that no parking spaces were found
-                        let alert = UIAlertController(title: "No Nearby Parking", message: "It looks like there aren't any parking spots available during this time and location.", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    mapVC.annotateMap(with: parkingSpaces)
-                }
+                    to: self.leaveDate,
+                    alertIfNotFound: true)
             }
         }
     }

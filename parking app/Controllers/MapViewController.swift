@@ -32,39 +32,45 @@ class MapViewController: UIViewController {
         locationManager.requestLocation()
     }
 
-    func annotateMap(with parkingSpaces: [ParkingSpace]) {
-        for parkingSpace in parkingSpaces {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2DMake(
-                parkingSpace.latitude,
-                parkingSpace.longitude)
+    func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool) {
+        let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()
+        let topRight: CLLocationCoordinate2D = mapView.getNECoordinate()
+        ParkingSpace.search(
+            bl_lat: bottomLeft.latitude,
+            bl_long: bottomLeft.longitude,
+            tr_lat: topRight.latitude,
+            tr_long: topRight.longitude,
+            from: start,
+            to: end
+        ) { parkingSpaces in
+            if alertIfNotFound && parkingSpaces.isEmpty {
+                // alert user that no parking spaces were found
+                let alert = UIAlertController(title: "No Nearby Parking", message: "It looks like there aren't any parking spots available during this time and location.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            for parkingSpace in parkingSpaces {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2DMake(
+                    parkingSpace.latitude,
+                    parkingSpace.longitude)
 
-            annotation.title = parkingSpace.address
-            self.mapView.addAnnotation(annotation)
+                annotation.title = parkingSpace.address
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
         mapView.centerOn(location: locations.last!)
-
         let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
-
-        let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()
-        let topRight: CLLocationCoordinate2D = mapView.getNECoordinate()
-
-        ParkingSpace.search(
-            bl_lat: bottomLeft.latitude,
-            bl_long: bottomLeft.longitude,
-            tr_lat: topRight.latitude,
-            tr_long: topRight.longitude,
+        self.locateParkingSpacesOnCurrentMapArea(
             from: drawerVC.arriveDate,
-            to: drawerVC.leaveDate
-        ) { parkingSpaces in
-            self.annotateMap(with: parkingSpaces)
-        }
+            to: drawerVC.leaveDate,
+            alertIfNotFound: false)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
