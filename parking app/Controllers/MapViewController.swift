@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Pulley
 
 class MapViewController: UIViewController {
 
@@ -80,7 +81,21 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("hello")
+
+        if let drawer = self.parent as? PulleyViewController
+        {
+            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailVC")
+
+            drawer.setDrawerContentViewController(controller: drawerContent, animated: false)
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if let drawer = self.parent as? PulleyViewController
+        {
+            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
+
+            drawer.setDrawerContentViewController(controller: drawerContent, animated: false)
+        }
     }
 }
-

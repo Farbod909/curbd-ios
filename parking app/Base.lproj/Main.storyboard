@@ -150,8 +150,12 @@
                     </view>
                     <connections>
                         <outlet property="arriveDisplayLabel" destination="dKN-kp-8VY" id="jpF-wx-uhG"/>
+                        <outlet property="arriveDisplayTitle" destination="3W2-QI-h51" id="kez-yc-4tC"/>
+                        <outlet property="arriveLeaveSeperator" destination="s64-Z5-BOf" id="ODE-Bu-SG2"/>
+                        <outlet property="editTimesButton" destination="WdB-Fi-vam" id="lPJ-9E-YQY"/>
                         <outlet property="grabber" destination="JeS-w2-EGC" id="hdp-Fc-Cga"/>
                         <outlet property="leaveDisplayLabel" destination="jFa-1K-Lnt" id="cBt-e9-lOW"/>
+                        <outlet property="leaveDisplayTitle" destination="dpt-Tb-Aal" id="YNW-PT-WtJ"/>
                         <outlet property="searchField" destination="xKa-Ou-gBH" id="AWT-ye-Zh2"/>
                         <outlet property="searchResultsTableView" destination="7aW-sF-rNM" id="235-q1-kiT"/>
                     </connections>
@@ -190,6 +194,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8U8-6E-reo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896.79999999999995" y="-93.103448275862078"/>
+        </scene>
+        <!--Parking Space View Controller-->
+        <scene sceneID="jK5-F6-JbO">
+            <objects>
+                <viewController storyboardIdentifier="parkingSpaceDetailVC" id="toh-Eb-wdA" customClass="ParkingSpaceViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hYs-Gm-BXP"/>
+                        <viewControllerLayoutGuide type="bottom" id="EXd-fP-h8U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7QK-Nk-9QQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-zp-7Hy">
+                                <rect key="frame" x="340" y="20" width="30" height="30"/>
+                                <state key="normal" title="x"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="toh-Eb-wdA" eventType="touchUpInside" id="2O2-3f-alZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Omb-zp-7Hy" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" id="Jaa-Vf-ueb"/>
+                            <constraint firstAttribute="trailing" secondItem="Omb-zp-7Hy" secondAttribute="trailing" constant="5" id="l3D-ja-7xg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2385" y="58"/>
         </scene>
         <!--Arrive Leave View Controller-->
         <scene sceneID="WN2-PV-zKs">

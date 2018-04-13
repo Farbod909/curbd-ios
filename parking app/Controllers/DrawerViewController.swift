@@ -16,8 +16,12 @@ import SwiftyJSON
 class DrawerViewController: UIViewController {
 
     @IBOutlet weak var grabber: UIView!
+    @IBOutlet weak var arriveDisplayTitle: UILabel!
     @IBOutlet weak var arriveDisplayLabel: UILabel!
+    @IBOutlet weak var arriveLeaveSeperator: UIView!
+    @IBOutlet weak var leaveDisplayTitle: UILabel!
     @IBOutlet weak var leaveDisplayLabel: UILabel!
+    @IBOutlet weak var editTimesButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchResultsTableView: UITableView!
 
@@ -27,10 +31,11 @@ class DrawerViewController: UIViewController {
     var arriveDate = Date()
     var leaveDate = Date(timeInterval: 7200, since: Date())
 
-    let partiallyRevealedDrawerHeight: CGFloat = 183
+    let partialRevealHeight: CGFloat = 183
+    let collapsedHeight: CGFloat = 300
     let drawerPositions = [
         PulleyPosition.open,
-        PulleyPosition.partiallyRevealed
+        PulleyPosition.partiallyRevealed,
         // not supporting PulleyPosition.collapsed
     ]
 
@@ -77,6 +82,26 @@ class DrawerViewController: UIViewController {
         }
     }
 
+    func hideSearchFields() {
+        self.searchField.isHidden = true
+        self.arriveDisplayTitle.isHidden = true
+        self.leaveDisplayTitle.isHidden = true
+        self.arriveDisplayLabel.isHidden = true
+        self.leaveDisplayLabel.isHidden = true
+        self.arriveLeaveSeperator.isHidden = true
+        self.editTimesButton.isHidden = true
+    }
+
+    func unhideSearchFields() {
+        self.searchField.isHidden = false
+        self.arriveDisplayTitle.isHidden = false
+        self.leaveDisplayTitle.isHidden = false
+        self.arriveDisplayLabel.isHidden = false
+        self.leaveDisplayLabel.isHidden = false
+        self.arriveLeaveSeperator.isHidden = false
+        self.editTimesButton.isHidden = false
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showArriveLeaveVC" {
             if let viewController = segue.destination as? ArriveLeaveViewController {
@@ -113,22 +138,27 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
         if  UIDevice().userInterfaceIdiom == .phone &&
             UIScreen.main.nativeBounds.height == 2436 {
             // iPhone X
-            return partiallyRevealedDrawerHeight + 26
+            return partialRevealHeight + 26
         }
-        return partiallyRevealedDrawerHeight
+        return partialRevealHeight
     }
 
     func collapsedDrawerHeight() -> CGFloat {
-        // We're not supporting this position but the function
-        // has to stay to conform to protocol.
-        return 0
+        if  UIDevice().userInterfaceIdiom == .phone &&
+            UIScreen.main.nativeBounds.height == 2436 {
+            // iPhone X
+            return collapsedHeight + 26
+        }
+        return collapsedHeight
     }
 
     func drawerPositionDidChange(drawer: PulleyViewController) {
         if drawer.drawerPosition == .partiallyRevealed {
             self.searchResultsTableView.isHidden = true
             searchField.resignFirstResponder()
-        } else {
+        } else if drawer.drawerPosition == .collapsed {
+            //
+        } else if drawer.drawerPosition == .open {
             self.searchResultsTableView.isHidden = false
         }
     }
@@ -172,7 +202,6 @@ extension DrawerViewController: MKLocalSearchCompleterDelegate {
 extension DrawerViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
         searchField.text = searchResults[indexPath.row].title
