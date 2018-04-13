@@ -67,8 +67,8 @@ class DrawerViewController: UIViewController {
         super.viewDidLoad()
         initializeSettings()
 
-        self.arriveDisplayLabel.text = humanReadableDate(self.arriveDate)
-        self.leaveDisplayLabel.text = humanReadableDate(self.leaveDate)
+        self.arriveDisplayLabel.text = self.arriveDate.toHumanReadable()
+        self.leaveDisplayLabel.text = self.leaveDate.toHumanReadable()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -90,10 +90,10 @@ class DrawerViewController: UIViewController {
         let arriveLeaveVC = segue.source as! ArriveLeaveViewController
 
         self.arriveDate = arriveLeaveVC.arriveDate
-        self.arriveDisplayLabel.text = humanReadableDate(self.arriveDate)
+        self.arriveDisplayLabel.text = self.arriveDate.toHumanReadable()
 
         self.leaveDate = arriveLeaveVC.leaveDate
-        self.leaveDisplayLabel.text = humanReadableDate(self.leaveDate)
+        self.leaveDisplayLabel.text = self.leaveDate.toHumanReadable()
     }
 }
 
@@ -169,6 +169,7 @@ extension DrawerViewController: UITableViewDelegate {
 
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
+        searchField.text = searchResults[indexPath.row].title
         if let mainVC = self.parent as? PulleyViewController {
             mainVC.setDrawerPosition(position: .partiallyRevealed)
         }
@@ -178,19 +179,19 @@ extension DrawerViewController: UITableViewDelegate {
         let completion = searchResults[indexPath.row]
 
         let searchRequest = MKLocalSearchRequest(completion: completion)
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { response, error in
+        let mapSearch = MKLocalSearch(request: searchRequest)
+        mapSearch.start { response, error in
             if error != nil {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else {
                 let coordinate = (response?.mapItems[0].placemark.coordinate)!
-                mapVC.centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
+                mapVC.mapView.centerOn(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
 
                 // TODO: make sure map is zoomed in before getting bottomLeft and topRight
 
-                let bottomLeft: CLLocationCoordinate2D = mapVC.getSWCoordinate()
-                let topRight: CLLocationCoordinate2D = mapVC.getNECoordinate()
-                ParkingSpace.findSpaces(
+                let bottomLeft: CLLocationCoordinate2D = mapVC.mapView.getSWCoordinate()
+                let topRight: CLLocationCoordinate2D = mapVC.mapView.getNECoordinate()
+                ParkingSpace.search(
                     bl_lat: bottomLeft.latitude,
                     bl_long: bottomLeft.longitude,
                     tr_lat: topRight.latitude,
@@ -200,24 +201,12 @@ extension DrawerViewController: UITableViewDelegate {
                 ) { parkingSpaces in
                     if parkingSpaces.isEmpty {
                         // alert user that no parking spaces were found
-                        let alert = UIAlertController(title: "No Nearby Parking", message: "It looks like there aren't any parking spots near here.", preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "No Nearby Parking", message: "It looks like there aren't any parking spots available during this time and location.", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
-
-                    for parkingSpace in parkingSpaces {
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate = CLLocationCoordinate2DMake(
-                            parkingSpace.latitude,
-                            parkingSpace.longitude)
-
-                        annotation.title = parkingSpace.address
-                        mapVC.mapView.addAnnotation(annotation)
-                    }
-
-                    // annotate each parkingSpace on the map
+                    mapVC.annotateMap(with: parkingSpaces)
                 }
-
             }
         }
     }

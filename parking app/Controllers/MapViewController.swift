@@ -22,7 +22,7 @@ class MapViewController: UIViewController {
 
         locationManager.delegate = self
         locationManager.distanceFilter = kCLDistanceFilterNone;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     }
 
     override func viewDidLoad() {
@@ -32,51 +32,39 @@ class MapViewController: UIViewController {
         locationManager.requestLocation()
     }
 
-    func centerMapOnLocation(location: CLLocation) {
-        let regionRadius: CLLocationDistance = 300
+    func annotateMap(with parkingSpaces: [ParkingSpace]) {
+        for parkingSpace in parkingSpaces {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(
+                parkingSpace.latitude,
+                parkingSpace.longitude)
 
-        var newCoordinate = CLLocationCoordinate2D()
-        newCoordinate.latitude = location.coordinate.latitude - 0.0015
-        newCoordinate.longitude = location.coordinate.longitude
-
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(newCoordinate,
-                                                                  regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: false)
-    }
-
-    func getNECoordinate() -> CLLocationCoordinate2D {
-        return getCoordinateFromMapRectanglePoint(
-            x: MKMapRectGetMaxX(self.mapView.visibleMapRect),
-            y: self.mapView.visibleMapRect.origin.y)
-    }
-
-    func getNWCoordinate() -> CLLocationCoordinate2D {
-        return getCoordinateFromMapRectanglePoint(
-            x: MKMapRectGetMinX(self.mapView.visibleMapRect),
-            y: self.mapView.visibleMapRect.origin.y)
-    }
-
-    func getSECoordinate() -> CLLocationCoordinate2D {
-        return getCoordinateFromMapRectanglePoint(
-            x: MKMapRectGetMaxX(self.mapView.visibleMapRect),
-            y: MKMapRectGetMaxY(self.mapView.visibleMapRect))
-    }
-
-    func getSWCoordinate() -> CLLocationCoordinate2D {
-        return getCoordinateFromMapRectanglePoint(
-            x: self.mapView.visibleMapRect.origin.x,
-            y: MKMapRectGetMaxY(self.mapView.visibleMapRect))
-    }
-
-    func getCoordinateFromMapRectanglePoint(x: Double, y: Double) -> CLLocationCoordinate2D {
-        let swMapPoint: MKMapPoint = MKMapPointMake(x, y)
-        return MKCoordinateForMapPoint(swMapPoint)
+            annotation.title = parkingSpace.address
+            self.mapView.addAnnotation(annotation)
+        }
     }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        centerMapOnLocation(location: locations[0])
+
+        mapView.centerOn(location: locations.last!)
+
+        let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
+
+        let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()
+        let topRight: CLLocationCoordinate2D = mapView.getNECoordinate()
+
+        ParkingSpace.search(
+            bl_lat: bottomLeft.latitude,
+            bl_long: bottomLeft.longitude,
+            tr_lat: topRight.latitude,
+            tr_long: topRight.longitude,
+            from: drawerVC.arriveDate,
+            to: drawerVC.leaveDate
+        ) { parkingSpaces in
+            self.annotateMap(with: parkingSpaces)
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
