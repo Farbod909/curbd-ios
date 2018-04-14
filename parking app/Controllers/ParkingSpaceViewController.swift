@@ -20,7 +20,7 @@ class ParkingSpaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let parkingSpace = parkingSpace {
+        if let parkingSpace = self.parkingSpace {
             self.addressLabel.text = parkingSpace.address
             self.availableSpacesLabel.text = "\(parkingSpace.available_spaces) available spaces"
             self.maxVehicleSizeLabel.text = "Max vehicle size: \(parkingSpace.size)"
@@ -35,11 +35,11 @@ class ParkingSpaceViewController: UIViewController {
     }
 
     @IBAction func dismissButton(_ sender: Any) {
-        if let pulleyVC = self.parent as? PulleyViewController
+        if let pulleyVC = self.parent as? ParkingPulleyViewController
         {
-            let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
+//            let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
 
-            pulleyVC.setDrawerContentViewController(controller: drawerVC, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedDrawerVC!, animated: false)
             let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
             mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
             mapVC.redoSearchButton.isHidden = false

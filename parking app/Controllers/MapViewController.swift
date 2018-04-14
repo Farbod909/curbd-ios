@@ -121,7 +121,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let pulleyVC = self.parent as? PulleyViewController {
+        if let pulleyVC = self.parent as? ParkingPulleyViewController {
             let parkingSpaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceVC") as! ParkingSpaceViewController
 
             // find parking space associated with selected annotation
@@ -131,6 +131,8 @@ extension MapViewController: MKMapViewDelegate {
                     parkingSpaceVC.parkingSpace = parkingSpaceWithAnnotation.parkingSpace
                 }
             }
+            let drawerVC = pulleyVC.childViewControllers[1] as! DrawerViewController
+            pulleyVC.savedDrawerVC = drawerVC // save current drawerVC state for later retrieval
             pulleyVC.setDrawerContentViewController(controller: parkingSpaceVC, animated: false)
 
             // make sure redo search button is hidden
@@ -141,10 +143,8 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if let pulleyVC = self.parent as? PulleyViewController {
-            let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
-
-            pulleyVC.setDrawerContentViewController(controller: drawerVC, animated: false)
+        if let pulleyVC = self.parent as? ParkingPulleyViewController {
+            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedDrawerVC!, animated: false)
             self.redoSearchButton.isHidden = false
         }
     }

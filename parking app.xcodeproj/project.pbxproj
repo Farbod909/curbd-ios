@@ -17,6 +17,7 @@
 		8EC8F78920808E070038790E /* ParkingSpaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78820808E070038790E /* ParkingSpaceViewController.swift */; };
 		8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */; };
 		8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78C2082B22F0038790E /* Extensions.swift */; };
+		8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */; };
 		8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */; };
 		8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61111F67A6F000AB6BF1 /* Main.storyboard */; };
 		8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		8EC8F78820808E070038790E /* ParkingSpaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceViewController.swift; sourceTree = "<group>"; };
 		8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceWithAnnotation.swift; sourceTree = "<group>"; };
 		8EC8F78C2082B22F0038790E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPulleyViewController.swift; sourceTree = "<group>"; };
 		8EDA610A1F67A6F000AB6BF1 /* parking app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "parking app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDA61121F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				8E136C381F67C069000BBBDB /* DrawerViewController.swift */,
 				8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */,
 				8EC8F78820808E070038790E /* ParkingSpaceViewController.swift */,
+				8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				8EC8F78920808E070038790E /* ParkingSpaceViewController.swift in Sources */,
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,
+				8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */,
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */,
 				8E136C391F67C069000BBBDB /* DrawerViewController.swift in Sources */,
