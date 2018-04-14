@@ -14,15 +14,23 @@ class ParkingSpaceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
 
-    @IBAction func dismiss(_ sender: Any) {
-        if let drawer = self.parent as? PulleyViewController
+    override func viewDidAppear(_ animated: Bool) {
+        if let mainVC = self.parent as? PulleyViewController {
+            mainVC.setDrawerPosition(position: .collapsed)
+        }
+    }
+
+    @IBAction func dismissButton(_ sender: Any) {
+        if let pulleyVC = self.parent as? PulleyViewController
         {
             let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
 
-            drawer.setDrawerContentViewController(controller: drawerContent, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: drawerContent, animated: false)
+            let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
+            mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
         }
     }
 
@@ -34,12 +42,14 @@ extension ParkingSpaceViewController: PulleyDrawerViewControllerDelegate {
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
-        return 0
+        return 100
     }
 
     func supportedDrawerPositions() -> [PulleyPosition] {
         return [
-            .collapsed
+            .open,
+            .collapsed,
+            .partiallyRevealed
         ]
     }
 }

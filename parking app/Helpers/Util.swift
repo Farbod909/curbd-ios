@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-let baseURL = "http://192.168.0.104:8000"
+let baseURL = "http://192.168.1.136:8000"
 
 extension Date {
     func toHumanReadable() -> String {

@@ -60,6 +60,12 @@ class MapViewController: UIViewController {
                 annotation.title = parkingSpace.address
                 self.mapView.addAnnotation(annotation)
             }
+            // if there is at least one parking space found,
+            // automatically select the first one.
+            // NOTE: annotations[0] is current location
+            if self.mapView.annotations.indices.contains(1) {
+                self.mapView.selectAnnotation(self.mapView.annotations[1], animated: false)
+            }
         }
     }
 }
@@ -81,21 +87,20 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-
-        if let drawer = self.parent as? PulleyViewController
+        if let pulleyVC = self.parent as? PulleyViewController
         {
-            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailVC")
+            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceVC")
 
-            drawer.setDrawerContentViewController(controller: drawerContent, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: drawerContent, animated: false)
         }
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if let drawer = self.parent as? PulleyViewController
+        if let pulleyVC = self.parent as? PulleyViewController
         {
             let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
 
-            drawer.setDrawerContentViewController(controller: drawerContent, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: drawerContent, animated: false)
         }
     }
 }
