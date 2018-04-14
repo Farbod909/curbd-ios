@@ -57,7 +57,7 @@ class MapViewController: UIViewController {
 
     @IBAction func redoSearchInThisArea(_ sender: UIButton) {
         let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
-        self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: true)
+        self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: false)
     }
 
     func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool) {
@@ -132,6 +132,11 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
             pulleyVC.setDrawerContentViewController(controller: parkingSpaceVC, animated: false)
+
+            // make sure redo search button is hidden
+            // regardless of fadeIn() or fadeOut()
+            // function calls
+            self.redoSearchButton.isHidden = true
         }
     }
 
@@ -140,6 +145,7 @@ extension MapViewController: MKMapViewDelegate {
             let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
 
             pulleyVC.setDrawerContentViewController(controller: drawerVC, animated: false)
+            self.redoSearchButton.isHidden = false
         }
     }
 

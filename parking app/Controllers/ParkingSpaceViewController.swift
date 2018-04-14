@@ -42,6 +42,7 @@ class ParkingSpaceViewController: UIViewController {
             pulleyVC.setDrawerContentViewController(controller: drawerVC, animated: false)
             let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
             mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
+            mapVC.redoSearchButton.isHidden = false
         }
     }
 
