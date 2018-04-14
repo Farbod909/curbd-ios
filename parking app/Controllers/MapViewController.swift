@@ -15,11 +15,11 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var redoSearchButton: UIButton!
+    @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
 
     private let locationManager = LocationManager.shared
     var currentlyDisplayParkingSpaces = [ParkingSpaceWithAnnotation]()
     var isNextRegionChangeIsFromUserInteraction = false
-
 
     func initializeSettings() {
         mapView.delegate = self
@@ -31,6 +31,13 @@ class MapViewController: UIViewController {
     }
 
     func initializeAppearanceSettings() {
+        self.redoSearchButton.alpha = 0 // initially it is hidden
+
+        if iphoneX {
+            self.redoSearchButtonSpacingFromBottomConstraint.constant -= 26
+            self.view.updateConstraints()
+        }
+
         self.redoSearchButton.backgroundColor = UIColor.white
         self.redoSearchButton.layer.cornerRadius = 15
         self.redoSearchButton.layer.shadowColor = UIColor.black.cgColor
@@ -46,6 +53,11 @@ class MapViewController: UIViewController {
         initializeAppearanceSettings()
 
         locationManager.requestLocation()
+    }
+
+    @IBAction func redoSearchInThisArea(_ sender: UIButton) {
+        let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
+        self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: true)
     }
 
     func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool) {
@@ -65,7 +77,12 @@ class MapViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+
+            // TODO: don't remove and re-add to map if a parking
+            // space overlaps between previous search and this one
+
             self.mapView.removeAnnotations(self.mapView.annotations)
+            self.currentlyDisplayParkingSpaces = []
             for parkingSpace in parkingSpaces {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2DMake(
@@ -82,7 +99,7 @@ class MapViewController: UIViewController {
             if let firstAnnotation = self.currentlyDisplayParkingSpaces.first?.annotation {
                 self.mapView.selectAnnotation(firstAnnotation, animated: false)
             }
-            self.redoSearchButton.isHidden = true
+            self.redoSearchButton.fadeOut(0.1)
         }
     }
 }
@@ -141,7 +158,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if self.isNextRegionChangeIsFromUserInteraction {
             self.isNextRegionChangeIsFromUserInteraction = false
-            self.redoSearchButton.isHidden = false
+            self.redoSearchButton.fadeIn(0.1)
         }
     }
 }

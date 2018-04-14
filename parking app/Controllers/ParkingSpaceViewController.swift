@@ -15,8 +15,16 @@ class ParkingSpaceViewController: UIViewController {
     var parkingSpace: ParkingSpace? = nil
 
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var availableSpacesLabel: UILabel!
+    @IBOutlet weak var maxVehicleSizeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let parkingSpace = parkingSpace {
+            self.addressLabel.text = parkingSpace.address
+            self.availableSpacesLabel.text = "\(parkingSpace.available_spaces) available spaces"
+            self.maxVehicleSizeLabel.text = "Max vehicle size: \(parkingSpace.size)"
+        }
 
     }
 

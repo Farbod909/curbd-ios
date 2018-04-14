@@ -135,18 +135,14 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
-        if  UIDevice().userInterfaceIdiom == .phone &&
-            UIScreen.main.nativeBounds.height == 2436 {
-            // iPhone X
+        if  iphoneX {
             return partialRevealHeight + 26
         }
         return partialRevealHeight
     }
 
     func collapsedDrawerHeight() -> CGFloat {
-        if  UIDevice().userInterfaceIdiom == .phone &&
-            UIScreen.main.nativeBounds.height == 2436 {
-            // iPhone X
+        if  iphoneX {
             return collapsedHeight + 26
         }
         return collapsedHeight

@@ -180,19 +180,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-a5-6Ef">
-                                <rect key="frame" x="115" y="71" width="145" height="33"/>
+                                <rect key="frame" x="115" y="98" width="145" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="cBh-fF-Kv7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Search this area"/>
+                                <connections>
+                                    <action selector="redoSearchInThisArea:" destination="6iT-MS-gLO" eventType="touchUpInside" id="zfk-Rf-cIn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="yaX-lX-NW2" secondAttribute="top" id="2uh-lv-RDD"/>
                             <constraint firstAttribute="bottom" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" id="6yD-Np-DJm"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="yaX-lX-NW2" secondAttribute="leading" id="PmQ-sL-Oes"/>
-                            <constraint firstItem="2SR-a5-6Ef" firstAttribute="top" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" constant="-260" id="ScH-oX-A0q"/>
+                            <constraint firstItem="2SR-a5-6Ef" firstAttribute="bottom" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" constant="-200" id="ScH-oX-A0q"/>
                             <constraint firstItem="2SR-a5-6Ef" firstAttribute="centerX" secondItem="lIL-Rx-ZYi" secondAttribute="centerX" id="Tnl-wg-dZX"/>
                             <constraint firstAttribute="trailing" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" id="Y3s-7V-289"/>
                         </constraints>
@@ -200,6 +203,7 @@
                     <connections>
                         <outlet property="mapView" destination="lIL-Rx-ZYi" id="wax-If-2VG"/>
                         <outlet property="redoSearchButton" destination="2SR-a5-6Ef" id="0D8-TT-8Xh"/>
+                        <outlet property="redoSearchButtonSpacingFromBottomConstraint" destination="ScH-oX-A0q" id="StF-tV-Ssx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8U8-6E-reo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,6 +271,8 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
+                        <outlet property="availableSpacesLabel" destination="HdE-xD-vgi" id="qa6-SP-dGB"/>
+                        <outlet property="maxVehicleSizeLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
