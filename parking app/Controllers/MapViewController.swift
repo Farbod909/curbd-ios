@@ -14,8 +14,12 @@ import Pulley
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var redoSearchButton: UIButton!
 
     private let locationManager = LocationManager.shared
+    var currentlyDisplayParkingSpaces = [ParkingSpaceWithAnnotation]()
+    var isNextRegionChangeIsFromUserInteraction = false
+
 
     func initializeSettings() {
         mapView.delegate = self
@@ -26,9 +30,20 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     }
 
+    func initializeAppearanceSettings() {
+        self.redoSearchButton.backgroundColor = UIColor.white
+        self.redoSearchButton.layer.cornerRadius = 15
+        self.redoSearchButton.layer.shadowColor = UIColor.black.cgColor
+        self.redoSearchButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.redoSearchButton.layer.shadowOpacity = 0.25
+        self.redoSearchButton.layer.shadowRadius = 3
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeSettings()
+        initializeAppearanceSettings()
 
         locationManager.requestLocation()
     }
@@ -59,13 +74,15 @@ class MapViewController: UIViewController {
 
                 annotation.title = parkingSpace.address
                 self.mapView.addAnnotation(annotation)
+                self.currentlyDisplayParkingSpaces.append(
+                    ParkingSpaceWithAnnotation(parkingSpace: parkingSpace, annotation: annotation))
             }
             // if there is at least one parking space found,
             // automatically select the first one.
-            // NOTE: annotations[0] is current location
-            if self.mapView.annotations.indices.contains(1) {
-                self.mapView.selectAnnotation(self.mapView.annotations[1], animated: false)
+            if let firstAnnotation = self.currentlyDisplayParkingSpaces.first?.annotation {
+                self.mapView.selectAnnotation(firstAnnotation, animated: false)
             }
+            self.redoSearchButton.isHidden = true
         }
     }
 }
@@ -87,20 +104,44 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let pulleyVC = self.parent as? PulleyViewController
-        {
-            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceVC")
+        if let pulleyVC = self.parent as? PulleyViewController {
+            let parkingSpaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceVC") as! ParkingSpaceViewController
 
-            pulleyVC.setDrawerContentViewController(controller: drawerContent, animated: false)
+            // find parking space associated with selected annotation
+            // and send it to ParkingSpaceViewController.
+            for parkingSpaceWithAnnotation in currentlyDisplayParkingSpaces {
+                if parkingSpaceWithAnnotation.annotation.isEqual(view.annotation) {
+                    parkingSpaceVC.parkingSpace = parkingSpaceWithAnnotation.parkingSpace
+                }
+            }
+            pulleyVC.setDrawerContentViewController(controller: parkingSpaceVC, animated: false)
         }
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if let pulleyVC = self.parent as? PulleyViewController
-        {
-            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
+        if let pulleyVC = self.parent as? PulleyViewController {
+            let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
 
-            pulleyVC.setDrawerContentViewController(controller: drawerContent, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: drawerVC, animated: false)
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        let view: UIView? = mapView.subviews.first
+        // Look through gesture recognizers to determine
+        // whether this region change is from user interaction
+        for recognizer in (view?.gestureRecognizers)! {
+            if recognizer.state == .began || recognizer.state == .ended {
+                self.isNextRegionChangeIsFromUserInteraction = true
+                break
+            }
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if self.isNextRegionChangeIsFromUserInteraction {
+            self.isNextRegionChangeIsFromUserInteraction = false
+            self.redoSearchButton.isHidden = false
         }
     }
 }

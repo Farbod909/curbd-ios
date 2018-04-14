@@ -156,8 +156,6 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
         if drawer.drawerPosition == .partiallyRevealed {
             self.searchResultsTableView.isHidden = true
             searchField.resignFirstResponder()
-        } else if drawer.drawerPosition == .collapsed {
-            //
         } else if drawer.drawerPosition == .open {
             self.searchResultsTableView.isHidden = false
         }

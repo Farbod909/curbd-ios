@@ -12,6 +12,9 @@ import UIKit
 
 class ParkingSpaceViewController: UIViewController {
 
+    var parkingSpace: ParkingSpace? = nil
+
+    @IBOutlet weak var addressLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,9 +29,9 @@ class ParkingSpaceViewController: UIViewController {
     @IBAction func dismissButton(_ sender: Any) {
         if let pulleyVC = self.parent as? PulleyViewController
         {
-            let drawerContent = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
+            let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
 
-            pulleyVC.setDrawerContentViewController(controller: drawerContent, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: drawerVC, animated: false)
             let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
             mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
         }
