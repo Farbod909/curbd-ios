@@ -55,12 +55,12 @@ class MapViewController: UIViewController {
         locationManager.requestLocation()
     }
 
-    @IBAction func redoSearchInThisArea(_ sender: UIButton) {
+    @IBAction func redoSearchButtonClick(_ sender: UIButton) {
         let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
-        self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: false)
+        self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: false, selectFirstResult: false)
     }
 
-    func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool) {
+    func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool, selectFirstResult: Bool = true) {
         let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRight: CLLocationCoordinate2D = mapView.getNECoordinate()
         ParkingSpace.search(
@@ -94,10 +94,12 @@ class MapViewController: UIViewController {
                 self.currentlyDisplayParkingSpaces.append(
                     ParkingSpaceWithAnnotation(parkingSpace: parkingSpace, annotation: annotation))
             }
-            // if there is at least one parking space found,
-            // automatically select the first one.
-            if let firstAnnotation = self.currentlyDisplayParkingSpaces.first?.annotation {
-                self.mapView.selectAnnotation(firstAnnotation, animated: false)
+            if selectFirstResult {
+                // if there is at least one parking space found,
+                // automatically select the first one.
+                if let firstAnnotation = self.currentlyDisplayParkingSpaces.first?.annotation {
+                    self.mapView.selectAnnotation(firstAnnotation, animated: false)
+                }
             }
             self.redoSearchButton.fadeOut(0.1)
         }

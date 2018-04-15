@@ -11,6 +11,15 @@ import SwiftyJSON
 
 
 class ParkingSpace {
+
+    static let vehicleSize = [
+        1: "Motorcycle",
+        2: "Compact",
+        3: "Mid-sized",
+        4: "Large",
+        5: "Oversized",
+    ]
+
     let features: [String]
     let latitude: Double
     let longitude: Double
