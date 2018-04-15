@@ -16,6 +16,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var redoSearchButton: UIButton!
     @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var accountButton: UIButton!
 
     private let locationManager = LocationManager.shared
     var currentlyDisplayParkingSpaces = [ParkingSpaceWithAnnotation]()
@@ -37,6 +38,12 @@ class MapViewController: UIViewController {
             self.redoSearchButtonSpacingFromBottomConstraint.constant -= 26
             self.view.updateConstraints()
         }
+
+        self.accountButton.layer.cornerRadius = 15
+        self.accountButton.layer.shadowColor = UIColor.black.cgColor
+        self.accountButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.accountButton.layer.shadowOpacity = 0.25
+        self.accountButton.layer.shadowRadius = 3
 
         self.redoSearchButton.backgroundColor = UIColor.white
         self.redoSearchButton.layer.cornerRadius = 15
@@ -60,7 +67,7 @@ class MapViewController: UIViewController {
         self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: false, selectFirstResult: false)
     }
 
-    func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool, selectFirstResult: Bool = true) {
+    func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool, selectFirstResult: Bool) {
         let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRight: CLLocationCoordinate2D = mapView.getNECoordinate()
         ParkingSpace.search(

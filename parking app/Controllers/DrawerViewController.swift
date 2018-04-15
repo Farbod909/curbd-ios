@@ -124,7 +124,8 @@ class DrawerViewController: UIViewController {
         mapVC.locateParkingSpacesOnCurrentMapArea(
             from: self.arriveDate,
             to: self.leaveDate,
-            alertIfNotFound: false)
+            alertIfNotFound: false,
+            selectFirstResult: false)
     }
 }
 
@@ -219,7 +220,8 @@ extension DrawerViewController: UITableViewDelegate {
                 mapVC.locateParkingSpacesOnCurrentMapArea(
                     from: self.arriveDate,
                     to: self.leaveDate,
-                    alertIfNotFound: true)
+                    alertIfNotFound: true,
+                    selectFirstResult: true)
             }
         }
     }
