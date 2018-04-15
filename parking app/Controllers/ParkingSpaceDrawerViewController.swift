@@ -10,7 +10,7 @@ import Foundation
 import Pulley
 import UIKit
 
-class ParkingSpaceViewController: UIViewController {
+class ParkingSpaceDrawerViewController: UIViewController {
 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var maxVehicleSizeLabel: UILabel!
@@ -51,9 +51,9 @@ class ParkingSpaceViewController: UIViewController {
     @IBAction func dismissButton(_ sender: Any) {
         if let pulleyVC = self.parent as? ParkingPulleyViewController
         {
-//            let drawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "drawerVC")
+//            let searchDrawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "searchDrawerVC")
 
-            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedDrawerVC!, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedSearchDrawerVC!, animated: false)
             let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
             mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
             mapVC.redoSearchButton.isHidden = false
@@ -62,7 +62,7 @@ class ParkingSpaceViewController: UIViewController {
 
 }
 
-extension ParkingSpaceViewController: PulleyDrawerViewControllerDelegate {
+extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
     func collapsedDrawerHeight() -> CGFloat {
         if iphoneX {
             return collapsedHeight + 26

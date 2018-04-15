@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--Drawer View Controller-->
+        <!--Search Drawer View Controller-->
         <scene sceneID="v5h-te-RJ3">
             <objects>
-                <viewController storyboardIdentifier="drawerVC" id="693-38-st5" customClass="DrawerViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchDrawerVC" id="693-38-st5" customClass="SearchDrawerViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oWd-60-di4"/>
                         <viewControllerLayoutGuide type="bottom" id="Q74-OS-dE0"/>
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="1633" y="-93"/>
         </scene>
-        <!--Parking Space View Controller-->
+        <!--Parking Space Drawer View Controller-->
         <scene sceneID="jK5-F6-JbO">
             <objects>
-                <viewController storyboardIdentifier="parkingSpaceVC" id="toh-Eb-wdA" customClass="ParkingSpaceViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="parkingSpaceDrawerVC" id="toh-Eb-wdA" customClass="ParkingSpaceDrawerViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hYs-Gm-BXP"/>
                         <viewControllerLayoutGuide type="bottom" id="EXd-fP-h8U"/>
@@ -427,7 +427,7 @@
                                 </date>
                             </datePicker>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85f-Yz-BHl">
-                                <rect key="frame" x="67" y="166" width="240" height="4"/>
+                                <rect key="frame" x="67.5" y="166" width="240" height="4"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="eI2-Iv-A3A"/>

@@ -63,8 +63,8 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func redoSearchButtonClick(_ sender: UIButton) {
-        let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
-        self.locateParkingSpacesOnCurrentMapArea(from: drawerVC.arriveDate, to: drawerVC.leaveDate, alertIfNotFound: false, selectFirstResult: false)
+        let searchDrawerVC = self.parent?.childViewControllers[1] as! SearchDrawerViewController
+        self.locateParkingSpacesOnCurrentMapArea(from: searchDrawerVC.arriveDate, to: searchDrawerVC.leaveDate, alertIfNotFound: false, selectFirstResult: false)
     }
 
     func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool, selectFirstResult: Bool) {
@@ -116,10 +116,10 @@ class MapViewController: UIViewController {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         mapView.centerOn(location: locations.last!)
-        let drawerVC = self.parent?.childViewControllers[1] as! DrawerViewController
+        let searchDrawerVC = self.parent?.childViewControllers[1] as! SearchDrawerViewController
         self.locateParkingSpacesOnCurrentMapArea(
-            from: drawerVC.arriveDate,
-            to: drawerVC.leaveDate,
+            from: searchDrawerVC.arriveDate,
+            to: searchDrawerVC.leaveDate,
             alertIfNotFound: false,
             selectFirstResult: false)
     }
@@ -135,18 +135,18 @@ extension MapViewController: MKMapViewDelegate {
         if (view.annotation?.isKind(of: MKUserLocation.self))! { return }
 
         if let pulleyVC = self.parent as? ParkingPulleyViewController {
-            let parkingSpaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceVC") as! ParkingSpaceViewController
+            let parkingSpaceDrawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDrawerVC") as! ParkingSpaceDrawerViewController
 
             // find parking space associated with selected annotation
             // and send it to ParkingSpaceViewController.
             for parkingSpaceWithAnnotation in currentlyDisplayParkingSpaces {
                 if parkingSpaceWithAnnotation.annotation.isEqual(view.annotation) {
-                    parkingSpaceVC.parkingSpace = parkingSpaceWithAnnotation.parkingSpace
+                    parkingSpaceDrawerVC.parkingSpace = parkingSpaceWithAnnotation.parkingSpace
                 }
             }
-            let drawerVC = pulleyVC.childViewControllers[1] as! DrawerViewController
-            pulleyVC.savedDrawerVC = drawerVC // save current drawerVC state for later retrieval
-            pulleyVC.setDrawerContentViewController(controller: parkingSpaceVC, animated: false)
+            let searchDrawerVC = pulleyVC.childViewControllers[1] as! SearchDrawerViewController
+            pulleyVC.savedSearchDrawerVC = searchDrawerVC // save current searchDrawerVC state for later retrieval
+            pulleyVC.setDrawerContentViewController(controller: parkingSpaceDrawerVC, animated: false)
 
             // make sure redo search button is hidden
             // regardless of fadeIn() or fadeOut()
@@ -156,8 +156,11 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        // ignore if user deselects current location
+        if (view.annotation?.isKind(of: MKUserLocation.self))! { return }
+
         if let pulleyVC = self.parent as? ParkingPulleyViewController {
-            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedDrawerVC!, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedSearchDrawerVC!, animated: false)
             self.redoSearchButton.isHidden = false
         }
     }

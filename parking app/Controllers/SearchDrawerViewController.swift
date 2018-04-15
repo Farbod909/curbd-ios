@@ -1,5 +1,5 @@
 //
-//  DrawerViewController.swift
+//  SearchDrawerViewController.swift
 //  parking app
 //
 //  Created by Farbod Rafezy on 9/12/17.
@@ -13,7 +13,7 @@ import Alamofire
 import SwiftyJSON
 
 
-class DrawerViewController: UIViewController {
+class SearchDrawerViewController: UIViewController {
 
     @IBOutlet weak var grabber: UIView!
     @IBOutlet weak var arriveDisplayTitle: UILabel!
@@ -46,7 +46,7 @@ class DrawerViewController: UIViewController {
 
         searchField.delegate = self
         searchField.addTarget(
-            self, action: #selector(DrawerViewController.searchFieldDidChange(_:)),
+            self, action: #selector(SearchDrawerViewController.searchFieldDidChange(_:)),
             for: UIControlEvents.editingChanged)
 
         searchResultsTableView.delegate = self
@@ -129,7 +129,7 @@ class DrawerViewController: UIViewController {
     }
 }
 
-extension DrawerViewController: PulleyDrawerViewControllerDelegate {
+extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
 
     func supportedDrawerPositions() -> [PulleyPosition] {
         return drawerPositions
@@ -159,7 +159,7 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
     }
 }
 
-extension DrawerViewController: UITextFieldDelegate {
+extension SearchDrawerViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if let mainVC = self.parent as? PulleyViewController {
@@ -181,7 +181,7 @@ extension DrawerViewController: UITextFieldDelegate {
 
 }
 
-extension DrawerViewController: MKLocalSearchCompleterDelegate {
+extension SearchDrawerViewController: MKLocalSearchCompleterDelegate {
 
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchResults = completer.results
@@ -194,7 +194,7 @@ extension DrawerViewController: MKLocalSearchCompleterDelegate {
 
 }
 
-extension DrawerViewController: UITableViewDelegate {
+extension SearchDrawerViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -228,7 +228,7 @@ extension DrawerViewController: UITableViewDelegate {
     
 }
 
-extension DrawerViewController: UITableViewDataSource {
+extension SearchDrawerViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
