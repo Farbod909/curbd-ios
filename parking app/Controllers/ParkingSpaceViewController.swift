@@ -12,12 +12,19 @@ import UIKit
 
 class ParkingSpaceViewController: UIViewController {
 
-    var parkingSpace: ParkingSpace? = nil
-
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var maxVehicleSizeLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
+
+    var parkingSpace: ParkingSpace? = nil
+    let partialRevealHeight: CGFloat = 100
+    let collapsedHeight: CGFloat = 240
+    let drawerPositions: [PulleyPosition] = [
+        .open,
+        .partiallyRevealed,
+        .collapsed,
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,16 +65,16 @@ class ParkingSpaceViewController: UIViewController {
 extension ParkingSpaceViewController: PulleyDrawerViewControllerDelegate {
     func collapsedDrawerHeight() -> CGFloat {
         if iphoneX {
-            return 250 + 26
+            return collapsedHeight + 26
         }
-        return 250
+        return collapsedHeight
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
         if iphoneX {
-            return 100 + 26
+            return partialRevealHeight + 26
         }
-        return 100
+        return partialRevealHeight
     }
 
     func drawerPositionDidChange(drawer: PulleyViewController) {
@@ -81,10 +88,6 @@ extension ParkingSpaceViewController: PulleyDrawerViewControllerDelegate {
     }
     
     func supportedDrawerPositions() -> [PulleyPosition] {
-        return [
-            .open,
-            .collapsed,
-            .partiallyRevealed
-        ]
+        return drawerPositions
     }
 }

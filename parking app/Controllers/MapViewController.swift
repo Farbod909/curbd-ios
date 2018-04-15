@@ -113,7 +113,8 @@ extension MapViewController: CLLocationManagerDelegate {
         self.locateParkingSpacesOnCurrentMapArea(
             from: drawerVC.arriveDate,
             to: drawerVC.leaveDate,
-            alertIfNotFound: false)
+            alertIfNotFound: false,
+            selectFirstResult: false)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -123,6 +124,9 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // ignore if user selects current location
+        if (view.annotation?.isKind(of: MKUserLocation.self))! { return }
+
         if let pulleyVC = self.parent as? ParkingPulleyViewController {
             let parkingSpaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceVC") as! ParkingSpaceViewController
 

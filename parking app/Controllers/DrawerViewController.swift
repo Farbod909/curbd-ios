@@ -33,10 +33,10 @@ class DrawerViewController: UIViewController {
 
     let partialRevealHeight: CGFloat = 183
     let collapsedHeight: CGFloat = 300
-    let drawerPositions = [
-        PulleyPosition.open,
-        PulleyPosition.partiallyRevealed,
-        // not supporting PulleyPosition.collapsed
+    let drawerPositions: [PulleyPosition] = [
+        .open,
+        .partiallyRevealed,
+        // not supporting .collapsed
     ]
 
     func initializeSettings() {
