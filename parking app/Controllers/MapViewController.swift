@@ -67,6 +67,11 @@ class MapViewController: UIViewController {
         self.locateParkingSpacesOnCurrentMapArea(from: searchDrawerVC.arriveDate, to: searchDrawerVC.leaveDate, alertIfNotFound: false, selectFirstResult: false)
     }
 
+    @IBAction func accountButtonClick(_ sender: UIButton) {
+        let authenticationRequiredVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "authenticationRequiredVC")
+
+        self.present(authenticationRequiredVC, animated: true)
+    }
     func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool, selectFirstResult: Bool) {
         let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRight: CLLocationCoordinate2D = mapView.getNECoordinate()
