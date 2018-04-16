@@ -16,7 +16,7 @@ class ParkingPulleyViewController: PulleyViewController {
     // parking space detail view controller. This allows
     // the drawer to return to its original state when
     // the drawer view controller is restored
-    var savedSearchDrawerVC: SearchDrawerViewController? = nil
+    var savedSearchDrawerViewController: SearchDrawerViewController? = nil
 
     @IBAction func unwindToPulleyVC(segue:UIStoryboardSegue) {
 

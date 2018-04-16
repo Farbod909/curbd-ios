@@ -10,5 +10,4 @@ import Foundation
 import UIKit
 
 let baseURL = "http://192.168.0.104:8000"
-let iphoneX = UIDevice().userInterfaceIdiom == .phone &&
-    UIScreen.main.nativeBounds.height == 2436
+let iphoneX = UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436

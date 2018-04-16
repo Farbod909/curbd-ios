@@ -53,7 +53,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
         {
 //            let searchDrawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "searchDrawerVC")
 
-            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedSearchDrawerVC!, animated: false)
+            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedSearchDrawerViewController!, animated: false)
             let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
             mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
             mapVC.redoSearchButton.isHidden = false

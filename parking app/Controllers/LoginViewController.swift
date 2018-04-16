@@ -30,9 +30,9 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(token, forKey: "token")
                 self.performSegue(withIdentifier: "unwindToPulley", sender: self)
             } else {
-                let alert = UIAlertController(title: "Invalid Login Credentials", message: "That username/password combination does not exist.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.presentSingleButtonAlert(
+                    title: "Invalid Login Credentials",
+                    message: "That username/password combination does not exist.")
             }
         }
     }

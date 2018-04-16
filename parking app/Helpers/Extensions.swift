@@ -10,6 +10,20 @@ import Foundation
 import MapKit
 import UIKit
 
+extension UIViewController {
+    func instantiateAndShowViewController(withIdentifier identifier: String) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+
+        self.show(viewController, sender: self)
+    }
+
+    func presentSingleButtonAlert(title: String, message: String, buttonText: String = "OK") {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: buttonText, style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
 extension Date {
     func toHumanReadable() -> String {
         let dateFormatter = DateFormatter()
