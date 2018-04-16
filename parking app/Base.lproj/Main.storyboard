@@ -256,24 +256,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMX-Os-MkM">
-                                <rect key="frame" x="304" y="617" width="55" height="30"/>
-                                <state key="normal" title="Log Out"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMX-Os-MkM" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="149" y="600" width="77" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.8448142409324646" green="0.062847889959812164" blue="0.22672060132026672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logOutButtonClick:" destination="Ki4-ar-JQd" eventType="touchUpInside" id="dd2-cB-kmz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcV-tG-RAW" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="321" y="28" width="30" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitButtonClick:" destination="Ki4-ar-JQd" eventType="touchUpInside" id="Cgh-ZN-C33"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbod" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex" customClass="ShadowLabel" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="33" y="72" width="85" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLq-hV-U2D" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="49" y="122.5" width="94" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Vehicles">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZl-dW-Lk7" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="49" y="174.5" width="145" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Reservations">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-3H-Av5" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="49" y="226.5" width="98" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Payment">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-cI-6Ab" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="132.5" y="76" width="83" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Edit profile">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZq-bK-3mx" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="49" y="278.5" width="150" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Invite Friends">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeX-rP-cUs" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="49" y="330.5" width="93" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.86477667093276978" green="0.74849766492843628" blue="0.9426845908164978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jMX-Os-MkM" secondAttribute="trailing" constant="16" id="37P-X4-sVk"/>
-                            <constraint firstItem="4z6-gt-2Xb" firstAttribute="top" secondItem="jMX-Os-MkM" secondAttribute="bottom" constant="20" id="Vyg-8E-gCk"/>
+                            <constraint firstItem="d7I-3H-Av5" firstAttribute="top" secondItem="iZl-dW-Lk7" secondAttribute="bottom" constant="8" id="1go-QJ-7Ct"/>
+                            <constraint firstItem="iZl-dW-Lk7" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="9la-4i-7vL"/>
+                            <constraint firstItem="gZq-bK-3mx" firstAttribute="top" secondItem="d7I-3H-Av5" secondAttribute="bottom" constant="8" id="ByG-Md-oBt"/>
+                            <constraint firstItem="jLq-hV-U2D" firstAttribute="top" secondItem="15u-Ve-1Ex" secondAttribute="bottom" constant="16.5" id="C3M-XH-dRo"/>
+                            <constraint firstItem="EcV-tG-RAW" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="8" id="Cru-ld-U7M"/>
+                            <constraint firstItem="d7I-3H-Av5" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="JeW-LO-c2p"/>
+                            <constraint firstItem="15u-Ve-1Ex" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="52" id="Kjs-7R-b4o"/>
+                            <constraint firstItem="gZq-bK-3mx" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="OFr-cf-Kik"/>
+                            <constraint firstItem="iZl-dW-Lk7" firstAttribute="top" secondItem="jLq-hV-U2D" secondAttribute="bottom" constant="8" id="PLZ-SS-yqA"/>
+                            <constraint firstItem="jLq-hV-U2D" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="Txx-ab-GNn"/>
+                            <constraint firstItem="4z6-gt-2Xb" firstAttribute="top" secondItem="jMX-Os-MkM" secondAttribute="bottom" constant="28" id="Vyg-8E-gCk"/>
+                            <constraint firstItem="vZO-cI-6Ab" firstAttribute="leading" secondItem="15u-Ve-1Ex" secondAttribute="trailing" constant="14.5" id="WiV-bc-cfo"/>
+                            <constraint firstItem="LeX-rP-cUs" firstAttribute="top" secondItem="gZq-bK-3mx" secondAttribute="bottom" constant="8" id="f6j-L1-mjl"/>
+                            <constraint firstItem="LeX-rP-cUs" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="h20-VD-SFm"/>
+                            <constraint firstItem="vZO-cI-6Ab" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="56" id="rXe-y2-5a4"/>
+                            <constraint firstItem="jMX-Os-MkM" firstAttribute="centerX" secondItem="dWS-4w-RiC" secondAttribute="centerX" id="tJX-f1-wo5"/>
+                            <constraint firstItem="15u-Ve-1Ex" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="33" id="uzS-dj-ynG"/>
+                            <constraint firstAttribute="trailing" secondItem="EcV-tG-RAW" secondAttribute="trailing" constant="24" id="wNU-K5-Dfk"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZa-h5-T5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="139"/>
+            <point key="canvasLocation" x="1709.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WzZ-HE-Kdj">
