@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="921" y="-201"/>
         </scene>
-        <!--View Controller-->
+        <!--User Menu View Controller-->
         <scene sceneID="OhN-So-XWp">
             <objects>
-                <viewController id="Ki4-ar-JQd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userMenuVC" id="Ki4-ar-JQd" customClass="UserMenuViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7S-GV-tl9"/>
                         <viewControllerLayoutGuide type="bottom" id="4z6-gt-2Xb"/>
@@ -256,20 +256,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jo-C0-YMj">
-                                <rect key="frame" x="146" y="323" width="83" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMX-Os-MkM">
+                                <rect key="frame" x="304" y="617" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOutButtonClick:" destination="Ki4-ar-JQd" eventType="touchUpInside" id="dd2-cB-kmz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jMX-Os-MkM" secondAttribute="trailing" constant="16" id="37P-X4-sVk"/>
+                            <constraint firstItem="4z6-gt-2Xb" firstAttribute="top" secondItem="jMX-Os-MkM" secondAttribute="bottom" constant="20" id="Vyg-8E-gCk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZa-h5-T5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="-576"/>
+            <point key="canvasLocation" x="1710" y="139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WzZ-HE-Kdj">
@@ -347,12 +351,24 @@
                                     <segue destination="ymj-qE-dXg" kind="show" id="b84-5O-0n4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-em-0ZG">
+                                <rect key="frame" x="24" y="32" width="64" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonClick:" destination="LZF-Ti-mZL" eventType="touchUpInside" id="kc0-rZ-Vn6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86477667093276978" green="0.74849766492843628" blue="0.9426845908164978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="centerX" secondItem="Xqd-kv-swG" secondAttribute="centerX" id="2P3-fn-lhU"/>
+                            <constraint firstItem="sde-em-0ZG" firstAttribute="top" secondItem="EJs-Ab-EhD" secondAttribute="bottom" constant="12" id="60x-20-voW"/>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="centerY" secondItem="Xqd-kv-swG" secondAttribute="centerY" id="Gce-8z-KjE"/>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="top" secondItem="taX-mR-Qz6" secondAttribute="bottom" priority="750" constant="8" id="KTb-KJ-FcJ"/>
+                            <constraint firstItem="sde-em-0ZG" firstAttribute="leading" secondItem="Xqd-kv-swG" secondAttribute="leading" constant="24" id="Lks-Su-XOi"/>
                             <constraint firstAttribute="trailing" secondItem="OXA-Cd-ejt" secondAttribute="trailing" priority="750" constant="32" id="SO6-4j-3ao"/>
                             <constraint firstItem="OXA-Cd-ejt" firstAttribute="centerX" secondItem="Xqd-kv-swG" secondAttribute="centerX" id="Y65-XT-7Nr"/>
                             <constraint firstItem="OXA-Cd-ejt" firstAttribute="top" secondItem="MBl-70-t4x" secondAttribute="bottom" constant="8" id="ZMC-kd-Vkx"/>
@@ -369,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sZ-zI-FiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-817" y="139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pbR-Vn-tVg">
@@ -429,6 +445,9 @@
                                 <state key="normal" title="Log in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="ikP-4N-7Wk"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Khr-a7-B0f" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="32" y="224.5" width="311" height="46"/>
@@ -450,6 +469,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7M-G0-71W">
+                                <rect key="frame" x="24" y="32" width="64" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="xd9-cV-E7N"/>
+                                    <action selector="cancelButtonClick:" destination="LZF-Ti-mZL" eventType="touchUpInside" id="kbW-QA-9uh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86477667093276978" green="0.74849766492843628" blue="0.9426845908164978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -462,20 +492,25 @@
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="K4P-h6-5x0"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="top" secondItem="mxv-C0-NDn" secondAttribute="bottom" constant="8" id="QYB-Yu-7gs"/>
                             <constraint firstAttribute="trailing" secondItem="ts5-y1-QeT" secondAttribute="trailing" priority="750" constant="32" id="RIu-hV-Fkg"/>
+                            <constraint firstItem="s7M-G0-71W" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" constant="24" id="ceF-9S-RoP"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="d0Z-4r-Ni8"/>
+                            <constraint firstItem="s7M-G0-71W" firstAttribute="top" secondItem="drG-qZ-Bo4" secondAttribute="bottom" constant="12" id="d5L-JK-5rc"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="dph-th-gJI"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="nVF-wL-4p6"/>
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="top" secondItem="Khr-a7-B0f" secondAttribute="bottom" constant="8" id="w0E-rq-IrR"/>
                             <constraint firstItem="LKI-aX-UrA" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="x45-LC-ZHG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Bov-eH-On3"/>
                     <connections>
                         <outlet property="emailField" destination="mxv-C0-NDn" id="B3g-B5-d7p"/>
                         <outlet property="loginButton" destination="ts5-y1-QeT" id="drb-jy-8dJ"/>
                         <outlet property="passwordField" destination="Khr-a7-B0f" id="Tmu-jO-4eR"/>
+                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToPulley" unwindAction="unwindToPulleyVCWithSegue:" id="pPd-JO-nOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahr-rH-B5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YS5-IZ-ln5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="137" y="-576"/>
         </scene>
@@ -743,7 +778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C03-kl-5UE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="907"/>
+            <point key="canvasLocation" x="-818" y="906"/>
         </scene>
     </scenes>
     <resources>

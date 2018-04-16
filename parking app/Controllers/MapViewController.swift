@@ -68,9 +68,15 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func accountButtonClick(_ sender: UIButton) {
-        let authenticationRequiredVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "authenticationRequiredVC")
+        if let _ = UserDefaults.standard.string(forKey: "token") {
+            let userMenuVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "userMenuVC")
 
-        self.present(authenticationRequiredVC, animated: true)
+            self.present(userMenuVC, animated: true)
+        } else {
+            let authenticationRequiredVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "authenticationRequiredVC")
+
+            self.present(authenticationRequiredVC, animated: true)
+        }
     }
     func locateParkingSpacesOnCurrentMapArea(from start: Date, to end: Date, alertIfNotFound: Bool, selectFirstResult: Bool) {
         let bottomLeft: CLLocationCoordinate2D = mapView.getSWCoordinate()

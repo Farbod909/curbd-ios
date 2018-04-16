@@ -51,7 +51,7 @@ class ParkingSpace {
         self.hostURL = json["host"].stringValue
     }
 
-    static func search(bl_lat: Double, bl_long: Double, tr_lat: Double, tr_long: Double, from start: Date, to end: Date, completionHandler: @escaping ([ParkingSpace]) -> Void) {
+    static func search(bl_lat: Double, bl_long: Double, tr_lat: Double, tr_long: Double, from start: Date, to end: Date, completion: @escaping ([ParkingSpace]) -> Void) {
 
         let parameters: Parameters = [
             "bl_lat": bl_lat,
@@ -72,7 +72,7 @@ class ParkingSpace {
                 for (_, json):(String, JSON) in parkingSpacesJSON["results"] {
                     parkingSpaces.append(ParkingSpace(json: json))
                 }
-                completionHandler(parkingSpaces)
+                completion(parkingSpaces)
          }
     }
 }

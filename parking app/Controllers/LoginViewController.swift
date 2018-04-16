@@ -18,4 +18,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    @IBAction func backButtonClick(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func loginButtonClick(_ sender: UIButton) {
+        User.getToken(username: emailField.text!, password: passwordField.text!) { token in
+            if let token = token {
+                print("setting token to \(token)")
+                UserDefaults.standard.set(token, forKey: "token")
+                self.performSegue(withIdentifier: "unwindToPulley", sender: self)
+            } else {
+                let alert = UIAlertController(title: "Invalid Login Credentials", message: "That username/password combination does not exist.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
 }

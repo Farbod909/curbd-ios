@@ -10,6 +10,8 @@
 		69912ACA76EB44D684149581 /* Pods_parking_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */; };
 		8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA4592084534500C9F470 /* HollowButton.swift */; };
 		8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45B208453BC00C9F470 /* SolidButton.swift */; };
+		8E0CA45E208464C000C9F470 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45D208464C000C9F470 /* User.swift */; };
+		8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45F208477D900C9F470 /* UserMenuViewController.swift */; };
 		8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C361F67C037000BBBDB /* MapViewController.swift */; };
 		8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */; };
 		8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C3E1F6886C1000BBBDB /* LocationManager.swift */; };
@@ -34,6 +36,8 @@
 		74F22850BAE5AA1D26E52DB4 /* Pods-parking app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0CA4592084534500C9F470 /* HollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowButton.swift; sourceTree = "<group>"; };
 		8E0CA45B208453BC00C9F470 /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
+		8E0CA45D208464C000C9F470 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8E0CA45F208477D900C9F470 /* UserMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuViewController.swift; sourceTree = "<group>"; };
 		8E136C361F67C037000BBBDB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDrawerViewController.swift; sourceTree = "<group>"; };
 		8E136C3E1F6886C1000BBBDB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			children = (
 				8EC8F784207ACECD0038790E /* ParkingSpace.swift */,
 				8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */,
+				8E0CA45D208464C000C9F470 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */,
 				8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */,
 				8EEC462E20844A6F00ED527F /* LoginViewController.swift */,
+				8E0CA45F208477D900C9F470 /* UserMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,10 +305,12 @@
 				8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */,
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,
+				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,
 				8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */,
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
+				8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,

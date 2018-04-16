@@ -17,5 +17,8 @@ class AuthenticationRequiredViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
+    @IBAction func cancelButtonClick(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
 }
