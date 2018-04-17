@@ -106,43 +106,46 @@ class MapViewController: UIViewController {
             tr_long: topRightCoordinate.longitude,
             from: startDate,
             to: endDate) { parkingSpaces in
+                if let parkingSpaces = parkingSpaces {
+                    if alertIfNotFound && parkingSpaces.isEmpty {
+                        // alert user that no parking spaces were found
+                        self.presentSingleButtonAlert(
+                            title: "No Nearby Parking",
+                            message:
+                            """
+                            It looks like there aren't any parking spots
+                            available during this time and location.
+                            """)
+                    }
 
-            if alertIfNotFound && parkingSpaces.isEmpty {
-                // alert user that no parking spaces were found
-                self.presentSingleButtonAlert(
-                    title: "No Nearby Parking",
-                    message:
-                    """
-                    It looks like there aren't any parking spots
-                    available during this time and location.
-                    """)
-            }
+                    // TODO: don't remove and re-add to map if a parking
+                    // space overlaps between previous search and this one
 
-            // TODO: don't remove and re-add to map if a parking
-            // space overlaps between previous search and this one
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    self.currentlyDisplayedParkingSpaces = []
+                    for parkingSpace in parkingSpaces {
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = CLLocationCoordinate2DMake(
+                            parkingSpace.latitude,
+                            parkingSpace.longitude)
 
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.currentlyDisplayedParkingSpaces = []
-            for parkingSpace in parkingSpaces {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2DMake(
-                    parkingSpace.latitude,
-                    parkingSpace.longitude)
-
-                annotation.title = parkingSpace.address
-                self.mapView.addAnnotation(annotation)
-                self.currentlyDisplayedParkingSpaces.append(
-                    ParkingSpaceWithAnnotation(
-                        parkingSpace: parkingSpace, annotation: annotation))
-            }
-            if selectFirstResult {
-                // if there is at least one parking space found,
-                // automatically select the first one.
-                if let firstAnnotation = self.currentlyDisplayedParkingSpaces.first?.annotation {
-                    self.mapView.selectAnnotation(firstAnnotation, animated: false)
+                        annotation.title = parkingSpace.address
+                        self.mapView.addAnnotation(annotation)
+                        self.currentlyDisplayedParkingSpaces.append(
+                            ParkingSpaceWithAnnotation(
+                                parkingSpace: parkingSpace, annotation: annotation))
+                    }
+                    if selectFirstResult {
+                        // if there is at least one parking space found,
+                        // automatically select the first one.
+                        if let firstAnnotation = self.currentlyDisplayedParkingSpaces.first?.annotation {
+                            self.mapView.selectAnnotation(firstAnnotation, animated: false)
+                        }
+                    }
+                    self.redoSearchButton.fadeOut(0.1)
+                } else {
+                    // http request failed
                 }
-            }
-            self.redoSearchButton.fadeOut(0.1)
         }
     }
 

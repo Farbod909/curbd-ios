@@ -1,5 +1,5 @@
 //
-//  ParkingSpaceViewController.swift
+//  ParkingSpaceDrawerViewController.swift
 //  parking app
 //
 //  Created by Farbod Rafezy on 4/13/18.
@@ -17,7 +17,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
 
-    var parkingSpace: ParkingSpace? = nil
+    var parkingSpace: ParkingSpace?
     let partialRevealHeight: CGFloat = 100
     let collapsedHeight: CGFloat = 240
     let drawerPositions: [PulleyPosition] = [
@@ -29,40 +29,49 @@ class ParkingSpaceDrawerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.reserveButton.layer.cornerRadius = 10
+        reserveButton.layer.cornerRadius = 10
 
-        if let parkingSpace = self.parkingSpace {
-            self.addressLabel.text = parkingSpace.address
+        if let parkingSpace = parkingSpace {
+            addressLabel.text = parkingSpace.address
             if let sizeDescription = ParkingSpace.vehicleSize[parkingSpace.size] {
-                self.maxVehicleSizeLabel.text = "Max vehicle size: \(sizeDescription)"
+                maxVehicleSizeLabel.text = "Max vehicle size: \(sizeDescription)"
             } else {
-                self.maxVehicleSizeLabel.text = "Max vehicle size: unknown"
+                maxVehicleSizeLabel.text = "Max vehicle size: unknown"
             }
         }
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .collapsed)
+        if let pulleyViewController = self.parent as? PulleyViewController {
+            pulleyViewController.setDrawerPosition(position: .collapsed)
         }
     }
 
+    /**
+     This function is called when the 'X' in the top right corner of the
+     parking space detail view is called. It closes the parking space detail
+     view and shows the search drawer view instead (with it's previous state
+     restored)
+    */
     @IBAction func dismissButton(_ sender: Any) {
-        if let pulleyVC = self.parent as? ParkingPulleyViewController
-        {
-//            let searchDrawerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "searchDrawerVC")
-
-            pulleyVC.setDrawerContentViewController(controller: pulleyVC.savedSearchDrawerViewController!, animated: false)
-            let mapVC = pulleyVC.childViewControllers[0] as! MapViewController
-            mapVC.mapView.deselectAnnotation(mapVC.mapView.selectedAnnotations[0], animated: true)
-            mapVC.redoSearchButton.isHidden = false
+        if let pulleyViewController = self.parent as? ParkingPulleyViewController {
+            pulleyViewController.setDrawerContentViewController(
+                controller: pulleyViewController.savedSearchDrawerViewController!,
+                animated: false)
+            if let mapViewController =
+                pulleyViewController.childViewControllers[0] as? MapViewController {
+                mapViewController.mapView.deselectAnnotation(
+                    mapViewController.mapView.selectedAnnotations[0],
+                    animated: true)
+                mapViewController.redoSearchButton.isHidden = false
+            }
         }
     }
 
 }
 
 extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
+
     func collapsedDrawerHeight() -> CGFloat {
         if iphoneX {
             return collapsedHeight + 26

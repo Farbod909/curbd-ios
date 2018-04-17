@@ -11,7 +11,10 @@ import Foundation
 import SwiftyJSON
 
 class User {
-    static func getToken(username: String, password: String, completion: @escaping (String?) -> Void) {
+
+    static func getToken(username: String,
+                         password: String,
+                         completion: @escaping (String?) -> Void) {
 
         let parameters: Parameters = [
             "username": username,
@@ -22,8 +25,11 @@ class User {
             baseURL + "/api/auth/token",
             method: .post,
             parameters: parameters).responseJSON { response in
-                let tokenJSON = JSON(response.result.value!)
-                completion(tokenJSON["token"].string)
+                if let responseJSON = response.result.value {
+                    let tokenJSON = JSON(responseJSON)
+                    completion(tokenJSON["token"].string)
+                }
         }
     }
+
 }

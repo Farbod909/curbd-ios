@@ -32,9 +32,11 @@ class HollowTextField: UITextField {
         self.textColor = UIColor.white
 
         if let placeholder = self.placeholder {
-            self.attributedPlaceholder =
-                NSAttributedString(string: placeholder,
-                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.8)])
+            attributedPlaceholder = NSAttributedString(
+                string: placeholder,
+                attributes: [
+                    NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.8)
+                ])
         }
 
     }

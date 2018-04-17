@@ -14,6 +14,7 @@ class UserMenuViewController: UIViewController {
     @IBAction func exitButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
+    
     @IBAction func logOutButtonClick(_ sender: UIButton) {
         UserDefaults.standard.removeObject(forKey: "token")
         dismiss(animated: true)

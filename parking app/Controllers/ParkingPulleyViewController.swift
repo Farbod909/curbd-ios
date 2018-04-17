@@ -11,14 +11,21 @@ import Pulley
 
 class ParkingPulleyViewController: PulleyViewController {
 
-    // the drawer view controller is saved in this variable
-    // when the drawer sets its view controller to a
-    // parking space detail view controller. This allows
-    // the drawer to return to its original state when
-    // the drawer view controller is restored
+    // the search drawer view controller is saved in this
+    // variable when the pulley sets its drawer view
+    // controller to a parking space detail view controller.
+    // This allowscthe drawer to return to its original
+    // state when the search drawer view controller is restored.
     var savedSearchDrawerViewController: SearchDrawerViewController? = nil
 
-    @IBAction func unwindToPulleyVC(segue:UIStoryboardSegue) {
+    /**
+     This function is called when another view controller
+     unwinds to this view controller.
+
+     Currently it does not need to do anything. It is just
+     referenced in the Interface builder as an outlet.
+     */
+    @IBAction func unwindToPulleyViewController(segue: UIStoryboardSegue) {
 
     }
 }

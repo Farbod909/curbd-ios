@@ -29,7 +29,14 @@ class ParkingSpace {
     let description: String
     let hostURL: String
 
-    init(features: [String], latitude: Double, longitude: Double, available_spaces: Int, size: Int, address: String, description: String, hostURL: String) {
+    init(features: [String],
+         latitude: Double,
+         longitude: Double,
+         available_spaces: Int,
+         size: Int,
+         address: String,
+         description: String,
+         hostURL: String) {
         self.features = features
         self.latitude = latitude
         self.longitude = longitude
@@ -51,7 +58,13 @@ class ParkingSpace {
         self.hostURL = json["host"].stringValue
     }
 
-    static func search(bl_lat: Double, bl_long: Double, tr_lat: Double, tr_long: Double, from start: Date, to end: Date, completion: @escaping ([ParkingSpace]) -> Void) {
+    static func search(bl_lat: Double,
+                       bl_long: Double,
+                       tr_lat: Double,
+                       tr_long: Double,
+                       from start: Date,
+                       to end: Date,
+                       completion: @escaping ([ParkingSpace]?) -> Void) {
 
         let parameters: Parameters = [
             "bl_lat": bl_lat,
@@ -66,13 +79,17 @@ class ParkingSpace {
             baseURL + "/api/parking/spaces",
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
-                let parkingSpacesJSON = JSON(response.result.value!)
 
-                var parkingSpaces = [ParkingSpace]()
-                for (_, json):(String, JSON) in parkingSpacesJSON["results"] {
-                    parkingSpaces.append(ParkingSpace(json: json))
+                if let responseJSON = response.result.value {
+                    let parkingSpacesJSON = JSON(responseJSON)
+                    let parkingSpaces: [ParkingSpace] =
+                        parkingSpacesJSON["results"].arrayValue.map({ ParkingSpace(json: $0) })
+                    completion(parkingSpaces)
+                } else {
+                    completion(nil)
                 }
-                completion(parkingSpaces)
-         }
+
+        }
     }
+
 }

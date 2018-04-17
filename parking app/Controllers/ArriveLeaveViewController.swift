@@ -20,8 +20,8 @@ class ArriveLeaveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.arriveDatePicker.setDate(self.arriveDate, animated: false)
-        self.leaveDatePicker.setDate(self.leaveDate, animated: false)
+        arriveDatePicker.setDate(arriveDate, animated: false)
+        leaveDatePicker.setDate(leaveDate, animated: false)
 
         // uncomment this after figuring out how to set view
         // background color to clear
@@ -31,13 +31,13 @@ class ArriveLeaveViewController: UIViewController {
 //        self.view.insertSubview(blurEffectView, at: 0)
     }
     
-    @IBAction func cancel(_ sender: UIButton) {
+    @IBAction func cancelButtonClick(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func save(_ sender: UIButton) {
-        self.arriveDate = arriveDatePicker.date
-        self.leaveDate = leaveDatePicker.date
-        self.performSegue(withIdentifier: "unwindToDrawer", sender: self)
+    @IBAction func saveButtonClick(_ sender: UIButton) {
+        arriveDate = arriveDatePicker.date
+        leaveDate = leaveDatePicker.date
+        performSegue(withIdentifier: "unwindToDrawer", sender: self)
     }
 }

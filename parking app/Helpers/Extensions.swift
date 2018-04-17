@@ -11,38 +11,51 @@ import MapKit
 import UIKit
 
 extension UIViewController {
+
     func instantiateAndShowViewController(withIdentifier identifier: String) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
 
-        self.show(viewController, sender: self)
+        show(viewController, sender: self)
     }
 
     func presentSingleButtonAlert(title: String, message: String, buttonText: String = "OK") {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: buttonText, style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(
+            title: buttonText,
+            style: UIAlertActionStyle.default,
+            handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+
 }
 
 extension Date {
+
     func toHumanReadable() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a, MMM d"
 
         return dateFormatter.string(from: self)
     }
+
 }
 
 extension Formatter {
+
     static let iso8601: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime,]
         formatter.timeZone = TimeZone.current
         return formatter
     }()
+
 }
 
 extension MKMapView {
+
     func centerOn(location: CLLocation) {
         let regionRadius: CLLocationDistance = 300
         let newCoordinate = CLLocationCoordinate2DMake(
@@ -78,26 +91,41 @@ extension MKMapView {
             y: MKMapRectGetMaxY(self.visibleMapRect))
     }
 
-    static func getCoordinateFromMapRectanglePoint(x: Double, y: Double) -> CLLocationCoordinate2D {
+    static func getCoordinateFromMapRectanglePoint(x: Double,
+                                                   y: Double) -> CLLocationCoordinate2D {
         let swMapPoint: MKMapPoint = MKMapPointMake(x, y)
         return MKCoordinateForMapPoint(swMapPoint)
     }
+
 }
 
 extension UIView {
-    func fadeIn(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.alpha = 1.0
-        }, completion: completion)  }
 
-    func fadeOut(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.alpha = 0.0
-        }, completion: completion)
+    func fadeIn(_ duration: TimeInterval = 1.0,
+                delay: TimeInterval = 0.0,
+                completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(
+            withDuration: duration,
+            delay: delay,
+            options: UIViewAnimationOptions.curveEaseIn,
+            animations: { self.alpha = 1.0 },
+            completion: completion)
+    }
+
+    func fadeOut(_ duration: TimeInterval = 1.0,
+                delay: TimeInterval = 0.0,
+                completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(
+            withDuration: duration,
+            delay: delay,
+            options: UIViewAnimationOptions.curveEaseIn,
+            animations: { self.alpha = 0.0 },
+            completion: completion)
     }
 }
 
 extension UIColor {
+
     convenience init(hex hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
@@ -115,4 +143,5 @@ extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
+
 }

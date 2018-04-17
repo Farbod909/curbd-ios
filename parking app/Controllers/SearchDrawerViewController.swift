@@ -27,11 +27,10 @@ class SearchDrawerViewController: UIViewController {
 
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
-    var matchingItems = [MKMapItem]() // I'm not sure what this is?
     var arriveDate = Date()
     var leaveDate = Date(timeInterval: 7200, since: Date())
 
-    let partialRevealHeight: CGFloat = 183
+    let partiallyRevealedHeight: CGFloat = 183
     let collapsedHeight: CGFloat = 300
     let drawerPositions: [PulleyPosition] = [
         .open,
@@ -40,7 +39,6 @@ class SearchDrawerViewController: UIViewController {
     ]
 
     func initializeSettings() {
-        initializeAppearanceSettings()
 
         searchCompleter.delegate = self
 
@@ -59,7 +57,7 @@ class SearchDrawerViewController: UIViewController {
         searchField.layer.masksToBounds = true
         searchField.layer.borderWidth = 0
         let searchFieldPaddingView = UIView(
-            frame: CGRect(x: 0, y: 0, width: 10, height: self.searchField.frame.height))
+            frame: CGRect(x: 0, y: 0, width: 10, height: searchField.frame.height))
         searchField.leftView = searchFieldPaddingView
         searchField.leftViewMode = UITextFieldViewMode.always
 
@@ -71,61 +69,57 @@ class SearchDrawerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeSettings()
+        initializeAppearanceSettings()
 
-        self.arriveDisplayLabel.text = self.arriveDate.toHumanReadable()
-        self.leaveDisplayLabel.text = self.leaveDate.toHumanReadable()
+        // TODO: Possibly implement reactive labels
+        arriveDisplayLabel.text = arriveDate.toHumanReadable()
+        leaveDisplayLabel.text = leaveDate.toHumanReadable()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .partiallyRevealed)
+        if let pulleyViewController = parent as? PulleyViewController {
+            // set initial drawer position to .partiallyRevealed
+            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
         }
-    }
-
-    func hideSearchFields() {
-        self.searchField.isHidden = true
-        self.arriveDisplayTitle.isHidden = true
-        self.leaveDisplayTitle.isHidden = true
-        self.arriveDisplayLabel.isHidden = true
-        self.leaveDisplayLabel.isHidden = true
-        self.arriveLeaveSeperator.isHidden = true
-        self.editTimesButton.isHidden = true
-    }
-
-    func unhideSearchFields() {
-        self.searchField.isHidden = false
-        self.arriveDisplayTitle.isHidden = false
-        self.leaveDisplayTitle.isHidden = false
-        self.arriveDisplayLabel.isHidden = false
-        self.leaveDisplayLabel.isHidden = false
-        self.arriveLeaveSeperator.isHidden = false
-        self.editTimesButton.isHidden = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showArriveLeaveVC" {
-            if let viewController = segue.destination as? ArriveLeaveViewController {
-                viewController.arriveDate = self.arriveDate
-                viewController.leaveDate = self.leaveDate
+            if let arriveLeaveViewController = segue.destination as? ArriveLeaveViewController {
+                // set the arrive and leave dates of the arriveLeaveViewController
+                // based on the arrive leave dates of the current view controller.
+                arriveLeaveViewController.arriveDate = arriveDate
+                arriveLeaveViewController.leaveDate = leaveDate
             }
         }
     }
 
+    /**
+     This function is called when another view controller unwinds back
+     to this view controller. If the source is `ArriveLeaveViewController`,
+     set the current view controller's arrive date and leave date to
+     whatever arrive and leave date that was set by the source
+     `ArriveLeaveViewController`.
+
+     This function also searches for parking spaces in the currently
+     visible map area with the newly set arrive and leave dates.
+     */
     @IBAction func unwindToDrawerViewController(segue: UIStoryboardSegue) {
-        let arriveLeaveVC = segue.source as! ArriveLeaveViewController
+        if let arriveLeaveVC = segue.source as? ArriveLeaveViewController {
+            arriveDate = arriveLeaveVC.arriveDate
+            arriveDisplayLabel.text = arriveDate.toHumanReadable()
 
-        self.arriveDate = arriveLeaveVC.arriveDate
-        self.arriveDisplayLabel.text = self.arriveDate.toHumanReadable()
+            leaveDate = arriveLeaveVC.leaveDate
+            leaveDisplayLabel.text = leaveDate.toHumanReadable()
 
-        self.leaveDate = arriveLeaveVC.leaveDate
-        self.leaveDisplayLabel.text = self.leaveDate.toHumanReadable()
-
-        let mapVC = self.parent?.childViewControllers[0] as! MapViewController
-        mapVC.locateParkingSpacesOnCurrentMapArea(
-            from: self.arriveDate,
-            to: self.leaveDate,
-            alertIfNotFound: false,
-            selectFirstResult: false)
+            if let mapViewController = parent?.childViewControllers[0] as? MapViewController {
+                mapViewController.locateParkingSpacesOnCurrentMapArea(
+                    from: arriveDate,
+                    to: leaveDate,
+                    alertIfNotFound: false,
+                    selectFirstResult: false)
+            }
+        }
     }
 }
 
@@ -136,14 +130,14 @@ extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
     }
 
     func partialRevealDrawerHeight() -> CGFloat {
-        if  iphoneX {
-            return partialRevealHeight + 26
+        if iphoneX {
+            return partiallyRevealedHeight + 26
         }
-        return partialRevealHeight
+        return partiallyRevealedHeight
     }
 
     func collapsedDrawerHeight() -> CGFloat {
-        if  iphoneX {
+        if iphoneX {
             return collapsedHeight + 26
         }
         return collapsedHeight
@@ -151,10 +145,10 @@ extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
 
     func drawerPositionDidChange(drawer: PulleyViewController) {
         if drawer.drawerPosition == .partiallyRevealed {
-            self.searchResultsTableView.isHidden = true
+            searchResultsTableView.isHidden = true
             searchField.resignFirstResponder()
         } else if drawer.drawerPosition == .open {
-            self.searchResultsTableView.isHidden = false
+            searchResultsTableView.isHidden = false
         }
     }
 }
@@ -162,8 +156,8 @@ extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
 extension SearchDrawerViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .open)
+        if let pulleyViewController = self.parent as? PulleyViewController {
+            pulleyViewController.setDrawerPosition(position: .open)
         }
     }
 
@@ -173,8 +167,8 @@ extension SearchDrawerViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchField.resignFirstResponder()
-        if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .partiallyRevealed)
+        if let pulleyViewController = self.parent as? PulleyViewController {
+            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
         }
         return true
     }
@@ -196,16 +190,21 @@ extension SearchDrawerViewController: MKLocalSearchCompleterDelegate {
 
 extension SearchDrawerViewController: UITableViewDelegate {
 
+    /**
+     This function changes the drawer to the partially revealed position
+     and relocates the visible map area to the selected address. Then, it
+     performs a search for parking spaces on the currently visible map area.
+    */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         searchField.resignFirstResponder()
         searchField.text = searchResults[indexPath.row].title
 
-        if let mainVC = self.parent as? PulleyViewController {
-            mainVC.setDrawerPosition(position: .partiallyRevealed)
+        if let pulleyViewController = self.parent as? PulleyViewController {
+            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
         }
 
-        let mapVC = self.parent?.childViewControllers[0] as! MapViewController
+        let mapViewController = self.parent?.childViewControllers[0] as! MapViewController
         let completion = searchResults[indexPath.row]
 
         let searchRequest = MKLocalSearchRequest(completion: completion)
@@ -215,9 +214,10 @@ extension SearchDrawerViewController: UITableViewDelegate {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else {
                 let coordinate = (response?.mapItems[0].placemark.coordinate)!
-                mapVC.mapView.centerOn(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
-
-                mapVC.locateParkingSpacesOnCurrentMapArea(
+                mapViewController.mapView.centerOn(location: CLLocation(
+                    latitude: coordinate.latitude,
+                    longitude: coordinate.longitude))
+                mapViewController.locateParkingSpacesOnCurrentMapArea(
                     from: self.arriveDate,
                     to: self.leaveDate,
                     alertIfNotFound: true,
@@ -238,7 +238,8 @@ extension SearchDrawerViewController: UITableViewDataSource {
         return searchResults.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchResult = searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = searchResult.title

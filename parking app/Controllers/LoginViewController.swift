@@ -15,10 +15,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     @IBAction func backButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
@@ -26,7 +22,6 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonClick(_ sender: UIButton) {
         User.getToken(username: emailField.text!, password: passwordField.text!) { token in
             if let token = token {
-                print("setting token to \(token)")
                 UserDefaults.standard.set(token, forKey: "token")
                 self.performSegue(withIdentifier: "unwindToPulley", sender: self)
             } else {
