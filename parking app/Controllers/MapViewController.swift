@@ -32,11 +32,11 @@ class MapViewController: UIViewController {
     }
 
     func initializeAppearanceSettings() {
-        self.redoSearchButton.alpha = 0 // set alpha to 0 so we can fade it in later
+        redoSearchButton.alpha = 0 // set alpha to 0 so we can fade it in later
 
         if iphoneX {
-            self.redoSearchButtonSpacingFromBottomConstraint.constant -= 26
-            self.view.updateConstraints()
+            redoSearchButtonSpacingFromBottomConstraint.constant -= 26
+            view.updateConstraints()
         }
     }
 
@@ -55,8 +55,8 @@ class MapViewController: UIViewController {
     */
     @IBAction func redoSearchButtonClick(_ sender: UIButton) {
         if let searchDrawerViewController =
-            self.parent?.childViewControllers[1] as? SearchDrawerViewController {
-            self.locateParkingSpacesOnCurrentMapArea(
+            parent?.childViewControllers[1] as? SearchDrawerViewController {
+            locateParkingSpacesOnCurrentMapArea(
                 from: searchDrawerViewController.arriveDate,
                 to: searchDrawerViewController.leaveDate,
                 alertIfNotFound: false,
@@ -72,9 +72,9 @@ class MapViewController: UIViewController {
     @IBAction func accountButtonClick(_ sender: UIButton) {
         if UserDefaults.standard.string(forKey: "token") != nil {
             // if token exists (aka user is logged in)
-            self.instantiateAndShowViewController(withIdentifier: "userMenuVC")
+            instantiateAndShowViewController(withIdentifier: "userMenuVC")
         } else {
-            self.instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
+            instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
         }
     }
 
@@ -138,7 +138,8 @@ class MapViewController: UIViewController {
                     if selectFirstResult {
                         // if there is at least one parking space found,
                         // automatically select the first one.
-                        if let firstAnnotation = self.currentlyDisplayedParkingSpaces.first?.annotation {
+                        if let firstAnnotation =
+                            self.currentlyDisplayedParkingSpaces.first?.annotation {
                             self.mapView.selectAnnotation(firstAnnotation, animated: false)
                         }
                     }
@@ -162,8 +163,8 @@ extension MapViewController: CLLocationManagerDelegate {
                          didUpdateLocations locations: [CLLocation]) {
         mapView.centerOn(location: locations.last!) // TODO: test when user does not give location
         if let searchDrawerViewController =
-            self.parent?.childViewControllers[1] as? SearchDrawerViewController {
-            self.locateParkingSpacesOnCurrentMapArea(
+            parent?.childViewControllers[1] as? SearchDrawerViewController {
+            locateParkingSpacesOnCurrentMapArea(
                 from: searchDrawerViewController.arriveDate,
                 to: searchDrawerViewController.leaveDate,
                 alertIfNotFound: false,
@@ -189,7 +190,7 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
 
-        if let pulleyViewController = self.parent as? ParkingPulleyViewController {
+        if let pulleyViewController = parent as? ParkingPulleyViewController {
             // instantiate new view controller to display parking space
             // detail contents as a drawer.
             let parkingSpaceDrawerViewController = UIStoryboard(
@@ -201,7 +202,8 @@ extension MapViewController: MKMapViewDelegate {
             // and send it to the ParkingSpaceDrawerViewController.
             for parkingSpaceWithAnnotation in currentlyDisplayedParkingSpaces {
                 if parkingSpaceWithAnnotation.annotation.isEqual(view.annotation) {
-                    parkingSpaceDrawerViewController.parkingSpace = parkingSpaceWithAnnotation.parkingSpace
+                    parkingSpaceDrawerViewController.parkingSpace =
+                        parkingSpaceWithAnnotation.parkingSpace
                 }
             }
 
@@ -218,7 +220,7 @@ extension MapViewController: MKMapViewDelegate {
             // make sure redo search button is hidden
             // regardless of fadeIn() or fadeOut()
             // function calls
-            self.redoSearchButton.isHidden = true
+            redoSearchButton.isHidden = true
         }
     }
 
@@ -234,7 +236,7 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
 
-        if let pulleyViewController = self.parent as? ParkingPulleyViewController {
+        if let pulleyViewController = parent as? ParkingPulleyViewController {
             if let savedSearchDrawerViewController =
                 pulleyViewController.savedSearchDrawerViewController {
                 // load the saved SearchDrawerViewController
@@ -251,7 +253,7 @@ extension MapViewController: MKMapViewDelegate {
                     controller: searchDrawerViewController,
                     animated: false)
             }
-            self.redoSearchButton.isHidden = false
+            redoSearchButton.isHidden = false
         }
     }
 
@@ -266,7 +268,7 @@ extension MapViewController: MKMapViewDelegate {
         // whether this region change is from user interaction
         for recognizer in (view?.gestureRecognizers)! {
             if recognizer.state == .began || recognizer.state == .ended {
-                self.isNextRegionChangeFromUserInteraction = true
+                isNextRegionChangeFromUserInteraction = true
                 break
             }
         }
@@ -278,9 +280,9 @@ extension MapViewController: MKMapViewDelegate {
      if the region change was due to human interaction.
     */
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        if self.isNextRegionChangeFromUserInteraction {
-            self.isNextRegionChangeFromUserInteraction = false
-            self.redoSearchButton.fadeIn(0.1)
+        if isNextRegionChangeFromUserInteraction {
+            isNextRegionChangeFromUserInteraction = false
+            redoSearchButton.fadeIn(0.1)
         }
     }
 

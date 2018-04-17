@@ -27,8 +27,8 @@ class ArriveLeaveViewController: UIViewController {
         // background color to clear
 //        let blurEffect = UIBlurEffect(style: .regular)
 //        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = self.view.frame
-//        self.view.insertSubview(blurEffectView, at: 0)
+//        blurEffectView.frame = view.frame
+//        view.insertSubview(blurEffectView, at: 0)
     }
     
     @IBAction func cancelButtonClick(_ sender: UIButton) {

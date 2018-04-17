@@ -29,24 +29,6 @@ class ParkingSpace {
     let description: String
     let hostURL: String
 
-    init(features: [String],
-         latitude: Double,
-         longitude: Double,
-         available_spaces: Int,
-         size: Int,
-         address: String,
-         description: String,
-         hostURL: String) {
-        self.features = features
-        self.latitude = latitude
-        self.longitude = longitude
-        self.available_spaces = available_spaces
-        self.size = size
-        self.address = address
-        self.description = description
-        self.hostURL = hostURL
-    }
-
     init(json: JSON) {
         self.features = json["features"].stringValue.components(separatedBy: ", ")
         self.latitude = json["latitude"].doubleValue

@@ -42,7 +42,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if let pulleyViewController = self.parent as? PulleyViewController {
+        if let pulleyViewController = parent as? PulleyViewController {
             pulleyViewController.setDrawerPosition(position: .collapsed)
         }
     }
@@ -54,7 +54,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
      restored)
     */
     @IBAction func dismissButton(_ sender: Any) {
-        if let pulleyViewController = self.parent as? ParkingPulleyViewController {
+        if let pulleyViewController = parent as? ParkingPulleyViewController {
             pulleyViewController.setDrawerContentViewController(
                 controller: pulleyViewController.savedSearchDrawerViewController!,
                 animated: false)

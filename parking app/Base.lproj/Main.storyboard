@@ -190,9 +190,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lIL-Rx-ZYi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-a5-6Ef" customClass="MapButton" customModule="parking_app" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-a5-6Ef">
                                 <rect key="frame" x="115" y="367" width="145" height="33"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="cBh-fF-Kv7"/>
                                 </constraints>
@@ -202,7 +201,7 @@
                                     <action selector="redoSearchButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="zfk-Rf-cIn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sci-gn-uYZ" customClass="MapButton" customModule="parking_app" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sci-gn-uYZ">
                                 <rect key="frame" x="303" y="58" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -289,9 +288,6 @@
                                 <state key="normal" title="Vehicles">
                                     <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="1lI-Se-c7y" kind="show" id="Dvw-ve-oSd"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZl-dW-Lk7" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="49" y="174.5" width="145" height="44"/>
@@ -299,9 +295,6 @@
                                 <state key="normal" title="Reservations">
                                     <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="20j-Yi-ICY" kind="show" id="mRP-qK-GTk"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-3H-Av5" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="49" y="226.5" width="98" height="44"/>
@@ -309,12 +302,9 @@
                                 <state key="normal" title="Payment">
                                     <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="QWI-Bz-vEg" kind="show" id="BkB-23-KgZ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-cI-6Ab" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="132.5" y="76" width="83" height="33"/>
+                                <rect key="frame" x="129.5" y="76" width="83" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Edit profile">
                                     <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -348,7 +338,7 @@
                             <constraint firstItem="iZl-dW-Lk7" firstAttribute="top" secondItem="jLq-hV-U2D" secondAttribute="bottom" constant="8" id="PLZ-SS-yqA"/>
                             <constraint firstItem="jLq-hV-U2D" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="Txx-ab-GNn"/>
                             <constraint firstItem="4z6-gt-2Xb" firstAttribute="top" secondItem="jMX-Os-MkM" secondAttribute="bottom" constant="28" id="Vyg-8E-gCk"/>
-                            <constraint firstItem="vZO-cI-6Ab" firstAttribute="leading" secondItem="15u-Ve-1Ex" secondAttribute="trailing" constant="14.5" id="WiV-bc-cfo"/>
+                            <constraint firstItem="vZO-cI-6Ab" firstAttribute="leading" secondItem="15u-Ve-1Ex" secondAttribute="trailing" constant="11.5" id="WiV-bc-cfo"/>
                             <constraint firstItem="LeX-rP-cUs" firstAttribute="top" secondItem="gZq-bK-3mx" secondAttribute="bottom" constant="8" id="f6j-L1-mjl"/>
                             <constraint firstItem="LeX-rP-cUs" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="h20-VD-SFm"/>
                             <constraint firstItem="vZO-cI-6Ab" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="56" id="rXe-y2-5a4"/>
@@ -593,7 +583,7 @@
                         <outlet property="emailField" destination="mxv-C0-NDn" id="B3g-B5-d7p"/>
                         <outlet property="loginButton" destination="ts5-y1-QeT" id="drb-jy-8dJ"/>
                         <outlet property="passwordField" destination="Khr-a7-B0f" id="Tmu-jO-4eR"/>
-                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToPulley" unwindAction="unwindToPulleyViewControllerWithSegue:" id="pPd-JO-nOg"/>
+                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToPulley" unwindAction="unwindToPulleyVCWithSegue:" id="pPd-JO-nOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahr-rH-B5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -744,7 +734,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="saveButtonClick:" destination="Hyf-HC-4Ea" eventType="touchUpInside" id="8Ei-ry-Jjh"/>
+                                    <action selector="save:" destination="Hyf-HC-4Ea" eventType="touchUpInside" id="8Ei-ry-Jjh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtW-cx-mmA">
@@ -752,7 +742,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <action selector="cancelButtonClick:" destination="Hyf-HC-4Ea" eventType="touchUpInside" id="E1a-J8-BI5"/>
+                                    <action selector="cancel:" destination="Hyf-HC-4Ea" eventType="touchUpInside" id="E1a-J8-BI5"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bmx-PS-HKA">

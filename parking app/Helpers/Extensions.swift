@@ -13,7 +13,9 @@ import UIKit
 extension UIViewController {
 
     func instantiateAndShowViewController(withIdentifier identifier: String) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil).instantiateViewController(withIdentifier: identifier)
 
         show(viewController, sender: self)
     }
@@ -141,7 +143,11 @@ extension UIColor {
         default:
             (a, r, g, b) = (255, 0, 0, 0)
         }
-        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+        self.init(
+            red: CGFloat(r) / 255,
+            green: CGFloat(g) / 255,
+            blue: CGFloat(b) / 255,
+            alpha: CGFloat(a) / 255)
     }
 
 }

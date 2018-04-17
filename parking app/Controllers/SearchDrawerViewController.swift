@@ -156,7 +156,7 @@ extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
 extension SearchDrawerViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let pulleyViewController = self.parent as? PulleyViewController {
+        if let pulleyViewController = parent as? PulleyViewController {
             pulleyViewController.setDrawerPosition(position: .open)
         }
     }
@@ -167,7 +167,7 @@ extension SearchDrawerViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchField.resignFirstResponder()
-        if let pulleyViewController = self.parent as? PulleyViewController {
+        if let pulleyViewController = parent as? PulleyViewController {
             pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
         }
         return true
@@ -200,11 +200,11 @@ extension SearchDrawerViewController: UITableViewDelegate {
         searchField.resignFirstResponder()
         searchField.text = searchResults[indexPath.row].title
 
-        if let pulleyViewController = self.parent as? PulleyViewController {
+        if let pulleyViewController = parent as? PulleyViewController {
             pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
         }
 
-        let mapViewController = self.parent?.childViewControllers[0] as! MapViewController
+        let mapViewController = parent?.childViewControllers[0] as! MapViewController
         let completion = searchResults[indexPath.row]
 
         let searchRequest = MKLocalSearchRequest(completion: completion)
