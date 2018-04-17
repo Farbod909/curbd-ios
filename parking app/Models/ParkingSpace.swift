@@ -9,7 +9,6 @@ import Alamofire
 import Foundation
 import SwiftyJSON
 
-
 class ParkingSpace {
 
     static let vehicleSize = [
@@ -58,7 +57,7 @@ class ParkingSpace {
         ]
 
          Alamofire.request(
-            baseURL + "/api/parking/spaces",
+            baseURL + "/api/parking/spaces/",
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
 

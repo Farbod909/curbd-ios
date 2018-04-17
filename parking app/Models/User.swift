@@ -12,6 +12,41 @@ import SwiftyJSON
 
 class User {
 
+    let id: Int
+    let email: String
+    let firstName: String
+    let lastName: String
+    let phoneNumber: String
+
+    init(json: JSON) {
+        self.id = json["id"].intValue
+        self.email = json["email"].stringValue
+        self.firstName = json["first_name"].stringValue
+        self.lastName = json["last_name"].stringValue
+        self.phoneNumber = json["phone_number"].stringValue
+    }
+
+
+    static func getUserInfo(with token: String, completion: @escaping (User?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/users/self/",
+            headers: headers).responseJSON() { response in
+                if let responseJSON = response.result.value {
+                    let userJSON = JSON(responseJSON)
+                    let user = User(json: userJSON)
+                    completion(user)
+                } else {
+                    completion(nil)
+                }
+        }
+
+    }
+
     static func getToken(username: String,
                          password: String,
                          completion: @escaping (String?) -> Void) {

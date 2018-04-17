@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
             if let token = token {
                 UserDefaults.standard.set(token, forKey: "token")
                 self.performSegue(withIdentifier: "unwindToPulley", sender: self)
+
+                User.getUserInfo(with: token) { user in
+                    // store user in UserDefaults
+                }
             } else {
                 self.presentSingleButtonAlert(
                     title: "Invalid Login Credentials",

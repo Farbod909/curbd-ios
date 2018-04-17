@@ -12,7 +12,6 @@ import MapKit
 import Alamofire
 import SwiftyJSON
 
-
 class SearchDrawerViewController: UIViewController {
 
     @IBOutlet weak var grabber: UIView!
