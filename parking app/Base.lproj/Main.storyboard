@@ -276,8 +276,8 @@
                                     <action selector="exitButtonClick:" destination="Ki4-ar-JQd" eventType="touchUpInside" id="Cgh-ZN-C33"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbod" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex" customClass="ShadowLabel" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="33" y="72" width="85" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex" customClass="ShadowLabel" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="33" y="72" width="72" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -304,7 +304,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-cI-6Ab" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="129.5" y="76" width="83" height="33"/>
+                                <rect key="frame" x="116.5" y="76" width="83" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Edit profile">
                                     <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -324,11 +324,25 @@
                                     <color key="titleColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-Id-yAp" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="50" y="399" width="275" height="47"/>
+                                <color key="backgroundColor" red="0.61275128239999999" green="0.29736142100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="Oci-fG-bLm"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="275" id="mPy-gN-0QU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Host a Space">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86477667093276978" green="0.74849766492843628" blue="0.9426845908164978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d7I-3H-Av5" firstAttribute="top" secondItem="iZl-dW-Lk7" secondAttribute="bottom" constant="8" id="1go-QJ-7Ct"/>
+                            <constraint firstItem="3VN-Id-yAp" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="50" id="894-rK-Dfj"/>
                             <constraint firstItem="iZl-dW-Lk7" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="9la-4i-7vL"/>
+                            <constraint firstItem="3VN-Id-yAp" firstAttribute="top" secondItem="LeX-rP-cUs" secondAttribute="bottom" constant="24.5" id="BJq-15-nEK"/>
                             <constraint firstItem="gZq-bK-3mx" firstAttribute="top" secondItem="d7I-3H-Av5" secondAttribute="bottom" constant="8" id="ByG-Md-oBt"/>
                             <constraint firstItem="jLq-hV-U2D" firstAttribute="top" secondItem="15u-Ve-1Ex" secondAttribute="bottom" constant="16.5" id="C3M-XH-dRo"/>
                             <constraint firstItem="EcV-tG-RAW" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="8" id="Cru-ld-U7M"/>
@@ -342,11 +356,15 @@
                             <constraint firstItem="LeX-rP-cUs" firstAttribute="top" secondItem="gZq-bK-3mx" secondAttribute="bottom" constant="8" id="f6j-L1-mjl"/>
                             <constraint firstItem="LeX-rP-cUs" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="h20-VD-SFm"/>
                             <constraint firstItem="vZO-cI-6Ab" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="56" id="rXe-y2-5a4"/>
+                            <constraint firstAttribute="trailing" secondItem="3VN-Id-yAp" secondAttribute="trailing" priority="750" constant="50" id="ss9-0B-2ad"/>
                             <constraint firstItem="jMX-Os-MkM" firstAttribute="centerX" secondItem="dWS-4w-RiC" secondAttribute="centerX" id="tJX-f1-wo5"/>
                             <constraint firstItem="15u-Ve-1Ex" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="33" id="uzS-dj-ynG"/>
                             <constraint firstAttribute="trailing" secondItem="EcV-tG-RAW" secondAttribute="trailing" constant="24" id="wNU-K5-Dfk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="15u-Ve-1Ex" id="Dk2-AD-9VU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZa-h5-T5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

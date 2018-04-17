@@ -26,7 +26,13 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "unwindToPulley", sender: self)
 
                 User.getUserInfo(with: token) { user in
-                    // store user in UserDefaults
+                    if let user = user {
+                        // TODO: possibly encode an entire User object into UserDefaults
+                        UserDefaults.standard.set(user.id, forKey: "user_id")
+                        UserDefaults.standard.set(user.firstName, forKey: "user_firstname")
+                        UserDefaults.standard.set(user.lastName, forKey: "user_lastname")
+                        UserDefaults.standard.set(user.email, forKey: "user_email")
+                    }
                 }
             } else {
                 self.presentSingleButtonAlert(
