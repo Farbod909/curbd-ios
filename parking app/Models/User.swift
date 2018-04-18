@@ -17,6 +17,7 @@ class User {
     let firstName: String
     let lastName: String
     let phoneNumber: String
+    let isHost: Bool
 
     init(json: JSON) {
         self.id = json["id"].intValue
@@ -24,6 +25,7 @@ class User {
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
         self.phoneNumber = json["phone_number"].stringValue
+        self.isHost = json["is_host"].boolValue
     }
 
 

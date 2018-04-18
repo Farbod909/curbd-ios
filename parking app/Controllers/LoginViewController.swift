@@ -32,6 +32,8 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(user.firstName, forKey: "user_firstname")
                         UserDefaults.standard.set(user.lastName, forKey: "user_lastname")
                         UserDefaults.standard.set(user.email, forKey: "user_email")
+                        UserDefaults.standard.set(user.isHost, forKey: "user_is_host")
+
                     }
                 }
             } else {
