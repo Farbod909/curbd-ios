@@ -15,8 +15,13 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var redoSearchButton: UIButton!
-    @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var currentVehicleButton: UIButton!
+    @IBOutlet weak var currentVehicleButtonImageView: UIImageView!
+    @IBOutlet weak var currentVehicleButtonLabel: UILabel!
+    @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var accountButtonSpacingFromTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var currentVehicleButtonSpacingFromTopConstraint: NSLayoutConstraint!
 
     private let locationManager: CLLocationManager = LocationManager.shared
     var currentlyDisplayedParkingSpaces = [ParkingSpaceWithAnnotation]()
@@ -32,10 +37,21 @@ class MapViewController: UIViewController {
     }
 
     func initializeAppearanceSettings() {
-        redoSearchButton.alpha = 0 // set alpha to 0 so we can fade it in later
+        // set redo search button alpha to 0 so we can fade it in later
+        redoSearchButton.alpha = 0
+
+        // this is so that when we hide -or do anything else to- the
+        // current vehicle button, it also gets applied to the button's
+        // label and image view.
+        currentVehicleButton.addSubview(currentVehicleButtonLabel)
+        currentVehicleButton.addSubview(currentVehicleButtonImageView)
+
+        currentVehicleButton.isHidden = true
 
         if iphoneX {
-            redoSearchButtonSpacingFromBottomConstraint.constant -= 26
+            redoSearchButtonSpacingFromBottomConstraint.constant += 26
+            currentVehicleButtonSpacingFromTopConstraint.constant += 26
+            accountButtonSpacingFromTopConstraint.constant += 26
             view.updateConstraints()
         }
     }
@@ -46,6 +62,22 @@ class MapViewController: UIViewController {
         initializeAppearanceSettings()
 
         locationManager.requestLocation()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        if let currentVehicleLicensePlate = UserDefaults.standard.string(
+            forKey: "vehicle_license_plate") {
+            currentVehicleButton.isHidden = false
+            currentVehicleButtonLabel.text = currentVehicleLicensePlate
+        } else {
+            if UserDefaults.standard.string(forKey: "token") != nil {
+                // user is logged in
+                currentVehicleButton.isHidden = false
+                currentVehicleButtonLabel.text = "Add Vehicle"
+            } else {
+                currentVehicleButton.isHidden = true
+            }
+        }
     }
 
     /**

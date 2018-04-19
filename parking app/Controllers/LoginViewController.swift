@@ -23,9 +23,8 @@ class LoginViewController: UIViewController {
         User.getToken(username: emailField.text!, password: passwordField.text!) { token in
             if let token = token {
                 UserDefaults.standard.set(token, forKey: "token")
-                self.performSegue(withIdentifier: "unwindToPulley", sender: self)
 
-                User.getUserInfo(with: token) { user in
+                User.getCurrentUserInfo() { user in
                     if let user = user {
                         // TODO: possibly encode an entire User object into UserDefaults
                         UserDefaults.standard.set(user.id, forKey: "user_id")
@@ -36,6 +35,22 @@ class LoginViewController: UIViewController {
 
                     }
                 }
+
+                User.getCurrentUserVehicles() { vehicles in
+                    if let vehicles = vehicles {
+                        if let firstVehicle = vehicles.first {
+                            UserDefaults.standard.set(
+                                firstVehicle.licensePlate, forKey: "vehicle_license_plate")
+                            UserDefaults.standard.set(
+                                firstVehicle.id, forKey: "vehicle_id")
+                        }
+                    }
+                    // unwind to pulley view controller only after receiving
+                    // user vehicle information.
+                    self.performSegue(withIdentifier: "unwindToPulley", sender: self)
+                }
+
+                
             } else {
                 self.presentSingleButtonAlert(
                     title: "Invalid Login Credentials",

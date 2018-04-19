@@ -21,6 +21,7 @@
 		8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */; };
 		8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */; };
 		8E7B5DF22086A3C3000926C1 /* VehicleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF12086A3C3000926C1 /* VehicleTableViewController.swift */; };
+		8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF32086ECC8000926C1 /* Vehicle.swift */; };
 		8EC8F780207AA1DA0038790E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F77F207AA1DA0038790E /* Util.swift */; };
 		8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F784207ACECD0038790E /* ParkingSpace.swift */; };
 		8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78820808E070038790E /* ParkingSpaceDrawerViewController.swift */; };
@@ -52,6 +53,7 @@
 		8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveLeaveViewController.swift; sourceTree = "<group>"; };
 		8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		8E7B5DF12086A3C3000926C1 /* VehicleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewController.swift; sourceTree = "<group>"; };
+		8E7B5DF32086ECC8000926C1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.release.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.release.xcconfig"; sourceTree = "<group>"; };
 		8EC8F77F207AA1DA0038790E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		8EC8F784207ACECD0038790E /* ParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpace.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				8EC8F784207ACECD0038790E /* ParkingSpace.swift */,
 				8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */,
 				8E0CA45D208464C000C9F470 /* User.swift */,
+				8E7B5DF32086ECC8000926C1 /* Vehicle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
 				8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */,
 				8EC8F780207AA1DA0038790E /* Util.swift in Sources */,

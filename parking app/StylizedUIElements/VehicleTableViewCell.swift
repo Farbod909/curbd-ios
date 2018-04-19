@@ -15,5 +15,6 @@ class VehicleTableViewCell: UITableViewCell {
     @IBOutlet weak var makeAndModelLabel: UILabel!
     @IBOutlet weak var vehicleColorLabel: UILabel!
     @IBOutlet weak var licencePlateLabel: UILabel!
-    
+    @IBOutlet weak var currentVehicleIndicatorLabel: UILabel!
+
 }

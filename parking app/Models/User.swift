@@ -28,27 +28,6 @@ class User {
         self.isHost = json["is_host"].boolValue
     }
 
-
-    static func getUserInfo(with token: String, completion: @escaping (User?) -> Void) {
-
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(token)",
-        ]
-
-        Alamofire.request(
-            baseURL + "/api/accounts/users/self/",
-            headers: headers).responseJSON() { response in
-                if let responseJSON = response.result.value {
-                    let userJSON = JSON(responseJSON)
-                    let user = User(json: userJSON)
-                    completion(user)
-                } else {
-                    completion(nil)
-                }
-        }
-
-    }
-
     static func getToken(username: String,
                          password: String,
                          completion: @escaping (String?) -> Void) {
@@ -56,7 +35,7 @@ class User {
         let parameters: Parameters = [
             "username": username,
             "password": password,
-        ]
+            ]
 
         Alamofire.request(
             baseURL + "/api/auth/token",
@@ -66,6 +45,48 @@ class User {
                     let tokenJSON = JSON(responseJSON)
                     completion(tokenJSON["token"].string)
                 }
+        }
+    }
+
+    static func getCurrentUserInfo(completion: @escaping (User?) -> Void) {
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+
+            Alamofire.request(
+                baseURL + "/api/accounts/users/self/",
+                headers: headers).responseJSON() { response in
+                    if let responseJSON = response.result.value {
+                        let userJSON = JSON(responseJSON)
+                        let user = User(json: userJSON)
+                        completion(user)
+                    } else {
+                        completion(nil)
+                    }
+            }
+        } else {
+            completion(nil)
+        }
+    }
+
+    static func getCurrentUserVehicles(completion: @escaping ([Vehicle]?) -> Void) {
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+
+            Alamofire.request(
+                baseURL + "/api/accounts/users/self/customer/",
+                headers: headers).responseJSON() { response in
+                    if let responseJSON = response.result.value {
+                        let customerJSON = JSON(responseJSON)
+                        let vehicles = customerJSON["car_set"].arrayValue.map() { Vehicle(json: $0) }
+                        completion(vehicles)
+                    } else {
+                        completion(nil)
+                    }
+            }
         }
     }
 

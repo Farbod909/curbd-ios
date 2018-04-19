@@ -41,6 +41,9 @@ class UserMenuViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "user_lastname")
         UserDefaults.standard.removeObject(forKey: "user_email")
         UserDefaults.standard.removeObject(forKey: "user_is_host")
+        UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
+        UserDefaults.standard.removeObject(forKey: "vehicle_id")
+
         dismiss(animated: true)
     }
 }
