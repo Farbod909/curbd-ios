@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VehicleTableViewController: UITableViewController {
+class VehicleListTableViewController: UITableViewController {
 
     var vehicles = [Vehicle]()
 
@@ -36,6 +36,14 @@ class VehicleTableViewController: UITableViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        // reload data every time view appears because
+        // if the user chooses to make a different vehicle
+        // their current vehicle, this tableview needs
+        // to be updated to reflect that change.
+        tableView.reloadData()
+    }
+
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
@@ -54,8 +62,23 @@ class VehicleTableViewController: UITableViewController {
             forKey: "vehicle_license_plate") {
             if currentVehicleLicensePlate == vehicle.licensePlate {
                 cell.currentVehicleIndicatorLabel.isHidden = false
+            } else {
+                cell.currentVehicleIndicatorLabel.isHidden = true
             }
         }
         return cell
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showVehicleDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let selectedRow = indexPath.row
+                if let vehicleDetailTableViewController =
+                    segue.destination as? VehicleDetailTableViewController {
+                    vehicleDetailTableViewController.vehicle = vehicles[selectedRow]
+                }
+            }
+        }
+    }
+
 }
