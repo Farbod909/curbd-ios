@@ -20,6 +20,16 @@ extension UIViewController {
         show(viewController, sender: self)
     }
 
+    func instantiateAndShowTransparentViewController(withIdentifier identifier: String) {
+        let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil).instantiateViewController(withIdentifier: identifier)
+        viewController.modalPresentationStyle = .overCurrentContext
+
+        show(viewController, sender: self)
+    }
+
+
     func presentSingleButtonAlert(title: String, message: String, buttonText: String = "OK") {
         let alert = UIAlertController(
             title: title,

@@ -17,18 +17,20 @@ class ArriveLeaveViewController: UIViewController {
     var arriveDate = Date()
     var leaveDate = Date()
 
+    func initializeAppearanceSettings() {
+        view.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.frame
+        view.insertSubview(blurEffectView, at: 0)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeAppearanceSettings()
 
         arriveDatePicker.setDate(arriveDate, animated: false)
         leaveDatePicker.setDate(leaveDate, animated: false)
-
-        // uncomment this after figuring out how to set view
-        // background color to clear
-//        let blurEffect = UIBlurEffect(style: .regular)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.frame
-//        view.insertSubview(blurEffectView, at: 0)
     }
     
     @IBAction func cancelButtonClick(_ sender: UIButton) {

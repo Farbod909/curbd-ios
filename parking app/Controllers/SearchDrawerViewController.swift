@@ -89,6 +89,10 @@ class SearchDrawerViewController: UIViewController {
                 // based on the arrive leave dates of the current view controller.
                 arriveLeaveViewController.arriveDate = arriveDate
                 arriveLeaveViewController.leaveDate = leaveDate
+
+                // this is so that the arriveLeaveViewController can have a
+                // translucent background
+                arriveLeaveViewController.modalPresentationStyle = .overCurrentContext
             }
         }
     }
@@ -104,11 +108,11 @@ class SearchDrawerViewController: UIViewController {
      visible map area with the newly set arrive and leave dates.
      */
     @IBAction func unwindToDrawerViewController(segue: UIStoryboardSegue) {
-        if let arriveLeaveVC = segue.source as? ArriveLeaveViewController {
-            arriveDate = arriveLeaveVC.arriveDate
+        if let arriveLeaveViewController = segue.source as? ArriveLeaveViewController {
+            arriveDate = arriveLeaveViewController.arriveDate
             arriveDisplayLabel.text = arriveDate.toHumanReadable()
 
-            leaveDate = arriveLeaveVC.leaveDate
+            leaveDate = arriveLeaveViewController.leaveDate
             leaveDisplayLabel.text = leaveDate.toHumanReadable()
 
             if let mapViewController = parent?.childViewControllers[0] as? MapViewController {
