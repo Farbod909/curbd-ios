@@ -53,7 +53,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
      view and shows the search drawer view instead (with it's previous state
      restored)
     */
-    @IBAction func dismissButton(_ sender: Any) {
+    @IBAction func dismissButtonClick(_ sender: Any) {
         if let pulleyViewController = parent as? ParkingPulleyViewController {
             pulleyViewController.setDrawerContentViewController(
                 controller: pulleyViewController.savedSearchDrawerViewController!,
@@ -68,6 +68,9 @@ class ParkingSpaceDrawerViewController: UIViewController {
         }
     }
 
+    @IBAction func reserveButtonClick(_ sender: UIButton) {
+        
+    }
 }
 
 extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {

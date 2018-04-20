@@ -39,4 +39,5 @@ class AuthenticationRequiredViewController: UIViewController {
     @IBAction func cancelButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
+
 }

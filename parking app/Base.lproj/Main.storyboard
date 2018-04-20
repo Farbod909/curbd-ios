@@ -315,14 +315,14 @@
                                     <action selector="exitButtonClick:" destination="Ki4-ar-JQd" eventType="touchUpInside" id="Cgh-ZN-C33"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex" customClass="ShadowLabel" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="33" y="72" width="74.5" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex" customClass="EdgeInsetLabel" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="33" y="72" width="74.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLq-hV-U2D" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="49" y="123" width="310" height="44"/>
+                                <rect key="frame" x="49" y="122.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Vehicles">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -332,42 +332,35 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZl-dW-Lk7" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="49" y="175" width="310" height="44"/>
+                                <rect key="frame" x="49" y="174.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Reservations">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7I-3H-Av5" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="49" y="227" width="310" height="44"/>
+                                <rect key="frame" x="49" y="226.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Payment">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-cI-6Ab" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="119" y="76" width="83" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Edit profile">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZq-bK-3mx" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="49" y="279" width="310" height="44"/>
+                                <rect key="frame" x="49" y="278.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Invite Friends">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeX-rP-cUs" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="49" y="331" width="310" height="44"/>
+                                <rect key="frame" x="49" y="330.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-Id-yAp" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="50" y="399" width="275" height="47"/>
+                                <rect key="frame" x="50" y="398.5" width="275" height="47"/>
                                 <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Oci-fG-bLm"/>
@@ -379,9 +372,16 @@
                                 </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-Ea-9d8" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="49" y="382" width="310" height="44"/>
+                                <rect key="frame" x="49" y="381.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Listings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-cI-6Ab" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="119" y="76" width="83" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Edit profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -474,7 +474,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ymj-qE-dXg" kind="show" id="b84-5O-0n4"/>
+                                    <segue destination="ymj-qE-dXg" kind="show" identifier="showLoginViewController" id="b84-5O-0n4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-em-0ZG">
@@ -833,7 +833,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKI-aX-UrA">
                                 <rect key="frame" x="67.5" y="332.5" width="240" height="2"/>
-                                <color key="backgroundColor" red="0.86477667093276978" green="0.74849766492843628" blue="0.9426845908164978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Iy2-pA-wV7"/>
                                     <constraint firstAttribute="width" constant="240" id="fpr-2V-cf0"/>
@@ -886,7 +885,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.86477667093276978" green="0.74849766492843628" blue="0.9426845908164978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="0Zs-hq-tTA"/>
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="AW1-UV-4rS"/>
@@ -938,7 +937,7 @@
                                     <color key="titleColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissButton:" destination="toh-Eb-wdA" eventType="touchUpInside" id="2O2-3f-alZ"/>
+                                    <action selector="dismissButtonClick:" destination="toh-Eb-wdA" eventType="touchUpInside" id="2O2-3f-alZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-Ku-nfl">
@@ -963,6 +962,9 @@
                                 <state key="normal" title="Reserve">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reserveButtonClick:" destination="toh-Eb-wdA" eventType="touchUpInside" id="EKO-ve-ggj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11111" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTx-2O-doY">
                                 <rect key="frame" x="284" y="75" width="75" height="15.5"/>
