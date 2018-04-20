@@ -64,6 +64,12 @@ class MapViewController: UIViewController {
         locationManager.requestLocation()
     }
 
+    /**
+     Determines if user has a currently selected vehicle and is
+     logged in, and based on that information appropriately hides
+     or shows the currentVehicleButton and/or alters the button's
+     text.
+     */
     func showOrHideCurrentVehicleButton() {
         if let currentVehicleLicensePlate = UserDefaults.standard.string(
             forKey: "vehicle_license_plate") {

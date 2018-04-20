@@ -14,11 +14,9 @@ class Reservation {
     static func create(for parkingSpace: ParkingSpace,
                        from start: Date,
                        to end: Date,
-                       completion: @escaping () -> Void) {
+                       completion: @escaping (String, String) -> Void) {
         if  let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id"),
             let token = UserDefaults.standard.string(forKey: "token") {
-
-            print("create called")
 
             let headers: HTTPHeaders = [
                 "Authorization": "Token \(token)",
@@ -36,7 +34,15 @@ class Reservation {
                 method: .post,
                 parameters: parameters,
                 headers: headers).response { response in
-                    completion()
+                    if response.response?.statusCode == 201 {
+                        completion(
+                            "Successfully Reserved",
+                            "You successfully reserved this parking space!")
+                    } else {
+                        completion(
+                            "Something Went Wrong",
+                            "Oops, looks like something went wrong.")
+                    }
             }
         }
     }
