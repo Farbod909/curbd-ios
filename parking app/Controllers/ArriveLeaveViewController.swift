@@ -40,6 +40,6 @@ class ArriveLeaveViewController: UIViewController {
     @IBAction func saveButtonClick(_ sender: UIButton) {
         arriveDate = arriveDatePicker.date
         leaveDate = leaveDatePicker.date
-        performSegue(withIdentifier: "unwindToDrawer", sender: self)
+        performSegue(withIdentifier: "unwindToSearchDrawer", sender: self)
     }
 }

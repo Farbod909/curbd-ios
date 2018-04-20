@@ -5,8 +5,8 @@
 //  Created by Farbod Rafezy on 4/8/18.
 //  Copyright © 2018 Farbod Rafezy. All rights reserved.
 //
+
 import Alamofire
-import Foundation
 import SwiftyJSON
 
 class ParkingSpace {
@@ -19,6 +19,7 @@ class ParkingSpace {
         5: "Oversized",
     ]
 
+    let id: Int
     let features: [String]
     let latitude: Double
     let longitude: Double
@@ -29,6 +30,7 @@ class ParkingSpace {
     let hostURL: String
 
     init(json: JSON) {
+        self.id = json["id"].intValue
         self.features = json["features"].stringValue.components(separatedBy: ", ")
         self.latitude = json["latitude"].doubleValue
         self.longitude = json["longitude"].doubleValue

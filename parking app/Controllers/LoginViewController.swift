@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
                     }
                     // unwind to pulley view controller only after receiving
                     // user vehicle information.
-                    self.performSegue(withIdentifier: "unwindToPulley", sender: self)
+                    self.performSegue(withIdentifier: "unwindToMap", sender: self)
                 }
 
                 

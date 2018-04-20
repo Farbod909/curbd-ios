@@ -62,6 +62,6 @@ class UserMenuViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
         UserDefaults.standard.removeObject(forKey: "vehicle_id")
 
-        dismiss(animated: true)
+        performSegue(withIdentifier: "unwindToMap", sender: self)
     }
 }

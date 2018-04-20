@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import Foundation
 import SwiftyJSON
 
 class User {
@@ -35,7 +34,7 @@ class User {
         let parameters: Parameters = [
             "username": username,
             "password": password,
-            ]
+        ]
 
         Alamofire.request(
             baseURL + "/api/auth/token",

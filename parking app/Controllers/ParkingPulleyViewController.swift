@@ -17,15 +17,4 @@ class ParkingPulleyViewController: PulleyViewController {
     // This allowscthe drawer to return to its original
     // state when the search drawer view controller is restored.
     var savedSearchDrawerViewController: SearchDrawerViewController? = nil
-
-    /**
-     This function is called when another view controller
-     unwinds to this view controller.
-
-     Currently it does not need to do anything. It is just
-     referenced in the Interface builder as an outlet.
-     */
-    @IBAction func unwindToPulleyViewController(segue: UIStoryboardSegue) {
-
-    }
 }

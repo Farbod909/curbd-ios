@@ -64,7 +64,7 @@ class MapViewController: UIViewController {
         locationManager.requestLocation()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    func showOrHideCurrentVehicleButton() {
         if let currentVehicleLicensePlate = UserDefaults.standard.string(
             forKey: "vehicle_license_plate") {
             currentVehicleButton.isHidden = false
@@ -78,6 +78,14 @@ class MapViewController: UIViewController {
                 currentVehicleButton.isHidden = true
             }
         }
+    }
+
+    @IBAction func unwindToMapViewController(segue:UIStoryboardSegue) {
+        showOrHideCurrentVehicleButton()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        showOrHideCurrentVehicleButton()
     }
 
     /**

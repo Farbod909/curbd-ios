@@ -107,7 +107,7 @@ class SearchDrawerViewController: UIViewController {
      This function also searches for parking spaces in the currently
      visible map area with the newly set arrive and leave dates.
      */
-    @IBAction func unwindToDrawerViewController(segue: UIStoryboardSegue) {
+    @IBAction func unwindToSearchDrawerViewController(segue: UIStoryboardSegue) {
         if let arriveLeaveViewController = segue.source as? ArriveLeaveViewController {
             arriveDate = arriveLeaveViewController.arriveDate
             arriveDisplayLabel.text = arriveDate.toHumanReadable()

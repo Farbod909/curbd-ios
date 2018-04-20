@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-268" y="139"/>
         </scene>
         <!--Search Drawer View Controller-->
         <scene sceneID="v5h-te-RJ3">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl1-Cb-VAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="462"/>
+            <point key="canvasLocation" x="237" y="501"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="35q-3B-mOf">
@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8U8-6E-reo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920.79999999999995" y="-201.49925037481262"/>
+            <point key="canvasLocation" x="237" y="-228"/>
         </scene>
         <!--User Menu View Controller-->
         <scene sceneID="OhN-So-XWp">
@@ -423,11 +423,13 @@
                         <outlet property="firstNameLabel" destination="15u-Ve-1Ex" id="Dk2-AD-9VU"/>
                         <outlet property="hostASpaceButton" destination="3VN-Id-yAp" id="xV1-rt-fLT"/>
                         <outlet property="listingsButton" destination="d4i-Ea-9d8" id="UxD-Nq-bSo"/>
+                        <segue destination="0WB-zS-whh" kind="unwind" identifier="unwindToMap" unwindAction="unwindToMapViewControllerWithSegue:" id="iFi-aY-EpV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZa-h5-T5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0WB-zS-whh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="729" y="139"/>
         </scene>
         <!--Authentication Required View Controller-->
         <scene sceneID="ODj-uS-Qtu">
@@ -622,7 +624,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rce-qy-vQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3324" y="-576.1619190404798"/>
+            <point key="canvasLocation" x="1811" y="-578"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pbR-Vn-tVg">
@@ -649,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kql-wQ-x0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2520.8000000000002" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1217" y="251"/>
         </scene>
         <!--Vehicle Detail Table View Controller-->
         <scene sceneID="Uze-HN-qOh">
@@ -817,7 +819,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpM-b2-Ray" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4113" y="-576"/>
+            <point key="canvasLocation" x="2421" y="-578"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mJW-xV-RCq">
@@ -910,13 +912,13 @@
                         <outlet property="emailField" destination="mxv-C0-NDn" id="B3g-B5-d7p"/>
                         <outlet property="loginButton" destination="ts5-y1-QeT" id="drb-jy-8dJ"/>
                         <outlet property="passwordField" destination="Khr-a7-B0f" id="Tmu-jO-4eR"/>
-                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToPulley" unwindAction="unwindToPulleyViewControllerWithSegue:" id="pPd-JO-nOg"/>
+                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToMap" unwindAction="unwindToMapViewControllerWithSegue:" id="JvD-zc-GUb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahr-rH-B5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YS5-IZ-ln5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="137" y="-576"/>
+            <point key="canvasLocation" x="-269" y="-689"/>
         </scene>
         <!--Parking Space Drawer View Controller-->
         <scene sceneID="jK5-F6-JbO">
@@ -1045,7 +1047,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="1152"/>
+            <point key="canvasLocation" x="237" y="1278"/>
         </scene>
         <!--Arrive Leave View Controller-->
         <scene sceneID="WN2-PV-zKs">
@@ -1124,13 +1126,13 @@
                     <connections>
                         <outlet property="arriveDatePicker" destination="bmx-PS-HKA" id="sPR-S6-rV5"/>
                         <outlet property="leaveDatePicker" destination="B2Q-Vs-QRL" id="YZZ-Mt-h7d"/>
-                        <segue destination="I4e-fQ-o8t" kind="unwind" identifier="unwindToDrawer" unwindAction="unwindToDrawerViewControllerWithSegue:" id="Zow-cN-faA"/>
+                        <segue destination="I4e-fQ-o8t" kind="unwind" identifier="unwindToSearchDrawer" unwindAction="unwindToSearchDrawerViewControllerWithSegue:" id="Zow-cN-faA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdX-pQ-7Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="I4e-fQ-o8t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="876.1619190404798"/>
+            <point key="canvasLocation" x="729" y="905"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pKu-3s-YAS">
@@ -1157,7 +1159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dT-1B-TI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="906"/>
+            <point key="canvasLocation" x="1217" y="1090"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="s5R-mL-7ei">
@@ -1184,7 +1186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C03-kl-5UE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-818" y="906"/>
+            <point key="canvasLocation" x="-818" y="990"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xNz-UO-wPT">
@@ -1202,7 +1204,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrX-r4-4zJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="-576"/>
+            <point key="canvasLocation" x="1217" y="-577"/>
         </scene>
     </scenes>
     <resources>

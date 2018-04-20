@@ -69,7 +69,22 @@ class ParkingSpaceDrawerViewController: UIViewController {
     }
 
     @IBAction func reserveButtonClick(_ sender: UIButton) {
-        
+        print("button clicked")
+        if  let parkingSpace = parkingSpace,
+            let pulleyViewController = parent as? ParkingPulleyViewController,
+            let savedSearchDrawerViewController =
+                pulleyViewController.savedSearchDrawerViewController {
+
+            Reservation.create(
+                for: parkingSpace,
+                from: savedSearchDrawerViewController.arriveDate,
+                to: savedSearchDrawerViewController.leaveDate) {
+                    self.presentSingleButtonAlert(
+                        title: "Successfully reserved",
+                        message: "Congrats, you successfully reserved the parking space!")
+            }
+
+        }
     }
 }
 

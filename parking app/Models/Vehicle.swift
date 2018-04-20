@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import Foundation
 import SwiftyJSON
 
 class Vehicle {
