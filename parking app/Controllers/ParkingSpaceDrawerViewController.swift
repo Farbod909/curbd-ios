@@ -69,20 +69,24 @@ class ParkingSpaceDrawerViewController: UIViewController {
     }
 
     @IBAction func reserveButtonClick(_ sender: UIButton) {
-        if  let parkingSpace = parkingSpace,
-            let pulleyViewController = parent as? ParkingPulleyViewController,
-            let savedSearchDrawerViewController =
-                pulleyViewController.savedSearchDrawerViewController {
+        if UserDefaults.standard.string(forKey: "token") != nil {
+            if  let parkingSpace = parkingSpace,
+                let pulleyViewController = parent as? ParkingPulleyViewController,
+                let savedSearchDrawerViewController =
+                    pulleyViewController.savedSearchDrawerViewController {
 
-            Reservation.create(
-                for: parkingSpace,
-                from: savedSearchDrawerViewController.arriveDate,
-                to: savedSearchDrawerViewController.leaveDate) { title, message in
-                    self.presentSingleButtonAlert(
-                        title: title,
-                        message: message)
+                Reservation.create(
+                    for: parkingSpace,
+                    from: savedSearchDrawerViewController.arriveDate,
+                    to: savedSearchDrawerViewController.leaveDate) { title, message in
+                        self.presentSingleButtonAlert(
+                            title: title,
+                            message: message)
+                }
+
             }
-
+        } else {
+            instantiateAndShowTransparentViewController(withIdentifier: "authenticationRequiredVC")
         }
     }
 }
