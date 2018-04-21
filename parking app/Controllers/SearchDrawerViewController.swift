@@ -26,8 +26,9 @@ class SearchDrawerViewController: UIViewController {
 
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
-    var arriveDate = Date()
-    var leaveDate = Date(timeInterval: 7200, since: Date())
+    // round up to nearest 5 minutes
+    var arriveDate = Date().ceil(precision: 300)
+    var leaveDate = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
 
     let partiallyRevealedHeight: CGFloat = 183
     let collapsedHeight: CGFloat = 300

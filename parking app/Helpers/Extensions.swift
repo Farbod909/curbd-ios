@@ -46,11 +46,28 @@ extension UIViewController {
 
 extension Date {
 
-    func toHumanReadable() -> String {
+    public func toHumanReadable() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a, MMM d"
 
         return dateFormatter.string(from: self)
+    }
+
+    public func round(precision: TimeInterval) -> Date {
+        return round(precision: precision, rule: .toNearestOrAwayFromZero)
+    }
+
+    public func ceil(precision: TimeInterval) -> Date {
+        return round(precision: precision, rule: .up)
+    }
+
+    public func floor(precision: TimeInterval) -> Date {
+        return round(precision: precision, rule: .down)
+    }
+
+    private func round(precision: TimeInterval, rule: FloatingPointRoundingRule) -> Date {
+        let seconds = (timeIntervalSinceReferenceDate / precision).rounded(rule) *  precision
+        return Date(timeIntervalSinceReferenceDate: seconds)
     }
 
 }
