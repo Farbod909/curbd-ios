@@ -46,16 +46,18 @@ class ReservationConfirmationViewController: UIViewController {
             leaveDateLabel.text = leaveDate.toHumanReadable()
             streetAddressLabel.text = parkingSpace.address
 
-            let geocoder = CLGeocoder()
             let parkingSpaceLocation = CLLocation(
                 latitude: parkingSpace.latitude,
                 longitude: parkingSpace.longitude)
+            mapView.centerOn(location: parkingSpaceLocation)
+
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(
                 parkingSpace.latitude,
                 parkingSpace.longitude)
             mapView.addAnnotation(annotation)
-            mapView.centerOn(location: parkingSpaceLocation)
+
+            let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(parkingSpaceLocation) { placemarks, error in
                 if error == nil {
                     if  let city = placemarks?[0].locality,
