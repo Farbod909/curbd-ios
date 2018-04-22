@@ -49,7 +49,7 @@ class UserMenuViewController: UIViewController {
     }
 
     @IBAction func exitButtonClick(_ sender: UIButton) {
-        dismiss(animated: true)
+        performSegue(withIdentifier: "unwindToMapViewControllerAfterAuthentication", sender: self)
     }
     
     @IBAction func logOutButtonClick(_ sender: UIButton) {
@@ -62,6 +62,6 @@ class UserMenuViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
         UserDefaults.standard.removeObject(forKey: "vehicle_id")
 
-        performSegue(withIdentifier: "unwindToMap", sender: self)
+        performSegue(withIdentifier: "unwindToMapViewControllerAfterAuthentication", sender: self)
     }
 }

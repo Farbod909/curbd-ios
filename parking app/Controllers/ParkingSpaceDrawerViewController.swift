@@ -26,10 +26,13 @@ class ParkingSpaceDrawerViewController: UIViewController {
         .collapsed,
     ]
 
+    func initializeAppearanceSettings() {
+        reserveButton.layer.cornerRadius = 10
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        reserveButton.layer.cornerRadius = 10
+        initializeAppearanceSettings()
 
         if let parkingSpace = parkingSpace {
             addressLabel.text = parkingSpace.address
@@ -75,18 +78,26 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 let savedSearchDrawerViewController =
                     pulleyViewController.savedSearchDrawerViewController {
 
-                Reservation.create(
-                    for: parkingSpace,
-                    from: savedSearchDrawerViewController.arriveDate,
-                    to: savedSearchDrawerViewController.leaveDate) { title, message in
-                        self.presentSingleButtonAlert(
-                            title: title,
-                            message: message)
+                if let reservationConfirmationViewController = UIStoryboard(
+                    name: "Main",
+                    bundle: nil).instantiateViewController(
+                        withIdentifier: "reservationConfirmationViewController") as?
+                        ReservationConfirmationViewController {
+                    reservationConfirmationViewController.modalPresentationStyle =
+                        .overCurrentContext
+                    reservationConfirmationViewController.parkingSpace = parkingSpace
+                    reservationConfirmationViewController.arriveDate =
+                        savedSearchDrawerViewController.arriveDate
+                    reservationConfirmationViewController.leaveDate =
+                        savedSearchDrawerViewController.leaveDate
+
+                    show(reservationConfirmationViewController, sender: self)
                 }
 
             }
         } else {
-            instantiateAndShowTransparentViewController(withIdentifier: "authenticationRequiredVC")
+            instantiateAndShowTransparentViewController(
+                withIdentifier: "authenticationRequiredVC")
         }
     }
 }

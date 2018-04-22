@@ -30,7 +30,10 @@ extension UIViewController {
     }
 
 
-    func presentSingleButtonAlert(title: String, message: String, buttonText: String = "OK") {
+    func presentSingleButtonAlert(title: String,
+                                  message: String,
+                                  buttonText: String = "OK",
+                                  completion: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -38,7 +41,7 @@ extension UIViewController {
         alert.addAction(UIAlertAction(
             title: buttonText,
             style: UIAlertActionStyle.default,
-            handler: nil))
+            handler: completion))
         self.present(alert, animated: true, completion: nil)
     }
 

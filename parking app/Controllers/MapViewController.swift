@@ -64,34 +64,32 @@ class MapViewController: UIViewController {
         locationManager.requestLocation()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        // make sure vehicle button is updated every time
+        // the view re appears.
+        updateCurrentVehicleButton()
+    }
+
     /**
-     Determines if user has a currently selected vehicle and is
-     logged in, and based on that information appropriately hides
-     or shows the currentVehicleButton and/or alters the button's
-     text.
-     */
-    func showOrHideCurrentVehicleButton() {
-        if let currentVehicleLicensePlate = UserDefaults.standard.string(
-            forKey: "vehicle_license_plate") {
-            currentVehicleButton.isHidden = false
-            currentVehicleButtonLabel.text = currentVehicleLicensePlate
-        } else {
-            if UserDefaults.standard.string(forKey: "token") != nil {
-                // user is logged in
-                currentVehicleButton.isHidden = false
-                currentVehicleButtonLabel.text = "Add Vehicle"
-            } else {
-                currentVehicleButton.isHidden = true
-            }
+     This function hides the parking space detail view after confirming
+     a reservation and reperforms a search in the currently visible area
+     to remove the parking space that was just reserved from the map.
+    */
+    @IBAction func unwindToMapViewControllerAfterReservationConfirmation(segue:UIStoryboardSegue) {
+        if let pulleyViewController = parent as? ParkingPulleyViewController {
+            pulleyViewController.setDrawerContentViewController(
+                controller: pulleyViewController.savedSearchDrawerViewController!,
+                animated: false)
+            mapView.deselectAnnotation(
+                mapView.selectedAnnotations[0],
+                animated: false)
+            redoSearchButton.isHidden = false
+            performSearchInCurrentlyVisibleArea()
         }
     }
 
-    @IBAction func unwindToMapViewController(segue:UIStoryboardSegue) {
-        showOrHideCurrentVehicleButton()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        showOrHideCurrentVehicleButton()
+    @IBAction func unwindToMapViewControllerAfterAuthentication(segue:UIStoryboardSegue) {
+        updateCurrentVehicleButton()
     }
 
     /**
@@ -100,14 +98,7 @@ class MapViewController: UIViewController {
      visible map area.
     */
     @IBAction func redoSearchButtonClick(_ sender: UIButton) {
-        if let searchDrawerViewController =
-            parent?.childViewControllers[1] as? SearchDrawerViewController {
-            locateParkingSpacesOnCurrentMapArea(
-                from: searchDrawerViewController.arriveDate,
-                to: searchDrawerViewController.leaveDate,
-                alertIfNotFound: false,
-                selectFirstResult: false)
-        }
+        performSearchInCurrentlyVisibleArea()
     }
 
     /**
@@ -123,6 +114,48 @@ class MapViewController: UIViewController {
         } else {
             instantiateAndShowTransparentViewController(
                 withIdentifier: "authenticationRequiredVC")
+        }
+    }
+
+    /**
+     Determines if user has a currently selected vehicle and is
+     logged in, and based on that information appropriately hides
+     or shows the currentVehicleButton and/or alters the button's
+     text to reflect any changes.
+     */
+    func updateCurrentVehicleButton() {
+        if let currentVehicleLicensePlate = UserDefaults.standard.string(
+            forKey: "vehicle_license_plate") {
+            currentVehicleButton.isHidden = false
+            currentVehicleButtonLabel.text = currentVehicleLicensePlate
+        } else {
+            if UserDefaults.standard.string(forKey: "token") != nil {
+                // user is logged in
+                currentVehicleButton.isHidden = false
+                currentVehicleButtonLabel.text = "Add Vehicle"
+            } else {
+                currentVehicleButton.isHidden = true
+            }
+        }
+    }
+
+    /**
+     Performs a search of parking spaces in currently visible map
+     area filtered by the dates provided in the search drawer view
+     controller, and then annotates them on the map.
+
+     This does not alert the user if no parking spaces were found.
+
+     This does not automatically select the first result.
+     */
+    func performSearchInCurrentlyVisibleArea() {
+        if let searchDrawerViewController =
+            parent?.childViewControllers[1] as? SearchDrawerViewController {
+            locateParkingSpacesOnCurrentMapArea(
+                from: searchDrawerViewController.arriveDate,
+                to: searchDrawerViewController.leaveDate,
+                alertIfNotFound: false,
+                selectFirstResult: false)
         }
     }
 
@@ -210,14 +243,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
         mapView.centerOn(location: locations.last!) // TODO: test when user does not give location
-        if let searchDrawerViewController =
-            parent?.childViewControllers[1] as? SearchDrawerViewController {
-            locateParkingSpacesOnCurrentMapArea(
-                from: searchDrawerViewController.arriveDate,
-                to: searchDrawerViewController.leaveDate,
-                alertIfNotFound: false,
-                selectFirstResult: false)
-        }
+        performSearchInCurrentlyVisibleArea()
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
