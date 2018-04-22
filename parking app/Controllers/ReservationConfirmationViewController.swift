@@ -12,6 +12,7 @@ import UIKit
 
 class ReservationConfirmationViewController: UIViewController {
 
+    @IBOutlet weak var vehicleLicensePlateLabel: UILabel!
     @IBOutlet weak var arriveDateLabel: UILabel!
     @IBOutlet weak var leaveDateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -40,8 +41,11 @@ class ReservationConfirmationViewController: UIViewController {
 
         if  let parkingSpace = parkingSpace,
             let arriveDate = arriveDate,
-            let leaveDate = leaveDate {
+            let leaveDate = leaveDate,
+            let vehicleLicensePlate = UserDefaults.standard.string(
+                forKey: "vehicle_license_plate"){
 
+            vehicleLicensePlateLabel.text = vehicleLicensePlate
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
             streetAddressLabel.text = parkingSpace.address

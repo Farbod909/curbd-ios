@@ -41,6 +41,42 @@ class ParkingSpaceDrawerViewController: UIViewController {
             } else {
                 maxVehicleSizeLabel.text = "Max vehicle size: unknown"
             }
+
+            var featureImageViewXPosition = 15
+            let featureImageViewYPosition = 15
+            let featureImageViewHorizontalMargin = 15
+            let featureImageViewWidth = 50
+            let featureImageViewHeight = 50
+            for feature in parkingSpace.features {
+                let featureImageView = UIImageView(
+                    frame: CGRect(
+                        x: featureImageViewXPosition,
+                        y: featureImageViewYPosition,
+                        width: featureImageViewWidth,
+                        height: featureImageViewHeight))
+                featureImageView.contentMode = .scaleAspectFit
+                switch feature {
+                case "Illuminated":
+                    featureImageView.image = #imageLiteral(resourceName: "illuminated")
+                case "Covered":
+                    featureImageView.image = #imageLiteral(resourceName: "covered")
+                case "Surveillance":
+                    featureImageView.image = #imageLiteral(resourceName: "surveillance")
+                case "Guarded":
+                    featureImageView.image = #imageLiteral(resourceName: "guarded")
+                case "EV Charging":
+                    featureImageView.image = #imageLiteral(resourceName: "ev charging")
+                default:
+                    featureImageView.image = #imageLiteral(resourceName: "question mark")
+                }
+                featuresScrollView.addSubview(featureImageView)
+
+                // TODO: add constraints so the scroll view actually scrolls if there
+                // are more than 5 features.
+
+                featureImageViewXPosition +=
+                    featureImageViewWidth + featureImageViewHorizontalMargin
+            }
         }
     }
 
@@ -73,27 +109,33 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
     @IBAction func reserveButtonClick(_ sender: UIButton) {
         if UserDefaults.standard.string(forKey: "token") != nil {
-            if  let parkingSpace = parkingSpace,
-                let pulleyViewController = parent as? ParkingPulleyViewController,
-                let savedSearchDrawerViewController =
-                    pulleyViewController.savedSearchDrawerViewController {
+            if UserDefaults.standard.string(forKey: "vehicle_license_plate") != nil {
+                if  let parkingSpace = parkingSpace,
+                    let pulleyViewController = parent as? ParkingPulleyViewController,
+                    let savedSearchDrawerViewController =
+                        pulleyViewController.savedSearchDrawerViewController {
 
-                if let reservationConfirmationViewController = UIStoryboard(
-                    name: "Main",
-                    bundle: nil).instantiateViewController(
-                        withIdentifier: "reservationConfirmationViewController") as?
-                        ReservationConfirmationViewController {
-                    reservationConfirmationViewController.modalPresentationStyle =
-                        .overCurrentContext
-                    reservationConfirmationViewController.parkingSpace = parkingSpace
-                    reservationConfirmationViewController.arriveDate =
-                        savedSearchDrawerViewController.arriveDate
-                    reservationConfirmationViewController.leaveDate =
-                        savedSearchDrawerViewController.leaveDate
+                    if let reservationConfirmationViewController = UIStoryboard(
+                        name: "Main",
+                        bundle: nil).instantiateViewController(
+                            withIdentifier: "reservationConfirmationViewController") as?
+                            ReservationConfirmationViewController {
+                        reservationConfirmationViewController.modalPresentationStyle =
+                            .overCurrentContext
+                        reservationConfirmationViewController.parkingSpace = parkingSpace
+                        reservationConfirmationViewController.arriveDate =
+                            savedSearchDrawerViewController.arriveDate
+                        reservationConfirmationViewController.leaveDate =
+                            savedSearchDrawerViewController.leaveDate
 
-                    show(reservationConfirmationViewController, sender: self)
+                        show(reservationConfirmationViewController, sender: self)
+                    }
+
                 }
-
+            } else {
+                presentSingleButtonAlert(
+                    title: "No Vehicle Selected",
+                    message: "Please add a vehicle first.")
             }
         } else {
             instantiateAndShowTransparentViewController(
