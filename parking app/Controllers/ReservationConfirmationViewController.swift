@@ -38,10 +38,36 @@ class ReservationConfirmationViewController: UIViewController {
         super.viewDidLoad()
         initializeAppearanceSettings()
 
-        arriveDateLabel.text = arriveDate?.toHumanReadable()
-        leaveDateLabel.text = leaveDate?.toHumanReadable()
-        streetAddressLabel.text = parkingSpace?.address
-        cityStateLabel.text = "City, CA"
+        if  let parkingSpace = parkingSpace,
+            let arriveDate = arriveDate,
+            let leaveDate = leaveDate {
+
+            arriveDateLabel.text = arriveDate.toHumanReadable()
+            leaveDateLabel.text = leaveDate.toHumanReadable()
+            streetAddressLabel.text = parkingSpace.address
+
+            let geocoder = CLGeocoder()
+            let parkingSpaceLocation = CLLocation(
+                latitude: parkingSpace.latitude,
+                longitude: parkingSpace.longitude)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(
+                parkingSpace.latitude,
+                parkingSpace.longitude)
+            mapView.addAnnotation(annotation)
+            mapView.centerOn(location: parkingSpaceLocation)
+            geocoder.reverseGeocodeLocation(parkingSpaceLocation) { placemarks, error in
+                if error == nil {
+                    if  let city = placemarks?[0].locality,
+                        let state = placemarks?[0].administrativeArea {
+                        self.cityStateLabel.text = "\(city), \(state)"
+                    }
+                }
+            }
+        }
+
+
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

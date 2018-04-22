@@ -88,7 +88,7 @@ extension Formatter {
 
 extension MKMapView {
 
-    func centerOn(location: CLLocation) {
+    func centerSlightlyBelow(location: CLLocation) {
         let regionRadius: CLLocationDistance = 300
         let newCoordinate = CLLocationCoordinate2DMake(
             location.coordinate.latitude - 0.0012, // offset to account for drawer
@@ -98,6 +98,18 @@ extension MKMapView {
             regionRadius * 2, regionRadius * 2)
         self.setRegion(coordinateRegion, animated: false)
     }
+
+    func centerOn(location: CLLocation) {
+        let regionRadius: CLLocationDistance = 300
+        let newCoordinate = CLLocationCoordinate2DMake(
+            location.coordinate.latitude,
+            location.coordinate.longitude)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(
+            newCoordinate,
+            regionRadius * 2, regionRadius * 2)
+        self.setRegion(coordinateRegion, animated: false)
+    }
+
 
     func getNECoordinate() -> CLLocationCoordinate2D {
         return MKMapView.getCoordinateFromMapRectanglePoint(

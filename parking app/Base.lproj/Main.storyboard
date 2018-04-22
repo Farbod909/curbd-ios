@@ -1083,13 +1083,13 @@
                                 </constraints>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MY-dd-K3Q">
-                                <rect key="frame" x="31" y="111" width="53.5" height="25.5"/>
+                                <rect key="frame" x="28" y="111" width="53.5" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:15 PM, 04/22/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-lW-tBQ">
-                                <rect key="frame" x="31" y="139.5" width="178" height="23"/>
+                                <rect key="frame" x="28" y="139.5" width="178" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1143,11 +1143,11 @@
                             <constraint firstItem="xOc-J9-QhJ" firstAttribute="top" secondItem="oeh-yO-O1B" secondAttribute="bottom" constant="1" id="Ots-91-Snq"/>
                             <constraint firstItem="xOc-J9-QhJ" firstAttribute="centerX" secondItem="3L1-Vq-Ryx" secondAttribute="centerX" id="QKr-26-thw"/>
                             <constraint firstItem="oeh-yO-O1B" firstAttribute="centerX" secondItem="3L1-Vq-Ryx" secondAttribute="centerX" id="W8J-RI-Wve"/>
-                            <constraint firstItem="lxL-lW-tBQ" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="31" id="aHJ-av-uGP"/>
+                            <constraint firstItem="lxL-lW-tBQ" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="28" id="aHJ-av-uGP"/>
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="16" id="c9x-yz-C64"/>
                             <constraint firstAttribute="trailing" secondItem="BRF-ec-B4L" secondAttribute="trailing" constant="16" id="czu-Dx-PPE"/>
                             <constraint firstItem="vju-z2-ih5" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="16" id="df1-zQ-QY3"/>
-                            <constraint firstItem="6MY-dd-K3Q" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="31" id="fEF-g3-Hyh"/>
+                            <constraint firstItem="6MY-dd-K3Q" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="28" id="fEF-g3-Hyh"/>
                             <constraint firstItem="mQk-Nn-4oa" firstAttribute="top" secondItem="pc3-Nd-vaF" secondAttribute="bottom" constant="10" id="fnt-dV-ond"/>
                             <constraint firstItem="hiI-vd-7b6" firstAttribute="top" secondItem="b68-pt-MOg" secondAttribute="bottom" constant="3" id="iDB-vH-ncS"/>
                             <constraint firstItem="vju-z2-ih5" firstAttribute="top" secondItem="xOc-J9-QhJ" secondAttribute="bottom" constant="20" id="nEL-uO-z3m"/>

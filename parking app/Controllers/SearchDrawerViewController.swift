@@ -218,7 +218,7 @@ extension SearchDrawerViewController: UITableViewDelegate {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else {
                 let coordinate = (response?.mapItems[0].placemark.coordinate)!
-                mapViewController.mapView.centerOn(location: CLLocation(
+                mapViewController.mapView.centerSlightlyBelow(location: CLLocation(
                     latitude: coordinate.latitude,
                     longitude: coordinate.longitude))
                 mapViewController.locateParkingSpacesOnCurrentMapArea(

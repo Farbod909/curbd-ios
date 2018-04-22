@@ -242,7 +242,7 @@ extension MapViewController: CLLocationManagerDelegate {
      */
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
-        mapView.centerOn(location: locations.last!) // TODO: test when user does not give location
+        mapView.centerSlightlyBelow(location: locations.last!) // TODO: test when user does not give location
         performSearchInCurrentlyVisibleArea()
     }
 
