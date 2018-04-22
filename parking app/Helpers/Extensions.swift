@@ -51,9 +51,18 @@ extension Date {
 
     public func toHumanReadable() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a, MMM d"
 
-        return dateFormatter.string(from: self)
+        let calendar = NSCalendar.current
+        if calendar.isDateInToday(self) {
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: self) + ", Today"
+        } else if calendar.isDateInTomorrow(self) {
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: self) + ", Tomorrow"
+        } else {
+            dateFormatter.dateFormat = "h:mm a, MMM d"
+            return dateFormatter.string(from: self)
+        }
     }
 
     public func round(precision: TimeInterval) -> Date {

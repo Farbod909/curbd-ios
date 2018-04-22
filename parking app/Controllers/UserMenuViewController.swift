@@ -52,16 +52,4 @@ class UserMenuViewController: UIViewController {
         performSegue(withIdentifier: "unwindToMapViewControllerAfterAuthentication", sender: self)
     }
     
-    @IBAction func logOutButtonClick(_ sender: UIButton) {
-        UserDefaults.standard.removeObject(forKey: "token")
-        UserDefaults.standard.removeObject(forKey: "user_id")
-        UserDefaults.standard.removeObject(forKey: "user_firstname")
-        UserDefaults.standard.removeObject(forKey: "user_lastname")
-        UserDefaults.standard.removeObject(forKey: "user_email")
-        UserDefaults.standard.removeObject(forKey: "user_is_host")
-        UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
-        UserDefaults.standard.removeObject(forKey: "vehicle_id")
-
-        performSegue(withIdentifier: "unwindToMapViewControllerAfterAuthentication", sender: self)
-    }
 }

@@ -15,8 +15,8 @@ class Reservation {
                        from start: Date,
                        to end: Date,
                        completion: @escaping (String, String) -> Void) {
-        if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
-            if let token = UserDefaults.standard.string(forKey: "token") {
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
                 let headers: HTTPHeaders = [
                     "Authorization": "Token \(token)",
                 ]
@@ -45,13 +45,13 @@ class Reservation {
                 }
             } else {
                 completion(
-                    "Not Authenticated",
-                    "Looks like you're not logged in. Try logging in first.")
+                    "Add a Vehicle First",
+                    "You need to add a vehicle before you can reserve a spot.")
             }
         } else {
             completion(
-                "Add a Vehicle First",
-                "You need to add a vehicle before you can reserve a spot.")
+                "Not Authenticated",
+                "Looks like you're not logged in. Try logging in first.")
         }
     }
 

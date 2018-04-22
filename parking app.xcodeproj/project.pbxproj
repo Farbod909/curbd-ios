@@ -18,6 +18,7 @@
 		8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */; };
 		8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C3E1F6886C1000BBBDB /* LocationManager.swift */; };
 		8E2104F12085378100C0B62A /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* MapButton.swift */; };
+		8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */; };
 		8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */; };
 		8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */; };
 		8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */; };
@@ -53,6 +54,7 @@
 		8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDrawerViewController.swift; sourceTree = "<group>"; };
 		8E136C3E1F6886C1000BBBDB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E2104F02085378100C0B62A /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
+		8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveLeaveViewController.swift; sourceTree = "<group>"; };
 		8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */,
 				8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */,
 				8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */,
+				8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
 				8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,
+				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
 				8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */,
