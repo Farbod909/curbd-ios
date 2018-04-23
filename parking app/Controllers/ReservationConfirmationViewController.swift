@@ -49,9 +49,13 @@ class ReservationConfirmationViewController: UIViewController {
                 forKey: "vehicle_license_plate"){
 
             vehicleLicensePlateLabel.text = vehicleLicensePlate
+            let pricePerHour = Double(pricing * 12)/100.0
+            let formattedPricePerHour = String(format: "%.02f", pricePerHour)
             let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
-            let finalCost = (reservationTimeMinutes / 5) * Double(pricing) / 100.0
-            pricingLabel.text = "$\(finalCost) @ $\(Double(pricing * 12) / 100.0) / hr"
+            let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
+            let formattedFinalCost = String(format: "%.02f", finalCost)
+
+            pricingLabel.text = "$\(formattedFinalCost) @ $\(formattedPricePerHour) / hr"
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
             streetAddressLabel.text = parkingSpace.address

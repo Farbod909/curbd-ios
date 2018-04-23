@@ -50,7 +50,9 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 parkingSpace.getPricing(from: arriveDate, to: leaveDate) { pricing in
                     self.pricing = pricing
                     if let pricing = pricing {
-                        self.pricingLabel.text = "$\(Double(pricing * 12)/100.0) / hr"
+                        let pricePerHour = Double(pricing * 12)/100.0
+                        let formattedPricePerHour = String(format: "%.02f", pricePerHour)
+                        self.pricingLabel.text = "$\(formattedPricePerHour) / hr"
                     }
                 }
 
