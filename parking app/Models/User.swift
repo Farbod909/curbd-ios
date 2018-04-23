@@ -76,7 +76,7 @@ class User {
             ]
 
             Alamofire.request(
-                baseURL + "/api/accounts/users/self/customer/",
+                baseURL + "/api/accounts/customers/self",
                 headers: headers).responseJSON() { response in
                     if let responseJSON = response.result.value {
                         let customerJSON = JSON(responseJSON)
