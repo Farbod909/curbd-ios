@@ -13,7 +13,7 @@ import UIKit
 class ParkingSpaceDrawerViewController: UIViewController {
 
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var maxVehicleSizeLabel: UILabel!
+    @IBOutlet weak var pricingLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
@@ -21,6 +21,8 @@ class ParkingSpaceDrawerViewController: UIViewController {
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
+    var pricing: Int?
+
     let partialRevealHeight: CGFloat = 100
     let collapsedHeight: CGFloat = 240
     let drawerPositions: [PulleyPosition] = [
@@ -39,22 +41,19 @@ class ParkingSpaceDrawerViewController: UIViewController {
         initializeAppearanceSettings()
 
         if let parkingSpace = parkingSpace {
+
+            addressLabel.text = parkingSpace.address
+
             if  let arriveDate = arriveDate,
                 let leaveDate = leaveDate {
 
                 parkingSpace.getPricing(from: arriveDate, to: leaveDate) { pricing in
+                    self.pricing = pricing
                     if let pricing = pricing {
-                        print("pricing: \(pricing)")
+                        self.pricingLabel.text = "$\(Double(pricing * 12)/100.0) / hr"
                     }
                 }
 
-            }
-
-            addressLabel.text = parkingSpace.address
-            if let sizeDescription = ParkingSpace.vehicleSize[parkingSpace.size] {
-                maxVehicleSizeLabel.text = "Max vehicle size: \(sizeDescription)"
-            } else {
-                maxVehicleSizeLabel.text = "Max vehicle size: unknown"
             }
 
             for feature in parkingSpace.features {
@@ -127,6 +126,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
                         reservationConfirmationViewController.parkingSpace = parkingSpace
                         reservationConfirmationViewController.arriveDate = arriveDate
                         reservationConfirmationViewController.leaveDate = leaveDate
+                        reservationConfirmationViewController.pricing = pricing
 
                         show(reservationConfirmationViewController, sender: self)
                     }

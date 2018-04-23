@@ -945,8 +945,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max vehicle size: n" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-Ts-oxb">
-                                <rect key="frame" x="16" y="73" width="128.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading price..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-Ts-oxb">
+                                <rect key="frame" x="16" y="73" width="106" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1010,7 +1010,7 @@
                         <outlet property="addressLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
                         <outlet property="featuresScrollView" destination="R4p-oe-IXW" id="82y-sa-Ppg"/>
                         <outlet property="featuresStackView" destination="git-Ta-VFM" id="Yrr-nB-137"/>
-                        <outlet property="maxVehicleSizeLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
+                        <outlet property="pricingLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                         <outlet property="reserveButton" destination="mgg-Ma-URI" id="dOh-Eq-YZO"/>
                     </connections>
                 </viewController>
@@ -1106,13 +1106,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reservation for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSX-8w-553">
-                                <rect key="frame" x="28" y="140.5" width="116" height="21"/>
+                                <rect key="frame" x="23" y="112.5" width="116" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="########" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFB-vM-571">
-                                <rect key="frame" x="150" y="140.5" width="83" height="21"/>
+                                <rect key="frame" x="145" y="112.5" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.20 @ $1.80 / hr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt3-i5-qhj">
+                                <rect key="frame" x="23" y="141" width="139" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1126,16 +1132,19 @@
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="centerY" secondItem="3L1-Vq-Ryx" secondAttribute="centerY" id="5eK-UO-VfN"/>
                             <constraint firstItem="oeh-yO-O1B" firstAttribute="top" secondItem="BRF-ec-B4L" secondAttribute="bottom" constant="17" id="64v-on-977"/>
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="top" secondItem="hiI-vd-7b6" secondAttribute="bottom" constant="19" id="6QG-0v-fB4"/>
+                            <constraint firstItem="Yt3-i5-qhj" firstAttribute="top" secondItem="FSX-8w-553" secondAttribute="bottom" constant="7.5" id="6iW-IW-AKh"/>
                             <constraint firstItem="hiI-vd-7b6" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="23" id="7Dp-ey-kw6"/>
-                            <constraint firstItem="FSX-8w-553" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="28" id="A43-dD-7x9"/>
+                            <constraint firstItem="FSX-8w-553" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="23" id="A43-dD-7x9"/>
                             <constraint firstAttribute="trailing" secondItem="vju-z2-ih5" secondAttribute="trailing" constant="16" id="B1L-Gs-hV0"/>
                             <constraint firstItem="NBJ-EM-1ud" firstAttribute="centerX" secondItem="3L1-Vq-Ryx" secondAttribute="centerX" id="Ept-wt-Jnp"/>
-                            <constraint firstItem="b68-pt-MOg" firstAttribute="top" secondItem="CFB-vM-571" secondAttribute="bottom" constant="15" id="JKW-Y1-2WN"/>
+                            <constraint firstItem="CFB-vM-571" firstAttribute="leading" secondItem="Yt3-i5-qhj" secondAttribute="trailing" constant="-17" id="Iwc-2N-eP2"/>
                             <constraint firstItem="lxL-lW-tBQ" firstAttribute="top" secondItem="6MY-dd-K3Q" secondAttribute="bottom" constant="3" id="Jrh-gL-VtC"/>
                             <constraint firstItem="xOc-J9-QhJ" firstAttribute="top" secondItem="oeh-yO-O1B" secondAttribute="bottom" constant="1" id="Ots-91-Snq"/>
+                            <constraint firstItem="Yt3-i5-qhj" firstAttribute="top" secondItem="CFB-vM-571" secondAttribute="bottom" constant="7.5" id="PWV-28-48D"/>
                             <constraint firstItem="xOc-J9-QhJ" firstAttribute="centerX" secondItem="3L1-Vq-Ryx" secondAttribute="centerX" id="QKr-26-thw"/>
                             <constraint firstItem="oeh-yO-O1B" firstAttribute="centerX" secondItem="3L1-Vq-Ryx" secondAttribute="centerX" id="W8J-RI-Wve"/>
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="16" id="c9x-yz-C64"/>
+                            <constraint firstItem="Yt3-i5-qhj" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="23" id="cZm-Nr-8Jl"/>
                             <constraint firstAttribute="trailing" secondItem="BRF-ec-B4L" secondAttribute="trailing" constant="16" id="czu-Dx-PPE"/>
                             <constraint firstItem="vju-z2-ih5" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="16" id="df1-zQ-QY3"/>
                             <constraint firstItem="6MY-dd-K3Q" firstAttribute="leading" secondItem="NBJ-EM-1ud" secondAttribute="trailing" constant="17" id="f4e-60-F4q"/>
@@ -1144,7 +1153,7 @@
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="top" secondItem="NBJ-EM-1ud" secondAttribute="bottom" constant="22" id="nBO-GN-fuv"/>
                             <constraint firstItem="vju-z2-ih5" firstAttribute="top" secondItem="xOc-J9-QhJ" secondAttribute="bottom" constant="20" id="nEL-uO-z3m"/>
                             <constraint firstAttribute="trailing" secondItem="mQk-Nn-4oa" secondAttribute="trailing" constant="20" id="pQc-AP-mdl"/>
-                            <constraint firstItem="b68-pt-MOg" firstAttribute="top" secondItem="FSX-8w-553" secondAttribute="bottom" constant="15" id="yb3-86-Qf5"/>
+                            <constraint firstItem="b68-pt-MOg" firstAttribute="top" secondItem="Yt3-i5-qhj" secondAttribute="bottom" constant="14.5" id="tbU-yS-80V"/>
                             <constraint firstItem="b68-pt-MOg" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="23" id="z2E-J2-D1v"/>
                         </constraints>
                     </view>
@@ -1154,6 +1163,7 @@
                         <outlet property="confirmButton" destination="vju-z2-ih5" id="m5M-G6-0xJ"/>
                         <outlet property="leaveDateLabel" destination="lxL-lW-tBQ" id="axu-qK-8NZ"/>
                         <outlet property="mapView" destination="BRF-ec-B4L" id="87I-Pw-B1K"/>
+                        <outlet property="pricingLabel" destination="Yt3-i5-qhj" id="RSD-tH-eMg"/>
                         <outlet property="streetAddressLabel" destination="oeh-yO-O1B" id="RxG-aK-Z1X"/>
                         <outlet property="vehicleLicensePlateLabel" destination="CFB-vM-571" id="dXT-na-jXa"/>
                         <segue destination="xyU-xa-5SD" kind="unwind" identifier="unwindToMapViewControllerAfterReservationConfirmation" unwindAction="unwindToMapViewControllerAfterReservationConfirmationWithSegue:" id="YwV-cb-1So"/>

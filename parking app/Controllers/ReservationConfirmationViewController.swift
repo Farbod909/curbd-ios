@@ -13,6 +13,7 @@ import UIKit
 class ReservationConfirmationViewController: UIViewController {
 
     @IBOutlet weak var vehicleLicensePlateLabel: UILabel!
+    @IBOutlet weak var pricingLabel: UILabel!
     @IBOutlet weak var arriveDateLabel: UILabel!
     @IBOutlet weak var leaveDateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -23,6 +24,7 @@ class ReservationConfirmationViewController: UIViewController {
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
+    var pricing: Int?
 
     func initializeAppearanceSettings() {
         view.backgroundColor = UIColor.clear
@@ -42,10 +44,14 @@ class ReservationConfirmationViewController: UIViewController {
         if  let parkingSpace = parkingSpace,
             let arriveDate = arriveDate,
             let leaveDate = leaveDate,
+            let pricing = pricing,
             let vehicleLicensePlate = UserDefaults.standard.string(
                 forKey: "vehicle_license_plate"){
 
             vehicleLicensePlateLabel.text = vehicleLicensePlate
+            let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+            let finalCost = (reservationTimeMinutes / 5) * Double(pricing) / 100.0
+            pricingLabel.text = "$\(finalCost) @ $\(Double(pricing * 12) / 100.0) / hr"
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
             streetAddressLabel.text = parkingSpace.address
