@@ -41,6 +41,28 @@ class ParkingSpace {
         self.hostURL = json["host"].stringValue
     }
 
+    func getPricing(from start: Date, to end: Date, completion: @escaping (Int?) -> Void) {
+
+        let parameters: Parameters = [
+            "start": Formatter.iso8601.string(from: start),
+            "end": Formatter.iso8601.string(from: end),
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/spaces/\(self.id)/availability",
+            parameters: parameters,
+            encoding: URLEncoding.queryString).responseJSON { response in
+
+                if let responseJSON = response.result.value {
+                    let availabilityJSON = JSON(responseJSON)
+                    completion(availabilityJSON["pricing"].int)
+                } else {
+                    completion(nil)
+                }
+
+        }
+    }
+
     static func search(bl_lat: Double,
                        bl_long: Double,
                        tr_lat: Double,

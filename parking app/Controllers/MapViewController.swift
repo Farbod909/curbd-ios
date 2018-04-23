@@ -283,6 +283,10 @@ extension MapViewController: MKMapViewDelegate {
 
             if let searchDrawerViewController =
                 pulleyViewController.childViewControllers[1] as? SearchDrawerViewController {
+
+                parkingSpaceDrawerViewController.arriveDate = searchDrawerViewController.arriveDate
+                parkingSpaceDrawerViewController.leaveDate = searchDrawerViewController.leaveDate
+
                 // save current searchDrawerVC state for later retrieval
                 pulleyViewController.savedSearchDrawerViewController = searchDrawerViewController
             }

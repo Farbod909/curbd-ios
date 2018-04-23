@@ -16,8 +16,11 @@ class ParkingSpaceDrawerViewController: UIViewController {
     @IBOutlet weak var maxVehicleSizeLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
-
+    @IBOutlet weak var featuresStackView: UIStackView!
+    
     var parkingSpace: ParkingSpace?
+    var arriveDate: Date?
+    var leaveDate: Date?
     let partialRevealHeight: CGFloat = 100
     let collapsedHeight: CGFloat = 240
     let drawerPositions: [PulleyPosition] = [
@@ -28,6 +31,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
     func initializeAppearanceSettings() {
         reserveButton.layer.cornerRadius = 10
+        featuresScrollView.showsHorizontalScrollIndicator = false
     }
 
     override func viewDidLoad() {
@@ -35,6 +39,17 @@ class ParkingSpaceDrawerViewController: UIViewController {
         initializeAppearanceSettings()
 
         if let parkingSpace = parkingSpace {
+            if  let arriveDate = arriveDate,
+                let leaveDate = leaveDate {
+
+                parkingSpace.getPricing(from: arriveDate, to: leaveDate) { pricing in
+                    if let pricing = pricing {
+                        print("pricing: \(pricing)")
+                    }
+                }
+
+            }
+
             addressLabel.text = parkingSpace.address
             if let sizeDescription = ParkingSpace.vehicleSize[parkingSpace.size] {
                 maxVehicleSizeLabel.text = "Max vehicle size: \(sizeDescription)"
@@ -42,18 +57,11 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 maxVehicleSizeLabel.text = "Max vehicle size: unknown"
             }
 
-            var featureImageViewXPosition = 15
-            let featureImageViewYPosition = 15
-            let featureImageViewHorizontalMargin = 15
-            let featureImageViewWidth = 50
-            let featureImageViewHeight = 50
             for feature in parkingSpace.features {
-                let featureImageView = UIImageView(
-                    frame: CGRect(
-                        x: featureImageViewXPosition,
-                        y: featureImageViewYPosition,
-                        width: featureImageViewWidth,
-                        height: featureImageViewHeight))
+
+                let featureImageView = UIImageView()
+                featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
                 featureImageView.contentMode = .scaleAspectFit
                 switch feature {
                 case "Illuminated":
@@ -69,13 +77,8 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 default:
                     featureImageView.image = #imageLiteral(resourceName: "question mark")
                 }
-                featuresScrollView.addSubview(featureImageView)
 
-                // TODO: add constraints so the scroll view actually scrolls if there
-                // are more than 5 features.
-
-                featureImageViewXPosition +=
-                    featureImageViewWidth + featureImageViewHorizontalMargin
+                featuresStackView.addArrangedSubview(featureImageView)
             }
         }
     }
@@ -111,9 +114,8 @@ class ParkingSpaceDrawerViewController: UIViewController {
         if UserDefaults.standard.string(forKey: "token") != nil {
             if UserDefaults.standard.string(forKey: "vehicle_license_plate") != nil {
                 if  let parkingSpace = parkingSpace,
-                    let pulleyViewController = parent as? ParkingPulleyViewController,
-                    let savedSearchDrawerViewController =
-                        pulleyViewController.savedSearchDrawerViewController {
+                    let arriveDate = arriveDate,
+                    let leaveDate = leaveDate {
 
                     if let reservationConfirmationViewController = UIStoryboard(
                         name: "Main",
@@ -123,10 +125,8 @@ class ParkingSpaceDrawerViewController: UIViewController {
                         reservationConfirmationViewController.modalPresentationStyle =
                             .overCurrentContext
                         reservationConfirmationViewController.parkingSpace = parkingSpace
-                        reservationConfirmationViewController.arriveDate =
-                            savedSearchDrawerViewController.arriveDate
-                        reservationConfirmationViewController.leaveDate =
-                            savedSearchDrawerViewController.leaveDate
+                        reservationConfirmationViewController.arriveDate = arriveDate
+                        reservationConfirmationViewController.leaveDate = leaveDate
 
                         show(reservationConfirmationViewController, sender: self)
                     }

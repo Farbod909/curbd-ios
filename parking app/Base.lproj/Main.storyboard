@@ -952,7 +952,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-Ma-URI">
-                                <rect key="frame" x="23" y="191" width="329" height="48"/>
+                                <rect key="frame" x="23" y="190" width="329" height="48"/>
                                 <color key="backgroundColor" red="0.26723796129226685" green="0.88981437683105469" blue="0.3650042712688446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qpe-Ej-Dgj"/>
@@ -971,11 +971,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4p-oe-IXW">
-                                <rect key="frame" x="14" y="102" width="346" height="81"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4p-oe-IXW">
+                                <rect key="frame" x="14" y="116" width="346" height="51"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="git-Ta-VFM">
+                                        <rect key="frame" x="0.0" y="0.0" width="346" height="51"/>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="Y8s-e6-f6a"/>
-                                    <constraint firstAttribute="width" constant="346" id="x5a-Wy-xfa"/>
+                                    <constraint firstAttribute="bottom" secondItem="git-Ta-VFM" secondAttribute="bottom" id="RPo-fb-8f1"/>
+                                    <constraint firstItem="git-Ta-VFM" firstAttribute="top" secondItem="R4p-oe-IXW" secondAttribute="top" id="Y7b-Px-451"/>
+                                    <constraint firstAttribute="height" constant="51" id="Y8s-e6-f6a"/>
+                                    <constraint firstItem="git-Ta-VFM" firstAttribute="height" secondItem="R4p-oe-IXW" secondAttribute="height" id="dha-TO-Nif"/>
+                                    <constraint firstAttribute="trailing" secondItem="git-Ta-VFM" secondAttribute="trailing" id="lph-aA-qFi"/>
+                                    <constraint firstItem="git-Ta-VFM" firstAttribute="leading" secondItem="R4p-oe-IXW" secondAttribute="leading" id="zDE-fZ-cR9"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -989,9 +998,9 @@
                             <constraint firstItem="R4p-oe-IXW" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="14" id="TWZ-sy-cbo"/>
                             <constraint firstItem="tXS-Ts-oxb" firstAttribute="top" secondItem="Omb-zp-7Hy" secondAttribute="bottom" constant="6" id="Y8d-mg-deH"/>
                             <constraint firstItem="tXS-Ts-oxb" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="16" id="bcN-a3-8Pk"/>
-                            <constraint firstItem="R4p-oe-IXW" firstAttribute="top" secondItem="tXS-Ts-oxb" secondAttribute="bottom" constant="11" id="dOd-9R-6N3"/>
+                            <constraint firstItem="R4p-oe-IXW" firstAttribute="top" secondItem="tXS-Ts-oxb" secondAttribute="bottom" constant="25" id="dOd-9R-6N3"/>
                             <constraint firstItem="mgg-Ma-URI" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="23" id="izV-fK-EBb"/>
-                            <constraint firstItem="mgg-Ma-URI" firstAttribute="top" secondItem="R4p-oe-IXW" secondAttribute="bottom" constant="8" id="kdP-Dd-6vO"/>
+                            <constraint firstItem="mgg-Ma-URI" firstAttribute="top" secondItem="R4p-oe-IXW" secondAttribute="bottom" constant="23" id="kdP-Dd-6vO"/>
                             <constraint firstAttribute="trailing" secondItem="Omb-zp-7Hy" secondAttribute="trailing" constant="13" id="l3D-ja-7xg"/>
                             <constraint firstAttribute="trailing" secondItem="mgg-Ma-URI" secondAttribute="trailing" constant="23" id="m3F-Xk-0fe"/>
                             <constraint firstAttribute="trailing" secondItem="xTx-2O-doY" secondAttribute="trailing" constant="16" id="tD4-tT-U4o"/>
@@ -1000,13 +1009,14 @@
                     <connections>
                         <outlet property="addressLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
                         <outlet property="featuresScrollView" destination="R4p-oe-IXW" id="82y-sa-Ppg"/>
+                        <outlet property="featuresStackView" destination="git-Ta-VFM" id="Yrr-nB-137"/>
                         <outlet property="maxVehicleSizeLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                         <outlet property="reserveButton" destination="mgg-Ma-URI" id="dOh-Eq-YZO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="1160"/>
+            <point key="canvasLocation" x="525.60000000000002" y="1159.9700149925038"/>
         </scene>
         <!--Reservation Confirmation View Controller-->
         <scene sceneID="djx-2L-26O">
@@ -1021,13 +1031,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b68-pt-MOg">
-                                <rect key="frame" x="28" y="176.5" width="53.5" height="26"/>
+                                <rect key="frame" x="23" y="176.5" width="53.5" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:15 PM, Tomorrow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiI-vd-7b6">
-                                <rect key="frame" x="28" y="205.5" width="146.5" height="20.5"/>
+                                <rect key="frame" x="23" y="205.5" width="146.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1116,7 +1126,7 @@
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="centerY" secondItem="3L1-Vq-Ryx" secondAttribute="centerY" id="5eK-UO-VfN"/>
                             <constraint firstItem="oeh-yO-O1B" firstAttribute="top" secondItem="BRF-ec-B4L" secondAttribute="bottom" constant="17" id="64v-on-977"/>
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="top" secondItem="hiI-vd-7b6" secondAttribute="bottom" constant="19" id="6QG-0v-fB4"/>
-                            <constraint firstItem="hiI-vd-7b6" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="28" id="7Dp-ey-kw6"/>
+                            <constraint firstItem="hiI-vd-7b6" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="23" id="7Dp-ey-kw6"/>
                             <constraint firstItem="FSX-8w-553" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="28" id="A43-dD-7x9"/>
                             <constraint firstAttribute="trailing" secondItem="vju-z2-ih5" secondAttribute="trailing" constant="16" id="B1L-Gs-hV0"/>
                             <constraint firstItem="NBJ-EM-1ud" firstAttribute="centerX" secondItem="3L1-Vq-Ryx" secondAttribute="centerX" id="Ept-wt-Jnp"/>
@@ -1135,7 +1145,7 @@
                             <constraint firstItem="vju-z2-ih5" firstAttribute="top" secondItem="xOc-J9-QhJ" secondAttribute="bottom" constant="20" id="nEL-uO-z3m"/>
                             <constraint firstAttribute="trailing" secondItem="mQk-Nn-4oa" secondAttribute="trailing" constant="20" id="pQc-AP-mdl"/>
                             <constraint firstItem="b68-pt-MOg" firstAttribute="top" secondItem="FSX-8w-553" secondAttribute="bottom" constant="15" id="yb3-86-Qf5"/>
-                            <constraint firstItem="b68-pt-MOg" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="28" id="z2E-J2-D1v"/>
+                            <constraint firstItem="b68-pt-MOg" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="23" id="z2E-J2-D1v"/>
                         </constraints>
                     </view>
                     <connections>
