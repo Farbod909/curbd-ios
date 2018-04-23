@@ -418,7 +418,7 @@
                         <outlet property="firstNameLabel" destination="15u-Ve-1Ex" id="Dk2-AD-9VU"/>
                         <outlet property="hostASpaceButton" destination="3VN-Id-yAp" id="xV1-rt-fLT"/>
                         <outlet property="listingsButton" destination="d4i-Ea-9d8" id="UxD-Nq-bSo"/>
-                        <segue destination="0WB-zS-whh" kind="unwind" identifier="unwindToMapViewControllerAfterAuthentication" unwindAction="unwindToMapViewControllerAfterAuthenticationWithSegue:" id="xRk-VI-NEi"/>
+                        <segue destination="0WB-zS-whh" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="xRk-VI-NEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZa-h5-T5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -616,8 +616,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EzL-qh-sVs"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="2pq-L0-5Ww" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="WPG-qB-4fy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rce-qy-vQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2pq-L0-5Ww" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2970" y="-673"/>
         </scene>
@@ -909,7 +913,7 @@
                         <outlet property="emailField" destination="mxv-C0-NDn" id="B3g-B5-d7p"/>
                         <outlet property="loginButton" destination="ts5-y1-QeT" id="drb-jy-8dJ"/>
                         <outlet property="passwordField" destination="Khr-a7-B0f" id="Tmu-jO-4eR"/>
-                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToMapViewControllerAfterAuthentication" unwindAction="unwindToMapViewControllerAfterAuthenticationWithSegue:" id="Vpp-PR-MP0"/>
+                        <segue destination="YS5-IZ-ln5" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="Vpp-PR-MP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahr-rH-B5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1220,7 +1224,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="yFP-7o-7EE" kind="unwind" identifier="unwindToMapViewControllerAfterAuthentication" unwindAction="unwindToMapViewControllerAfterAuthenticationWithSegue:" id="WhX-91-h4b"/>
+                        <segue destination="yFP-7o-7EE" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="WhX-91-h4b"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdg-zf-VyI" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -71,6 +71,8 @@ class ParkingSpace {
                        to end: Date,
                        completion: @escaping ([ParkingSpace]?) -> Void) {
 
+        let vehicleSize = UserDefaults.standard.integer(forKey: "vehicle_size")
+
         let parameters: Parameters = [
             "bl_lat": bl_lat,
             "bl_long": bl_long,
@@ -78,6 +80,7 @@ class ParkingSpace {
             "tr_long": tr_long,
             "start": Formatter.iso8601.string(from: start),
             "end": Formatter.iso8601.string(from: end),
+            "size": vehicleSize,
         ]
 
          Alamofire.request(

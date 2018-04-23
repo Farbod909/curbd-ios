@@ -45,7 +45,7 @@ class VehicleListTableViewController: UITableViewController {
     }
 
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
+        performSegue(withIdentifier: "unwindToMapViewController", sender: self)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vehicles.count
@@ -58,13 +58,11 @@ class VehicleListTableViewController: UITableViewController {
         cell.makeAndModelLabel.text = "\(vehicle.make) \(vehicle.model)"
         cell.vehicleColorLabel.text = vehicle.color
         cell.licencePlateLabel.text = vehicle.licensePlate
-        if let currentVehicleLicensePlate = UserDefaults.standard.string(
-            forKey: "vehicle_license_plate") {
-            if currentVehicleLicensePlate == vehicle.licensePlate {
-                cell.currentVehicleIndicatorLabel.isHidden = false
-            } else {
-                cell.currentVehicleIndicatorLabel.isHidden = true
-            }
+        let currentVehicleID = UserDefaults.standard.integer(forKey: "vehicle_id")
+        if currentVehicleID == vehicle.id {
+            cell.currentVehicleIndicatorLabel.isHidden = false
+        } else {
+            cell.currentVehicleIndicatorLabel.isHidden = true
         }
         return cell
     }

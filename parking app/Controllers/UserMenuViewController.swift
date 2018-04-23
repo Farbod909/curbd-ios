@@ -49,7 +49,7 @@ class UserMenuViewController: UIViewController {
     }
 
     @IBAction func exitButtonClick(_ sender: UIButton) {
-        performSegue(withIdentifier: "unwindToMapViewControllerAfterAuthentication", sender: self)
+        performSegue(withIdentifier: "unwindToMapViewController", sender: self)
     }
     
 }

@@ -15,6 +15,7 @@ class Vehicle {
     let make: String
     let model: String
     let color: String
+    let size: Int
     let licensePlate: String
 
     init(json: JSON) {
@@ -22,6 +23,7 @@ class Vehicle {
         self.make = json["make"].stringValue
         self.model = json["model"].stringValue
         self.color = json["color"].stringValue
+        self.size = json["size"].intValue
         self.licensePlate = json["license_plate"].stringValue
     }
     

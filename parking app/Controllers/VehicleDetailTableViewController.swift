@@ -36,6 +36,7 @@ class VehicleDetailTableViewController: UITableViewController {
                         vehicle.licensePlate,
                         forKey: "vehicle_license_plate")
                     UserDefaults.standard.set(vehicle.id, forKey: "vehicle_id")
+                    UserDefaults.standard.set(vehicle.size, forKey: "vehicle_size")
                 }
                 navigationController?.popViewController(animated: true)
             }

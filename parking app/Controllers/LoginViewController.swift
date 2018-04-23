@@ -52,12 +52,14 @@ class LoginViewController: UIViewController {
                                 firstVehicle.licensePlate, forKey: "vehicle_license_plate")
                             UserDefaults.standard.set(
                                 firstVehicle.id, forKey: "vehicle_id")
+                            UserDefaults.standard.set(
+                                firstVehicle.size, forKey: "vehicle_size")
                         }
                     }
                     // unwind to pulley view controller only after receiving
                     // user vehicle information.
                     self.performSegue(
-                        withIdentifier: "unwindToMapViewControllerAfterAuthentication",
+                        withIdentifier: "unwindToMapViewController",
                         sender: self)
                 }
 

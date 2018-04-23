@@ -88,8 +88,9 @@ class MapViewController: UIViewController {
         }
     }
 
-    @IBAction func unwindToMapViewControllerAfterAuthentication(segue:UIStoryboardSegue) {
+    @IBAction func unwindToMapViewController(segue:UIStoryboardSegue) {
         updateCurrentVehicleButton()
+        performSearchInCurrentlyVisibleArea()
     }
 
     /**
@@ -178,8 +179,10 @@ class MapViewController: UIViewController {
                                              to endDate: Date,
                                              alertIfNotFound: Bool,
                                              selectFirstResult: Bool) {
+
         let bottomLeftCoordinate: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRightCoordinate: CLLocationCoordinate2D = mapView.getNECoordinate()
+
         ParkingSpace.search(
             bl_lat: bottomLeftCoordinate.latitude,
             bl_long: bottomLeftCoordinate.longitude,

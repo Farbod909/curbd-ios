@@ -22,8 +22,9 @@ class SettingsTableViewController: UITableViewController {
         UserDefaults.standard.removeObject(forKey: "user_is_host")
         UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
         UserDefaults.standard.removeObject(forKey: "vehicle_id")
+        UserDefaults.standard.removeObject(forKey: "vehicle_size")
 
-        performSegue(withIdentifier: "unwindToMapViewControllerAfterAuthentication", sender: self)
+        performSegue(withIdentifier: "unwindToMapViewController", sender: self)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
