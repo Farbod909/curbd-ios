@@ -55,11 +55,26 @@ class User {
                     if let error = error as? Alamofire.AFError {
                         if error.isResponseValidationError {
 
+                            if let data = response.data {
+                                let responseJSON = JSON(data: data)
+                                var validationError = ValidationError(fields: [:])
+                                for (field, messageList):(String, JSON) in responseJSON {
+                                    validationError.fields[field] = String(
+                                        describing: messageList.arrayValue[0])
+                                }
+                                completion(validationError, nil)
+                            } else {
+                                // this should never happen
+                                completion(error, nil)
+                            }
+
+                        } else {
+                            completion(error, nil)
                         }
+                    } else {
+                        // this should never happen
+                        completion(error, nil)
                     }
-                    /*                Optional(Alamofire.AFError.responseValidationFailed(Alamofire.AFError.ResponseValidationFailureReason.unacceptableStatusCode(400)))
-                    */
-                    completion(error, nil)
                 }
         }
     }

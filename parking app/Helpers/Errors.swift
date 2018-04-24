@@ -10,5 +10,6 @@ import Foundation
 
 struct ValidationError: Error {
 
-    let fields: [String: String]
+    var fields: [String: String]
+
 }

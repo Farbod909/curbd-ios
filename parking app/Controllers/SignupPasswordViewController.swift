@@ -56,7 +56,14 @@ class SignupPasswordViewController: UIViewController {
                                 }
                             } else {
                                 if let error = error as? ValidationError {
-                                    print(error.fields)
+                                    var message = ""
+                                    for (_, value) in error.fields {
+                                        // TODO: only capitalize first word.
+                                        message += "\(value)\n".capitalized
+                                    }
+                                    self.presentSingleButtonAlert(
+                                        title: "Invalid Fields",
+                                        message: message.trimmingCharacters(in: .newlines))
                                 }
                             }
                     }
