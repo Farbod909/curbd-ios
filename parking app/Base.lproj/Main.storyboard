@@ -1394,7 +1394,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bIl-3Q-rWO" kind="show" id="FGN-7J-Lhz"/>
+                                    <action selector="nextButtonClick:" destination="aD9-dt-iZn" eventType="touchUpInside" id="y6d-nr-LwA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1434,7 +1434,7 @@
         <!--Signup Email Phone View Controller-->
         <scene sceneID="eay-Hc-WXh">
             <objects>
-                <viewController id="bIl-3Q-rWO" customClass="SignupEmailPhoneViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupEmailPhoneViewController" id="bIl-3Q-rWO" customClass="SignupEmailPhoneViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yt3-hb-8hm"/>
                         <viewControllerLayoutGuide type="bottom" id="8bm-NZ-cC7"/>
@@ -1474,7 +1474,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xh4-3Z-MVv" kind="show" id="eSI-JV-Uc9"/>
+                                    <action selector="nextButtonClick:" destination="bIl-3Q-rWO" eventType="touchUpInside" id="epi-eA-llo"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eh-cc-b66">
@@ -1513,7 +1513,7 @@
         <!--Signup Password View Controller-->
         <scene sceneID="bEA-Lo-aRY">
             <objects>
-                <viewController id="Xh4-3Z-MVv" customClass="SignupPasswordViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupPasswordViewController" id="Xh4-3Z-MVv" customClass="SignupPasswordViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gje-Zk-8v6"/>
                         <viewControllerLayoutGuide type="bottom" id="EzB-H1-0kc"/>
@@ -1552,6 +1552,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitButtonClick:" destination="Xh4-3Z-MVv" eventType="touchUpInside" id="qA6-zS-fwu"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoY-6J-RpX">
                                 <rect key="frame" x="20" y="330.5" width="335" height="6"/>

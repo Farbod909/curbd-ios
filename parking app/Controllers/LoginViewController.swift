@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LoginViewController: DarkTranslucentViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!

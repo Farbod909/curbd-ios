@@ -13,10 +13,33 @@ class SignupEmailPhoneViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
 
+    var firstName: String?
+    var lastName: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         emailTextField.becomeFirstResponder()
     }
 
+    @IBAction func nextButtonClick(_ sender: UIButton) {
+
+        if emailTextField.text != "" && phoneTextField.text != "" {
+            if let signupPasswordViewController = UIStoryboard(
+                name: "Main",
+                bundle: nil).instantiateViewController(
+                    withIdentifier: "signupPasswordViewController") as? SignupPasswordViewController {
+
+                signupPasswordViewController.firstName = firstName
+                signupPasswordViewController.lastName = lastName
+                signupPasswordViewController.email = emailTextField.text
+                signupPasswordViewController.phone = phoneTextField.text
+
+                show(signupPasswordViewController, sender: self)
+            }
+        } else {
+            // alert please complete all fields
+        }
+
+    }
 }

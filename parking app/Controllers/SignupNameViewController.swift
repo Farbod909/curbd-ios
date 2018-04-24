@@ -33,5 +33,24 @@ class SignupNameViewController: UIViewController {
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-    
+
+    @IBAction func nextButtonClick(_ sender: UIButton) {
+
+        if firstNameTextField.text != "" && lastNameTextField.text != "" {
+            if let signupEmailPhoneViewController = UIStoryboard(
+                name: "Main",
+                bundle: nil).instantiateViewController(
+                    withIdentifier: "signupEmailPhoneViewController") as? SignupEmailPhoneViewController {
+
+                signupEmailPhoneViewController.firstName = firstNameTextField.text
+                signupEmailPhoneViewController.lastName = lastNameTextField.text
+
+                show(signupEmailPhoneViewController, sender: self)
+            }
+        } else {
+            // alert please complete all fields
+        }
+
+    }
+
 }
