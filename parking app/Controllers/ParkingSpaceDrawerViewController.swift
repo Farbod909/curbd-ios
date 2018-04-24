@@ -140,8 +140,9 @@ class ParkingSpaceDrawerViewController: UIViewController {
                     message: "Please add a vehicle first.")
             }
         } else {
-            instantiateAndShowTransparentViewController(
-                withIdentifier: "authenticationRequiredVC")
+            instantiateAndShowViewController(
+                withIdentifier: "authenticationRequiredVC",
+                presentation: .overCurrentContext)
         }
     }
 }

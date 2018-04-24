@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ArriveLeaveViewController: UIViewController {
+class ArriveLeaveViewController: LightTranslucentViewController {
 
     @IBOutlet weak var arriveDatePicker: UIDatePicker!
     @IBOutlet weak var leaveDatePicker: UIDatePicker!
@@ -17,17 +17,8 @@ class ArriveLeaveViewController: UIViewController {
     var arriveDate = Date()
     var leaveDate = Date()
 
-    func initializeAppearanceSettings() {
-        view.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: .regular)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.frame
-        view.insertSubview(blurEffectView, at: 0)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeAppearanceSettings()
 
         arriveDatePicker.setDate(arriveDate, animated: false)
         leaveDatePicker.setDate(leaveDate, animated: false)

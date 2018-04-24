@@ -950,13 +950,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading price..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-Ts-oxb">
-                                <rect key="frame" x="16" y="73" width="106" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="16" y="73" width="118" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-Ma-URI">
-                                <rect key="frame" x="23" y="190" width="329" height="48"/>
+                                <rect key="frame" x="23" y="192.5" width="329" height="48"/>
                                 <color key="backgroundColor" red="0.26723796129226685" green="0.88981437683105469" blue="0.3650042712688446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qpe-Ej-Dgj"/>
@@ -976,7 +976,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4p-oe-IXW">
-                                <rect key="frame" x="14" y="116" width="346" height="51"/>
+                                <rect key="frame" x="14" y="118.5" width="346" height="51"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="git-Ta-VFM">
                                         <rect key="frame" x="0.0" y="0.0" width="346" height="51"/>

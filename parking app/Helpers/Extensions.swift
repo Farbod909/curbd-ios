@@ -12,23 +12,15 @@ import UIKit
 
 extension UIViewController {
 
-    func instantiateAndShowViewController(withIdentifier identifier: String) {
+    func instantiateAndShowViewController(withIdentifier identifier: String,
+                                          presentation: UIModalPresentationStyle = .fullScreen) {
         let viewController = UIStoryboard(
             name: "Main",
             bundle: nil).instantiateViewController(withIdentifier: identifier)
+        viewController.modalPresentationStyle = presentation
 
         show(viewController, sender: self)
     }
-
-    func instantiateAndShowTransparentViewController(withIdentifier identifier: String) {
-        let viewController = UIStoryboard(
-            name: "Main",
-            bundle: nil).instantiateViewController(withIdentifier: identifier)
-        viewController.modalPresentationStyle = .overCurrentContext
-
-        show(viewController, sender: self)
-    }
-
 
     func presentSingleButtonAlert(title: String,
                                   message: String,

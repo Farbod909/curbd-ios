@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import UIKit
 
-class ReservationConfirmationViewController: UIViewController {
+class ReservationConfirmationViewController: DarkTranslucentViewController {
 
     @IBOutlet weak var vehicleLicensePlateLabel: UILabel!
     @IBOutlet weak var pricingLabel: UILabel!
@@ -27,12 +27,6 @@ class ReservationConfirmationViewController: UIViewController {
     var pricing: Int?
 
     func initializeAppearanceSettings() {
-        view.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.frame
-        view.insertSubview(blurEffectView, at: 0)
-
         mapView.layer.cornerRadius = 10
         confirmButton.layer.cornerRadius = 10
     }
@@ -82,17 +76,6 @@ class ReservationConfirmationViewController: UIViewController {
             }
         }
 
-
-
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
     @IBAction func confirmReservationClick(_ sender: UIButton) {
@@ -109,7 +92,8 @@ class ReservationConfirmationViewController: UIViewController {
                         title: title,
                         message: message) { action in
                             self.performSegue(
-                                withIdentifier: "unwindToMapViewControllerAfterReservationConfirmation",
+                                withIdentifier:
+                                    "unwindToMapViewControllerAfterReservationConfirmation",
                                 sender: self)
                     }
             }

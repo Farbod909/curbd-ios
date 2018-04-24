@@ -48,6 +48,8 @@ class MapViewController: UIViewController {
 
         currentVehicleButton.isHidden = true
 
+        mapView.showsCompass = false
+
         if iphoneX {
             redoSearchButtonSpacingFromBottomConstraint.constant += 26
             currentVehicleButtonSpacingFromTopConstraint.constant += 26
@@ -110,11 +112,13 @@ class MapViewController: UIViewController {
     @IBAction func accountButtonClick(_ sender: UIButton) {
         if UserDefaults.standard.string(forKey: "token") != nil {
             // if token exists (aka user is logged in)
-            instantiateAndShowTransparentViewController(
-                withIdentifier: "userMenuVC")
+            instantiateAndShowViewController(
+                withIdentifier: "userMenuVC",
+                presentation: .overCurrentContext)
         } else {
-            instantiateAndShowTransparentViewController(
-                withIdentifier: "authenticationRequiredVC")
+            instantiateAndShowViewController(
+                withIdentifier: "authenticationRequiredVC",
+                presentation: .overCurrentContext)
         }
     }
 

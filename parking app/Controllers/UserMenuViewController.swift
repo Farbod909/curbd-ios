@@ -9,23 +9,14 @@
 import Foundation
 import UIKit
 
-class UserMenuViewController: UIViewController {
+class UserMenuViewController: DarkTranslucentViewController {
     
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var hostASpaceButton: UIButton!
     @IBOutlet weak var listingsButton: UIButton!
 
-    func initializeAppearanceSettings() {
-        view.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.frame
-        view.insertSubview(blurEffectView, at: 0)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeAppearanceSettings()
 
         if let firstName = UserDefaults.standard.string(forKey: "user_firstname") {
             firstNameLabel.text = firstName.capitalized
@@ -37,15 +28,6 @@ class UserMenuViewController: UIViewController {
         } else {
             hostASpaceButton.isHidden = false
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
     @IBAction func exitButtonClick(_ sender: UIButton) {
