@@ -25,6 +25,7 @@
 		8E3F47D2208EEC87003451C1 /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */; };
 		8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */; };
 		8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */; };
+		8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47F5208FEEA9003451C1 /* Errors.swift */; };
 		8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */; };
 		8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */; };
 		8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */; };
@@ -67,6 +68,7 @@
 		8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
 		8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailPhoneViewController.swift; sourceTree = "<group>"; };
 		8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPasswordViewController.swift; sourceTree = "<group>"; };
+		8E3F47F5208FEEA9003451C1 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveLeaveViewController.swift; sourceTree = "<group>"; };
 		8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				8E136C3E1F6886C1000BBBDB /* LocationManager.swift */,
 				8EC8F77F207AA1DA0038790E /* Util.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
+				8E3F47F5208FEEA9003451C1 /* Errors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				8EC8F780207AA1DA0038790E /* Util.swift in Sources */,
 				8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */,
 				8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */,
+				8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */,
 				8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */,
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,

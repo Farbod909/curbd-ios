@@ -48,7 +48,10 @@ class SignupNameViewController: UIViewController {
                 show(signupEmailPhoneViewController, sender: self)
             }
         } else {
-            // alert please complete all fields
+            presentSingleButtonAlert(
+                title: "Incomplete fields",
+                message: "Please complete all fields before proceeding.")
+
         }
 
     }

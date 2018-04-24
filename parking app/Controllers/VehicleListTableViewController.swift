@@ -28,10 +28,12 @@ class VehicleListTableViewController: UITableViewController {
         initializeSettings()
         initializeAppearanceSettings()
 
-        User.getCurrentUserVehicles() { vehicles in
-            if let vehicles = vehicles {
-                self.vehicles = vehicles
-                self.tableView.reloadData()
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            User.getCustomerVehicles(token: token) { error, vehicles in
+                if let vehicles = vehicles {
+                    self.vehicles = vehicles
+                    self.tableView.reloadData()
+                }
             }
         }
     }

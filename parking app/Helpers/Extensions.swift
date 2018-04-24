@@ -37,6 +37,14 @@ extension UIViewController {
 
 }
 
+extension String {
+
+    func trim() -> String {
+        return self.trimmingCharacters(in: .whitespaces)
+    }
+
+}
+
 extension Date {
 
     public func toHumanReadable() -> String {

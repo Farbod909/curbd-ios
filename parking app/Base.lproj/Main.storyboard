@@ -1583,9 +1583,11 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="Wun-fX-gWW" id="gbe-DS-MsX"/>
                         <outlet property="passwordTextField" destination="Uda-qr-71c" id="qDc-id-3uX"/>
+                        <segue destination="nDm-CR-SPC" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="TqR-AY-THp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCJ-gA-c6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nDm-CR-SPC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-268" y="911"/>
         </scene>

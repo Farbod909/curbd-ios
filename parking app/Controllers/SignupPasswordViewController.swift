@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SignupPasswordViewController: UIViewController {
     
@@ -26,12 +27,52 @@ class SignupPasswordViewController: UIViewController {
     @IBAction func submitButtonClick(_ sender: UIButton) {
         if passwordTextField.text != "" && confirmPasswordTextField.text != "" {
             if passwordTextField.text == confirmPasswordTextField.text {
-                // User.create()
+                if  let firstName = firstName?.trim(),
+                    let lastName = lastName?.trim(),
+                    let email = email?.trim(),
+                    let phone = phone?.trim(),
+                    let password = passwordTextField.text {
+
+                    User.create(
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        phone: phone,
+                        password: password) { error, user in
+
+                            if error == nil {
+                                User.login(username: email, password: password) { error in
+                                    if error == nil {
+                                        self.presentSingleButtonAlert(
+                                            title: "Success",
+                                            message: "Successfully created user.") { action in
+                                                self.performSegue(
+                                                    withIdentifier: "unwindToMapViewController",
+                                                    sender: self)
+                                        }
+                                    } else {
+                                        // somehow failed to login?
+                                    }
+                                }
+                            } else {
+                                if let error = error as? ValidationError {
+                                    print(error.fields)
+                                }
+                            }
+                    }
+
+                } else {
+                    // somehow one or more of the user properties is nil?
+                }
             } else {
-                // alert passwords do not match
+                presentSingleButtonAlert(
+                    title: "Password Mismatch",
+                    message: "The password fields do not match.")
             }
         } else {
-            // alert please complete all fields
+            presentSingleButtonAlert(
+                title: "Incomplete fields",
+                message: "Please complete all fields before proceeding.")
         }
     }
 }

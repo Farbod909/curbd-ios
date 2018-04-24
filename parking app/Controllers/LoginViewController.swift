@@ -29,45 +29,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonClick(_ sender: UIButton) {
-        User.getToken(username: emailField.text!, password: passwordField.text!) { token in
-            if let token = token {
-                UserDefaults.standard.set(token, forKey: "token")
-
-                User.getCurrentUserInfo() { user in
-                    if let user = user {
-                        // TODO: possibly encode an entire User object into UserDefaults
-                        UserDefaults.standard.set(user.id, forKey: "user_id")
-                        UserDefaults.standard.set(user.firstName, forKey: "user_firstname")
-                        UserDefaults.standard.set(user.lastName, forKey: "user_lastname")
-                        UserDefaults.standard.set(user.email, forKey: "user_email")
-                        UserDefaults.standard.set(user.isHost, forKey: "user_is_host")
-
-                    }
-                }
-
-                User.getCurrentUserVehicles() { vehicles in
-                    if let vehicles = vehicles {
-                        if let firstVehicle = vehicles.first {
-                            UserDefaults.standard.set(
-                                firstVehicle.licensePlate, forKey: "vehicle_license_plate")
-                            UserDefaults.standard.set(
-                                firstVehicle.id, forKey: "vehicle_id")
-                            UserDefaults.standard.set(
-                                firstVehicle.size, forKey: "vehicle_size")
-                        }
-                    }
-                    // unwind to pulley view controller only after receiving
-                    // user vehicle information.
-                    self.performSegue(
-                        withIdentifier: "unwindToMapViewController",
-                        sender: self)
-                }
-
-                
-            } else {
+        User.login(username: emailField.text!, password: passwordField.text!) { error in
+            if error != nil {
+                // TODO: check error type and show appropriate message
                 self.presentSingleButtonAlert(
                     title: "Invalid Login Credentials",
                     message: "That username/password combination does not exist.")
+            } else {
+                self.performSegue(
+                    withIdentifier: "unwindToMapViewController",
+                    sender: self)
             }
         }
     }
