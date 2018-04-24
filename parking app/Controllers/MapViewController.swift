@@ -112,13 +112,9 @@ class MapViewController: UIViewController {
     @IBAction func accountButtonClick(_ sender: UIButton) {
         if UserDefaults.standard.string(forKey: "token") != nil {
             // if token exists (aka user is logged in)
-            instantiateAndShowViewController(
-                withIdentifier: "userMenuVC",
-                presentation: .overCurrentContext)
+            instantiateAndShowViewController(withIdentifier: "userMenuVC")
         } else {
-            instantiateAndShowViewController(
-                withIdentifier: "authenticationRequiredVC",
-                presentation: .overCurrentContext)
+            instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
         }
     }
 

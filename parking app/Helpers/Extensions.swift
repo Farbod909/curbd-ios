@@ -12,12 +12,10 @@ import UIKit
 
 extension UIViewController {
 
-    func instantiateAndShowViewController(withIdentifier identifier: String,
-                                          presentation: UIModalPresentationStyle = .fullScreen) {
+    func instantiateAndShowViewController(withIdentifier identifier: String) {
         let viewController = UIStoryboard(
             name: "Main",
             bundle: nil).instantiateViewController(withIdentifier: identifier)
-        viewController.modalPresentationStyle = presentation
 
         show(viewController, sender: self)
     }
