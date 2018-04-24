@@ -174,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl1-Cb-VAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="454"/>
+            <point key="canvasLocation" x="526" y="472"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="35q-3B-mOf">
@@ -457,7 +457,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aD9-dt-iZn" kind="show" id="uvO-jV-3mA"/>
+                                    <segue destination="UO8-H8-KFQ" kind="presentation" modalPresentationStyle="overCurrentContext" id="uvO-jV-3mA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taX-mR-Qz6" customClass="HollowButton" customModule="parking_app" customModuleProvider="target">
@@ -1020,7 +1020,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525.60000000000002" y="1159.9700149925038"/>
+            <point key="canvasLocation" x="526" y="1179"/>
         </scene>
         <!--Reservation Confirmation View Controller-->
         <scene sceneID="djx-2L-26O">
@@ -1176,7 +1176,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqZ-0s-gzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xyU-xa-5SD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1349.5999999999999" y="1548.5757121439281"/>
+            <point key="canvasLocation" x="1350" y="1590"/>
         </scene>
         <!--Settings-->
         <scene sceneID="vDJ-QF-Esb">
@@ -1230,7 +1230,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdg-zf-VyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yFP-7o-7EE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2969" y="1549"/>
+            <point key="canvasLocation" x="2969" y="1590"/>
         </scene>
         <!--Arrive Leave View Controller-->
         <scene sceneID="WN2-PV-zKs">
@@ -1315,7 +1315,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdX-pQ-7Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="I4e-fQ-o8t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1350" y="841"/>
+            <point key="canvasLocation" x="1350" y="882"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pKu-3s-YAS">
@@ -1342,12 +1342,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dT-1B-TI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="870"/>
+            <point key="canvasLocation" x="2201" y="911"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup Name View Controller-->
         <scene sceneID="s5R-mL-7ei">
             <objects>
-                <viewController id="aD9-dt-iZn" sceneMemberID="viewController">
+                <viewController id="aD9-dt-iZn" customClass="SignupNameViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pu0-zQ-Igr"/>
                         <viewControllerLayoutGuide type="bottom" id="3zG-YC-IUn"/>
@@ -1356,20 +1356,235 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfg-Lq-nfM">
-                                <rect key="frame" x="160" y="323" width="54" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="inc-e3-kaQ" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="198" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="6gR-1s-Pad"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="Ig2-Mi-Q6m"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="given-name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxc-Ve-k8W" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="255" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="56c-wC-NhN"/>
+                                    <constraint firstAttribute="height" constant="46" id="Vgz-wr-iAr"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="family-name"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EH-Hq-FSq">
+                                <rect key="frame" x="20" y="330" width="335" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="J2j-uL-Eri"/>
+                                    <constraint firstAttribute="height" constant="6" id="fBa-NE-e5g"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUc-Ep-xp8" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="283" y="320" width="72" height="38"/>
+                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="Jpd-gN-6Qh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bIl-3Q-rWO" kind="show" id="FGN-7J-Lhz"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gxc-Ve-k8W" firstAttribute="leading" secondItem="6az-42-8tb" secondAttribute="leading" priority="750" constant="20" id="8oe-GF-GgU"/>
+                            <constraint firstItem="gxc-Ve-k8W" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="EfF-aL-FJl"/>
+                            <constraint firstItem="3EH-Hq-FSq" firstAttribute="centerY" secondItem="6az-42-8tb" secondAttribute="centerY" id="IvY-pI-2BX"/>
+                            <constraint firstItem="3EH-Hq-FSq" firstAttribute="top" secondItem="gxc-Ve-k8W" secondAttribute="bottom" constant="29" id="NoA-AZ-kMd"/>
+                            <constraint firstItem="inc-e3-kaQ" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="Ue7-FZ-DzA"/>
+                            <constraint firstAttribute="trailing" secondItem="gxc-Ve-k8W" secondAttribute="trailing" priority="750" constant="20" id="UkD-Ib-GJs"/>
+                            <constraint firstItem="OUc-Ep-xp8" firstAttribute="leading" secondItem="gxc-Ve-k8W" secondAttribute="trailing" constant="-72" id="bGS-Cf-C1n"/>
+                            <constraint firstItem="inc-e3-kaQ" firstAttribute="leading" secondItem="6az-42-8tb" secondAttribute="leading" priority="750" constant="20" id="eh9-er-ssd"/>
+                            <constraint firstAttribute="trailing" secondItem="inc-e3-kaQ" secondAttribute="trailing" priority="750" constant="20" id="lUn-BH-SEB"/>
+                            <constraint firstItem="3EH-Hq-FSq" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="pIb-sN-INh"/>
+                            <constraint firstItem="OUc-Ep-xp8" firstAttribute="top" secondItem="gxc-Ve-k8W" secondAttribute="bottom" constant="19" id="uGH-9T-6eE"/>
+                            <constraint firstItem="gxc-Ve-k8W" firstAttribute="top" secondItem="inc-e3-kaQ" secondAttribute="bottom" constant="11" id="uzG-B3-yl8"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GWy-64-6AW">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="bQe-bl-FcB">
+                            <connections>
+                                <action selector="cancelButtonClick:" destination="aD9-dt-iZn" id="bwl-yd-bEJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="bQe-bl-FcB" id="NoO-Q2-uUi"/>
+                        <outlet property="firstNameTextField" destination="inc-e3-kaQ" id="Mhx-9Z-R7z"/>
+                        <outlet property="lastNameTextField" destination="gxc-Ve-k8W" id="TRb-cF-yqa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C03-kl-5UE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1180" y="937"/>
+            <point key="canvasLocation" x="-1777" y="911"/>
+        </scene>
+        <!--Signup Email Phone View Controller-->
+        <scene sceneID="eay-Hc-WXh">
+            <objects>
+                <viewController id="bIl-3Q-rWO" customClass="SignupEmailPhoneViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yt3-hb-8hm"/>
+                        <viewControllerLayoutGuide type="bottom" id="8bm-NZ-cC7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pk8-HR-cwp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dhz-pU-K76" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="199" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="9vT-kj-gSV"/>
+                                    <constraint firstAttribute="height" constant="46" id="wZt-Mv-kCF"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bas-ej-Uqb" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="256" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="EGp-Kh-MzD"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="xPq-Gg-f6f"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" textContentType="tel"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C15-Zt-cdA" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="283" y="320.5" width="72" height="38"/>
+                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="ZRl-XI-Psz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Xh4-3Z-MVv" kind="show" id="eSI-JV-Uc9"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eh-cc-b66">
+                                <rect key="frame" x="20" y="330.5" width="335" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="d97-Pb-zz7"/>
+                                    <constraint firstAttribute="height" constant="6" id="geS-Fg-hEO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dhz-pU-K76" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="D2K-uN-kjQ"/>
+                            <constraint firstItem="dhz-pU-K76" firstAttribute="leading" secondItem="pk8-HR-cwp" secondAttribute="leading" priority="750" constant="20" id="DH1-xe-3Rb"/>
+                            <constraint firstItem="3Eh-cc-b66" firstAttribute="top" secondItem="bas-ej-Uqb" secondAttribute="bottom" constant="29" id="XkJ-sP-OwU"/>
+                            <constraint firstItem="C15-Zt-cdA" firstAttribute="leading" secondItem="bas-ej-Uqb" secondAttribute="trailing" constant="-72" id="XtZ-Jm-lFB"/>
+                            <constraint firstItem="bas-ej-Uqb" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="YAp-Pp-mVo"/>
+                            <constraint firstAttribute="trailing" secondItem="dhz-pU-K76" secondAttribute="trailing" priority="750" constant="20" id="YCs-L4-Orq"/>
+                            <constraint firstItem="bas-ej-Uqb" firstAttribute="leading" secondItem="pk8-HR-cwp" secondAttribute="leading" priority="750" constant="20" id="aPE-OY-USB"/>
+                            <constraint firstItem="bas-ej-Uqb" firstAttribute="top" secondItem="dhz-pU-K76" secondAttribute="bottom" constant="11" id="bNt-1m-kJr"/>
+                            <constraint firstItem="3Eh-cc-b66" firstAttribute="centerY" secondItem="pk8-HR-cwp" secondAttribute="centerY" id="cKS-YS-Oea"/>
+                            <constraint firstAttribute="trailing" secondItem="bas-ej-Uqb" secondAttribute="trailing" priority="750" constant="20" id="fVz-gJ-aJW"/>
+                            <constraint firstItem="3Eh-cc-b66" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="iAG-35-gEN"/>
+                            <constraint firstItem="C15-Zt-cdA" firstAttribute="top" secondItem="bas-ej-Uqb" secondAttribute="bottom" constant="19" id="ks4-2g-DMf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="dhz-pU-K76" id="aO8-qL-Qcz"/>
+                        <outlet property="phoneTextField" destination="bas-ej-Uqb" id="TAe-vf-YQJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVB-qz-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1022" y="911"/>
+        </scene>
+        <!--Signup Password View Controller-->
+        <scene sceneID="bEA-Lo-aRY">
+            <objects>
+                <viewController id="Xh4-3Z-MVv" customClass="SignupPasswordViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gje-Zk-8v6"/>
+                        <viewControllerLayoutGuide type="bottom" id="EzB-H1-0kc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UdM-AP-EXi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uda-qr-71c" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="199" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="BGO-Z1-NYg"/>
+                                    <constraint firstAttribute="height" constant="46" id="lHO-p0-Dmi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-fX-gWW" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="256" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="9w5-FG-LQz"/>
+                                    <constraint firstAttribute="height" constant="46" id="nqH-sa-2I4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lu-VU-ahd" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="268" y="321" width="87" height="38"/>
+                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="Hh7-vt-rnY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoY-6J-RpX">
+                                <rect key="frame" x="20" y="330.5" width="335" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="P11-4C-R1G"/>
+                                    <constraint firstAttribute="height" constant="6" id="clF-Ta-PAP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7lu-VU-ahd" firstAttribute="leading" secondItem="Wun-fX-gWW" secondAttribute="trailing" constant="-87" id="0iS-QV-wPF"/>
+                            <constraint firstItem="Uda-qr-71c" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="2gl-Pu-fyJ"/>
+                            <constraint firstItem="Wun-fX-gWW" firstAttribute="leading" secondItem="UdM-AP-EXi" secondAttribute="leading" priority="750" constant="20" id="B4W-wA-kSm"/>
+                            <constraint firstItem="Wun-fX-gWW" firstAttribute="top" secondItem="Uda-qr-71c" secondAttribute="bottom" constant="11" id="J80-fB-5kC"/>
+                            <constraint firstItem="JoY-6J-RpX" firstAttribute="centerY" secondItem="UdM-AP-EXi" secondAttribute="centerY" id="JV5-e5-iU7"/>
+                            <constraint firstAttribute="trailing" secondItem="Wun-fX-gWW" secondAttribute="trailing" priority="750" constant="20" id="Vz1-nl-u3I"/>
+                            <constraint firstItem="JoY-6J-RpX" firstAttribute="top" secondItem="Wun-fX-gWW" secondAttribute="bottom" constant="29" id="bxt-Zw-Oyk"/>
+                            <constraint firstItem="JoY-6J-RpX" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="drl-33-ma1"/>
+                            <constraint firstItem="Wun-fX-gWW" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="f33-NG-pwB"/>
+                            <constraint firstAttribute="trailing" secondItem="Uda-qr-71c" secondAttribute="trailing" priority="750" constant="20" id="qis-CA-bg8"/>
+                            <constraint firstItem="Uda-qr-71c" firstAttribute="leading" secondItem="UdM-AP-EXi" secondAttribute="leading" priority="750" constant="20" id="u3j-WV-ibj"/>
+                            <constraint firstItem="7lu-VU-ahd" firstAttribute="top" secondItem="Wun-fX-gWW" secondAttribute="bottom" constant="19" id="y52-v6-eRo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="Wun-fX-gWW" id="gbe-DS-MsX"/>
+                        <outlet property="passwordTextField" destination="Uda-qr-71c" id="qDc-id-3uX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCJ-gA-c6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="911"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xNz-UO-wPT">
@@ -1423,7 +1638,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d43-n4-oQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2200" y="1548.1259370314845"/>
+            <point key="canvasLocation" x="2199" y="1589"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qre-sC-Fay">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UO8-H8-KFQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t18-dK-o0U">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aD9-dt-iZn" kind="relationship" relationship="rootViewController" id="3g4-5w-d1z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKk-SY-y9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2542" y="911"/>
         </scene>
     </scenes>
     <resources>

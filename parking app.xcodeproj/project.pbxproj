@@ -22,6 +22,9 @@
 		8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */; };
 		8E3F47CD208EB269003451C1 /* LightStatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */; };
 		8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */; };
+		8E3F47D2208EEC87003451C1 /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */; };
+		8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */; };
+		8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */; };
 		8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */; };
 		8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */; };
 		8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */; };
@@ -61,6 +64,9 @@
 		8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTranslucentViewController.swift; sourceTree = "<group>"; };
 		8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarViewController.swift; sourceTree = "<group>"; };
 		8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTranslucentViewController.swift; sourceTree = "<group>"; };
+		8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
+		8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailPhoneViewController.swift; sourceTree = "<group>"; };
+		8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPasswordViewController.swift; sourceTree = "<group>"; };
 		8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveLeaveViewController.swift; sourceTree = "<group>"; };
 		8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 		8E0CA4582084531500C9F470 /* StylizedUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */,
+				8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */,
+				8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */,
 				8EEC463020844D3400ED527F /* HollowTextField.swift */,
 				8E0CA4592084534500C9F470 /* HollowButton.swift */,
 				8E0CA45B208453BC00C9F470 /* SolidButton.swift */,
@@ -146,9 +155,6 @@
 		8EC8F787207ACEE00038790E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */,
-				8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */,
-				8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */,
 				8E136C361F67C037000BBBDB /* MapViewController.swift */,
 				8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */,
 				8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */,
@@ -161,6 +167,9 @@
 				8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */,
 				8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */,
 				8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */,
+				8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */,
+				8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */,
+				8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -352,11 +361,13 @@
 				8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */,
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E0CA4622084962400C9F470 /* ShadowLabel.swift in Sources */,
+				8E3F47D2208EEC87003451C1 /* SignupNameViewController.swift in Sources */,
 				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,
 				8E8E371E208C4D13003FBA50 /* ReservationConfirmationViewController.swift in Sources */,
 				8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */,
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
 				8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */,
+				8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */,
 				8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,
 				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
@@ -368,6 +379,7 @@
 				8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */,
 				8E7B5DF620883D7D000926C1 /* VehicleDetailTableViewController.swift in Sources */,
 				8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */,
+				8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

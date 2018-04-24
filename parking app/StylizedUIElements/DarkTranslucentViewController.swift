@@ -23,6 +23,11 @@ class DarkTranslucentViewController: LightStatusBarViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.frame
         view.insertSubview(blurEffectView, at: 0)
+
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: UIColor.white]
+
     }
     
 }
