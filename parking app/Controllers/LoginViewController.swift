@@ -31,10 +31,13 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonClick(_ sender: UIButton) {
         User.login(username: emailField.text!, password: passwordField.text!) { error in
             if error != nil {
-                // TODO: check error type and show appropriate message
-                self.presentSingleButtonAlert(
-                    title: "Invalid Login Credentials",
-                    message: "That username/password combination does not exist.")
+                if let _ = error as? ValidationError {
+                    self.presentSingleButtonAlert(
+                        title: "Invalid Login Credentials",
+                        message: "That username/password combination does not exist.")
+                } else {
+                    self.presentServerErrorAlert()
+                }
             } else {
                 self.performSegue(
                     withIdentifier: "unwindToMapViewController",

@@ -143,7 +143,12 @@ class User {
                     completion(nil, tokenJSON["token"].string)
 
                 case .failure(let error):
-                    completion(error, nil)
+                    if let validationError = ValidationError.getFrom(
+                        error: error, with: response.data) {
+                        completion(validationError, nil)
+                    } else {
+                        completion(error, nil)
+                    }
                 }
         }
     }
