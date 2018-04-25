@@ -40,9 +40,17 @@ class SignupPasswordViewController: UIViewController {
                         phone: phone,
                         password: password) { error, user in
 
-                            if error == nil {
+                            if error != nil {
+                                if let error = error as? ValidationError {
+                                    self.presentValidationErrorAlert(from: error)
+                                } else {
+                                    self.presentServerErrorAlert()
+                                }
+                            } else {
                                 User.login(username: email, password: password) { error in
-                                    if error == nil {
+                                    if error != nil {
+                                        self.presentServerErrorAlert()
+                                    } else {
                                         self.presentSingleButtonAlert(
                                             title: "Success",
                                             message: "Successfully created user.") { action in
@@ -50,26 +58,14 @@ class SignupPasswordViewController: UIViewController {
                                                     withIdentifier: "unwindToMapViewController",
                                                     sender: self)
                                         }
-                                    } else {
-                                        // somehow failed to login?
                                     }
-                                }
-                            } else {
-                                if let error = error as? ValidationError {
-                                    var message = ""
-                                    for (_, value) in error.fields {
-                                        // TODO: only capitalize first word.
-                                        message += "\(value)\n".capitalized
-                                    }
-                                    self.presentSingleButtonAlert(
-                                        title: "Invalid Fields",
-                                        message: message.trimmingCharacters(in: .newlines))
                                 }
                             }
                     }
 
                 } else {
                     // somehow one or more of the user properties is nil?
+                    // this would never happen.
                 }
             } else {
                 presentSingleButtonAlert(

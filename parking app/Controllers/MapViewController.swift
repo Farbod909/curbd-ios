@@ -229,7 +229,7 @@ class MapViewController: UIViewController {
                     }
                     self.redoSearchButton.fadeOut(0.1)
                 } else {
-                    // http request failed
+                    // http request failed. Let it fail silently. shhhh...
                 }
         }
     }
@@ -245,7 +245,8 @@ extension MapViewController: CLLocationManagerDelegate {
      */
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
-        mapView.centerSlightlyBelow(location: locations.last!) // TODO: test when user does not give location
+        mapView.centerSlightlyBelow(location: locations.last!)
+        // TODO: test when user does not give location
         performSearchInCurrentlyVisibleArea()
     }
 

@@ -52,27 +52,10 @@ class User {
                     completion(nil, user)
 
                 case .failure(let error):
-                    if let error = error as? Alamofire.AFError {
-                        if error.isResponseValidationError {
-
-                            if let data = response.data {
-                                let responseJSON = JSON(data: data)
-                                var validationError = ValidationError(fields: [:])
-                                for (field, messageList):(String, JSON) in responseJSON {
-                                    validationError.fields[field] = String(
-                                        describing: messageList.arrayValue[0])
-                                }
-                                completion(validationError, nil)
-                            } else {
-                                // this should never happen
-                                completion(error, nil)
-                            }
-
-                        } else {
-                            completion(error, nil)
-                        }
+                    if let validationError = ValidationError.getFrom(
+                        error: error, with: response.data) {
+                        completion(validationError, nil)
                     } else {
-                        // this should never happen
                         completion(error, nil)
                     }
                 }

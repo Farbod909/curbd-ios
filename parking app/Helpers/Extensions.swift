@@ -35,14 +35,36 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func presentValidationErrorAlert(from error: ValidationError,
+                                     completion: ((UIAlertAction) -> Void)? = nil) {
+        var message = ""
+        for (_, value) in error.fields {
+            message += "\(value)\n".firstLetterCapitalized()
+        }
+        self.presentSingleButtonAlert(
+            title: "Invalid Fields",
+            message: message.trim())
+
+    }
+
+    func presentServerErrorAlert(completion: ((UIAlertAction) -> Void)? = nil) {
+        presentSingleButtonAlert(
+            title: "Server Error",
+            message: "Oops, something went wrong. Try again later!",
+            completion: completion)
+    }
+
 }
 
 extension String {
 
     func trim() -> String {
-        return self.trimmingCharacters(in: .whitespaces)
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    func firstLetterCapitalized() -> String {
+        return prefix(1).uppercased() + dropFirst()
+    }
 }
 
 extension Date {
