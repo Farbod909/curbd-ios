@@ -52,8 +52,7 @@ class User {
                     completion(nil, user)
 
                 case .failure(let error):
-                    if let validationError = ValidationError.getFrom(
-                        error: error, with: response.data) {
+                    if let validationError = ValidationError(from: error, with: response.data) {
                         completion(validationError, nil)
                     } else {
                         completion(error, nil)
@@ -143,8 +142,7 @@ class User {
                     completion(nil, tokenJSON["token"].string)
 
                 case .failure(let error):
-                    if let validationError = ValidationError.getFrom(
-                        error: error, with: response.data) {
+                    if let validationError = ValidationError(from: error, with: response.data) {
                         completion(validationError, nil)
                     } else {
                         completion(error, nil)
