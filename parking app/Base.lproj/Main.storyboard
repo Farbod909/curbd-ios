@@ -633,16 +633,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UGU-Gb-sPW">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UGU-Gb-sPW" id="bMu-Qp-4jr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="y4B-df-S7p" id="0fS-OE-hL2"/>
                             <outlet property="delegate" destination="y4B-df-S7p" id="yIk-z7-aTK"/>
@@ -1245,7 +1235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8x-cJ-Ynu">
-                                <rect key="frame" x="265.5" y="515" width="43" height="36"/>
+                                <rect key="frame" x="259.5" y="515" width="43" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -1253,7 +1243,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtW-cx-mmA">
-                                <rect key="frame" x="67.5" y="515" width="61" height="36"/>
+                                <rect key="frame" x="72.5" y="515" width="61" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -1296,9 +1286,10 @@
                             <constraint firstItem="bmx-PS-HKA" firstAttribute="top" secondItem="SfM-eN-rVa" secondAttribute="bottom" constant="3" id="6BY-XS-H1l"/>
                             <constraint firstItem="kQk-fQ-TLS" firstAttribute="top" secondItem="bmx-PS-HKA" secondAttribute="bottom" constant="14" id="CVh-8J-Fxo"/>
                             <constraint firstItem="SfM-eN-rVa" firstAttribute="centerX" secondItem="dPY-2v-xHN" secondAttribute="centerX" id="CZm-y8-A5f"/>
-                            <constraint firstItem="L8x-cJ-Ynu" firstAttribute="leading" secondItem="B2Q-Vs-QRL" secondAttribute="trailing" constant="-82" id="Chn-N4-FSY"/>
+                            <constraint firstItem="B2Q-Vs-QRL" firstAttribute="trailing" secondItem="L8x-cJ-Ynu" secondAttribute="trailing" constant="45" id="Chn-N4-FSY"/>
                             <constraint firstItem="L8x-cJ-Ynu" firstAttribute="top" secondItem="B2Q-Vs-QRL" secondAttribute="bottom" constant="12" id="Jg8-Jr-mzS"/>
-                            <constraint firstItem="B2Q-Vs-QRL" firstAttribute="leading" secondItem="GtW-cx-mmA" secondAttribute="trailing" constant="-101" id="MB4-RB-V8u"/>
+                            <constraint firstItem="GtW-cx-mmA" firstAttribute="leading" secondItem="B2Q-Vs-QRL" secondAttribute="leading" constant="45" id="MB4-RB-V8u"/>
+                            <constraint firstItem="L8x-cJ-Ynu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GtW-cx-mmA" secondAttribute="trailing" constant="10" id="Rbh-Uw-bnf"/>
                             <constraint firstItem="kQk-fQ-TLS" firstAttribute="centerY" secondItem="dPY-2v-xHN" secondAttribute="centerY" id="cRV-VM-shF"/>
                             <constraint firstItem="GtW-cx-mmA" firstAttribute="top" secondItem="B2Q-Vs-QRL" secondAttribute="bottom" constant="12" id="e3N-BQ-7Nm"/>
                             <constraint firstItem="kQk-fQ-TLS" firstAttribute="centerX" secondItem="dPY-2v-xHN" secondAttribute="centerX" id="eiI-Nf-VkJ"/>
@@ -1316,33 +1307,6 @@
                 <exit id="I4e-fQ-o8t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1350" y="882"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="pKu-3s-YAS">
-            <objects>
-                <viewController id="QWI-Bz-vEg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nSF-l6-Pge"/>
-                        <viewControllerLayoutGuide type="bottom" id="RRH-nb-QnQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xiO-T9-h8Y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-yo-T3Q">
-                                <rect key="frame" x="154" y="323" width="67" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0dT-1B-TI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2201" y="911"/>
         </scene>
         <!--Signup Name View Controller-->
         <scene sceneID="s5R-mL-7ei">
@@ -1384,12 +1348,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUc-Ep-xp8" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="283" y="320" width="72" height="38"/>
+                                <rect key="frame" x="292" y="320" width="63" height="38"/>
                                 <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="Jpd-gN-6Qh"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1406,9 +1368,9 @@
                             <constraint firstItem="3EH-Hq-FSq" firstAttribute="top" secondItem="gxc-Ve-k8W" secondAttribute="bottom" constant="29" id="NoA-AZ-kMd"/>
                             <constraint firstItem="inc-e3-kaQ" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="Ue7-FZ-DzA"/>
                             <constraint firstAttribute="trailing" secondItem="gxc-Ve-k8W" secondAttribute="trailing" priority="750" constant="20" id="UkD-Ib-GJs"/>
-                            <constraint firstItem="OUc-Ep-xp8" firstAttribute="leading" secondItem="gxc-Ve-k8W" secondAttribute="trailing" constant="-72" id="bGS-Cf-C1n"/>
                             <constraint firstItem="inc-e3-kaQ" firstAttribute="leading" secondItem="6az-42-8tb" secondAttribute="leading" priority="750" constant="20" id="eh9-er-ssd"/>
                             <constraint firstAttribute="trailing" secondItem="inc-e3-kaQ" secondAttribute="trailing" priority="750" constant="20" id="lUn-BH-SEB"/>
+                            <constraint firstItem="OUc-Ep-xp8" firstAttribute="trailing" secondItem="gxc-Ve-k8W" secondAttribute="trailing" id="lr9-xf-Xha"/>
                             <constraint firstItem="3EH-Hq-FSq" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="pIb-sN-INh"/>
                             <constraint firstItem="OUc-Ep-xp8" firstAttribute="top" secondItem="gxc-Ve-k8W" secondAttribute="bottom" constant="19" id="uGH-9T-6eE"/>
                             <constraint firstItem="gxc-Ve-k8W" firstAttribute="top" secondItem="inc-e3-kaQ" secondAttribute="bottom" constant="11" id="uzG-B3-yl8"/>
@@ -1463,20 +1425,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C15-Zt-cdA" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="283" y="320.5" width="72" height="38"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="ZRl-XI-Psz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonClick:" destination="bIl-3Q-rWO" eventType="touchUpInside" id="epi-eA-llo"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eh-cc-b66">
                                 <rect key="frame" x="20" y="330.5" width="335" height="6"/>
                                 <constraints>
@@ -1484,13 +1432,25 @@
                                     <constraint firstAttribute="height" constant="6" id="geS-Fg-hEO"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C15-Zt-cdA" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="292" y="321" width="63" height="38"/>
+                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonClick:" destination="bIl-3Q-rWO" eventType="touchUpInside" id="epi-eA-llo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dhz-pU-K76" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="D2K-uN-kjQ"/>
                             <constraint firstItem="dhz-pU-K76" firstAttribute="leading" secondItem="pk8-HR-cwp" secondAttribute="leading" priority="750" constant="20" id="DH1-xe-3Rb"/>
+                            <constraint firstItem="C15-Zt-cdA" firstAttribute="trailing" secondItem="bas-ej-Uqb" secondAttribute="trailing" id="SK0-C5-Ncn"/>
                             <constraint firstItem="3Eh-cc-b66" firstAttribute="top" secondItem="bas-ej-Uqb" secondAttribute="bottom" constant="29" id="XkJ-sP-OwU"/>
-                            <constraint firstItem="C15-Zt-cdA" firstAttribute="leading" secondItem="bas-ej-Uqb" secondAttribute="trailing" constant="-72" id="XtZ-Jm-lFB"/>
                             <constraint firstItem="bas-ej-Uqb" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="YAp-Pp-mVo"/>
                             <constraint firstAttribute="trailing" secondItem="dhz-pU-K76" secondAttribute="trailing" priority="750" constant="20" id="YCs-L4-Orq"/>
                             <constraint firstItem="bas-ej-Uqb" firstAttribute="leading" secondItem="pk8-HR-cwp" secondAttribute="leading" priority="750" constant="20" id="aPE-OY-USB"/>
@@ -1542,20 +1502,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lu-VU-ahd" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="268" y="321" width="87" height="38"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="Hh7-vt-rnY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitButtonClick:" destination="Xh4-3Z-MVv" eventType="touchUpInside" id="qA6-zS-fwu"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoY-6J-RpX">
                                 <rect key="frame" x="20" y="330.5" width="335" height="6"/>
                                 <constraints>
@@ -1563,20 +1509,33 @@
                                     <constraint firstAttribute="height" constant="6" id="clF-Ta-PAP"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lu-VU-ahd" customClass="EdgeInsetButton" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="270" y="321" width="85" height="38"/>
+                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonClick:" destination="Xh4-3Z-MVv" eventType="touchUpInside" id="qA6-zS-fwu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7lu-VU-ahd" firstAttribute="leading" secondItem="Wun-fX-gWW" secondAttribute="trailing" constant="-87" id="0iS-QV-wPF"/>
                             <constraint firstItem="Uda-qr-71c" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="2gl-Pu-fyJ"/>
                             <constraint firstItem="Wun-fX-gWW" firstAttribute="leading" secondItem="UdM-AP-EXi" secondAttribute="leading" priority="750" constant="20" id="B4W-wA-kSm"/>
                             <constraint firstItem="Wun-fX-gWW" firstAttribute="top" secondItem="Uda-qr-71c" secondAttribute="bottom" constant="11" id="J80-fB-5kC"/>
                             <constraint firstItem="JoY-6J-RpX" firstAttribute="centerY" secondItem="UdM-AP-EXi" secondAttribute="centerY" id="JV5-e5-iU7"/>
+                            <constraint firstItem="7lu-VU-ahd" firstAttribute="trailing" secondItem="Wun-fX-gWW" secondAttribute="trailing" id="Nf6-aj-NwD"/>
                             <constraint firstAttribute="trailing" secondItem="Wun-fX-gWW" secondAttribute="trailing" priority="750" constant="20" id="Vz1-nl-u3I"/>
                             <constraint firstItem="JoY-6J-RpX" firstAttribute="top" secondItem="Wun-fX-gWW" secondAttribute="bottom" constant="29" id="bxt-Zw-Oyk"/>
                             <constraint firstItem="JoY-6J-RpX" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="drl-33-ma1"/>
                             <constraint firstItem="Wun-fX-gWW" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="f33-NG-pwB"/>
                             <constraint firstAttribute="trailing" secondItem="Uda-qr-71c" secondAttribute="trailing" priority="750" constant="20" id="qis-CA-bg8"/>
                             <constraint firstItem="Uda-qr-71c" firstAttribute="leading" secondItem="UdM-AP-EXi" secondAttribute="leading" priority="750" constant="20" id="u3j-WV-ibj"/>
+                            <constraint firstItem="7lu-VU-ahd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UdM-AP-EXi" secondAttribute="leading" priority="750" constant="10" id="xSq-fz-Jiu"/>
                             <constraint firstItem="7lu-VU-ahd" firstAttribute="top" secondItem="Wun-fX-gWW" secondAttribute="bottom" constant="19" id="y52-v6-eRo"/>
                         </constraints>
                     </view>
@@ -1589,7 +1548,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCJ-gA-c6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nDm-CR-SPC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="911"/>
+            <point key="canvasLocation" x="-268" y="909.89505247376314"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xNz-UO-wPT">
