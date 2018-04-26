@@ -16,8 +16,13 @@ class SignupEmailPhoneViewController: UIViewController {
     var firstName: String?
     var lastName: String?
 
+    func initializeAppearanceSettings() {
+        view.backgroundColor = UIColor(hex: "222222")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeAppearanceSettings()
 
         emailTextField.becomeFirstResponder()
     }

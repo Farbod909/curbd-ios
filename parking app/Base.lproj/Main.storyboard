@@ -475,8 +475,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-em-0ZG">
-                                <rect key="frame" x="24" y="32" width="64" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <rect key="frame" x="20" y="32" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -491,7 +491,7 @@
                             <constraint firstItem="sde-em-0ZG" firstAttribute="top" secondItem="EJs-Ab-EhD" secondAttribute="bottom" constant="12" id="60x-20-voW"/>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="centerY" secondItem="Xqd-kv-swG" secondAttribute="centerY" id="Gce-8z-KjE"/>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="top" secondItem="taX-mR-Qz6" secondAttribute="bottom" priority="750" constant="8" id="KTb-KJ-FcJ"/>
-                            <constraint firstItem="sde-em-0ZG" firstAttribute="leading" secondItem="Xqd-kv-swG" secondAttribute="leading" constant="24" id="Lks-Su-XOi"/>
+                            <constraint firstItem="sde-em-0ZG" firstAttribute="leading" secondItem="Xqd-kv-swG" secondAttribute="leading" constant="20" id="Lks-Su-XOi"/>
                             <constraint firstAttribute="trailing" secondItem="OXA-Cd-ejt" secondAttribute="trailing" priority="750" constant="32" id="SO6-4j-3ao"/>
                             <constraint firstItem="OXA-Cd-ejt" firstAttribute="centerX" secondItem="Xqd-kv-swG" secondAttribute="centerX" id="Y65-XT-7Nr"/>
                             <constraint firstItem="OXA-Cd-ejt" firstAttribute="top" secondItem="MBl-70-t4x" secondAttribute="bottom" constant="8" id="ZMC-kd-Vkx"/>
@@ -879,7 +879,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-C0-NDn" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="32.5" y="170.5" width="310" height="46"/>
@@ -889,17 +889,17 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7M-G0-71W">
-                                <rect key="frame" x="24" y="32" width="64" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="&lt; Back">
+                                <rect key="frame" x="20" y="32" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="xd9-cV-E7N"/>
                                     <action selector="cancelButtonClick:" destination="LZF-Ti-mZL" eventType="touchUpInside" id="kbW-QA-9uh"/>
+                                    <action selector="cancelButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="xd9-cV-E7N"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -914,7 +914,7 @@
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="K4P-h6-5x0"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="top" secondItem="mxv-C0-NDn" secondAttribute="bottom" constant="8" id="QYB-Yu-7gs"/>
                             <constraint firstAttribute="trailing" secondItem="ts5-y1-QeT" secondAttribute="trailing" priority="750" constant="32" id="RIu-hV-Fkg"/>
-                            <constraint firstItem="s7M-G0-71W" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" constant="24" id="ceF-9S-RoP"/>
+                            <constraint firstItem="s7M-G0-71W" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" constant="20" id="ceF-9S-RoP"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="d0Z-4r-Ni8"/>
                             <constraint firstItem="s7M-G0-71W" firstAttribute="top" secondItem="drG-qZ-Bo4" secondAttribute="bottom" constant="12" id="d5L-JK-5rc"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="dph-th-gJI"/>
@@ -1345,26 +1345,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="inc-e3-kaQ" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="20" y="198" width="335" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="6gR-1s-Pad"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="Ig2-Mi-Q6m"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="given-name"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxc-Ve-k8W" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="20" y="255" width="335" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="56c-wC-NhN"/>
-                                    <constraint firstAttribute="height" constant="46" id="Vgz-wr-iAr"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="family-name"/>
-                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EH-Hq-FSq">
                                 <rect key="frame" x="20" y="330" width="335" height="6"/>
                                 <constraints>
@@ -1372,8 +1352,28 @@
                                     <constraint firstAttribute="height" constant="6" id="fBa-NE-e5g"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="inc-e3-kaQ" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="162" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="6gR-1s-Pad"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="Ig2-Mi-Q6m"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" textContentType="given-name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gxc-Ve-k8W" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="219" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="56c-wC-NhN"/>
+                                    <constraint firstAttribute="height" constant="46" id="Vgz-wr-iAr"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" textContentType="family-name"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUc-Ep-xp8" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="292" y="320" width="63" height="38"/>
+                                <rect key="frame" x="292" y="284" width="63" height="38"/>
                                 <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
@@ -1390,7 +1390,7 @@
                             <constraint firstItem="gxc-Ve-k8W" firstAttribute="leading" secondItem="6az-42-8tb" secondAttribute="leading" priority="750" constant="20" id="8oe-GF-GgU"/>
                             <constraint firstItem="gxc-Ve-k8W" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="EfF-aL-FJl"/>
                             <constraint firstItem="3EH-Hq-FSq" firstAttribute="centerY" secondItem="6az-42-8tb" secondAttribute="centerY" id="IvY-pI-2BX"/>
-                            <constraint firstItem="3EH-Hq-FSq" firstAttribute="top" secondItem="gxc-Ve-k8W" secondAttribute="bottom" constant="29" id="NoA-AZ-kMd"/>
+                            <constraint firstItem="3EH-Hq-FSq" firstAttribute="top" secondItem="gxc-Ve-k8W" secondAttribute="bottom" constant="65" id="NoA-AZ-kMd"/>
                             <constraint firstItem="inc-e3-kaQ" firstAttribute="centerX" secondItem="6az-42-8tb" secondAttribute="centerX" id="Ue7-FZ-DzA"/>
                             <constraint firstAttribute="trailing" secondItem="gxc-Ve-k8W" secondAttribute="trailing" priority="750" constant="20" id="UkD-Ib-GJs"/>
                             <constraint firstItem="inc-e3-kaQ" firstAttribute="leading" secondItem="6az-42-8tb" secondAttribute="leading" priority="750" constant="20" id="eh9-er-ssd"/>
@@ -1430,26 +1430,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dhz-pU-K76" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="20" y="199" width="335" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="9vT-kj-gSV"/>
-                                    <constraint firstAttribute="height" constant="46" id="wZt-Mv-kCF"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bas-ej-Uqb" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="20" y="256" width="335" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="EGp-Kh-MzD"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="xPq-Gg-f6f"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" textContentType="tel"/>
-                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eh-cc-b66">
                                 <rect key="frame" x="20" y="330.5" width="335" height="6"/>
                                 <constraints>
@@ -1457,8 +1437,28 @@
                                     <constraint firstAttribute="height" constant="6" id="geS-Fg-hEO"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dhz-pU-K76" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="162" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="9vT-kj-gSV"/>
+                                    <constraint firstAttribute="height" constant="46" id="wZt-Mv-kCF"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bas-ej-Uqb" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="219" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="EGp-Kh-MzD"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="xPq-Gg-f6f"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" keyboardAppearance="alert" textContentType="tel"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C15-Zt-cdA" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="292" y="321" width="63" height="38"/>
+                                <rect key="frame" x="292" y="284" width="63" height="38"/>
                                 <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
@@ -1470,12 +1470,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dhz-pU-K76" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="D2K-uN-kjQ"/>
                             <constraint firstItem="dhz-pU-K76" firstAttribute="leading" secondItem="pk8-HR-cwp" secondAttribute="leading" priority="750" constant="20" id="DH1-xe-3Rb"/>
                             <constraint firstItem="C15-Zt-cdA" firstAttribute="trailing" secondItem="bas-ej-Uqb" secondAttribute="trailing" id="SK0-C5-Ncn"/>
-                            <constraint firstItem="3Eh-cc-b66" firstAttribute="top" secondItem="bas-ej-Uqb" secondAttribute="bottom" constant="29" id="XkJ-sP-OwU"/>
+                            <constraint firstItem="3Eh-cc-b66" firstAttribute="top" secondItem="bas-ej-Uqb" secondAttribute="bottom" constant="65.5" id="XkJ-sP-OwU"/>
                             <constraint firstItem="bas-ej-Uqb" firstAttribute="centerX" secondItem="pk8-HR-cwp" secondAttribute="centerX" id="YAp-Pp-mVo"/>
                             <constraint firstAttribute="trailing" secondItem="dhz-pU-K76" secondAttribute="trailing" priority="750" constant="20" id="YCs-L4-Orq"/>
                             <constraint firstItem="bas-ej-Uqb" firstAttribute="leading" secondItem="pk8-HR-cwp" secondAttribute="leading" priority="750" constant="20" id="aPE-OY-USB"/>
@@ -1507,26 +1507,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uda-qr-71c" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="20" y="199" width="335" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="BGO-Z1-NYg"/>
-                                    <constraint firstAttribute="height" constant="46" id="lHO-p0-Dmi"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-fX-gWW" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="20" y="256" width="335" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="9w5-FG-LQz"/>
-                                    <constraint firstAttribute="height" constant="46" id="nqH-sa-2I4"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
-                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoY-6J-RpX">
                                 <rect key="frame" x="20" y="330.5" width="335" height="6"/>
                                 <constraints>
@@ -1534,8 +1514,28 @@
                                     <constraint firstAttribute="height" constant="6" id="clF-Ta-PAP"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uda-qr-71c" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="162" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="BGO-Z1-NYg"/>
+                                    <constraint firstAttribute="height" constant="46" id="lHO-p0-Dmi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-fX-gWW" customClass="HollowTextField" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="20" y="219" width="335" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="336" id="9w5-FG-LQz"/>
+                                    <constraint firstAttribute="height" constant="46" id="nqH-sa-2I4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lu-VU-ahd" customClass="EdgeInsetButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="270" y="321" width="85" height="38"/>
+                                <rect key="frame" x="270" y="284" width="85" height="38"/>
                                 <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
@@ -1555,7 +1555,7 @@
                             <constraint firstItem="JoY-6J-RpX" firstAttribute="centerY" secondItem="UdM-AP-EXi" secondAttribute="centerY" id="JV5-e5-iU7"/>
                             <constraint firstItem="7lu-VU-ahd" firstAttribute="trailing" secondItem="Wun-fX-gWW" secondAttribute="trailing" id="Nf6-aj-NwD"/>
                             <constraint firstAttribute="trailing" secondItem="Wun-fX-gWW" secondAttribute="trailing" priority="750" constant="20" id="Vz1-nl-u3I"/>
-                            <constraint firstItem="JoY-6J-RpX" firstAttribute="top" secondItem="Wun-fX-gWW" secondAttribute="bottom" constant="29" id="bxt-Zw-Oyk"/>
+                            <constraint firstItem="JoY-6J-RpX" firstAttribute="top" secondItem="Wun-fX-gWW" secondAttribute="bottom" constant="65.5" id="bxt-Zw-Oyk"/>
                             <constraint firstItem="JoY-6J-RpX" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="drl-33-ma1"/>
                             <constraint firstItem="Wun-fX-gWW" firstAttribute="centerX" secondItem="UdM-AP-EXi" secondAttribute="centerX" id="f33-NG-pwB"/>
                             <constraint firstAttribute="trailing" secondItem="Uda-qr-71c" secondAttribute="trailing" priority="750" constant="20" id="qis-CA-bg8"/>

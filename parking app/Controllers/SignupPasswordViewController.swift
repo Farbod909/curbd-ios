@@ -19,8 +19,14 @@ class SignupPasswordViewController: UIViewController {
     var email: String?
     var phone: String?
 
+    func initializeAppearanceSettings() {
+        view.backgroundColor = UIColor(hex: "222222")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeAppearanceSettings()
+
         passwordTextField.becomeFirstResponder()
     }
     

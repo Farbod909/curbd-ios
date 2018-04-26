@@ -15,7 +15,9 @@ class SignupNameViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: HollowTextField!
 
     func initializeAppearanceSettings() {
-        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = UIColor(hex: "222222")
+        view.backgroundColor = UIColor(hex: "222222")
         navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = UIColor.white

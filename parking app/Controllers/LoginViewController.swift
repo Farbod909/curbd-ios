@@ -15,6 +15,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
+    override func viewDidLoad() {
+        emailField.becomeFirstResponder()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .lightContent
     }
@@ -24,7 +28,7 @@ class LoginViewController: UIViewController {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
-    @IBAction func backButtonClick(_ sender: UIButton) {
+    @IBAction func cancelButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
