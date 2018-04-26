@@ -14,6 +14,7 @@ class VehicleDetailTableViewController: UITableViewController {
     @IBOutlet weak var vehicleMakeCell: UITableViewCell!
     @IBOutlet weak var vehicleModelCell: UITableViewCell!
     @IBOutlet weak var vehicleColorCell: UITableViewCell!
+    @IBOutlet weak var vehicleSizeCell: UITableViewCell!
     @IBOutlet weak var vehicleLicensePlateCell: UITableViewCell!
 
     var vehicle: Vehicle?
@@ -23,6 +24,7 @@ class VehicleDetailTableViewController: UITableViewController {
             vehicleMakeCell.detailTextLabel?.text = vehicle.make.capitalized
             vehicleModelCell.detailTextLabel?.text = vehicle.model.capitalized
             vehicleColorCell.detailTextLabel?.text = vehicle.color.capitalized
+            vehicleSizeCell.detailTextLabel?.text = vehicle.sizeString.capitalized
             vehicleLicensePlateCell.detailTextLabel?.text = vehicle.licensePlate
         }
     }

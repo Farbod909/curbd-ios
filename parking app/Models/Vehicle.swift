@@ -11,12 +11,27 @@ import SwiftyJSON
 
 class Vehicle {
 
+    static let sizes = [
+        1: "Motorcycle",
+        2: "Compact",
+        3: "Mid-sized",
+        4: "Large",
+        5: "Oversized",
+    ]
+
     let id: Int
     let make: String
     let model: String
     let color: String
     let size: Int
     let licensePlate: String
+    var sizeString: String {
+        if let sizeString = Vehicle.sizes[size] {
+            return sizeString
+        } else {
+            return "N/A Size"
+        }
+    }
 
     init(json: JSON) {
         self.id = json["id"].intValue
