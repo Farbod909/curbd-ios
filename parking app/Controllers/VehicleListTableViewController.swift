@@ -12,6 +12,10 @@ import UIKit
 class VehicleListTableViewController: UITableViewController {
 
     var vehicles = [Vehicle]()
+    // flag used to keep track of whether this view controller was
+    // presented via clicking on "vehicles" in the user menu or if
+    // it was presented via clicking on the current vehicle button.
+    var presentedViaUserMenu = true
 
     func initializeSettings() {
         tableView.delegate = self
@@ -47,7 +51,11 @@ class VehicleListTableViewController: UITableViewController {
     }
 
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "unwindToMapViewController", sender: self)
+        if presentedViaUserMenu {
+            dismiss(animated: true)
+        } else {
+            performSegue(withIdentifier: "unwindToMapViewController", sender: self)
+        }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vehicles.count

@@ -118,6 +118,15 @@ class MapViewController: UIViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showVehicleListFromMap" {
+            if let vehicleListTableViewController =
+                segue.destination as? VehicleListTableViewController {
+                vehicleListTableViewController.presentedViaUserMenu = false
+            }
+        }
+    }
+
     /**
      Determines if user has a currently selected vehicle and is
      logged in, and based on that information appropriately hides
