@@ -7,5 +7,6 @@ target 'parking app' do
   pod 'Pulley'
   pod 'Alamofire', '~> 4.5'
   pod 'SwiftyJSON'
+  pod 'Eureka'
 
 end

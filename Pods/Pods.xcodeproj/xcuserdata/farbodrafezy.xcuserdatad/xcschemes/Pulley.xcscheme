@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC94219C146F8311E6B1F74F4467649B"
+               BlueprintIdentifier = "8B2C71BCCD563473E02AECA073099515"
                BuildableName = "Pulley.framework"
                BlueprintName = "Pulley"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DC94219C146F8311E6B1F74F4467649B"
+            BlueprintIdentifier = "8B2C71BCCD563473E02AECA073099515"
             BuildableName = "Pulley.framework"
             BlueprintName = "Pulley"
             ReferencedContainer = "container:Pods.xcodeproj">

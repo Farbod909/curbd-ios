@@ -624,7 +624,11 @@
                                 <action selector="cancelButtonClick:" destination="hpD-c7-Vww" id="cVO-kT-reZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EzL-qh-sVs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EzL-qh-sVs">
+                            <connections>
+                                <segue destination="RCe-OM-NPw" kind="show" id="CcF-hh-8bV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="2pq-L0-5Ww" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="WPG-qB-4fy"/>
@@ -846,6 +850,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpM-b2-Ray" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3714" y="-673"/>
+        </scene>
+        <!--Add Vehicle View Controller-->
+        <scene sceneID="7Bb-hZ-N7X">
+            <objects>
+                <viewController id="RCe-OM-NPw" customClass="AddVehicleViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XSe-Pu-2mn"/>
+                        <viewControllerLayoutGuide type="bottom" id="TmP-Et-i01"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZES-z2-QKT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MID-PS-0YM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2969" y="-1368"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="mJW-xV-RCq">
