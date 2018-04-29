@@ -21,6 +21,8 @@ class VehicleDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         if let vehicle = vehicle {
+            title = vehicle.make.capitalized + " " + vehicle.model.capitalized
+
             vehicleMakeCell.detailTextLabel?.text = vehicle.make.capitalized
             vehicleModelCell.detailTextLabel?.text = vehicle.model.capitalized
             vehicleColorCell.detailTextLabel?.text = vehicle.color.capitalized
