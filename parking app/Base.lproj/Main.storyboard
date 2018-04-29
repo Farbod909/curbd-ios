@@ -309,7 +309,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex">
                                 <rect key="frame" x="33" y="72" width="74.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.49019607840000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLq-hV-U2D" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
@@ -357,7 +357,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-Id-yAp" customClass="SolidButton" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="50" y="398.5" width="275" height="47"/>
+                                <rect key="frame" x="50" y="399.5" width="275" height="47"/>
                                 <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Oci-fG-bLm"/>
@@ -515,9 +515,9 @@
             <objects>
                 <tableViewController id="hpD-c7-Vww" customClass="VehicleListTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qcX-Zp-k4a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="vehicleCell" rowHeight="104" id="JXS-I9-0JL" customClass="VehicleTableViewCell" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="104"/>
@@ -526,6 +526,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="103.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-Ci-p08">
+                                            <rect key="frame" x="5" y="4" width="370" height="99.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Model" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbC-Sp-g1f">
                                             <rect key="frame" x="80" y="14" width="253" height="27"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
@@ -547,7 +551,6 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHZ-rV-1dM">
                                             <rect key="frame" x="15" y="103" width="360" height="1"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="gSh-LJ-pRd"/>
                                             </constraints>
@@ -574,6 +577,7 @@
                                     <constraints>
                                         <constraint firstItem="FwG-wj-TYy" firstAttribute="top" secondItem="WbC-Sp-g1f" secondAttribute="bottom" constant="5" id="12e-62-8od"/>
                                         <constraint firstItem="SHZ-rV-1dM" firstAttribute="leading" secondItem="h1T-Ph-Aad" secondAttribute="leading" constant="15" id="4dv-37-5rW"/>
+                                        <constraint firstAttribute="bottom" secondItem="ypC-Ci-p08" secondAttribute="bottom" id="6J6-e6-fsg"/>
                                         <constraint firstAttribute="bottom" secondItem="NEo-XV-Ypa" secondAttribute="bottom" constant="13.5" id="6XS-Pf-gtc"/>
                                         <constraint firstItem="WbC-Sp-g1f" firstAttribute="leading" secondItem="1aN-sx-06w" secondAttribute="trailing" constant="13" id="83o-5g-T4I"/>
                                         <constraint firstAttribute="trailing" secondItem="WbC-Sp-g1f" secondAttribute="trailing" constant="8" id="CdT-zb-QM1"/>
@@ -584,6 +588,8 @@
                                         <constraint firstItem="WbC-Sp-g1f" firstAttribute="top" secondItem="h1T-Ph-Aad" secondAttribute="top" constant="14" id="TYf-xQ-CkB"/>
                                         <constraint firstItem="1aN-sx-06w" firstAttribute="leading" secondItem="h1T-Ph-Aad" secondAttribute="leading" constant="16" id="Teu-md-Qla"/>
                                         <constraint firstAttribute="bottom" secondItem="qFE-vm-nn7" secondAttribute="bottom" constant="13.5" id="agn-1M-Aaf"/>
+                                        <constraint firstItem="ypC-Ci-p08" firstAttribute="leading" secondItem="h1T-Ph-Aad" secondAttribute="leading" constant="5" id="ddZ-er-x6F"/>
+                                        <constraint firstItem="ypC-Ci-p08" firstAttribute="top" secondItem="h1T-Ph-Aad" secondAttribute="top" constant="4" id="eFg-f2-qj4"/>
                                         <constraint firstItem="qFE-vm-nn7" firstAttribute="top" secondItem="NgC-35-tfv" secondAttribute="bottom" constant="2" id="nMD-ow-N3O"/>
                                         <constraint firstItem="NgC-35-tfv" firstAttribute="top" secondItem="WbC-Sp-g1f" secondAttribute="bottom" constant="5" id="ryG-Fo-DET"/>
                                         <constraint firstItem="NgC-35-tfv" firstAttribute="leading" secondItem="1aN-sx-06w" secondAttribute="trailing" constant="13" id="uxI-6x-tQh"/>
@@ -592,6 +598,10 @@
                                         <constraint firstItem="NEo-XV-Ypa" firstAttribute="top" secondItem="FwG-wj-TYy" secondAttribute="bottom" constant="2" id="wND-EO-Piy"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ypC-Ci-p08" secondAttribute="trailing" id="Szi-Wc-FWe"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="currentVehicleIndicatorLabel" destination="NEo-XV-Ypa" id="VI0-82-QWi"/>
                                     <outlet property="licencePlateLabel" destination="qFE-vm-nn7" id="IPA-Hq-MY4"/>
@@ -623,7 +633,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rce-qy-vQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="2pq-L0-5Ww" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2970" y="-673"/>
+            <point key="canvasLocation" x="2968.8000000000002" y="-673.76311844077964"/>
         </scene>
         <!--Reservations-->
         <scene sceneID="zA9-AY-IWo">
@@ -649,7 +659,7 @@
             <objects>
                 <tableViewController id="i98-rk-UvS" customClass="VehicleDetailTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="26N-Eg-roX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1536,7 +1546,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lu-VU-ahd" customClass="EdgeInsetButton" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="270" y="284" width="85" height="38"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.80784313725490198" green="0.49019607843137253" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="Submit">
@@ -1653,6 +1663,6 @@
         <image name="user" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tUf-Ts-zqf"/>
+        <segue reference="b2c-sg-o82"/>
     </inferredMetricsTieBreakers>
 </document>

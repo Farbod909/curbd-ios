@@ -28,6 +28,15 @@ class VehicleDetailTableViewController: UITableViewController {
             vehicleLicensePlateCell.detailTextLabel?.text = vehicle.licensePlate
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
