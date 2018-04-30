@@ -1,5 +1,5 @@
 //
-//  ArriveViewController.swift
+//  ArriveLeaveViewController.swift
 //  parking app
 //
 //  Created by Farbod Rafezy on 11/18/17.

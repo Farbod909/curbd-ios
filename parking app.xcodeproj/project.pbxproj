@@ -35,7 +35,7 @@
 		8E8E78CD2096F79600426E92 /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */; };
 		8E8E78D02097109200426E92 /* CarQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78CF2097109200426E92 /* CarQuery.swift */; };
 		8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */; };
-		8EC8F780207AA1DA0038790E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F77F207AA1DA0038790E /* Util.swift */; };
+		8EC8F780207AA1DA0038790E /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F77F207AA1DA0038790E /* Globals.swift */; };
 		8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F784207ACECD0038790E /* ParkingSpace.swift */; };
 		8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78820808E070038790E /* ParkingSpaceDrawerViewController.swift */; };
 		8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */; };
@@ -81,7 +81,7 @@
 		8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		8E8E78CF2097109200426E92 /* CarQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarQuery.swift; sourceTree = "<group>"; };
 		8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewController.swift; sourceTree = "<group>"; };
-		8EC8F77F207AA1DA0038790E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		8EC8F77F207AA1DA0038790E /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		8EC8F784207ACECD0038790E /* ParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpace.swift; sourceTree = "<group>"; };
 		8EC8F78820808E070038790E /* ParkingSpaceDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceDrawerViewController.swift; sourceTree = "<group>"; };
 		8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceWithAnnotation.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				8E136C3E1F6886C1000BBBDB /* LocationManager.swift */,
-				8EC8F77F207AA1DA0038790E /* Util.swift */,
+				8EC8F77F207AA1DA0038790E /* Globals.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
 				8E3F47F5208FEEA9003451C1 /* Errors.swift */,
 			);
@@ -358,7 +358,7 @@
 				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
 				8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */,
-				8EC8F780207AA1DA0038790E /* Util.swift in Sources */,
+				8EC8F780207AA1DA0038790E /* Globals.swift in Sources */,
 				8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */,
 				8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */,
 				8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */,
