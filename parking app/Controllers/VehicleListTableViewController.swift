@@ -32,15 +32,6 @@ class VehicleListTableViewController: UITableViewController {
         super.viewDidLoad()
         initializeSettings()
         initializeAppearanceSettings()
-
-        if let token = UserDefaults.standard.string(forKey: "token") {
-            User.getCustomerVehicles(token: token) { error, vehicles in
-                if let vehicles = vehicles {
-                    self.vehicles = vehicles
-                    self.tableView.reloadData()
-                }
-            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +40,14 @@ class VehicleListTableViewController: UITableViewController {
         // if the user chooses to make a different vehicle
         // their current vehicle, this tableview needs
         // to be updated to reflect that change.
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            User.getCustomerVehicles(token: token) { error, vehicles in
+                if let vehicles = vehicles {
+                    self.vehicles = vehicles
+                    self.tableView.reloadData()
+                }
+            }
+        }
         tableView.reloadData()
     }
 

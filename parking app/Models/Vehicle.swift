@@ -43,5 +43,53 @@ class Vehicle {
         self.size = json["size"].intValue
         self.licensePlate = json["license_plate"].stringValue
     }
+
+    static func create(token: String,
+                       year: Int,
+                       make: String,
+                       model: String,
+                       color: String,
+                       size: Int,
+                       licensePlate: String,
+                       completion: @escaping (Error?, Vehicle?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        let parameters: Parameters = [
+            "year": year,
+            "make": make,
+            "model": model,
+            "color": color,
+            "size": size,
+            "license_plate": licensePlate
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/cars/",
+            method: .post,
+            parameters: parameters,
+            headers: headers).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let vehicle = Vehicle(json: JSON(value))
+                    completion(nil, vehicle)
+
+                case .failure(let error):
+                    if let validationError = ValidationError(from: error, with: response.data) {
+                        completion(validationError, nil)
+                    } else {
+                        completion(error, nil)
+                    }
+                }
+        }
+    }
+
+    func saveToUserDefaults() {
+        UserDefaults.standard.set(self.licensePlate, forKey: "vehicle_license_plate")
+        UserDefaults.standard.set(self.id, forKey: "vehicle_id")
+        UserDefaults.standard.set(self.size, forKey: "vehicle_size")
+    }
     
 }

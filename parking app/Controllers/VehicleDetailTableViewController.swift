@@ -25,10 +25,10 @@ class VehicleDetailTableViewController: UITableViewController {
             title = vehicle.make.capitalized + " " + vehicle.model.capitalized
 
             vehicleYearCell.detailTextLabel?.text = String(describing: vehicle.year)
-            vehicleMakeCell.detailTextLabel?.text = vehicle.make.capitalized
-            vehicleModelCell.detailTextLabel?.text = vehicle.model.capitalized
-            vehicleColorCell.detailTextLabel?.text = vehicle.color.capitalized
-            vehicleSizeCell.detailTextLabel?.text = vehicle.sizeString.capitalized
+            vehicleMakeCell.detailTextLabel?.text = vehicle.make
+            vehicleModelCell.detailTextLabel?.text = vehicle.model
+            vehicleColorCell.detailTextLabel?.text = vehicle.color
+            vehicleSizeCell.detailTextLabel?.text = vehicle.sizeString
             vehicleLicensePlateCell.detailTextLabel?.text = vehicle.licensePlate
         }
     }
@@ -38,11 +38,7 @@ class VehicleDetailTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 // selected 'Make Current Vehicle'
                 if let vehicle = vehicle {
-                    UserDefaults.standard.set(
-                        vehicle.licensePlate,
-                        forKey: "vehicle_license_plate")
-                    UserDefaults.standard.set(vehicle.id, forKey: "vehicle_id")
-                    UserDefaults.standard.set(vehicle.size, forKey: "vehicle_size")
+                    vehicle.saveToUserDefaults()
                 }
                 navigationController?.popViewController(animated: true)
             }

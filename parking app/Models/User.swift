@@ -72,12 +72,7 @@ class User {
                 User.getDetail(token: token) { error, user in
                     if let user = user {
                         // TODO: possibly encode an entire User object into UserDefaults
-                        UserDefaults.standard.set(user.id, forKey: "user_id")
-                        UserDefaults.standard.set(user.firstName, forKey: "user_firstname")
-                        UserDefaults.standard.set(user.lastName, forKey: "user_lastname")
-                        UserDefaults.standard.set(user.email, forKey: "user_email")
-                        UserDefaults.standard.set(user.isHost, forKey: "user_is_host")
-
+                        user.saveToUserDefaults()
                     } else {
                         completion(error)
                     }
@@ -86,12 +81,7 @@ class User {
                 User.getCustomerVehicles(token: token) { error, vehicles in
                     if let vehicles = vehicles {
                         if let firstVehicle = vehicles.first {
-                            UserDefaults.standard.set(
-                                firstVehicle.licensePlate, forKey: "vehicle_license_plate")
-                            UserDefaults.standard.set(
-                                firstVehicle.id, forKey: "vehicle_id")
-                            UserDefaults.standard.set(
-                                firstVehicle.size, forKey: "vehicle_size")
+                            firstVehicle.saveToUserDefaults()
                         }
                         // complete with no errors only after receiving
                         // user vehicle information.
@@ -172,7 +162,7 @@ class User {
     }
 
     static func getCustomerVehicles(token: String,
-                                       completion: @escaping (Error?, [Vehicle]?) -> Void) {
+                                    completion: @escaping (Error?, [Vehicle]?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
         ]
@@ -190,6 +180,14 @@ class User {
                     completion(error, nil)
                 }
         }
+    }
+
+    func saveToUserDefaults() {
+        UserDefaults.standard.set(self.id, forKey: "user_id")
+        UserDefaults.standard.set(self.firstName, forKey: "user_firstname")
+        UserDefaults.standard.set(self.lastName, forKey: "user_lastname")
+        UserDefaults.standard.set(self.email, forKey: "user_email")
+        UserDefaults.standard.set(self.isHost, forKey: "user_is_host")
     }
 
 }

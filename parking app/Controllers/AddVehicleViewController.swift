@@ -11,12 +11,11 @@ import Eureka
 
 class AddVehicleViewController: FormViewController {
 
-    let pickerRowPlaceholder = "Choose.."
-
     func initializeSettings() {
         animateScroll = true
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Save", style: .plain, target: self, action: #selector(saveTapped))
     }
 
     override func viewDidLoad() {
@@ -73,8 +72,7 @@ class AddVehicleViewController: FormViewController {
                 if let modelRow = self.form.rowBy(tag: "model") as? PushRow<String> {
                     modelRow.value = nil
                     if  let make = makeRow.value,
-                        let yearRow = self.form.rowBy(tag: "year") as? PushRow<Int>,
-                        let year = yearRow.value {
+                        let year = (self.form.rowBy(tag: "year") as? PushRow<Int>)?.value {
                         CarQuery.getModels(make: make, year: year) { error, models in
                             if let models = models {
                                 modelRow.options = models
@@ -137,6 +135,42 @@ class AddVehicleViewController: FormViewController {
     }
 
     @objc func saveTapped(sender: UIBarButtonItem) {
+        if  let year = (form.rowBy(tag: "year") as? PushRow<Int>)?.value,
+            let make = (form.rowBy(tag: "make") as? PushRow<String>)?.value,
+            let model = (form.rowBy(tag: "model") as? PushRow<String>)?.value,
+            let color = (form.rowBy(tag: "color") as? PushRow<String>)?.value,
+            let sizeString = (form.rowBy(tag: "size") as? PushRow<String>)?.value,
+            let size = (Vehicle.sizes as NSDictionary).allKeys(for: sizeString).first as? Int,
+            let licensePlate = (form.rowBy(tag: "license plate") as? TextRow)?.value {
 
+            if let token = UserDefaults.standard.string(forKey: "token") {
+                Vehicle.create(
+                    token: token,
+                    year: year,
+                    make: make,
+                    model: model,
+                    color: color,
+                    size: size,
+                    licensePlate: licensePlate) { error, vehicle in
+
+                        if let vehicle = vehicle {
+                            vehicle.saveToUserDefaults()
+                            self.navigationController?.popViewController(animated: true)
+                        } else {
+                            if let error = error as? ValidationError {
+                                self.presentValidationErrorAlert(from: error)
+                            } else {
+                                self.presentServerErrorAlert()
+                            }
+                        }
+
+                }
+            }
+
+        } else {
+            presentSingleButtonAlert(
+                title: "Incomplete Fields",
+                message: "Please make sure all fields are completed.")
+        }
     }
 }
