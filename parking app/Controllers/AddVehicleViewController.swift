@@ -22,10 +22,20 @@ class AddVehicleViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeSettings()
+        initializeForm()
 
+        if let makeRow = form.rowBy(tag: "make") as? PickerInputRow<String> {
+            makeRow.options.append("hello")
+            makeRow.options.append("bye")
+            makeRow.options.append("maybe")
+        }
+
+    }
+
+    func initializeForm() {
         form
         +++ Section("Vehicle Details")
-            <<< PickerInputRow<Int>("year"){
+            <<< PickerInputRow<Int>("year") {
                 $0.title = "Year"
                 $0.options = []
                 for i in 1940...2018 {
@@ -33,15 +43,12 @@ class AddVehicleViewController: FormViewController {
                 }
                 $0.value = 2018
             }
-            <<< PickerInputRow<String>("make"){
+            <<< PickerInputRow<String>("make") {
                 $0.title = "Make"
                 $0.options = []
-                for i in 1...10 {
-                    $0.options.append("option \(i)")
-                }
                 $0.value = pickerRowPlaceholder
             }
-            <<< PickerInputRow<String>("model"){
+            <<< PickerInputRow<String>("model") {
                 $0.title = "Model"
                 $0.options = []
                 for i in 1...10 {
@@ -55,7 +62,7 @@ class AddVehicleViewController: FormViewController {
                     return true
                 })
             }
-            <<< PickerInputRow<String>("color"){
+            <<< PickerInputRow<String>("color") {
                 $0.title = "Color"
                 $0.options = []
                 for i in 1...10 {
@@ -63,7 +70,7 @@ class AddVehicleViewController: FormViewController {
                 }
                 $0.value = pickerRowPlaceholder
             }
-            <<< PickerInputRow<String>("size"){
+            <<< PickerInputRow<String>("size") {
                 $0.title = "Size"
                 $0.options = []
                 for i in 1...10 {
@@ -71,20 +78,10 @@ class AddVehicleViewController: FormViewController {
                 }
                 $0.value = pickerRowPlaceholder
             }
-            <<< TextRow("licensePlate"){
+            <<< TextRow("licensePlate") {
                 $0.title = "License Plate"
                 $0.placeholder = "Not Publicly Displayed"
             }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
     @objc func saveTapped(sender: UIBarButtonItem) {

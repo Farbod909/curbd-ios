@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DarkTranslucentViewController: LightStatusBarViewController {
+class DarkTranslucentViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,6 +28,16 @@ class DarkTranslucentViewController: LightStatusBarViewController {
         navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: UIColor.white]
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
     
 }

@@ -20,7 +20,6 @@
 		8E2104F12085378100C0B62A /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* MapButton.swift */; };
 		8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */; };
 		8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */; };
-		8E3F47CD208EB269003451C1 /* LightStatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */; };
 		8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */; };
 		8E3F47D2208EEC87003451C1 /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */; };
 		8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */; };
@@ -33,6 +32,7 @@
 		8E7B5DF620883D7D000926C1 /* VehicleDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */; };
 		8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DFB2089A5ED000926C1 /* Reservation.swift */; };
 		8E8E371E208C4D13003FBA50 /* ReservationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */; };
+		8E8E78CD2096F79600426E92 /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */; };
 		8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */; };
 		8EC8F780207AA1DA0038790E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F77F207AA1DA0038790E /* Util.swift */; };
 		8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F784207ACECD0038790E /* ParkingSpace.swift */; };
@@ -64,7 +64,6 @@
 		8E2104F02085378100C0B62A /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
 		8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTranslucentViewController.swift; sourceTree = "<group>"; };
-		8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarViewController.swift; sourceTree = "<group>"; };
 		8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTranslucentViewController.swift; sourceTree = "<group>"; };
 		8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
 		8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailPhoneViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		8E7B5DFB2089A5ED000926C1 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parking app.release.xcconfig"; path = "Pods/Target Support Files/Pods-parking app/Pods-parking app.release.xcconfig"; sourceTree = "<group>"; };
 		8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmationViewController.swift; sourceTree = "<group>"; };
+		8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewController.swift; sourceTree = "<group>"; };
 		8EC8F77F207AA1DA0038790E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		8EC8F784207ACECD0038790E /* ParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpace.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		8E0CA4582084531500C9F470 /* StylizedUIElements */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F47CC208EB269003451C1 /* LightStatusBarViewController.swift */,
+				8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */,
 				8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */,
 				8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */,
 				8EEC463020844D3400ED527F /* HollowTextField.swift */,
@@ -365,7 +365,6 @@
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,
 				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,
 				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
-				8E3F47CD208EB269003451C1 /* LightStatusBarViewController.swift in Sources */,
 				8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */,
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E0CA4622084962400C9F470 /* ShadowLabel.swift in Sources */,
@@ -373,6 +372,7 @@
 				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,
 				8E8E371E208C4D13003FBA50 /* ReservationConfirmationViewController.swift in Sources */,
 				8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */,
+				8E8E78CD2096F79600426E92 /* DarkNavigationController.swift in Sources */,
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
 				8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */,
 				8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */,

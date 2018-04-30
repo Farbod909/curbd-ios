@@ -10,27 +10,6 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    func initializeAppearanceSettings() {
-        navigationController?.navigationBar.barTintColor = UIColor(hex: "222222")
-        navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = UIColor.white
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initializeAppearanceSettings()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
-    }
-
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }

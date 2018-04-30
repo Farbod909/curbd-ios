@@ -25,11 +25,6 @@ class VehicleListTableViewController: UITableViewController {
     func initializeAppearanceSettings() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .none
-
-        navigationController?.navigationBar.barTintColor = UIColor(hex: "222222")
-        navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = UIColor.white
     }
 
 
@@ -54,12 +49,6 @@ class VehicleListTableViewController: UITableViewController {
         // their current vehicle, this tableview needs
         // to be updated to reflect that change.
         tableView.reloadData()
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
     @IBAction func addButtonClick(_ sender: UIBarButtonItem) {
