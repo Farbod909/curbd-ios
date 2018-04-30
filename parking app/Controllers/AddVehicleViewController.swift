@@ -24,10 +24,14 @@ class AddVehicleViewController: FormViewController {
         initializeSettings()
         initializeForm()
 
-        if let makeRow = form.rowBy(tag: "make") as? PickerInputRow<String> {
-            makeRow.options.append("hello")
-            makeRow.options.append("bye")
-            makeRow.options.append("maybe")
+        if let yearRow = form.rowBy(tag: "year") as? PushRow<Int> {
+            CarQuery.getYears() { error, yearRange in
+                if let yearRange = yearRange {
+                    for year in yearRange.reversed() {
+                        yearRow.options?.append(year)
+                    }
+                }
+            }
         }
 
     }
@@ -35,51 +39,99 @@ class AddVehicleViewController: FormViewController {
     func initializeForm() {
         form
         +++ Section("Vehicle Details")
-            <<< PickerInputRow<Int>("year") {
-                $0.title = "Year"
+            <<< PushRow<Int>("year") {
+                $0.title = $0.tag?.capitalized
                 $0.options = []
-                for i in 1940...2018 {
-                    $0.options.append(i)
+            }.onPresent { form, selectorController in
+                selectorController.enableDeselection = false
+            }.onChange() { yearRow in
+                if  let makeRow = self.form.rowBy(tag: "make") as? PushRow<String>,
+                    let modelRow = self.form.rowBy(tag: "model") as? PushRow<String> {
+                    makeRow.value = nil
+                    modelRow.value = nil
+                    if let year = yearRow.value {
+                        CarQuery.getMakes(year: year) { error, makes in
+                            if let makes = makes {
+                                makeRow.options = makes
+                            }
+                        }
+                    }
                 }
-                $0.value = 2018
             }
-            <<< PickerInputRow<String>("make") {
-                $0.title = "Make"
+            <<< PushRow<String>("make") {
+                $0.title = $0.tag?.capitalized
                 $0.options = []
-                $0.value = pickerRowPlaceholder
-            }
-            <<< PickerInputRow<String>("model") {
-                $0.title = "Model"
-                $0.options = []
-                for i in 1...10 {
-                    $0.options.append("option \(i)")
-                }
-                $0.value = pickerRowPlaceholder
-                $0.disabled = Condition.function(["make"], { form in
-                    if let makeRow = form.rowBy(tag: "make") as? PickerInputRow<String> {
-                        return makeRow.value == self.pickerRowPlaceholder
+                $0.disabled = Condition.function(["year"], { form in
+                    if let yearRow = form.rowBy(tag: "year") as? PushRow<Int> {
+                        return yearRow.value == nil
                     }
                     return true
                 })
+            }.onPresent { form, selectorController in
+                selectorController.enableDeselection = false
+            }.onChange() { makeRow in
+                if let modelRow = self.form.rowBy(tag: "model") as? PushRow<String> {
+                    modelRow.value = nil
+                    if  let make = makeRow.value,
+                        let yearRow = self.form.rowBy(tag: "year") as? PushRow<Int>,
+                        let year = yearRow.value {
+                        CarQuery.getModels(make: make, year: year) { error, models in
+                            if let models = models {
+                                modelRow.options = models
+                            }
+                        }
+                    }
+                }
             }
-            <<< PickerInputRow<String>("color") {
-                $0.title = "Color"
+            <<< PushRow<String>("model") {
+                $0.title = $0.tag?.capitalized
                 $0.options = []
                 for i in 1...10 {
-                    $0.options.append("size \(i)")
+                    $0.options?.append("model \(i)")
                 }
-                $0.value = pickerRowPlaceholder
+                $0.disabled = Condition.function(["year", "make"], { form in
+                    if  let yearRow = form.rowBy(tag: "year") as? PushRow<Int>,
+                        let makeRow = form.rowBy(tag: "make") as? PushRow<String> {
+                        return yearRow.value == nil || makeRow.value == nil
+                    }
+                    return true
+                })
+            }.onPresent { form, selectorController in
+                selectorController.enableDeselection = false
             }
-            <<< PickerInputRow<String>("size") {
-                $0.title = "Size"
+            <<< PushRow<String>("color") {
+                $0.title = $0.tag?.capitalized
+                $0.options = [
+                    "White",
+                    "Black",
+                    "Silver",
+                    "Gray",
+                    "Red",
+                    "Blue",
+                    "Green",
+                    "Yellow/Gold",
+                    "Brown/Beige",
+                    "Orange",
+                    "Purple",
+                    "Pink",
+                    "Other"
+                ]
+            }.onPresent { form, selectorController in
+                selectorController.enableDeselection = false
+            }
+            <<< PushRow<String>("size") {
+                $0.title = $0.tag?.capitalized
                 $0.options = []
-                for i in 1...10 {
-                    $0.options.append("option \(i)")
+                for size in Array(Vehicle.sizes.keys).sorted() {
+                    if size != 1 {
+                        $0.options?.append(Vehicle.sizes[size]!)
+                    }
                 }
-                $0.value = pickerRowPlaceholder
+            }.onPresent { form, selectorController in
+                selectorController.enableDeselection = false
             }
-            <<< TextRow("licensePlate") {
-                $0.title = "License Plate"
+            <<< TextRow("license plate") {
+                $0.title = $0.tag?.capitalized
                 $0.placeholder = "Not Publicly Displayed"
             }
     }

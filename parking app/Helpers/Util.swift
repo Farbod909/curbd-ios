@@ -10,5 +10,4 @@ import Foundation
 import UIKit
 
 let baseURL = "http://localhost:8000"
-let baseCarQueryAPIURL = "https://www.carqueryapi.com/api/0.3"
 let iphoneX = UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436
