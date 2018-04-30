@@ -11,6 +11,7 @@ import UIKit
 class DarkNavigationController: UINavigationController {
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         navigationBar.barTintColor = UIColor(hex: "222222")
         navigationBar.titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: UIColor.white]

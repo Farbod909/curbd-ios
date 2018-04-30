@@ -77,6 +77,7 @@ class SearchDrawerViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let pulleyViewController = parent as? PulleyViewController {
             // set initial drawer position to .partiallyRevealed
             pulleyViewController.setDrawerPosition(position: .partiallyRevealed)

@@ -44,6 +44,7 @@ class VehicleListTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // reload data every time view appears because
         // if the user chooses to make a different vehicle
         // their current vehicle, this tableview needs

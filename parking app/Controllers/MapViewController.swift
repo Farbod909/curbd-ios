@@ -67,6 +67,7 @@ class MapViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // make sure vehicle button is updated every time
         // the view re appears.
         updateCurrentVehicleButton()
