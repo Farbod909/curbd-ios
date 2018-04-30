@@ -11,6 +11,7 @@ import UIKit
 
 class VehicleDetailTableViewController: UITableViewController {
 
+    @IBOutlet weak var vehicleYearCell: UITableViewCell!
     @IBOutlet weak var vehicleMakeCell: UITableViewCell!
     @IBOutlet weak var vehicleModelCell: UITableViewCell!
     @IBOutlet weak var vehicleColorCell: UITableViewCell!
@@ -23,6 +24,7 @@ class VehicleDetailTableViewController: UITableViewController {
         if let vehicle = vehicle {
             title = vehicle.make.capitalized + " " + vehicle.model.capitalized
 
+            vehicleYearCell.detailTextLabel?.text = String(describing: vehicle.year)
             vehicleMakeCell.detailTextLabel?.text = vehicle.make.capitalized
             vehicleModelCell.detailTextLabel?.text = vehicle.model.capitalized
             vehicleColorCell.detailTextLabel?.text = vehicle.color.capitalized

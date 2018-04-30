@@ -62,6 +62,10 @@ class VehicleListTableViewController: UITableViewController {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
+    @IBAction func addButtonClick(_ sender: UIBarButtonItem) {
+        instantiateAndShowViewController(withIdentifier: "addVehicleViewController")
+    }
+
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
         if presentedViaUserMenu {
             dismiss(animated: true)

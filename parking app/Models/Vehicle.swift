@@ -20,6 +20,7 @@ class Vehicle {
     ]
 
     let id: Int
+    let year: Int
     let make: String
     let model: String
     let color: String
@@ -35,6 +36,7 @@ class Vehicle {
 
     init(json: JSON) {
         self.id = json["id"].intValue
+        self.year = json["year"].intValue
         self.make = json["make"].stringValue
         self.model = json["model"].stringValue
         self.color = json["color"].stringValue
