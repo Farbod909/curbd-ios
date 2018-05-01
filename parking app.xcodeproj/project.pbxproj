@@ -34,6 +34,8 @@
 		8E8E371E208C4D13003FBA50 /* ReservationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */; };
 		8E8E78CD2096F79600426E92 /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */; };
 		8E8E78D02097109200426E92 /* CarQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78CF2097109200426E92 /* CarQuery.swift */; };
+		8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78D12098459200426E92 /* ReservationListTableViewController.swift */; };
+		8E8E78D420984A8C00426E92 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78D320984A8C00426E92 /* ReservationTableViewCell.swift */; };
 		8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */; };
 		8EC8F780207AA1DA0038790E /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F77F207AA1DA0038790E /* Globals.swift */; };
 		8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F784207ACECD0038790E /* ParkingSpace.swift */; };
@@ -80,6 +82,8 @@
 		8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmationViewController.swift; sourceTree = "<group>"; };
 		8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		8E8E78CF2097109200426E92 /* CarQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarQuery.swift; sourceTree = "<group>"; };
+		8E8E78D12098459200426E92 /* ReservationListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListTableViewController.swift; sourceTree = "<group>"; };
+		8E8E78D320984A8C00426E92 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewController.swift; sourceTree = "<group>"; };
 		8EC8F77F207AA1DA0038790E /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		8EC8F784207ACECD0038790E /* ParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpace.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				8E0CA4632084968400C9F470 /* BasicShadowButton.swift */,
 				8E2104F02085378100C0B62A /* MapButton.swift */,
 				8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */,
+				8E8E78D320984A8C00426E92 /* ReservationTableViewCell.swift */,
 			);
 			path = StylizedUIElements;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */,
 				8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */,
 				8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */,
+				8E8E78D12098459200426E92 /* ReservationListTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 			files = (
 				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
+				8E8E78D420984A8C00426E92 /* ReservationTableViewCell.swift in Sources */,
 				8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */,
 				8EC8F780207AA1DA0038790E /* Globals.swift in Sources */,
 				8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */,
@@ -365,6 +372,7 @@
 				8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */,
 				8E8E78D02097109200426E92 /* CarQuery.swift in Sources */,
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
+				8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */,
 				8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */,
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,
 				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,

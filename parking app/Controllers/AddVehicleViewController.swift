@@ -37,7 +37,7 @@ class AddVehicleViewController: FormViewController {
 
     func initializeForm() {
         form
-        +++ Section("Vehicle Details")
+        +++ Section("Details")
             <<< PushRow<Int>("year") {
                 $0.title = $0.tag?.capitalized
                 $0.options = []
