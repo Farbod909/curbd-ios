@@ -41,9 +41,10 @@ class VehicleListTableViewController: UITableViewController {
         // their current vehicle, this tableview needs
         // to be updated to reflect that change.
         if let token = UserDefaults.standard.string(forKey: "token") {
-            User.getCustomerVehicles(token: token) { error, vehicles in
+            User.getCustomerVehicles(withToken: token) { error, vehicles in
                 if let vehicles = vehicles {
                     self.vehicles = vehicles
+                    // perform this check in case user deleted the current vehicle
                     if !Vehicle.currentVehicleIsSet() {
                         vehicles.first?.setAsCurrentVehicle()
                     }

@@ -145,7 +145,7 @@ class AddVehicleViewController: FormViewController {
 
             if let token = UserDefaults.standard.string(forKey: "token") {
                 Vehicle.create(
-                    token: token,
+                    withToken: token,
                     year: year,
                     make: make,
                     model: model,

@@ -44,7 +44,7 @@ class Vehicle {
         self.licensePlate = json["license_plate"].stringValue
     }
 
-    static func create(token: String,
+    static func create(withToken token: String,
                        year: Int,
                        make: String,
                        model: String,

@@ -69,7 +69,7 @@ class User {
             if let token = token {
                 UserDefaults.standard.set(token, forKey: "token")
 
-                User.getDetail(token: token) { error, user in
+                User.getDetail(withToken: token) { error, user in
                     if let user = user {
                         // TODO: possibly encode an entire User object into UserDefaults
                         user.saveToUserDefaults()
@@ -78,7 +78,7 @@ class User {
                     }
                 }
 
-                User.getCustomerVehicles(token: token) { error, vehicles in
+                User.getCustomerVehicles(withToken: token) { error, vehicles in
                     if let vehicles = vehicles {
                         if let firstVehicle = vehicles.first {
                             firstVehicle.setAsCurrentVehicle()
@@ -139,7 +139,7 @@ class User {
         }
     }
 
-    static func getDetail(token: String, completion: @escaping (Error?, User?) -> Void) {
+    static func getDetail(withToken token: String, completion: @escaping (Error?, User?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
         ]
@@ -159,7 +159,7 @@ class User {
         }
     }
 
-    static func getCustomerVehicles(token: String,
+    static func getCustomerVehicles(withToken token: String,
                                     completion: @escaping (Error?, [Vehicle]?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
