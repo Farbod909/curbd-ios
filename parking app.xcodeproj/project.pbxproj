@@ -163,22 +163,22 @@
 		8EC8F787207ACEE00038790E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */,
 				8E136C361F67C037000BBBDB /* MapViewController.swift */,
 				8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */,
 				8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */,
 				8EC8F78820808E070038790E /* ParkingSpaceDrawerViewController.swift */,
-				8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */,
+				8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */,
 				8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */,
 				8EEC462E20844A6F00ED527F /* LoginViewController.swift */,
 				8E0CA45F208477D900C9F470 /* UserMenuViewController.swift */,
 				8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */,
 				8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */,
-				8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */,
+				8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */,
 				8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */,
 				8E3F47D1208EEC87003451C1 /* SignupNameViewController.swift */,
 				8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */,
 				8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */,
-				8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

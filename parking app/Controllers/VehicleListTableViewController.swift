@@ -44,6 +44,9 @@ class VehicleListTableViewController: UITableViewController {
             User.getCustomerVehicles(token: token) { error, vehicles in
                 if let vehicles = vehicles {
                     self.vehicles = vehicles
+                    if !Vehicle.currentVehicleIsSet() {
+                        vehicles.first?.setAsCurrentVehicle()
+                    }
                     self.tableView.reloadData()
                 }
             }

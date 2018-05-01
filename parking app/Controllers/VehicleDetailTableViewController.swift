@@ -37,18 +37,32 @@ class VehicleDetailTableViewController: UITableViewController {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 // selected 'Make Current Vehicle'
-                if let vehicle = vehicle {
-                    vehicle.saveToUserDefaults()
-                }
+                vehicle?.setAsCurrentVehicle()
                 navigationController?.popViewController(animated: true)
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 0 {
                 // selected 'Delete Vehicle'
+                presentConfirmationAlert(
+                    title: "Are You Sure?",
+                    message: "Are you sure you would like to delete this vehicle?") { action in
+                        // user confirmed deletion
+                        if  let token = UserDefaults.standard.string(forKey: "token"),
+                            let vehicle = self.vehicle {
+                            vehicle.delete(withToken: token) { error in
+                                if error == nil {
+                                    if vehicle.isCurrentVehicle() {
+                                        Vehicle.unsetCurrentVehicle()
+                                    }
+                                    self.navigationController?.popViewController(animated: true)
+                                } else {
+                                    self.presentServerErrorAlert()
+                                }
+                            }
+                        }
+                }
+                tableView.deselectRow(at: indexPath, animated: true)
 
-                // first ask 'are you sure?'
-                // if yes, then delete
-                navigationController?.popViewController(animated: true)
             }
         }
     }

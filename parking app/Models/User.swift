@@ -81,7 +81,7 @@ class User {
                 User.getCustomerVehicles(token: token) { error, vehicles in
                     if let vehicles = vehicles {
                         if let firstVehicle = vehicles.first {
-                            firstVehicle.saveToUserDefaults()
+                            firstVehicle.setAsCurrentVehicle()
                         }
                         // complete with no errors only after receiving
                         // user vehicle information.
@@ -106,9 +106,7 @@ class User {
         UserDefaults.standard.removeObject(forKey: "user_email")
         UserDefaults.standard.removeObject(forKey: "user_is_host")
 
-        UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
-        UserDefaults.standard.removeObject(forKey: "vehicle_id")
-        UserDefaults.standard.removeObject(forKey: "vehicle_size")
+        Vehicle.unsetCurrentVehicle()
 
         completion()
     }

@@ -86,10 +86,44 @@ class Vehicle {
         }
     }
 
-    func saveToUserDefaults() {
+    func delete(withToken token: String, completion: @escaping (Error?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/cars/\(self.id)/",
+            method: .delete,
+            headers: headers).validate().responseJSON { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+
+                case .failure(let error):
+                    completion(error)
+                }
+        }
+    }
+
+    static func currentVehicleIsSet() -> Bool {
+        return UserDefaults.standard.string(forKey: "vehicle_license_plate") != nil
+    }
+    
+    func isCurrentVehicle() -> Bool {
+        return UserDefaults.standard.integer(forKey: "vehicle_id") == id
+    }
+
+    func setAsCurrentVehicle() {
         UserDefaults.standard.set(self.licensePlate, forKey: "vehicle_license_plate")
         UserDefaults.standard.set(self.id, forKey: "vehicle_id")
         UserDefaults.standard.set(self.size, forKey: "vehicle_size")
+    }
+
+    static func unsetCurrentVehicle() {
+        UserDefaults.standard.removeObject(forKey: "vehicle_license_plate")
+        UserDefaults.standard.removeObject(forKey: "vehicle_id")
+        UserDefaults.standard.removeObject(forKey: "vehicle_size")
     }
     
 }

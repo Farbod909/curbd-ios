@@ -154,7 +154,7 @@ class AddVehicleViewController: FormViewController {
                     licensePlate: licensePlate) { error, vehicle in
 
                         if let vehicle = vehicle {
-                            vehicle.saveToUserDefaults()
+                            vehicle.setAsCurrentVehicle()
                             self.navigationController?.popViewController(animated: true)
                         } else {
                             if let error = error as? ValidationError {
