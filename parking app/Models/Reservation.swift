@@ -11,6 +11,38 @@ import SwiftyJSON
 
 class Reservation {
 
+    let id: Int
+    let start: Date
+    let end: Date
+    let pricing: Int // cost every 5 minutes (in cents)
+    let vehicle: Vehicle
+    let parkingSpace: ParkingSpace
+    var price: Double {
+        // price (in dollars) calculated from pricing and start to end
+        let pricePerHour = Double(pricing * 12)/100.0
+        let reservationTimeMinutes = end.timeIntervalSince(start) / 60
+        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
+        let formattedFinalCost = String(format: "%.02f", finalCost) as NSString
+        return formattedFinalCost.doubleValue
+    }
+
+    init(json: JSON) {
+        self.id = json["id"].intValue
+        self.start = Formatter.iso8601.date(from: json["start_datetime"].stringValue)!
+        self.end = Formatter.iso8601.date(from: json["end_datetime"].stringValue)!
+        self.vehicle = Vehicle(json: json["car"])
+        self.parkingSpace = ParkingSpace(json: json["parking_space"])
+        if let forRepeating = json["for_repeating"].bool {
+            if forRepeating {
+                self.pricing = json["repeating_availability"]["pricing"].intValue
+            } else {
+                self.pricing = json["fixed_availability"]["pricing"].intValue
+            }
+        } else {
+            self.pricing = 0
+        }
+    }
+
     static func create(for parkingSpace: ParkingSpace,
                        from start: Date,
                        to end: Date,

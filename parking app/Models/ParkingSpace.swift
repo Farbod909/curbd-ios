@@ -19,7 +19,6 @@ class ParkingSpace {
     let size: Int
     let address: String
     let description: String
-    let hostURL: String
 
     init(json: JSON) {
         self.id = json["id"].intValue
@@ -30,7 +29,6 @@ class ParkingSpace {
         self.size = json["size"].intValue
         self.address = json["address"].stringValue
         self.description = json["description"].stringValue
-        self.hostURL = json["host"].stringValue
     }
 
     func getPricing(from start: Date, to end: Date, completion: @escaping (Int?) -> Void) {
