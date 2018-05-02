@@ -17,20 +17,20 @@ class Reservation {
     let pricing: Int // cost every 5 minutes (in cents)
     let vehicle: Vehicle
     let parkingSpace: ParkingSpace
-    var price: Double {
+    var price: String {
         // price (in dollars) calculated from pricing and start to end
         let pricePerHour = Double(pricing * 12)/100.0
         let reservationTimeMinutes = end.timeIntervalSince(start) / 60
         let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-        let formattedFinalCost = String(format: "%.02f", finalCost) as NSString
-        return formattedFinalCost.doubleValue
+        let formattedFinalCost = String(format: "%.02f", finalCost)
+        return formattedFinalCost
     }
 
     init(json: JSON) {
         self.id = json["id"].intValue
         self.start = Formatter.iso8601.date(from: json["start_datetime"].stringValue)!
         self.end = Formatter.iso8601.date(from: json["end_datetime"].stringValue)!
-        self.vehicle = Vehicle(json: json["car"])
+        self.vehicle = Vehicle(json: json["car_detail"])
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
         if let forRepeating = json["for_repeating"].bool {
             if forRepeating {
@@ -54,7 +54,7 @@ class Reservation {
                 ]
 
                 let parameters: Parameters = [
-                    "car_id": currentVehicleID,
+                    "car": currentVehicleID,
                     "parking_space_id": parkingSpace.id,
                     "start_datetime": Formatter.iso8601.string(from: start),
                     "end_datetime": Formatter.iso8601.string(from: end),

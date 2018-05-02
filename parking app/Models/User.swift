@@ -180,7 +180,7 @@ class User {
         }
     }
 
-    static func getCustomerReservations(withToken token: String,
+    static func getCurrentReservations(withToken token: String,
                                 completion: @escaping (Error?, [Reservation]?) -> Void) {
 
         let headers: HTTPHeaders = [
@@ -188,12 +188,36 @@ class User {
         ]
 
         Alamofire.request(
-            baseURL + "/api/accounts/customers/self/",
+            baseURL + "/api/accounts/customers/self/reservations/current/",
             headers: headers).validate().responseJSON() { response in
                 switch response.result {
                 case .success(let value):
-                    let customerJSON = JSON(value)
-                    let reservations = customerJSON["reservations"].arrayValue.map() {
+                    let responseJSON = JSON(value)
+                    let reservations = responseJSON["results"].arrayValue.map() {
+                        Reservation(json: $0)
+                    }
+                    completion(nil, reservations)
+
+                case .failure(let error):
+                    completion(error, nil)
+                }
+        }
+    }
+
+    static func getPreviousReservations(withToken token: String,
+                                       completion: @escaping (Error?, [Reservation]?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/customers/self/reservations/previous/",
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    let responseJSON = JSON(value)
+                    let reservations = responseJSON["results"].arrayValue.map() {
                         Reservation(json: $0)
                     }
                     completion(nil, reservations)
