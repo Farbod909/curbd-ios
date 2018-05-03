@@ -639,21 +639,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reservationCell" rowHeight="97" id="jDy-Zp-Jb9" customClass="ReservationTableViewCell" customModule="parking_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="97"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reservationCell" rowHeight="108" id="jDy-Zp-Jb9" customClass="ReservationTableViewCell" customModule="parking_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jDy-Zp-Jb9" id="ZrZ-tZ-oex">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-FD-b4d">
-                                            <rect key="frame" x="16" y="11" width="260" height="23"/>
+                                            <rect key="frame" x="16" y="15" width="260" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-az-OHm">
-                                            <rect key="frame" x="284" y="11" width="75" height="23"/>
+                                            <rect key="frame" x="284" y="15" width="75" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="zEF-Jr-G5Z"/>
                                             </constraints>
@@ -661,26 +661,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gE-gB-b1f">
-                                            <rect key="frame" x="16" y="42" width="61" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:15 PM, Tomorrow - 11:15 AM Jun 29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89E-ss-DFD">
-                                            <rect key="frame" x="16" y="67" width="258" height="18"/>
+                                            <rect key="frame" x="16" y="71" width="258" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;License Plate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abK-Fl-50j">
-                                            <rect key="frame" x="79" y="42" width="123" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abK-Fl-50j">
+                                            <rect key="frame" x="16" y="46" width="55.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CML-cZ-F4d">
-                                            <rect key="frame" x="0.0" y="93" width="375" height="4"/>
+                                            <rect key="frame" x="0.0" y="104" width="375" height="4"/>
                                             <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="4" id="GVD-xt-nLA"/>
@@ -692,25 +686,22 @@
                                         <constraint firstItem="89E-ss-DFD" firstAttribute="top" secondItem="abK-Fl-50j" secondAttribute="bottom" constant="4" id="51e-48-dK3"/>
                                         <constraint firstItem="CML-cZ-F4d" firstAttribute="leading" secondItem="ZrZ-tZ-oex" secondAttribute="leading" id="7gI-Ee-pie"/>
                                         <constraint firstItem="89E-ss-DFD" firstAttribute="leading" secondItem="ZrZ-tZ-oex" secondAttribute="leading" constant="16" id="Fyx-Ql-Zez"/>
-                                        <constraint firstItem="2gE-gB-b1f" firstAttribute="leading" secondItem="ZrZ-tZ-oex" secondAttribute="leading" constant="16" id="Ijr-X5-rPz"/>
                                         <constraint firstItem="abK-Fl-50j" firstAttribute="top" secondItem="cgK-FD-b4d" secondAttribute="bottom" constant="8" id="Jzq-G9-sLW"/>
                                         <constraint firstAttribute="bottom" secondItem="CML-cZ-F4d" secondAttribute="bottom" id="OAV-ay-mdG"/>
                                         <constraint firstAttribute="trailing" secondItem="8b6-az-OHm" secondAttribute="trailing" constant="16" id="ORQ-HF-Xbc"/>
                                         <constraint firstAttribute="trailing" secondItem="CML-cZ-F4d" secondAttribute="trailing" id="ObP-Rt-xJ7"/>
-                                        <constraint firstItem="cgK-FD-b4d" firstAttribute="top" secondItem="ZrZ-tZ-oex" secondAttribute="top" constant="11" id="RJq-vW-P6k"/>
-                                        <constraint firstItem="89E-ss-DFD" firstAttribute="top" secondItem="2gE-gB-b1f" secondAttribute="bottom" constant="4" id="VOb-KZ-AEU"/>
-                                        <constraint firstItem="2gE-gB-b1f" firstAttribute="top" secondItem="cgK-FD-b4d" secondAttribute="bottom" constant="8" id="X7E-Q4-0Vn"/>
-                                        <constraint firstAttribute="bottom" secondItem="89E-ss-DFD" secondAttribute="bottom" constant="12" id="atF-Sl-sdz"/>
-                                        <constraint firstItem="abK-Fl-50j" firstAttribute="leading" secondItem="2gE-gB-b1f" secondAttribute="trailing" constant="2" id="gvx-ud-EEq"/>
+                                        <constraint firstItem="cgK-FD-b4d" firstAttribute="top" secondItem="ZrZ-tZ-oex" secondAttribute="top" constant="15" id="RJq-vW-P6k"/>
+                                        <constraint firstAttribute="bottom" secondItem="89E-ss-DFD" secondAttribute="bottom" constant="19" id="atF-Sl-sdz"/>
+                                        <constraint firstItem="abK-Fl-50j" firstAttribute="leading" secondItem="ZrZ-tZ-oex" secondAttribute="leading" constant="16" id="iM4-FH-95M"/>
                                         <constraint firstItem="cgK-FD-b4d" firstAttribute="leading" secondItem="ZrZ-tZ-oex" secondAttribute="leading" constant="16" id="jGw-aP-Vbm"/>
-                                        <constraint firstItem="8b6-az-OHm" firstAttribute="top" secondItem="ZrZ-tZ-oex" secondAttribute="top" constant="11" id="ybM-ND-dMS"/>
+                                        <constraint firstItem="8b6-az-OHm" firstAttribute="top" secondItem="ZrZ-tZ-oex" secondAttribute="top" constant="15" id="ybM-ND-dMS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="cgK-FD-b4d" id="jI5-No-3MT"/>
-                                    <outlet property="licensePlateLabel" destination="abK-Fl-50j" id="aW4-KH-YTi"/>
                                     <outlet property="priceLabel" destination="8b6-az-OHm" id="GkP-I7-1t3"/>
                                     <outlet property="timePeriodLabel" destination="89E-ss-DFD" id="vsc-NA-okf"/>
+                                    <outlet property="vehicleLabel" destination="abK-Fl-50j" id="Xyq-6A-7tJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -81,7 +81,7 @@ class ReservationListTableViewController: UITableViewController {
         }
         cell.addressLabel.text = reservation.parkingSpace.address
         cell.priceLabel.text = "$\(reservation.price)"
-        cell.licensePlateLabel.text = reservation.vehicle.licensePlate
+        cell.vehicleLabel.text = "\(reservation.vehicle.make) \(reservation.vehicle.model) \(reservation.vehicle.licensePlate)"
         cell.timePeriodLabel.text
             = "\(reservation.start.toHumanReadable()) - \(reservation.end.toHumanReadable())"
 

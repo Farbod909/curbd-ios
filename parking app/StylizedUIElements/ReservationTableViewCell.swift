@@ -11,7 +11,7 @@ import UIKit
 class ReservationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var licensePlateLabel: UILabel!
+    @IBOutlet weak var vehicleLabel: UILabel!
     @IBOutlet weak var timePeriodLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
