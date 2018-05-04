@@ -94,7 +94,13 @@ class ReservationListTableViewController: UITableViewController {
                 let selectedRow = indexPath.row
                 if let reservationDetailTableViewController =
                     segue.destination as? ReservationDetailTableViewController {
-                    reservationDetailTableViewController.reservation = currentReservations[selectedRow]
+                    if indexPath.section == 0 {
+                        reservationDetailTableViewController.reservation =
+                            currentReservations[selectedRow]
+                    } else if indexPath.section == 1 {
+                        reservationDetailTableViewController.reservation =
+                            previousReservations[selectedRow]
+                    }
                 }
             }
         }

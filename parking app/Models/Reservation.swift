@@ -17,6 +17,12 @@ class Reservation {
     let pricing: Int // cost every 5 minutes (in cents)
     let vehicle: Vehicle
     let parkingSpace: ParkingSpace
+    var pricePerHour: String {
+        // price (in dollars) calculated per hour
+        let pricePerHour = Double(pricing * 12)/100.0
+        let formattedPricePerHour = String(format: "%.02f", pricePerHour)
+        return formattedPricePerHour
+    }
     var price: String {
         // price (in dollars) calculated from pricing and start to end
         let pricePerHour = Double(pricing * 12)/100.0
