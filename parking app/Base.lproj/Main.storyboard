@@ -877,6 +877,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="lyC-Ia-JEW" kind="show" id="BGY-Yo-ZnC"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4Th-cg-Orj" style="IBUITableViewCellStyleDefault" id="3Dn-5j-YHA">
                                         <rect key="frame" x="0.0" y="567" width="375" height="44"/>
@@ -894,6 +897,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="S7p-rZ-BsT" kind="show" id="t4W-aa-c2r"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Lg2-dT-kbK" style="IBUITableViewCellStyleDefault" id="a5n-4K-zq6">
                                         <rect key="frame" x="0.0" y="611" width="375" height="44"/>
@@ -934,7 +940,58 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lih-0c-HTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3729" y="185"/>
+            <point key="canvasLocation" x="3729" y="208"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xwT-FK-d9t">
+            <objects>
+                <viewController id="lyC-Ia-JEW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l5N-lV-0VY"/>
+                        <viewControllerLayoutGuide type="bottom" id="XXt-xp-LQE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DkZ-fU-wDh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AQJ-23-DoX">
+                                <rect key="frame" x="27.5" y="142" width="320" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="vVT-R6-Hqy"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="547105762.29725099">
+                                    <!--2018-05-04 05:49:22 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extend Leave Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-tD-Udm">
+                                <rect key="frame" x="115" y="116" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uve-r5-DKl">
+                                <rect key="frame" x="28" y="371" width="320" height="101.5"/>
+                                <string key="text">Notice: There is a 1.5x fee for the amount of time extended beyond the original leaving time. We can not garantuee that your extension request will be approved due to availability constraints.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uve-r5-DKl" firstAttribute="top" secondItem="AQJ-23-DoX" secondAttribute="bottom" constant="13" id="6k5-uN-0Rz"/>
+                            <constraint firstItem="JCz-tD-Udm" firstAttribute="top" secondItem="l5N-lV-0VY" secondAttribute="bottom" constant="52" id="Fxs-1b-yAv"/>
+                            <constraint firstItem="AQJ-23-DoX" firstAttribute="centerX" secondItem="DkZ-fU-wDh" secondAttribute="centerX" id="NvK-HN-KlE"/>
+                            <constraint firstItem="Uve-r5-DKl" firstAttribute="centerX" secondItem="DkZ-fU-wDh" secondAttribute="centerX" id="bZm-iC-4aO"/>
+                            <constraint firstItem="AQJ-23-DoX" firstAttribute="width" secondItem="Uve-r5-DKl" secondAttribute="width" id="k0U-MW-LWt"/>
+                            <constraint firstItem="JCz-tD-Udm" firstAttribute="centerX" secondItem="DkZ-fU-wDh" secondAttribute="centerX" id="oqu-yW-ltz"/>
+                            <constraint firstItem="AQJ-23-DoX" firstAttribute="top" secondItem="JCz-tD-Udm" secondAttribute="bottom" constant="5" id="px0-dF-bhT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="few-HB-JjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4590" y="-571"/>
         </scene>
         <!--Vehicle Detail Table View Controller-->
         <scene sceneID="Uze-HN-qOh">
@@ -1153,6 +1210,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpM-b2-Ray" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3730" y="-569"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="nsA-9n-sKX">
+            <objects>
+                <tableViewController id="S7p-rZ-BsT" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1kh-AW-r9K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="K3M-f7-q3Y">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XJM-QT-7bg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJM-QT-7bg" id="bqa-xp-8I5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G2t-Pw-cgF">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G2t-Pw-cgF" id="KGH-0f-VVp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cTg-2F-jmS">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cTg-2F-jmS" id="Yq9-YB-vUj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="S7p-rZ-BsT" id="lU2-JW-82c"/>
+                            <outlet property="delegate" destination="S7p-rZ-BsT" id="bwZ-Wi-CQ0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R86-8I-uxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4591" y="139"/>
         </scene>
         <!--Add Vehicle View Controller-->
         <scene sceneID="7Bb-hZ-N7X">

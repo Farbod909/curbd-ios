@@ -39,7 +39,7 @@ class ParkingSpace {
         ]
 
         Alamofire.request(
-            baseURL + "/api/parking/spaces/\(self.id)/availability",
+            baseURL + "/api/parking/spaces/\(id)/availability",
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
 

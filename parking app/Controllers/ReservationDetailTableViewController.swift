@@ -89,4 +89,14 @@ class ReservationDetailTableViewController: UITableViewController {
         }
         return tableView.sectionHeaderHeight
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if indexPath.row == 2 {
+                if let token = UserDefaults.standard.string(forKey: "token") {
+                    reservation?.cancel(withToken: token)
+                }
+            }
+        }
+    }
 }

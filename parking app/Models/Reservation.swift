@@ -93,4 +93,22 @@ class Reservation {
         }
     }
 
+    func cancel(withToken token: String, completion: @escaping (Error?) -> Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/reservations/\(id)/",
+            method: .delete,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
+    }
+
 }
