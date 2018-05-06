@@ -12,6 +12,8 @@ import MapKit
 class ReservationDetailTableViewController: UITableViewController {
 
     var reservation: Reservation?
+    // Determines if the reservation a current one or a previous one
+    var isCurrent: Bool?
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkingSpaceAddressLabel: UILabel!
@@ -94,7 +96,9 @@ class ReservationDetailTableViewController: UITableViewController {
         if indexPath.section == 1 {
             if indexPath.row == 2 {
                 if let token = UserDefaults.standard.string(forKey: "token") {
-                    reservation?.cancel(withToken: token)
+                    reservation?.cancel(withToken: token) { error in
+                        
+                    }
                 }
             }
         }
