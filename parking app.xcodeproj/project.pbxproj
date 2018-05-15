@@ -269,7 +269,7 @@
 				TargetAttributes = {
 					8EDA61091F67A6F000AB6BF1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = GK8ZBK5FD2;
+						DevelopmentTeam = 2DYNL8A66H;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -431,6 +431,7 @@
 /* Begin XCBuildConfiguration section */
 		8EDA611A1F67A6F000AB6BF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74F22850BAE5AA1D26E52DB4 /* Pods-parking app.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -490,6 +491,7 @@
 		};
 		8EDA611B1F67A6F000AB6BF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E85E2BFFD8BE8178B6E5E7E /* Pods-parking app.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -548,14 +550,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GK8ZBK5FD2;
+				DEVELOPMENT_TEAM = 2DYNL8A66H;
 				INFOPLIST_FILE = "parking app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.farbodrafezy.parking-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.frafezy.curbd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -567,14 +571,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GK8ZBK5FD2;
+				DEVELOPMENT_TEAM = 2DYNL8A66H;
 				INFOPLIST_FILE = "parking app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.farbodrafezy.parking-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.frafezy.curbd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

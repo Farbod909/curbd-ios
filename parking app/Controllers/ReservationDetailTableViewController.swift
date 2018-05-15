@@ -85,6 +85,15 @@ class ReservationDetailTableViewController: UITableViewController {
         }
     }
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if let isCurrent = isCurrent {
+            if isCurrent {
+                return 2
+            }
+        }
+        return 1
+    }
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return CGFloat.leastNormalMagnitude

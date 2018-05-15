@@ -95,9 +95,11 @@ class ReservationListTableViewController: UITableViewController {
                 if let reservationDetailTableViewController =
                     segue.destination as? ReservationDetailTableViewController {
                     if indexPath.section == 0 {
+                        reservationDetailTableViewController.isCurrent = true
                         reservationDetailTableViewController.reservation =
                             currentReservations[selectedRow]
                     } else if indexPath.section == 1 {
+                        reservationDetailTableViewController.isCurrent = false
                         reservationDetailTableViewController.reservation =
                             previousReservations[selectedRow]
                     }
