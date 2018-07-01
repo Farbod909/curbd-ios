@@ -339,7 +339,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZq-bK-3mx" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZq-bK-3mx" customClass="BasicShadowButton" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="49" y="278.5" width="310" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Invite Friends">
@@ -1837,28 +1837,45 @@
             </objects>
             <point key="canvasLocation" x="1350" y="882"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Parking Space List Table View Controller-->
         <scene sceneID="VZ4-ZG-7Ja">
             <objects>
-                <tableViewController id="ep0-pY-cTO" sceneMemberID="viewController">
+                <tableViewController id="ep0-pY-cTO" customClass="ParkingSpaceListTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wtL-UV-zEV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="171" id="EDd-78-lyj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parkingSpaceCell" rowHeight="171" id="EDd-78-lyj" customClass="ParkingSpaceTableViewCell" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="171"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EDd-78-lyj" id="J1k-ic-fnU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="170.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mrk-Zc-I3F">
-                                            <rect key="frame" x="135" y="0.0" width="240" height="123"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mrk-Zc-I3F">
+                                            <rect key="frame" x="0.0" y="3" width="375" height="123"/>
                                         </mapView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Street Dr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoY-M3-hxi">
+                                            <rect key="frame" x="16" y="136" width="102" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Mrk-Zc-I3F" secondAttribute="trailing" id="FBg-QX-TMD"/>
+                                        <constraint firstItem="Mrk-Zc-I3F" firstAttribute="leading" secondItem="J1k-ic-fnU" secondAttribute="leading" id="GiC-c8-BEM"/>
+                                        <constraint firstItem="WoY-M3-hxi" firstAttribute="top" secondItem="Mrk-Zc-I3F" secondAttribute="bottom" constant="10" id="e5U-3U-Tnz"/>
+                                        <constraint firstItem="WoY-M3-hxi" firstAttribute="leading" secondItem="J1k-ic-fnU" secondAttribute="leading" constant="16" id="gRU-ip-ZIh"/>
+                                        <constraint firstAttribute="bottom" secondItem="WoY-M3-hxi" secondAttribute="bottom" constant="13.5" id="gvL-c7-ktT"/>
+                                        <constraint firstItem="Mrk-Zc-I3F" firstAttribute="top" secondItem="J1k-ic-fnU" secondAttribute="top" constant="3" id="p6p-Km-iHv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mapView" destination="Mrk-Zc-I3F" id="nxV-Hi-ySj"/>
+                                    <outlet property="parkingSpaceNameLabel" destination="WoY-M3-hxi" id="za8-5l-9Kb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
