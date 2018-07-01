@@ -228,6 +228,30 @@ class User {
         }
     }
 
+    static func getHostParkingSpaces(withToken token: String, completion: @escaping (Error?, [ParkingSpace]?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/hosts/self/parkingspaces/",
+            headers: headers).validate().responseJSON() { response in
+
+                switch response.result {
+                case .success(let value):
+                    let responseJSON = JSON(value)
+                    let parkingSpaces = responseJSON["results"].arrayValue.map() {
+                        ParkingSpace(json: $0)
+                    }
+                    completion(nil, parkingSpaces)
+                    
+                case .failure(let error):
+                    completion(error, nil)
+                }
+        }
+    }
+
     func saveToUserDefaults() {
         UserDefaults.standard.set(self.id, forKey: "user_id")
         UserDefaults.standard.set(self.firstName, forKey: "user_firstname")

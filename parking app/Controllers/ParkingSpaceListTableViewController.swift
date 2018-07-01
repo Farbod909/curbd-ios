@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ParkingSpaceListTableViewController: UITableViewController {
 
@@ -25,6 +26,15 @@ class ParkingSpaceListTableViewController: UITableViewController {
         super.viewDidLoad()
         initializeSettings()
         initializeAppearanceSettings()
+        
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            User.getHostParkingSpaces(withToken: token) { error, parkingSpaces in
+                if let parkingSpaces = parkingSpaces {
+                    self.parkingSpaces = parkingSpaces
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,10 +46,36 @@ class ParkingSpaceListTableViewController: UITableViewController {
             withIdentifier: "parkingSpaceCell") as! ParkingSpaceTableViewCell
         let parkingSpace = parkingSpaces[indexPath.row]
 
-        // cell.member = value
+        cell.parkingSpaceNameLabel.text = parkingSpace.address
+
+        let parkingSpaceLocation = CLLocation(
+            latitude: parkingSpace.latitude,
+            longitude: parkingSpace.longitude)
+        print(parkingSpaceLocation)
+        cell.mapView.centerOn(location: parkingSpaceLocation)
+
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(
+            parkingSpace.latitude,
+            parkingSpace.longitude)
+        cell.mapView.addAnnotation(annotation)
+
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(parkingSpaceLocation) { placemarks, error in
+            if error == nil {
+                if  let city = placemarks?[0].locality,
+                    let state = placemarks?[0].administrativeArea {
+                    cell.parkingSpaceCityAndStateLabel.text = "\(city), \(state)"
+                }
+            }
+        }
+
 
         return cell
     }
 
+    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
 }
 
