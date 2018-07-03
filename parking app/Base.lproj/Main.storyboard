@@ -1220,16 +1220,16 @@
             </objects>
             <point key="canvasLocation" x="3732" y="-1348"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Report Table View Controller-->
         <scene sceneID="nsA-9n-sKX">
             <objects>
-                <tableViewController id="S7p-rZ-BsT" sceneMemberID="viewController">
+                <tableViewController id="S7p-rZ-BsT" customClass="ReportTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1kh-AW-r9K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="PmC-oB-QOy" style="IBUITableViewCellStyleDefault" id="XJM-QT-7bg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reportReasonCell" textLabel="PmC-oB-QOy" style="IBUITableViewCellStyleDefault" id="XJM-QT-7bg">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJM-QT-7bg" id="bqa-xp-8I5">
@@ -1246,7 +1246,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="cC0-Bh-ikF" kind="show" id="cTI-zN-sLW"/>
+                                    <segue destination="cC0-Bh-ikF" kind="show" identifier="showReportSubmissionViewController" id="cTI-zN-sLW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1261,10 +1261,10 @@
             </objects>
             <point key="canvasLocation" x="4593" y="-640"/>
         </scene>
-        <!--View Controller-->
+        <!--Report Submission View Controller-->
         <scene sceneID="u6U-C9-bbM">
             <objects>
-                <viewController id="cC0-Bh-ikF" sceneMemberID="viewController">
+                <viewController id="cC0-Bh-ikF" customClass="ReportSubmissionViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Oz-YN-SZl"/>
                         <viewControllerLayoutGuide type="bottom" id="c6S-Ug-nds"/>
@@ -1274,16 +1274,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-OK-iWE">
-                                <rect key="frame" x="16" y="233" width="343" height="200"/>
+                                <rect key="frame" x="16" y="124" width="343" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Utq-mU-OCb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optional comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZc-bs-nLH">
-                                <rect key="frame" x="16" y="199" width="178.5" height="26"/>
+                                <rect key="frame" x="16" y="90" width="178.5" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1296,12 +1296,19 @@
                             <constraint firstAttribute="trailing" secondItem="LfL-OK-iWE" secondAttribute="trailing" constant="16" id="RU1-7m-Ar7"/>
                             <constraint firstItem="RZc-bs-nLH" firstAttribute="leading" secondItem="Rbh-DB-qRr" secondAttribute="leading" constant="16" id="UtD-tg-ifq"/>
                             <constraint firstItem="LfL-OK-iWE" firstAttribute="top" secondItem="RZc-bs-nLH" secondAttribute="bottom" constant="8" id="Vdj-c9-o5D"/>
-                            <constraint firstItem="LfL-OK-iWE" firstAttribute="centerY" secondItem="Rbh-DB-qRr" secondAttribute="centerY" id="ZPV-AY-Ebi"/>
+                            <constraint firstItem="RZc-bs-nLH" firstAttribute="top" secondItem="5Oz-YN-SZl" secondAttribute="bottom" constant="26" id="nR8-cU-00S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kZR-GF-RPU">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="8fx-Zf-abe"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="8fx-Zf-abe">
+                            <connections>
+                                <action selector="submitButtonClick:" destination="cC0-Bh-ikF" id="0A8-kn-R5c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="commentsTextView" destination="LfL-OK-iWE" id="cFP-cA-BHY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5U-jY-jWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
