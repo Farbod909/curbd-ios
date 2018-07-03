@@ -883,7 +883,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="lyC-Ia-JEW" kind="show" id="BGY-Yo-ZnC"/>
+                                            <segue destination="lyC-Ia-JEW" kind="show" identifier="showReservationExtensionViewController" id="BGY-Yo-ZnC"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4Th-cg-Orj" style="IBUITableViewCellStyleDefault" id="3Dn-5j-YHA">
@@ -903,7 +903,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="S7p-rZ-BsT" kind="show" id="t4W-aa-c2r"/>
+                                            <segue destination="S7p-rZ-BsT" kind="show" identifier="showReportTableViewController" id="t4W-aa-c2r"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Lg2-dT-kbK" style="IBUITableViewCellStyleDefault" id="a5n-4K-zq6">
@@ -948,10 +948,10 @@
             </objects>
             <point key="canvasLocation" x="3732" y="-571.21439280359823"/>
         </scene>
-        <!--View Controller-->
+        <!--Reservation Extension View Controller-->
         <scene sceneID="xwT-FK-d9t">
             <objects>
-                <viewController id="lyC-Ia-JEW" sceneMemberID="viewController">
+                <viewController id="lyC-Ia-JEW" customClass="ReservationExtensionViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l5N-lV-0VY"/>
                         <viewControllerLayoutGuide type="bottom" id="XXt-xp-LQE"/>
@@ -960,7 +960,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AQJ-23-DoX">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="AQJ-23-DoX">
                                 <rect key="frame" x="27.5" y="142" width="320" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="vVT-R6-Hqy"/>
@@ -976,8 +976,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uve-r5-DKl">
-                                <rect key="frame" x="28" y="371" width="320" height="101.5"/>
-                                <string key="text">Notice: There is a 1.5x fee for the amount of time extended beyond the original leaving time. We can not garantuee that your extension request will be approved due to availability constraints.</string>
+                                <rect key="frame" x="28" y="371" width="320" height="122"/>
+                                <string key="text">Notice: The cost is 1.5x times as much for the amount of time extended beyond the original leaving time. We'll try our best to accomodate, but we can not garantuee that your extension request will be approved due to availability constraints.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -995,8 +995,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jcc-XO-qlu">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="bU9-C5-REW"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="bU9-C5-REW">
+                            <connections>
+                                <action selector="submitButtonClick:" destination="lyC-Ia-JEW" id="L50-p4-gb6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="AQJ-23-DoX" id="z2I-5c-h97"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="few-HB-JjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

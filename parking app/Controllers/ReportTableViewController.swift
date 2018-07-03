@@ -19,6 +19,8 @@ class ReportTableViewController: UITableViewController {
         "Other",
     ]
 
+    var reservation: Reservation?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,6 +41,7 @@ class ReportTableViewController: UITableViewController {
         if segue.identifier == "showReportSubmissionViewController" {
             if let cell = sender as? UITableViewCell {
                 let reportSubmissionViewController = segue.destination as! ReportSubmissionViewController
+                reportSubmissionViewController.reservation = reservation
                 reportSubmissionViewController.reportReason = cell.textLabel?.text
             }
         }

@@ -106,12 +106,23 @@ class ReservationDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 2 {
+                // "Cancel Reservation" was clicked
                 if let token = UserDefaults.standard.string(forKey: "token") {
                     reservation?.cancel(withToken: token) { error in
                         
                     }
                 }
             }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showReportTableViewController" {
+            let reportTableViewController = segue.destination as! ReportTableViewController
+            reportTableViewController.reservation = reservation
+        } else if segue.identifier == "showReservationExtensionViewController" {
+            let reservationExtensionViewController = segue.destination as! ReservationExtensionViewController
+            reservationExtensionViewController.reservation = reservation
         }
     }
 }

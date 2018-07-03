@@ -11,9 +11,10 @@ import UIKit
 class ReportSubmissionViewController: UIViewController {
 
     var reportReason: String?
+    var reservation: Reservation?
     @IBOutlet weak var commentsTextView: UITextView!
-    @
-    IBAction func submitButtonClick(_ sender: UIBarButtonItem) {
+
+    @IBAction func submitButtonClick(_ sender: UIBarButtonItem) {
         if let reportReason = reportReason {
             // submit report
         }
