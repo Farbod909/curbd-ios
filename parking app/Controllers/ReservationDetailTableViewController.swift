@@ -16,7 +16,8 @@ class ReservationDetailTableViewController: UITableViewController {
     var isCurrent: Bool?
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var parkingSpaceAddressLabel: UILabel!
+    @IBOutlet weak var parkingSpaceNameLabel: UILabel!
+    @IBOutlet weak var parkingSpaceCityAndStateLabel: UILabel!
     @IBOutlet weak var vehicleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var featuresScrollView: UIScrollView!
@@ -31,6 +32,8 @@ class ReservationDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let reservation = reservation {
+
+            parkingSpaceNameLabel.text = reservation.parkingSpace.address
 
             let parkingSpaceLocation = CLLocation(
                 latitude: reservation.parkingSpace.latitude,
@@ -73,8 +76,7 @@ class ReservationDetailTableViewController: UITableViewController {
                 if error == nil {
                     if  let city = placemarks?[0].locality,
                         let state = placemarks?[0].administrativeArea {
-                        self.parkingSpaceAddressLabel.text =
-                            reservation.parkingSpace.address + ", \(city), \(state)"
+                        self.parkingSpaceCityAndStateLabel.text = "\(city), \(state)"
                     }
                 }
             }

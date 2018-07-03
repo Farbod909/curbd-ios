@@ -74,6 +74,19 @@ class ParkingSpaceListTableViewController: UITableViewController {
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showParkingSpaceDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let selectedRow = indexPath.row
+                if let parkingSpaceDetailTableViewController =
+                    segue.destination as? ParkingSpaceDetailTableViewController {
+                    parkingSpaceDetailTableViewController.parkingSpace =
+                        parkingSpaces[selectedRow]
+                }
+            }
+        }
+    }
+
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
