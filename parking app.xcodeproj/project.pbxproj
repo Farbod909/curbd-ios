@@ -31,6 +31,8 @@
 		8E5048A920EB416700580232 /* ReservationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5048A820EB416700580232 /* ReservationExtensionViewController.swift */; };
 		8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */; };
 		8E5DAE4F20EC9C1100341251 /* AddParkingSpaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE4E20EC9C1100341251 /* AddParkingSpaceViewController.swift */; };
+		8E5DAE5320ED45C200341251 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE5220ED45C200341251 /* ImageRow.swift */; };
+		8E5DAE5520ED45F800341251 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE5420ED45F800341251 /* ImagePickerController.swift */; };
 		8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */; };
 		8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */; };
 		8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF32086ECC8000926C1 /* Vehicle.swift */; };
@@ -86,6 +88,8 @@
 		8E5048A820EB416700580232 /* ReservationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationExtensionViewController.swift; sourceTree = "<group>"; };
 		8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveLeaveViewController.swift; sourceTree = "<group>"; };
 		8E5DAE4E20EC9C1100341251 /* AddParkingSpaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParkingSpaceViewController.swift; sourceTree = "<group>"; };
+		8E5DAE5220ED45C200341251 /* ImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
+		8E5DAE5420ED45F800341251 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewController.swift; sourceTree = "<group>"; };
 		8E7B5DF32086ECC8000926C1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -156,6 +160,23 @@
 				8EBEAEF220E8AD1200478A7B /* ParkingSpaceTableViewCell.swift */,
 			);
 			path = StylizedUIElements;
+			sourceTree = "<group>";
+		};
+		8E5DAE5020ED458800341251 /* CustomRows */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DAE5120ED45A400341251 /* ImageRow */,
+			);
+			path = CustomRows;
+			sourceTree = "<group>";
+		};
+		8E5DAE5120ED45A400341251 /* ImageRow */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DAE5220ED45C200341251 /* ImageRow.swift */,
+				8E5DAE5420ED45F800341251 /* ImagePickerController.swift */,
+			);
+			path = ImageRow;
 			sourceTree = "<group>";
 		};
 		8EC8F77E207AA1C10038790E /* Helpers */ = {
@@ -234,6 +255,7 @@
 		8EDA610C1F67A6F000AB6BF1 /* parking app */ = {
 			isa = PBXGroup;
 			children = (
+				8E5DAE5020ED458800341251 /* CustomRows */,
 				8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */,
 				8EDA61111F67A6F000AB6BF1 /* Main.storyboard */,
 				8EC8F787207ACEE00038790E /* Controllers */,
@@ -405,6 +427,7 @@
 				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,
 				8E5048A920EB416700580232 /* ReservationExtensionViewController.swift in Sources */,
 				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
+				8E5DAE5320ED45C200341251 /* ImageRow.swift in Sources */,
 				8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */,
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E0CA4622084962400C9F470 /* ShadowLabel.swift in Sources */,
@@ -417,6 +440,7 @@
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
 				8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */,
 				8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */,
+				8E5DAE5520ED45F800341251 /* ImagePickerController.swift in Sources */,
 				8E5048A720EB3B9300580232 /* ReportSubmissionViewController.swift in Sources */,
 				8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,

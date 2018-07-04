@@ -28,8 +28,8 @@ class AddParkingSpaceViewController: FormViewController {
     func initializeForm() {
 
         form
-            +++ Section("Parking Space Address")
-            <<< TextRow("street address") {
+            +++ Section("Details")
+            <<< NameRow("street address") {
                 $0.placeholder = $0.tag?.capitalized
             }
 
@@ -41,7 +41,7 @@ class AddParkingSpaceViewController: FormViewController {
                 $0.placeholder = $0.tag?.capitalized
             }.onChange() { zipCodeRow in
                 if let zipCode = zipCodeRow.value, zipCode.count >= 5 {
-                    if  let cityRow = self.form.rowBy(tag: "city") as? TextRow,
+                    if  let cityRow = self.form.rowBy(tag: "city") as? NameRow,
                         let stateRow = self.form.rowBy(tag: "state") as? TextRow {
                         let geocoder = CLGeocoder()
                         geocoder.geocodeAddressString(zipCode) { placemarks, error in
@@ -58,7 +58,7 @@ class AddParkingSpaceViewController: FormViewController {
                 }
             }
 
-            <<< TextRow("city") {
+            <<< NameRow("city") {
                 $0.placeholder = $0.tag?.capitalized
 //                $0.disabled = Condition.function(["zip code"], { form in
 //                    if let zipCodeRow = form.rowBy(tag: "zip code") as? ZipCodeRow {
@@ -90,6 +90,44 @@ class AddParkingSpaceViewController: FormViewController {
             <<< MultipleSelectorRow<String>("features") {
                 $0.title = $0.tag?.capitalized
                 $0.options = ["Covered", "Charging", "Guarded", "Surveillance", "Illuminated"]
+            }
+
+            +++ TextAreaRow("instructions") {
+                $0.placeholder = $0.tag?.capitalized
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 80)
+            }
+
+            +++ SegmentedRow<String>("ptype") {
+                $0.options = ["Driveway", "Garage", "Lot", "Structure", "Unpaved"]
+                $0.value = "Driveway"
+            }
+
+            <<< SegmentedRow<String>("ltype") {
+                $0.options = ["Residential", "Business"]
+                $0.value = "Residential"
+            }
+
+            <<< TextRow("business name") {
+                $0.title = $0.tag?.capitalized
+                $0.placeholder = "e.g. Sam's Lot"
+                $0.hidden = "$ltype != 'Business'"
+            }
+
+            +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
+                                   header: "Upload images of your space") {
+                $0.tag = "images"
+                $0.addButtonProvider = { section in
+                    return ButtonRow(){
+                        $0.title = "Add New Image"
+                        }.cellUpdate { cell, row in
+                            cell.textLabel?.textAlignment = .left
+                    }
+                }
+                $0.multivaluedRowToInsertAt = { index in
+                    return ImageRow() {
+                        $0.title = "Upload Image \(index+1)"
+                    }
+                }
             }
     }
 
