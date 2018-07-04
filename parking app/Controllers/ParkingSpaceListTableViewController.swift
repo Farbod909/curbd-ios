@@ -52,7 +52,7 @@ class ParkingSpaceListTableViewController: UITableViewController {
             latitude: parkingSpace.latitude,
             longitude: parkingSpace.longitude)
         print(parkingSpaceLocation)
-        cell.mapView.centerOn(location: parkingSpaceLocation)
+        cell.mapView.centerOn(location: parkingSpaceLocation, regionRadius: 500)
 
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2DMake(

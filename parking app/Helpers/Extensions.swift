@@ -143,8 +143,7 @@ extension MKMapView {
         self.setRegion(coordinateRegion, animated: false)
     }
 
-    func centerOn(location: CLLocation) {
-        let regionRadius: CLLocationDistance = 300
+    func centerOn(location: CLLocation, regionRadius: CLLocationDistance = 300) {
         let newCoordinate = CLLocationCoordinate2DMake(
             location.coordinate.latitude,
             location.coordinate.longitude)

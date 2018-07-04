@@ -49,9 +49,9 @@ class ReservationListTableViewController: UITableViewController {
             // default back button appears instead.
             navigationItem.leftBarButtonItem = nil
 
-            if let token = UserDefaults.standard.string(forKey: "token") {
-                // get reservations for a parking space
-            }
+//            if let token = UserDefaults.standard.string(forKey: "token") {
+//                // get reservations for a parking space
+//            }
         } else {
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonClick(_:)))
 
