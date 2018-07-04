@@ -15,8 +15,8 @@ class AddParkingSpaceViewController: FormViewController {
     func initializeSettings() {
         animateScroll = true
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Next", style: .plain, target: self, action: #selector(nextButtonClick))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            title: "Next", style: .plain, target: self, action: #selector(nextButtonClick))
     }
 
     override func viewDidLoad() {
@@ -131,8 +131,8 @@ class AddParkingSpaceViewController: FormViewController {
             }
     }
 
-    @objc func nextButtonClick(sender: UIBarButtonItem) {
-        instantiateAndShowViewController(withIdentifier: "addAvailabilityViewController")
+    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 }
 
