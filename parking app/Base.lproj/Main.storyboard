@@ -714,7 +714,13 @@
                             <outlet property="delegate" destination="y4B-df-S7p" id="yIk-z7-aTK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reservations" id="9i7-Nk-mJs"/>
+                    <navigationItem key="navigationItem" title="Reservations" id="9i7-Nk-mJs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="c3l-Bx-2vp">
+                            <connections>
+                                <action selector="cancelButtonClick:" destination="y4B-df-S7p" id="vwH-Qq-T2k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQu-D9-ghH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2408,7 +2414,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Jt1-LA-Wmx" kind="show" id="bVV-Bw-mom"/>
+                                            <segue destination="Jt1-LA-Wmx" kind="show" identifier="showListingAvailabilities" id="bVV-Bw-mom"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="jwq-lB-R2K" style="IBUITableViewCellStyleDefault" id="Afe-u4-4KZ">
@@ -2427,9 +2433,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="y4B-df-S7p" kind="show" identifier="showListingReservationHistory" id="BEh-Kl-qEc"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="GDF-qt-FNu" style="IBUITableViewCellStyleDefault" id="Gv5-ZG-jzP">
                                         <rect key="frame" x="0.0" y="547" width="375" height="44"/>
@@ -2728,6 +2731,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="zBq-LJ-y5a"/>
         <segue reference="b2c-sg-o82"/>
-        <segue reference="BEh-Kl-qEc"/>
     </inferredMetricsTieBreakers>
 </document>

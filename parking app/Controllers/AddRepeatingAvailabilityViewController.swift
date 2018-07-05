@@ -24,32 +24,10 @@ class AddRepeatingAvailabilityViewController: FormViewController {
     func initializeForm() {
 
         form
-            +++ Section("Days")
-            <<< CheckRow("sunday") {
+            +++ MultipleSelectorRow<String>("days") {
                 $0.title = $0.tag?.capitalized
-            }
-            <<< CheckRow("monday") {
-                $0.title = $0.tag?.capitalized
-                $0.value = true
-            }
-            <<< CheckRow("tuesday") {
-                $0.title = $0.tag?.capitalized
-                $0.value = true
-            }
-            <<< CheckRow("wednesday") {
-                $0.title = $0.tag?.capitalized
-                $0.value = true
-            }
-            <<< CheckRow("thursday") {
-                $0.title = $0.tag?.capitalized
-                $0.value = true
-            }
-            <<< CheckRow("friday") {
-                $0.title = $0.tag?.capitalized
-                $0.value = true
-            }
-            <<< CheckRow("saturday") {
-                $0.title = $0.tag?.capitalized
+                $0.options =
+                    ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
             }
 
             +++ Section("Time Range")

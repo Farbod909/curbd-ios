@@ -96,10 +96,9 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showListingReservationHistory" {
-            let reservationListTableViewController = segue.destination as! ReservationListTableViewController
-
-            reservationListTableViewController.isListingReservations = true
+        if segue.identifier == "showListingAvailabilities" {
+            let availabilitiesTableViewController = segue.destination as! AvailabilitiesTableViewController
+            availabilitiesTableViewController.parkingSpace = parkingSpace
         }
     }
 }

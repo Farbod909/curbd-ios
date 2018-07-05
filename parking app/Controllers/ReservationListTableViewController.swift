@@ -13,12 +13,6 @@ class ReservationListTableViewController: UITableViewController {
     var currentReservations = [Reservation]()
     var previousReservations = [Reservation]()
 
-    // flag to determine whether this page will be used to
-    // list reservation history for a parking space listing
-    // or if it will be used to list reservations for a
-    // customer
-    var isListingReservations = false
-
     func initializeSettings() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,42 +31,23 @@ class ReservationListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if navigationController?.viewControllers.count == 1 {
-            // root view controller
-            // This means that this view was opened 'modally' (sort of).
-            // In other words, it was opened from the user menu.
-            isListingReservations = false
-        }
-
-        if isListingReservations {
-            // delete custom left bar button item so that the
-            // default back button appears instead.
-            navigationItem.leftBarButtonItem = nil
-
-//            if let token = UserDefaults.standard.string(forKey: "token") {
-//                // get reservations for a parking space
-//            }
-        } else {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonClick(_:)))
-
-            if let token = UserDefaults.standard.string(forKey: "token") {
-                User.getCurrentReservations(withToken: token) { error, reservations in
-                    if let reservations = reservations {
-                        self.currentReservations = reservations
-                        self.tableView.reloadData()
-                    }
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            User.getCurrentReservations(withToken: token) { error, reservations in
+                if let reservations = reservations {
+                    self.currentReservations = reservations
+                    self.tableView.reloadData()
                 }
-                User.getPreviousReservations(withToken: token) { error, reservations in
-                    if let reservations = reservations {
-                        self.previousReservations = reservations
-                        self.tableView.reloadData()
-                    }
+            }
+            User.getPreviousReservations(withToken: token) { error, reservations in
+                if let reservations = reservations {
+                    self.previousReservations = reservations
+                    self.tableView.reloadData()
                 }
             }
         }
     }
 
-    @objc func cancelButtonClick(_ sender: UIBarButtonItem) {
+    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 

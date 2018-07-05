@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class ParkingSpace {
 
-    let id: Int
+    let id: Int?
     let features: [String]
     let latitude: Double
     let longitude: Double
@@ -39,7 +39,7 @@ class ParkingSpace {
         ]
 
         Alamofire.request(
-            baseURL + "/api/parking/spaces/\(id)/availability",
+            baseURL + "/api/parking/spaces/\(id!)/availability", //TODO: avoid forceful unwrap
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
 
