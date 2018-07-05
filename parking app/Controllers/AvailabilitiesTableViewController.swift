@@ -34,13 +34,12 @@ class AvailabilitiesTableViewController: UITableViewController {
 
         if let parkingSpace = parkingSpace {
             if let parkingSpaceId = parkingSpace.id {
-                if let token = UserDefaults.standard.string(forKey: "token") {
-                    // get availabilities
-                }
+                // TODO: get availabilities
             } else {
                 // there are no availabilities to get
-                // this is likely because the parking space was just created
-                // display "no availabilities yet; add one!"?
+                // this is because the parking space was just
+                // created, hence why "id" is nil
+                // TODO: display "no availabilities yet; add one!"?
             }
         }
 

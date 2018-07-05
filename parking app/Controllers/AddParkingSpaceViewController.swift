@@ -14,9 +14,6 @@ class AddParkingSpaceViewController: FormViewController {
 
     func initializeSettings() {
         animateScroll = true
-
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            title: "Next", style: .plain, target: self, action: #selector(nextButtonClick))
     }
 
     override func viewDidLoad() {
@@ -60,22 +57,10 @@ class AddParkingSpaceViewController: FormViewController {
 
             <<< NameRow("city") {
                 $0.placeholder = $0.tag?.capitalized
-//                $0.disabled = Condition.function(["zip code"], { form in
-//                    if let zipCodeRow = form.rowBy(tag: "zip code") as? ZipCodeRow {
-//                        return zipCodeRow.value == nil
-//                    }
-//                    return true
-//                })
             }
 
             <<< TextRow("state") {
                 $0.placeholder = $0.tag?.capitalized
-//                $0.disabled = Condition.function(["zip code"], { form in
-//                    if let zipCodeRow = form.rowBy(tag: "zip code") as? ZipCodeRow {
-//                        return zipCodeRow.value == nil
-//                    }
-//                    return true
-//                })
             }
 
             +++ IntRow("available spots") {
@@ -129,6 +114,17 @@ class AddParkingSpaceViewController: FormViewController {
                     }
                 }
             }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showParkingSpacePreview" {
+            let parkingSpaceDetailTableViewController = segue.destination as! ParkingSpaceDetailTableViewController
+
+            // TODO: construct ParkingSpace object and send it to next view controller
+
+            parkingSpaceDetailTableViewController.navigationItem.title = "Preview"
+            parkingSpaceDetailTableViewController.isPreview = true
+        }
     }
 
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {

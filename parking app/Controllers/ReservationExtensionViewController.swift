@@ -24,6 +24,6 @@ class ReservationExtensionViewController: UIViewController {
     }
 
     @IBAction func submitButtonClick(_ sender: UIBarButtonItem) {
-        // request extension
+        // TODO: request extension
     }
 }

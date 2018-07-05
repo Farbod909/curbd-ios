@@ -12,6 +12,7 @@ import MapKit
 class ParkingSpaceDetailTableViewController: UITableViewController {
 
     var parkingSpace: ParkingSpace?
+    var isPreview = false
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkingSpaceNameLabel: UILabel!
@@ -19,6 +20,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
     @IBOutlet weak var numberOfSpotsLabel: UILabel!
+    @IBOutlet weak var reservationHistoryCell: UITableViewCell!
+    @IBOutlet weak var deleteListingCell: UITableViewCell!
 
     func initializeAppearanceSettings() {
         featuresScrollView.showsHorizontalScrollIndicator = false
@@ -26,6 +29,11 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         initializeAppearanceSettings()
+
+        if isPreview {
+            reservationHistoryCell.isHidden = true
+            deleteListingCell.isHidden = true
+        }
 
         if let parkingSpace = parkingSpace {
 
@@ -90,7 +98,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 2 {
-                // delete listing
+                // TODO: delete listing
             }
         }
     }

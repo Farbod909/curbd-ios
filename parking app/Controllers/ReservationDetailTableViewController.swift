@@ -109,7 +109,7 @@ class ReservationDetailTableViewController: UITableViewController {
                 // "Cancel Reservation" was clicked
                 if let token = UserDefaults.standard.string(forKey: "token") {
                     reservation?.cancel(withToken: token) { error in
-                        
+                        // TODO: complete this
                     }
                 }
             }

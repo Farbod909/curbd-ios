@@ -2461,12 +2461,14 @@
                     </tableView>
                     <size key="freeformSize" width="375" height="820"/>
                     <connections>
+                        <outlet property="deleteListingCell" destination="Gv5-ZG-jzP" id="5gv-j8-uSo"/>
                         <outlet property="featuresScrollView" destination="dLK-Mp-LXC" id="izf-kV-vf4"/>
                         <outlet property="featuresStackView" destination="CXX-95-Zf8" id="PUW-VA-G67"/>
                         <outlet property="mapView" destination="Va9-aB-BDd" id="oIL-q3-caR"/>
                         <outlet property="numberOfSpotsLabel" destination="FYT-M4-eTl" id="ptW-vl-3g6"/>
                         <outlet property="parkingSpaceCityAndStateLabel" destination="sov-cN-OP4" id="m2G-3S-hpH"/>
                         <outlet property="parkingSpaceNameLabel" destination="fS4-jc-Ft3" id="Xar-eV-QV1"/>
+                        <outlet property="reservationHistoryCell" destination="Afe-u4-4KZ" id="FTf-jL-4Ba"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJA-4I-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2674,7 +2676,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohf-LK-VRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SFl-LY-v5C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6018" y="1628"/>
+            <point key="canvasLocation" x="6017" y="1630"/>
         </scene>
         <!--Fixed Availability-->
         <scene sceneID="8df-ce-Rn4">
@@ -2729,7 +2731,7 @@
         <image name="user" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zBq-LJ-y5a"/>
+        <segue reference="yJF-Kl-9DY"/>
         <segue reference="b2c-sg-o82"/>
     </inferredMetricsTieBreakers>
 </document>
