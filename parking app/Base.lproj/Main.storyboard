@@ -1952,7 +1952,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YF-JV-j6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2975" y="2416"/>
+            <point key="canvasLocation" x="2972" y="2400"/>
         </scene>
         <!--Signup Name View Controller-->
         <scene sceneID="s5R-mL-7ei">
@@ -2468,18 +2468,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJA-4I-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="1628"/>
+            <point key="canvasLocation" x="3753" y="1626"/>
         </scene>
         <!--Availabilities-->
         <scene sceneID="Byc-Wf-Mb8">
             <objects>
-                <tableViewController id="Jt1-LA-Wmx" sceneMemberID="viewController">
+                <tableViewController id="Jt1-LA-Wmx" customClass="AvailabilitiesTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EUr-MR-ncH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="104" id="2qI-eU-R1y">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="repeatingAvailabilityCell" rowHeight="104" id="2qI-eU-R1y">
                                 <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2qI-eU-R1y" id="mAP-OP-emS">
@@ -2510,7 +2510,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="104" id="3NK-qQ-9QH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fixedAvailabilityCell" rowHeight="104" id="3NK-qQ-9QH">
                                 <rect key="frame" x="0.0" y="132" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3NK-qQ-9QH" id="qhF-AH-G2N">
@@ -2531,8 +2531,8 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To: 6:00 PM, Fri, 08/24/18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqD-dk-sEb">
-                                            <rect key="frame" x="16" y="71" width="200" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Until: 6:00 PM, Fri, 08/24/18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqD-dk-sEb">
+                                            <rect key="frame" x="16" y="71" width="217" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2550,32 +2550,137 @@
                     <navigationItem key="navigationItem" title="Availabilities" id="cV0-kR-l8p">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bMY-1q-1YC">
                             <connections>
-                                <segue destination="9qD-tC-5vr" kind="show" id="GAG-bp-LlR"/>
+                                <segue destination="WjY-DM-53O" kind="show" id="Lyp-8f-yxy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nea-5N-G8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505" y="1630"/>
+            <point key="canvasLocation" x="4522" y="1630"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="zv0-15-fKg">
+        <!--Table View Controller-->
+        <scene sceneID="E9H-Ub-G6N">
             <objects>
-                <viewController id="9qD-tC-5vr" sceneMemberID="viewController">
+                <tableViewController id="WjY-DM-53O" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="PX1-xK-3wX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="N5E-wT-2js">
+                                <string key="footerTitle">Choose "Repeating Availability" to add a weekly scheduled recurring availability. Choose "Fixed Availability" for a one-time availability with a fixed start and end date/time.</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="N8C-xf-x9Z" style="IBUITableViewCellStyleDefault" id="Vd4-zP-Hjm">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vd4-zP-Hjm" id="iat-kt-ana">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Repeating Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8C-xf-x9Z">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Fg8-OE-1DK" kind="show" id="l6M-Xl-0lN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="rwX-lX-Q2a" style="IBUITableViewCellStyleDefault" id="spx-mY-LAJ">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="spx-mY-LAJ" id="vBi-xE-9b0">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Fixed Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rwX-lX-Q2a">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hzt-4S-1qy" kind="show" id="2J2-Di-Zgh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="WjY-DM-53O" id="LD0-IX-S63"/>
+                            <outlet property="delegate" destination="WjY-DM-53O" id="6oT-X9-kEy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXh-6h-ldt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5266" y="1628"/>
+        </scene>
+        <!--Repeating Availability-->
+        <scene sceneID="sQM-ZT-Vyv">
+            <objects>
+                <viewController id="Fg8-OE-1DK" customClass="AddRepeatingAvailabilityViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pp6-kt-KKl"/>
-                        <viewControllerLayoutGuide type="bottom" id="YLk-5o-VVa"/>
+                        <viewControllerLayoutGuide type="top" id="8C2-5a-HUT"/>
+                        <viewControllerLayoutGuide type="bottom" id="gzK-qO-Ax3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bat-y2-1gk">
+                    <view key="view" contentMode="scaleToFill" id="6Je-de-sYE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Repeating Availability" id="2XP-fr-7Ut">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8g8-CM-mIf">
+                            <connections>
+                                <action selector="doneButtonClick:" destination="Fg8-OE-1DK" id="QJe-dY-Ee5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="SFl-LY-v5C" kind="unwind" identifier="unwindToAvailabilitiesViewController" unwindAction="unwindToAvailabilitiesViewControllerWithSegue:" id="BtE-wD-TT3"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qVd-z2-cqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohf-LK-VRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SFl-LY-v5C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5268" y="1630"/>
+            <point key="canvasLocation" x="6018" y="1628"/>
+        </scene>
+        <!--Fixed Availability-->
+        <scene sceneID="8df-ce-Rn4">
+            <objects>
+                <viewController id="hzt-4S-1qy" customClass="AddFixedAvailabilityViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RA1-ck-dDh"/>
+                        <viewControllerLayoutGuide type="bottom" id="zlh-la-SPG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fnX-2G-6T3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Fixed Availability" id="LiM-G3-4Nn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="T9G-r4-TmE">
+                            <connections>
+                                <action selector="doneButtonClick:" destination="hzt-4S-1qy" id="soi-ai-LHR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="prc-hB-uTq" kind="unwind" identifier="unwindToAvailabilitiesViewController" unwindAction="unwindToAvailabilitiesViewControllerWithSegue:" id="QVM-tM-JkI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tKZ-fg-j1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="prc-hB-uTq" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6018" y="2400"/>
         </scene>
         <!--Dark Navigation Controller-->
         <scene sceneID="91Z-ce-RCc">
@@ -2593,7 +2698,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uag-js-QS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="2416"/>
+            <point key="canvasLocation" x="2206" y="2400"/>
         </scene>
     </scenes>
     <resources>
