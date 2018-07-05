@@ -10,6 +10,7 @@ import UIKit
 
 class AvailabilitiesTableViewController: UITableViewController {
 
+    
 
     @IBAction func unwindToAvailabilitiesViewController(segue:UIStoryboardSegue) { }
 }
