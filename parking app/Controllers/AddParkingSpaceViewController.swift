@@ -122,7 +122,6 @@ class AddParkingSpaceViewController: FormViewController {
 
             // TODO: construct ParkingSpace object and send it to next view controller
 
-            parkingSpaceDetailTableViewController.navigationItem.title = "Preview"
             parkingSpaceDetailTableViewController.isPreview = true
         }
     }

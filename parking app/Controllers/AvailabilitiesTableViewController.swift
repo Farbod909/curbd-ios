@@ -33,13 +33,19 @@ class AvailabilitiesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         if let parkingSpace = parkingSpace {
-            if let parkingSpaceId = parkingSpace.id {
-                // TODO: get availabilities
-            } else {
-                // there are no availabilities to get
-                // this is because the parking space was just
-                // created, hence why "id" is nil
-                // TODO: display "no availabilities yet; add one!"?
+            if let token = UserDefaults.standard.string(forKey: "token") {
+//                parkingSpace.getRepeatingAvailabilities(withToken: token) { error, repeatingAvailabilities in
+//                    if let repeatingAvailabilities = repeatingAvailabilities {
+//                        self.repeatingAvailabilities = repeatingAvailabilities
+//                        self.tableView.reloadData()
+//                    }
+//                }
+                parkingSpace.getFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
+                    if let fixedAvailabilities = fixedAvailabilities {
+                        self.fixedAvailabilities = fixedAvailabilities
+                        self.tableView.reloadData()
+                    }
+                }
             }
         }
 
@@ -64,8 +70,8 @@ class AvailabilitiesTableViewController: UITableViewController {
             let fixedAvailabilityCell = tableView.dequeueReusableCell(
                 withIdentifier: "fixedAvailabilityCell") as! FixedAvailabilityTableViewCell
             let fixedAvailability = fixedAvailabilities[indexPath.row - repeatingAvailabilities.count]
-            fixedAvailabilityCell.startDateTimeLabel.text = fixedAvailability.start_datetime.toHumanReadable()
-            fixedAvailabilityCell.endDateTimeLabel.text = fixedAvailability.end_datetime.toHumanReadable()
+            fixedAvailabilityCell.startDateTimeLabel.text = "From: " + fixedAvailability.start_datetime.toHumanReadable()
+            fixedAvailabilityCell.endDateTimeLabel.text = "Until: " + fixedAvailability.end_datetime.toHumanReadable()
 
             return fixedAvailabilityCell
         }

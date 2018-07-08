@@ -31,6 +31,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         initializeAppearanceSettings()
 
         if isPreview {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Publish", style: .done, target: self, action: #selector(publishListing(_:)))
+            navigationItem.title = "Preview"
             reservationHistoryCell.isHidden = true
             deleteListingCell.isHidden = true
         }
@@ -108,6 +110,12 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             let availabilitiesTableViewController = segue.destination as! AvailabilitiesTableViewController
             availabilitiesTableViewController.parkingSpace = parkingSpace
         }
+    }
+
+    @objc func publishListing(_ sender: UIBarButtonItem) {
+        print("==================")
+        print("hellloooooooooo")
+        print("==================")
     }
 }
 

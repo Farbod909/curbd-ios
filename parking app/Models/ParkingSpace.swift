@@ -90,4 +90,60 @@ class ParkingSpace {
         }
     }
 
+    func getRepeatingAvailabilities(withToken token: String,
+                                    completion: @escaping (Error?, [RepeatingAvailability]?) -> Void) {
+        if let parkingSpaceId = self.id {
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+            Alamofire.request(
+                baseURL + "/api/parking/spaces/\(parkingSpaceId)/repeatingavailabilities/",
+                headers: headers).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let repeatingAvailabilitiesJSON = JSON(value)
+                        let repeatingAvailabilities: [RepeatingAvailability] = repeatingAvailabilitiesJSON["results"].arrayValue.map({ RepeatingAvailability(json: $0) })
+                        completion(nil, repeatingAvailabilities)
+                    case .failure(let error):
+                        completion(error, nil)
+                    }
+            }
+        } else {
+            // TODO: error
+            // there are no availabilities to get
+            // this is because the parking space was just
+            // created, hence why "id" is nil
+            // TODO: display "no availabilities yet; add one!"?
+        }
+        
+    }
+
+    func getFixedAvailabilities(withToken token: String,
+                                    completion: @escaping (Error?, [FixedAvailability]?) -> Void) {
+        if let parkingSpaceId = self.id {
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+            Alamofire.request(
+                baseURL + "/api/parking/spaces/\(parkingSpaceId)/fixedavailabilities/",
+                headers: headers).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let fixedAvailabilitiesJSON = JSON(value)
+                        let fixedAvailabilities: [FixedAvailability] = fixedAvailabilitiesJSON["results"].arrayValue.map({ FixedAvailability(json: $0) })
+                        completion(nil, fixedAvailabilities)
+                    case .failure(let error):
+                        completion(error, nil)
+                    }
+            }
+        } else {
+            // TODO: error
+            // there are no availabilities to get
+            // this is because the parking space was just
+            // created, hence why "id" is nil
+            // TODO: display "no availabilities yet; add one!"?
+        }
+
+    }
+
 }

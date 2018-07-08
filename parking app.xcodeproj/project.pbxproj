@@ -41,6 +41,7 @@
 		8E5DAE6420EDB16800341251 /* FixedAvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE6320EDB16800341251 /* FixedAvailabilityTableViewCell.swift */; };
 		8E5DAE6620EDB59B00341251 /* RepeatingAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE6520EDB59B00341251 /* RepeatingAvailability.swift */; };
 		8E5DAE6820EDB5AC00341251 /* FixedAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE6720EDB5AC00341251 /* FixedAvailability.swift */; };
+		8E5DAE6A20EE07DA00341251 /* ReservationHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE6920EE07DA00341251 /* ReservationHistoryTableViewController.swift */; };
 		8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */; };
 		8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */; };
 		8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF32086ECC8000926C1 /* Vehicle.swift */; };
@@ -106,6 +107,7 @@
 		8E5DAE6320EDB16800341251 /* FixedAvailabilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAvailabilityTableViewCell.swift; sourceTree = "<group>"; };
 		8E5DAE6520EDB59B00341251 /* RepeatingAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingAvailability.swift; sourceTree = "<group>"; };
 		8E5DAE6720EDB5AC00341251 /* FixedAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAvailability.swift; sourceTree = "<group>"; };
+		8E5DAE6920EE07DA00341251 /* ReservationHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationHistoryTableViewController.swift; sourceTree = "<group>"; };
 		8E7B5DEF2086A268000926C1 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		8E7B5DF12086A3C3000926C1 /* VehicleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewController.swift; sourceTree = "<group>"; };
 		8E7B5DF32086ECC8000926C1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				8E5DAE5820ED8B2900341251 /* AvailabilityDetailTableViewController.swift */,
 				8E5DAE5C20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift */,
 				8E5DAE5E20EDA2C000341251 /* AddFixedAvailabilityViewController.swift */,
+				8E5DAE6920EE07DA00341251 /* ReservationHistoryTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */,
 				8E5DAE6220EDB15B00341251 /* RepeatingAvailabilityTableViewCell.swift in Sources */,
 				8EBEAEF320E8AD1200478A7B /* ParkingSpaceTableViewCell.swift in Sources */,
+				8E5DAE6A20EE07DA00341251 /* ReservationHistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
