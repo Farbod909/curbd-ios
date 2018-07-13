@@ -126,6 +126,36 @@ class SearchDrawerViewController: UIViewController {
             }
         }
     }
+
+    func performSearchOnSuggestion(rowIndex: Int) {
+        searchField.resignFirstResponder()
+        searchField.text = searchResults[rowIndex].title
+
+        if let pulleyViewController = parent as? PulleyViewController {
+            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
+        }
+
+        let mapViewController = parent?.childViewControllers[0] as! MapViewController
+        let completion = searchResults[rowIndex]
+
+        let searchRequest = MKLocalSearchRequest(completion: completion)
+        let mapSearch = MKLocalSearch(request: searchRequest)
+        mapSearch.start { response, error in
+            if error != nil {
+                print("Error occured in search: \(error!.localizedDescription)")
+            } else {
+                let coordinate = (response?.mapItems[0].placemark.coordinate)!
+                mapViewController.mapView.centerSlightlyBelow(location: CLLocation(
+                    latitude: coordinate.latitude,
+                    longitude: coordinate.longitude))
+                mapViewController.locateParkingSpacesOnCurrentMapArea(
+                    from: self.arriveDate,
+                    to: self.leaveDate,
+                    alertIfNotFound: true,
+                    selectFirstResult: true)
+            }
+        }
+    }
 }
 
 extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
@@ -171,9 +201,13 @@ extension SearchDrawerViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchField.resignFirstResponder()
-        if let pulleyViewController = parent as? PulleyViewController {
-            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
+        if searchResults.count > 0 {
+            performSearchOnSuggestion(rowIndex: 0)
+        } else {
+            searchField.resignFirstResponder()
+            if let pulleyViewController = parent as? PulleyViewController {
+                pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
+            }
         }
         return true
     }
@@ -202,33 +236,34 @@ extension SearchDrawerViewController: UITableViewDelegate {
     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        searchField.resignFirstResponder()
-        searchField.text = searchResults[indexPath.row].title
-
-        if let pulleyViewController = parent as? PulleyViewController {
-            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
-        }
-
-        let mapViewController = parent?.childViewControllers[0] as! MapViewController
-        let completion = searchResults[indexPath.row]
-
-        let searchRequest = MKLocalSearchRequest(completion: completion)
-        let mapSearch = MKLocalSearch(request: searchRequest)
-        mapSearch.start { response, error in
-            if error != nil {
-                print("Error occured in search: \(error!.localizedDescription)")
-            } else {
-                let coordinate = (response?.mapItems[0].placemark.coordinate)!
-                mapViewController.mapView.centerSlightlyBelow(location: CLLocation(
-                    latitude: coordinate.latitude,
-                    longitude: coordinate.longitude))
-                mapViewController.locateParkingSpacesOnCurrentMapArea(
-                    from: self.arriveDate,
-                    to: self.leaveDate,
-                    alertIfNotFound: true,
-                    selectFirstResult: true)
-            }
-        }
+        performSearchOnSuggestion(rowIndex: indexPath.row)
+//        searchField.resignFirstResponder()
+//        searchField.text = searchResults[indexPath.row].title
+//
+//        if let pulleyViewController = parent as? PulleyViewController {
+//            pulleyViewController.setDrawerPosition(position: .partiallyRevealed)
+//        }
+//
+//        let mapViewController = parent?.childViewControllers[0] as! MapViewController
+//        let completion = searchResults[indexPath.row]
+//
+//        let searchRequest = MKLocalSearchRequest(completion: completion)
+//        let mapSearch = MKLocalSearch(request: searchRequest)
+//        mapSearch.start { response, error in
+//            if error != nil {
+//                print("Error occured in search: \(error!.localizedDescription)")
+//            } else {
+//                let coordinate = (response?.mapItems[0].placemark.coordinate)!
+//                mapViewController.mapView.centerSlightlyBelow(location: CLLocation(
+//                    latitude: coordinate.latitude,
+//                    longitude: coordinate.longitude))
+//                mapViewController.locateParkingSpacesOnCurrentMapArea(
+//                    from: self.arriveDate,
+//                    to: self.leaveDate,
+//                    alertIfNotFound: true,
+//                    selectFirstResult: true)
+//            }
+//        }
     }
     
 }
