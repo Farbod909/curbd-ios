@@ -87,7 +87,7 @@ class ParkingSpaceListTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+    @IBAction func dismissButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 }

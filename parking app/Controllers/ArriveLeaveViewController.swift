@@ -28,7 +28,12 @@ class ArriveLeaveViewController: LightTranslucentViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func saveButtonClick(_ sender: UIButton) {
+    /**
+     This button essentially behaves as a "save" button.
+     The unwind view controller is responsible for performing
+     the actual search.
+     */
+    @IBAction func searchButtonClick(_ sender: UIButton) {
         arriveDate = arriveDatePicker.date
         leaveDate = leaveDatePicker.date
         performSegue(withIdentifier: "unwindToSearchDrawer", sender: self)

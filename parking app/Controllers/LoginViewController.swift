@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
 
-    @IBAction func cancelButtonClick(_ sender: UIButton) {
+    @IBAction func closeButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
     

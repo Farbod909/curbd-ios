@@ -15,7 +15,7 @@ class AddVehicleViewController: FormViewController {
         animateScroll = true
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Save", style: .plain, target: self, action: #selector(saveTapped))
+            title: "Save", style: .done, target: self, action: #selector(saveTapped))
     }
 
     override func viewDidLoad() {

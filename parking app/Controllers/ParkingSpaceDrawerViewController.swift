@@ -12,6 +12,7 @@ import UIKit
 
 class ParkingSpaceDrawerViewController: UIViewController {
 
+    @IBOutlet weak var grabber: UIView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var pricingLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
@@ -34,6 +35,10 @@ class ParkingSpaceDrawerViewController: UIViewController {
     func initializeAppearanceSettings() {
         reserveButton.layer.cornerRadius = 10
         featuresScrollView.showsHorizontalScrollIndicator = false
+
+        grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
+        grabber.layer.cornerRadius = 3
+        grabber.layer.masksToBounds = true
     }
 
     override func viewDidLoad() {
@@ -60,24 +65,27 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
             for feature in parkingSpace.features {
 
-                let featureImageView = UIImageView()
+                let featureImage: UIImage
+                switch feature {
+                case "Illuminated":
+                    featureImage = #imageLiteral(resourceName: "illuminated")
+                case "Covered":
+                    featureImage = #imageLiteral(resourceName: "covered")
+                case "Surveillance":
+                    featureImage = #imageLiteral(resourceName: "surveillance")
+                case "Guarded":
+                    featureImage = #imageLiteral(resourceName: "guarded")
+                case "EV Charging":
+                    featureImage = #imageLiteral(resourceName: "ev charging")
+                default:
+                    featureImage = #imageLiteral(resourceName: "question mark")
+                }
+
+                let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(2, 2, 2, 2)))
+
                 featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
                 featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
                 featureImageView.contentMode = .scaleAspectFit
-                switch feature {
-                case "Illuminated":
-                    featureImageView.image = #imageLiteral(resourceName: "illuminated")
-                case "Covered":
-                    featureImageView.image = #imageLiteral(resourceName: "covered")
-                case "Surveillance":
-                    featureImageView.image = #imageLiteral(resourceName: "surveillance")
-                case "Guarded":
-                    featureImageView.image = #imageLiteral(resourceName: "guarded")
-                case "EV Charging":
-                    featureImageView.image = #imageLiteral(resourceName: "ev charging")
-                default:
-                    featureImageView.image = #imageLiteral(resourceName: "question mark")
-                }
 
                 featuresStackView.addArrangedSubview(featureImageView)
             }
@@ -96,7 +104,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
      view and shows the search drawer view instead (with it's previous state
      restored)
     */
-    @IBAction func dismissButtonClick(_ sender: Any) {
+    @IBAction func closeButtonClick(_ sender: Any) {
         if let pulleyViewController = parent as? ParkingPulleyViewController {
             pulleyViewController.setDrawerContentViewController(
                 controller: pulleyViewController.savedSearchDrawerViewController!,

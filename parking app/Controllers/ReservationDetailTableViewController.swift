@@ -48,24 +48,27 @@ class ReservationDetailTableViewController: UITableViewController {
 
             for feature in reservation.parkingSpace.features {
 
-                let featureImageView = UIImageView()
+                let featureImage: UIImage
+                switch feature {
+                case "Illuminated":
+                    featureImage = #imageLiteral(resourceName: "illuminated")
+                case "Covered":
+                    featureImage = #imageLiteral(resourceName: "covered")
+                case "Surveillance":
+                    featureImage = #imageLiteral(resourceName: "surveillance")
+                case "Guarded":
+                    featureImage = #imageLiteral(resourceName: "guarded")
+                case "EV Charging":
+                    featureImage = #imageLiteral(resourceName: "ev charging")
+                default:
+                    featureImage = #imageLiteral(resourceName: "question mark")
+                }
+
+                let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(2, 2, 2, 2)))
+
                 featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
                 featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
                 featureImageView.contentMode = .scaleAspectFit
-                switch feature {
-                case "Illuminated":
-                    featureImageView.image = #imageLiteral(resourceName: "illuminated")
-                case "Covered":
-                    featureImageView.image = #imageLiteral(resourceName: "covered")
-                case "Surveillance":
-                    featureImageView.image = #imageLiteral(resourceName: "surveillance")
-                case "Guarded":
-                    featureImageView.image = #imageLiteral(resourceName: "guarded")
-                case "EV Charging":
-                    featureImageView.image = #imageLiteral(resourceName: "ev charging")
-                default:
-                    featureImageView.image = #imageLiteral(resourceName: "question mark")
-                }
 
                 featuresStackView.addArrangedSubview(featureImageView)
             }

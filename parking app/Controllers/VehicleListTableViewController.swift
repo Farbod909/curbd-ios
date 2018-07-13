@@ -59,7 +59,7 @@ class VehicleListTableViewController: UITableViewController {
         instantiateAndShowViewController(withIdentifier: "addVehicleViewController")
     }
 
-    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+    @IBAction func dismissButtonClick(_ sender: UIBarButtonItem) {
         if presentedViaUserMenu {
             dismiss(animated: true)
         } else {

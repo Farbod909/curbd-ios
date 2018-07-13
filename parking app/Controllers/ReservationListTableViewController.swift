@@ -47,7 +47,7 @@ class ReservationListTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+    @IBAction func dismissButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 

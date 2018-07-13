@@ -30,7 +30,7 @@ class UserMenuViewController: DarkTranslucentViewController {
         }
     }
 
-    @IBAction func exitButtonClick(_ sender: UIButton) {
+    @IBAction func closeButtonClick(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToMapViewController", sender: self)
     }
     

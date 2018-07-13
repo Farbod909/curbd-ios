@@ -32,7 +32,7 @@ class SignupNameViewController: UIViewController {
         firstNameTextField.becomeFirstResponder()
     }
 
-    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+    @IBAction func closeButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 

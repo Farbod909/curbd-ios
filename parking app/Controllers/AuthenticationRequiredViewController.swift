@@ -14,7 +14,7 @@ class AuthenticationRequiredViewController: DarkTranslucentViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
 
-    @IBAction func cancelButtonClick(_ sender: UIButton) {
+    @IBAction func closeButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
 
