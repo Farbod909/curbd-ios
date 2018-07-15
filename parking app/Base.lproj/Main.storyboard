@@ -705,9 +705,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="addressLabel" destination="cgK-FD-b4d" id="jI5-No-3MT"/>
                                     <outlet property="priceLabel" destination="8b6-az-OHm" id="GkP-I7-1t3"/>
                                     <outlet property="timePeriodLabel" destination="89E-ss-DFD" id="vsc-NA-okf"/>
+                                    <outlet property="titleLabel" destination="cgK-FD-b4d" id="jI5-No-3MT"/>
                                     <outlet property="vehicleLabel" destination="abK-Fl-50j" id="Xyq-6A-7tJ"/>
                                     <segue destination="hmb-kk-bsa" kind="show" identifier="showReservationDetail" id="BcD-zZ-DEG"/>
                                 </connections>
@@ -2312,7 +2312,7 @@
             <objects>
                 <tableViewController id="0NV-5S-u23" customClass="ParkingSpaceDetailTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="V4w-R5-XIw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -2401,7 +2401,7 @@
                                     <outlet property="parkingSpaceNameLabel" destination="fS4-jc-Ft3" id="irl-Sd-ab6"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="repeatingAvailabilityCell" rowHeight="104" id="QSP-lC-4hA" customClass="RepeatingAvailabilityTableViewCell" customModule="parking_app" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="repeatingAvailabilityCell" rowHeight="104" id="QSP-lC-4hA" customClass="RepeatingAvailabilityTableViewCell" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="445.5" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QSP-lC-4hA" id="P6l-y1-1sM">
@@ -2442,7 +2442,7 @@
                                     <outlet property="timeRangeLabel" destination="e8w-NT-7pu" id="xqZ-8i-luI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fixedAvailabilityCell" rowHeight="104" id="TnW-Gt-tn1" customClass="FixedAvailabilityTableViewCell" customModule="parking_app" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fixedAvailabilityCell" rowHeight="104" id="TnW-Gt-tn1" customClass="FixedAvailabilityTableViewCell" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="549.5" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TnW-Gt-tn1" id="xJm-xD-tFd">
@@ -2524,7 +2524,7 @@
                             <outlet property="delegate" destination="0NV-5S-u23" id="CUr-ez-pCr"/>
                         </connections>
                     </tableView>
-                    <size key="freeformSize" width="375" height="820"/>
+                    <size key="freeformSize" width="375" height="850"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJA-4I-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2616,7 +2616,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="SFl-LY-v5C" kind="unwind" identifier="unwindToAvailabilitiesViewController" unwindAction="unwindToAvailabilitiesViewControllerWithSegue:" id="BtE-wD-TT3"/>
+                        <segue destination="SFl-LY-v5C" kind="unwind" identifier="unwindToParkingSpaceDetailTableViewController" unwindAction="unwindToParkingSpaceDetailTableViewControllerWithSegue:" id="EEl-OQ-hDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohf-LK-VRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2644,12 +2644,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="prc-hB-uTq" kind="unwind" identifier="unwindToAvailabilitiesViewController" unwindAction="unwindToAvailabilitiesViewControllerWithSegue:" id="QVM-tM-JkI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKZ-fg-j1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="prc-hB-uTq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5345" y="2400"/>
         </scene>
@@ -2674,20 +2670,20 @@
         <!--Reservation History-->
         <scene sceneID="ikW-PL-1K2">
             <objects>
-                <tableViewController id="95b-Dg-huR" customClass="ReservationHistoryTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="reservationHistoryTableViewController" id="95b-Dg-huR" customClass="ReservationListTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="97" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bIy-pG-47C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reservationCell" rowHeight="108" id="WON-7y-Vzf" customClass="ReservationTableViewCell" customModule="parking_app" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reservationCell" rowHeight="108" id="WON-7y-Vzf" customClass="ReservationTableViewCell" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WON-7y-Vzf" id="4ou-Zy-GTs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qin-cT-SYR">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farbod R." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qin-cT-SYR">
                                             <rect key="frame" x="16" y="15" width="260" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
@@ -2739,9 +2735,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="addressLabel" destination="qin-cT-SYR" id="I8b-b8-ZTw"/>
                                     <outlet property="priceLabel" destination="PiX-NS-cBH" id="hz4-UQ-r2D"/>
                                     <outlet property="timePeriodLabel" destination="nFB-Ok-iND" id="h3d-Ad-9KB"/>
+                                    <outlet property="titleLabel" destination="qin-cT-SYR" id="I8b-b8-ZTw"/>
                                     <outlet property="vehicleLabel" destination="BXe-ss-QDL" id="rQ0-yK-8Oe"/>
                                 </connections>
                             </tableViewCell>
@@ -2765,7 +2761,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1a3-9A-uUD"/>
-        <segue reference="zBq-LJ-y5a"/>
+        <segue reference="yJF-Kl-9DY"/>
         <segue reference="b2c-sg-o82"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -75,8 +75,19 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
-            return "Availabilities"
+        if !isPreview {
+            if section == 1 {
+                return "Availabilities"
+            }
+        }
+        return ""
+    }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if isPreview {
+            if section == 1 {
+                return "Specify the dates and times during which you would like your space to be available"
+            }
         }
         return ""
     }
@@ -215,12 +226,18 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 instantiateAndShowViewController(withIdentifier: "addAvailabilityViewController")
             } else if indexPath.row == 1 {
-                // TODO: reservation history
+                let reservationHistoryTableViewController = UIStoryboard(
+                    name: "Main",
+                    bundle: nil).instantiateViewController(withIdentifier: "reservationHistoryTableViewController") as! ReservationListTableViewController
+                reservationHistoryTableViewController.parkingSpace = parkingSpace
+                show(reservationHistoryTableViewController, sender: self)
             } else if indexPath.row == 2 {
                 // TODO: delete listing
             }
         }
     }
+
+    @IBAction func unwindToParkingSpaceDetailTableViewController(segue:UIStoryboardSegue) { }
 
     @objc func publishListing(_ sender: UIBarButtonItem) {
         print("==================")

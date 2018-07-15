@@ -17,6 +17,7 @@ class Reservation {
     let pricing: Int // cost every 5 minutes (in cents)
     let vehicle: Vehicle
     let parkingSpace: ParkingSpace
+    let reserver: User
     var pricePerHour: String {
         // price (in dollars) calculated per hour
         let pricePerHour = Double(pricing * 12)/100.0
@@ -38,6 +39,7 @@ class Reservation {
         self.end = Formatter.iso8601.date(from: json["end_datetime"].stringValue)!
         self.vehicle = Vehicle(json: json["car_detail"])
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
+        self.reserver = User(json: json["reserver"])
         if let forRepeating = json["for_repeating"].bool {
             if forRepeating {
                 self.pricing = json["repeating_availability"]["pricing"].intValue

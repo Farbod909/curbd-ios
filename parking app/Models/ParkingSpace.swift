@@ -146,4 +146,58 @@ class ParkingSpace {
 
     }
 
+    func getCurrentReservations(withToken token: String,
+                                completion: @escaping (Error?, [Reservation]?) -> Void) {
+        if let parkingSpaceId = self.id {
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+            Alamofire.request(
+                baseURL + "/api/parking/spaces/\(parkingSpaceId)/reservations/current/",
+                headers: headers).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let reservationsJSON = JSON(value)
+                        let reservations: [Reservation] = reservationsJSON["results"].arrayValue.map({ Reservation(json: $0) })
+                        completion(nil, reservations)
+                    case .failure(let error):
+                        completion(error, nil)
+                    }
+            }
+        } else {
+            // TODO: error
+            // there are no reservations to get
+            // this is because the parking space was just
+            // created, hence why "id" is nil
+        }
+
+    }
+
+    func getPreviousReservations(withToken token: String,
+                                completion: @escaping (Error?, [Reservation]?) -> Void) {
+        if let parkingSpaceId = self.id {
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+            Alamofire.request(
+                baseURL + "/api/parking/spaces/\(parkingSpaceId)/reservations/previous/",
+                headers: headers).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let reservationsJSON = JSON(value)
+                        let reservations: [Reservation] = reservationsJSON["results"].arrayValue.map({ Reservation(json: $0) })
+                        completion(nil, reservations)
+                    case .failure(let error):
+                        completion(error, nil)
+                    }
+            }
+        } else {
+            // TODO: error
+            // there are no reservations to get
+            // this is because the parking space was just
+            // created, hence why "id" is nil
+        }
+
+    }
+
 }

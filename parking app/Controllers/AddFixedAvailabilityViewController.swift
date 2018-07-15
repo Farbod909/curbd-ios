@@ -47,7 +47,7 @@ class AddFixedAvailabilityViewController: FormViewController {
     }
 
     @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "unwindToAvailabilitiesViewController", sender: self)
+        performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)
     }
 }
 
