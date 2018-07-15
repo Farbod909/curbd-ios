@@ -100,6 +100,12 @@ extension Date {
         }
     }
 
+    public func timeComponentString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: self)
+    }
+
     public func round(precision: TimeInterval) -> Date {
         return round(precision: precision, rule: .toNearestOrAwayFromZero)
     }

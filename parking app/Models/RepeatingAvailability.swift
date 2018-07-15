@@ -20,8 +20,23 @@ class RepeatingAvailability {
     init(json: JSON) {
         self.id = json["id"].intValue
         self.parking_space = json["parking_space"].intValue
-        self.start_time = Formatter.iso8601.date(from: json["start_time"].stringValue)!
-        self.end_time = Formatter.iso8601.date(from: json["end_time"].stringValue)!
+
+        let startTime = json["start_time"].stringValue
+        let endTime = json["end_time"].stringValue
+
+        let minuteStartIndex = startTime.index(startTime.startIndex, offsetBy: 3)
+        let minuteEndIndex = startTime.index(startTime.startIndex, offsetBy: 5)
+
+        let startHour = Int(startTime.prefix(2))!
+        let startMinute = Int(startTime[minuteStartIndex..<minuteEndIndex])!
+
+        let endHour = Int(endTime.prefix(2))!
+        let endMinute = Int(endTime[minuteStartIndex..<minuteEndIndex])!
+
+        self.start_time = Calendar.current.date(bySettingHour: startHour, minute: startMinute, second: 0, of: Date())!
+        self.end_time = Calendar.current.date(bySettingHour: endHour, minute: endMinute, second: 0, of: Date())!
+
+
         self.repeating_days = json["repeating_days"].stringValue.components(separatedBy: ", ")
         self.pricing = json["pricing"].intValue
     }
