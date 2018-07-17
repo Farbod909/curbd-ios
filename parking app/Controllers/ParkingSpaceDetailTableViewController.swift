@@ -100,6 +100,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 let parkingSpaceDetailCell = tableView.dequeueReusableCell(
                     withIdentifier: "parkingSpaceDetailCell") as! ParkingSpaceDetailTableViewCell
 
+                parkingSpaceDetailCell.selectionStyle = .none
+
                 if let parkingSpace = parkingSpace {
 
                     parkingSpaceDetailCell.parkingSpaceNameLabel.text = parkingSpace.name
@@ -134,6 +136,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                             featureImage = #imageLiteral(resourceName: "guarded")
                         case "EV Charging":
                             featureImage = #imageLiteral(resourceName: "ev charging")
+                        case "Gated":
+                            featureImage = #imageLiteral(resourceName: "gated")
                         default:
                             featureImage = #imageLiteral(resourceName: "question mark")
                         }

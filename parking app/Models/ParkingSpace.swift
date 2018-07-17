@@ -19,6 +19,8 @@ class ParkingSpace {
     let size: Int
     let name: String
     let instructions: String
+    let physical_type: String
+    let legal_type: String
 
     init(json: JSON) {
         self.id = json["id"].intValue
@@ -29,6 +31,8 @@ class ParkingSpace {
         self.size = json["size"].intValue
         self.name = json["name"].stringValue
         self.instructions = json["instructions"].stringValue
+        self.physical_type = json["physical_type"].stringValue
+        self.legal_type = json["legal_type"].stringValue
     }
 
     func getPricing(from start: Date, to end: Date, completion: @escaping (Int?) -> Void) {

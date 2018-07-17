@@ -13,7 +13,7 @@ import UIKit
 class ParkingSpaceDrawerViewController: UIViewController {
 
     @IBOutlet weak var grabber: UIView!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pricingLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
@@ -47,7 +47,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
         if let parkingSpace = parkingSpace {
 
-            addressLabel.text = parkingSpace.name
+            nameLabel.text = parkingSpace.name
 
             if  let arriveDate = arriveDate,
                 let leaveDate = leaveDate {
@@ -77,6 +77,8 @@ class ParkingSpaceDrawerViewController: UIViewController {
                     featureImage = #imageLiteral(resourceName: "guarded")
                 case "EV Charging":
                     featureImage = #imageLiteral(resourceName: "ev charging")
+                case "Gated":
+                    featureImage = #imageLiteral(resourceName: "gated")
                 default:
                     featureImage = #imageLiteral(resourceName: "question mark")
                 }

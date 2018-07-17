@@ -653,7 +653,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-FD-b4d">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-FD-b4d">
                                             <rect key="frame" x="16" y="15" width="260" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
@@ -749,7 +749,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ouv-hm-lVk">
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ouv-hm-lVk">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                                 </mapView>
                                             </subviews>
@@ -761,14 +761,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="208" id="Bj2-e4-j11">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="208" id="Bj2-e4-j11">
                                         <rect key="frame" x="0.0" y="240" width="375" height="208"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bj2-e4-j11" id="LTO-rZ-jFn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="207.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4N9-9M-tby">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4N9-9M-tby">
                                                     <rect key="frame" x="13" y="82" width="346" height="51"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0WC-oh-wwk">
@@ -949,6 +949,7 @@
                         <outlet property="leaveCell" destination="Y3c-mh-6VV" id="7Xb-8B-Grs"/>
                         <outlet property="mapView" destination="Ouv-hm-lVk" id="qMX-Ed-Fo2"/>
                         <outlet property="parkingSpaceCityAndStateLabel" destination="oMq-LO-hNw" id="daK-ab-YWK"/>
+                        <outlet property="parkingSpaceDetailCell" destination="Bj2-e4-j11" id="aF3-UT-ULA"/>
                         <outlet property="parkingSpaceNameLabel" destination="v4f-Eu-Zc5" id="yy0-R8-Rqb"/>
                         <outlet property="priceLabel" destination="ant-E1-LWj" id="7me-GI-b4f"/>
                         <outlet property="vehicleLabel" destination="wrp-rr-Vu8" id="tzF-ha-5gp"/>
@@ -1545,10 +1546,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
                         <outlet property="featuresScrollView" destination="R4p-oe-IXW" id="82y-sa-Ppg"/>
                         <outlet property="featuresStackView" destination="git-Ta-VFM" id="Yrr-nB-137"/>
                         <outlet property="grabber" destination="Ndb-Kt-cYn" id="3hw-eL-Hnw"/>
+                        <outlet property="nameLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
                         <outlet property="pricingLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                         <outlet property="reserveButton" destination="mgg-Ma-URI" id="dOh-Eq-YZO"/>
                     </connections>
@@ -1702,8 +1703,8 @@
                         <outlet property="confirmButton" destination="vju-z2-ih5" id="m5M-G6-0xJ"/>
                         <outlet property="leaveDateLabel" destination="lxL-lW-tBQ" id="axu-qK-8NZ"/>
                         <outlet property="mapView" destination="BRF-ec-B4L" id="87I-Pw-B1K"/>
+                        <outlet property="nameLabel" destination="oeh-yO-O1B" id="RxG-aK-Z1X"/>
                         <outlet property="pricingLabel" destination="Yt3-i5-qhj" id="RSD-tH-eMg"/>
-                        <outlet property="streetAddressLabel" destination="oeh-yO-O1B" id="RxG-aK-Z1X"/>
                         <outlet property="vehicleLicensePlateLabel" destination="CFB-vM-571" id="dXT-na-jXa"/>
                         <segue destination="xyU-xa-5SD" kind="unwind" identifier="unwindToMapViewControllerAfterReservationConfirmation" unwindAction="unwindToMapViewControllerAfterReservationConfirmationWithSegue:" id="YwV-cb-1So"/>
                     </connections>
@@ -2316,7 +2317,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parkingSpaceDetailCell" rowHeight="390" id="62C-VS-T0P" customClass="ParkingSpaceDetailTableViewCell" customModule="parking_app" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parkingSpaceDetailCell" rowHeight="390" id="62C-VS-T0P" customClass="ParkingSpaceDetailTableViewCell" customModule="parking_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="390"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="62C-VS-T0P" id="WIm-yS-1f1">

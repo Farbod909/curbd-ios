@@ -17,7 +17,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
     @IBOutlet weak var arriveDateLabel: UILabel!
     @IBOutlet weak var leaveDateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var streetAddressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityStateLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
@@ -52,7 +52,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             pricingLabel.text = "$\(formattedFinalCost) @ $\(formattedPricePerHour) / hr"
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
-            streetAddressLabel.text = parkingSpace.name
+            nameLabel.text = parkingSpace.name
 
             let parkingSpaceLocation = CLLocation(
                 latitude: parkingSpace.latitude,

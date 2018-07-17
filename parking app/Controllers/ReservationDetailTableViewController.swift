@@ -15,6 +15,7 @@ class ReservationDetailTableViewController: UITableViewController {
     // Determines if the reservation a current one or a previous one
     var isCurrent: Bool?
 
+    @IBOutlet weak var parkingSpaceDetailCell: UITableViewCell!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkingSpaceNameLabel: UILabel!
     @IBOutlet weak var parkingSpaceCityAndStateLabel: UILabel!
@@ -26,11 +27,14 @@ class ReservationDetailTableViewController: UITableViewController {
     @IBOutlet weak var leaveCell: UITableViewCell!
 
     func initializeAppearanceSettings() {
-        featuresScrollView.showsHorizontalScrollIndicator = false
+//        featuresScrollView.showsHorizontalScrollIndicator = false
+        parkingSpaceDetailCell.selectionStyle = .none
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeAppearanceSettings()
+        
         if let reservation = reservation {
 
             parkingSpaceNameLabel.text = reservation.parkingSpace.name
@@ -60,6 +64,8 @@ class ReservationDetailTableViewController: UITableViewController {
                     featureImage = #imageLiteral(resourceName: "guarded")
                 case "EV Charging":
                     featureImage = #imageLiteral(resourceName: "ev charging")
+                case "Gated":
+                    featureImage = #imageLiteral(resourceName: "gated")
                 default:
                     featureImage = #imageLiteral(resourceName: "question mark")
                 }

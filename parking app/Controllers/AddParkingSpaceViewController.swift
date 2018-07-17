@@ -74,7 +74,7 @@ class AddParkingSpaceViewController: FormViewController {
 
             <<< MultipleSelectorRow<String>("features") {
                 $0.title = $0.tag?.capitalized
-                $0.options = ["Covered", "Charging", "Guarded", "Surveillance", "Illuminated"]
+                $0.options = ["Covered", "Charging", "Guarded", "Surveillance", "Illuminated", "Gated"]
             }
 
             +++ TextAreaRow("instructions") {
