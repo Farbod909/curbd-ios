@@ -100,6 +100,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 let parkingSpaceDetailCell = tableView.dequeueReusableCell(
                     withIdentifier: "parkingSpaceDetailCell") as! ParkingSpaceDetailTableViewCell
 
+                // this prevents the row from being highlighted when
+                // scrolling through features
                 parkingSpaceDetailCell.selectionStyle = .none
 
                 if let parkingSpace = parkingSpace {
@@ -244,9 +246,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     @IBAction func unwindToParkingSpaceDetailTableViewController(segue:UIStoryboardSegue) { }
 
     @objc func publishListing(_ sender: UIBarButtonItem) {
-        print("==================")
-        print("hellloooooooooo")
-        print("==================")
+        // publish the listing
     }
 }
 
