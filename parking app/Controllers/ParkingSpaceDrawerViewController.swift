@@ -47,7 +47,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
         if let parkingSpace = parkingSpace {
 
-            addressLabel.text = parkingSpace.address
+            addressLabel.text = parkingSpace.name
 
             if  let arriveDate = arriveDate,
                 let leaveDate = leaveDate {

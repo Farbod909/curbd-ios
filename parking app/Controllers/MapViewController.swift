@@ -223,7 +223,7 @@ class MapViewController: UIViewController {
                             parkingSpace.latitude,
                             parkingSpace.longitude)
 
-                        annotation.title = parkingSpace.address
+                        annotation.title = parkingSpace.name
                         self.mapView.addAnnotation(annotation)
                         self.currentlyDisplayedParkingSpaces.append(
                             ParkingSpaceWithAnnotation(

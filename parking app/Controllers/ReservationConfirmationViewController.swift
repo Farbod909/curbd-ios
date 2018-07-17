@@ -52,7 +52,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             pricingLabel.text = "$\(formattedFinalCost) @ $\(formattedPricePerHour) / hr"
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
-            streetAddressLabel.text = parkingSpace.address
+            streetAddressLabel.text = parkingSpace.name
 
             let parkingSpaceLocation = CLLocation(
                 latitude: parkingSpace.latitude,

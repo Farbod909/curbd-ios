@@ -46,7 +46,7 @@ class ParkingSpaceListTableViewController: UITableViewController {
             withIdentifier: "parkingSpaceCell") as! ParkingSpaceTableViewCell
         let parkingSpace = parkingSpaces[indexPath.row]
 
-        cell.parkingSpaceNameLabel.text = parkingSpace.address
+        cell.parkingSpaceNameLabel.text = parkingSpace.name
 
         let parkingSpaceLocation = CLLocation(
             latitude: parkingSpace.latitude,

@@ -33,7 +33,7 @@ class ReservationDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         if let reservation = reservation {
 
-            parkingSpaceNameLabel.text = reservation.parkingSpace.address
+            parkingSpaceNameLabel.text = reservation.parkingSpace.name
 
             let parkingSpaceLocation = CLLocation(
                 latitude: reservation.parkingSpace.latitude,

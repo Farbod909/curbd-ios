@@ -102,7 +102,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
                 if let parkingSpace = parkingSpace {
 
-                    parkingSpaceDetailCell.parkingSpaceNameLabel.text = parkingSpace.address
+                    parkingSpaceDetailCell.parkingSpaceNameLabel.text = parkingSpace.name
 
                     let parkingSpaceLocation = CLLocation(
                         latitude: parkingSpace.latitude,
