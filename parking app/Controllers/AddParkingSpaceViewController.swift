@@ -77,11 +77,6 @@ class AddParkingSpaceViewController: FormViewController {
                 $0.options = ["Covered", "Charging", "Guarded", "Surveillance", "Illuminated", "Gated"]
             }
 
-            +++ TextAreaRow("instructions") {
-                $0.placeholder = $0.tag?.capitalized
-                $0.textAreaHeight = .dynamic(initialTextViewHeight: 80)
-            }
-
             +++ SegmentedRow<String>("ptype") {
                 $0.options = ["Driveway", "Garage", "Lot", "Structure", "Unpaved"]
                 $0.value = "Driveway"
@@ -98,22 +93,31 @@ class AddParkingSpaceViewController: FormViewController {
                 $0.hidden = "$ltype != 'Business'"
             }
 
-            +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
-                                   header: "Upload images of your space") {
-                $0.tag = "images"
-                $0.addButtonProvider = { section in
-                    return ButtonRow(){
-                        $0.title = "Add New Image"
-                        }.cellUpdate { cell, row in
-                            cell.textLabel?.textAlignment = .left
-                    }
-                }
-                $0.multivaluedRowToInsertAt = { index in
-                    return ImageRow() {
-                        $0.title = "Upload Image \(index+1)"
-                    }
-                }
+            +++ TextAreaRow("instructions") {
+                $0.placeholder = $0.tag?.capitalized
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 80)
             }
+
+
+
+        // TODO: uncomment this once parking space images is supported
+
+//            +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
+//                                   header: "Upload images of your space") {
+//                $0.tag = "images"
+//                $0.addButtonProvider = { section in
+//                    return ButtonRow(){
+//                        $0.title = "Add New Image"
+//                        }.cellUpdate { cell, row in
+//                            cell.textLabel?.textAlignment = .left
+//                    }
+//                }
+//                $0.multivaluedRowToInsertAt = { index in
+//                    return ImageRow() {
+//                        $0.title = "Upload Image \(index+1)"
+//                    }
+//                }
+//            }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
