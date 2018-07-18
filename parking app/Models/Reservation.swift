@@ -63,7 +63,7 @@ class Reservation {
 
                 let parameters: Parameters = [
                     "car": currentVehicleID,
-                    "parking_space_id": parkingSpace.id!, // TODO: avoid forceful unwrap
+                    "parking_space_id": parkingSpace.id,
                     "start_datetime": Formatter.iso8601.string(from: start),
                     "end_datetime": Formatter.iso8601.string(from: end),
                 ]
