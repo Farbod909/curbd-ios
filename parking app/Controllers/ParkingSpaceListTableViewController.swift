@@ -50,6 +50,14 @@ class ParkingSpaceListTableViewController: UITableViewController {
 
         cell.parkingSpaceNameLabel.text = parkingSpace.name
 
+        if parkingSpace.is_active {
+            cell.parkingSpaceIsActiveLabel.text = "Active"
+            cell.parkingSpaceIsActiveLabel.textColor = UIColor.systemGreen
+        } else {
+            cell.parkingSpaceIsActiveLabel.text = "Inactive"
+            cell.parkingSpaceIsActiveLabel.textColor = UIColor.systemRed
+        }
+
         let parkingSpaceLocation = CLLocation(
             latitude: parkingSpace.latitude,
             longitude: parkingSpace.longitude)

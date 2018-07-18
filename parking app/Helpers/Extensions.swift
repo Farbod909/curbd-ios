@@ -219,6 +219,14 @@ extension UIView {
 
 extension UIColor {
 
+    static var systemGreen: UIColor {
+        return UIColor(hex: "40c427")
+    }
+
+    static var systemRed: UIColor {
+        return UIColor(hex: "db4d4d")
+    }
+
     convenience init(hex hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()

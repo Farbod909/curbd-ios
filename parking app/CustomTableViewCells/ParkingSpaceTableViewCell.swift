@@ -14,4 +14,5 @@ class ParkingSpaceTableViewCell: UITableViewCell {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkingSpaceNameLabel: UILabel!
     @IBOutlet weak var parkingSpaceCityAndStateLabel: UILabel!
+    @IBOutlet weak var parkingSpaceIsActiveLabel: UILabel!
 }

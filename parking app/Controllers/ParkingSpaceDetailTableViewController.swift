@@ -29,23 +29,25 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let parkingSpace = parkingSpace {
-            if let token = UserDefaults.standard.string(forKey: "token") {
-                parkingSpace.getRepeatingAvailabilities(withToken: token) { error, repeatingAvailabilities in
-                    if let repeatingAvailabilities = repeatingAvailabilities {
-                        self.repeatingAvailabilities = repeatingAvailabilities
-                        self.tableView.reloadData()
+        // dont get availabilities if isPreview (duh, the parking space has no availabilities yet)
+        if !isPreview {
+            if let parkingSpace = parkingSpace {
+                if let token = UserDefaults.standard.string(forKey: "token") {
+                    parkingSpace.getRepeatingAvailabilities(withToken: token) { error, repeatingAvailabilities in
+                        if let repeatingAvailabilities = repeatingAvailabilities {
+                            self.repeatingAvailabilities = repeatingAvailabilities
+                            self.tableView.reloadData()
+                        }
                     }
-                }
-                parkingSpace.getFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
-                    if let fixedAvailabilities = fixedAvailabilities {
-                        self.fixedAvailabilities = fixedAvailabilities
-                        self.tableView.reloadData()
+                    parkingSpace.getFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
+                        if let fixedAvailabilities = fixedAvailabilities {
+                            self.fixedAvailabilities = fixedAvailabilities
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
         }
-
     }
 
     override func viewWillDisappear(_ animated : Bool) {

@@ -1890,12 +1890,20 @@
                                                 <constraint firstAttribute="height" constant="120" id="GcX-Ak-Jek"/>
                                             </constraints>
                                         </mapView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIo-Bz-lhn">
+                                            <rect key="frame" x="311" y="92" width="48" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="jrH-K8-OX3" firstAttribute="leading" secondItem="Mrk-Zc-I3F" secondAttribute="trailing" constant="11" id="6vf-QL-jk8"/>
+                                        <constraint firstAttribute="bottom" secondItem="UIo-Bz-lhn" secondAttribute="bottom" constant="11" id="E6T-Js-OP3"/>
                                         <constraint firstItem="Mrk-Zc-I3F" firstAttribute="top" secondItem="J1k-ic-fnU" secondAttribute="top" id="ILS-4t-MfC"/>
                                         <constraint firstAttribute="trailing" secondItem="jrH-K8-OX3" secondAttribute="trailing" constant="5" id="L0J-fy-2Kh"/>
                                         <constraint firstItem="TUW-WO-HaG" firstAttribute="top" secondItem="Mrk-Zc-I3F" secondAttribute="bottom" id="PAu-tT-TBa"/>
+                                        <constraint firstAttribute="trailing" secondItem="UIo-Bz-lhn" secondAttribute="trailing" constant="16" id="R6H-IQ-vCW"/>
                                         <constraint firstItem="WoY-M3-hxi" firstAttribute="top" secondItem="J1k-ic-fnU" secondAttribute="top" constant="13" id="Xh4-yi-SKM"/>
                                         <constraint firstAttribute="trailing" secondItem="WoY-M3-hxi" secondAttribute="trailing" constant="1" id="azz-k6-k0D"/>
                                         <constraint firstItem="jrH-K8-OX3" firstAttribute="top" secondItem="WoY-M3-hxi" secondAttribute="bottom" constant="3" id="bGs-qJ-jnz"/>
@@ -1909,6 +1917,7 @@
                                 <connections>
                                     <outlet property="mapView" destination="Mrk-Zc-I3F" id="nxV-Hi-ySj"/>
                                     <outlet property="parkingSpaceCityAndStateLabel" destination="jrH-K8-OX3" id="Eh7-0e-BdY"/>
+                                    <outlet property="parkingSpaceIsActiveLabel" destination="UIo-Bz-lhn" id="mNX-ym-k1V"/>
                                     <outlet property="parkingSpaceNameLabel" destination="WoY-M3-hxi" id="za8-5l-9Kb"/>
                                     <segue destination="0NV-5S-u23" kind="show" identifier="showParkingSpaceDetail" id="zBq-LJ-y5a"/>
                                 </connections>
@@ -2747,7 +2756,7 @@
         <image name="user" width="23" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1a3-9A-uUD"/>
+        <segue reference="xyw-N1-5lj"/>
         <segue reference="b2c-sg-o82"/>
     </inferredMetricsTieBreakers>
 </document>
