@@ -20,7 +20,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
 
         if isPreview {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Publish", style: .done, target: self, action: #selector(publishListing(_:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonClick(_:)))
             navigationItem.title = "Preview"
         }
 
@@ -67,7 +67,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,6 +76,12 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         } else if section == 1 {
             return repeatingAvailabilities.count + fixedAvailabilities.count
         } else if section == 2 {
+            if isPreview {
+                return 0
+            } else {
+                return 1
+            }
+        } else if section == 3 {
             if isPreview {
                 return 1
             } else {
@@ -205,13 +211,33 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 let fixedAvailabilityCell = tableView.dequeueReusableCell(
                     withIdentifier: "fixedAvailabilityCell") as! FixedAvailabilityTableViewCell
                 let fixedAvailability = fixedAvailabilities[indexPath.row - repeatingAvailabilities.count]
-                fixedAvailabilityCell.startDateTimeLabel.text = "From: " + fixedAvailability.start_datetime.toHumanReadable()
-                fixedAvailabilityCell.endDateTimeLabel.text = "Until: " + fixedAvailability.end_datetime.toHumanReadable()
+                fixedAvailabilityCell.startDateTimeLabel.text = "From: " + fixedAvailability.start_datetime.toHumanReadableWithYear()
+                fixedAvailabilityCell.endDateTimeLabel.text = "Until: " + fixedAvailability.end_datetime.toHumanReadableWithYear()
 
                 return fixedAvailabilityCell
             }
 
         } else if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                // toggle active
+                if let parkingSpace = parkingSpace {
+                    let toggleActiveCell: UITableViewCell?
+
+                    if parkingSpace.is_active {
+                        toggleActiveCell = tableView.dequeueReusableCell(
+                            withIdentifier: "dangerousActionCell")
+                        toggleActiveCell?.textLabel?.text = "Make Inactive"
+                    } else {
+                        toggleActiveCell = tableView.dequeueReusableCell(
+                            withIdentifier: "actionCell")
+                        toggleActiveCell?.textLabel?.text = "Make Active"
+                    }
+
+                    return toggleActiveCell!
+                }
+                return UITableViewCell()
+            }
+        } else if indexPath.section == 3 {
             if indexPath.row == 0 {
                 // add availability
                 let addAvailabilityCell = tableView.dequeueReusableCell(
@@ -248,6 +274,24 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             if indexPath.row == 0 {
+                if  let token = UserDefaults.standard.string(forKey: "token"),
+                    let parkingSpace = parkingSpace {
+
+                    let parameters: [String : Any] = [
+                        "is_active": !parkingSpace.is_active
+                    ]
+                    parkingSpace.patch(withToken: token, parameters: parameters) { error in
+                        if error != nil {
+                            self.presentServerErrorAlert()
+                        } else {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                    
+                }
+            }
+        } else if indexPath.section == 3 {
+            if indexPath.row == 0 {
                 instantiateAndShowViewController(withIdentifier: "addAvailabilityViewController")
             } else if indexPath.row == 1 {
                 let reservationHistoryTableViewController = UIStoryboard(
@@ -256,13 +300,13 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 reservationHistoryTableViewController.parkingSpace = parkingSpace
                 show(reservationHistoryTableViewController, sender: self)
             } else if indexPath.row == 2 {
-                // TODO: delete listing
+                // TODO: ask "are you sure?"
                 if let token = UserDefaults.standard.string(forKey: "token") {
                     parkingSpace?.delete(withToken: token) { error in
                         if error != nil {
                             self.presentServerErrorAlert()
                         } else {
-                            self.dismiss(animated: true)
+                            self.navigationController?.popViewController(animated: true)
                         }
                     }
                 }
@@ -272,8 +316,38 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     @IBAction func unwindToParkingSpaceDetailTableViewController(segue:UIStoryboardSegue) { }
 
-    @objc func publishListing(_ sender: UIBarButtonItem) {
-        // publish the listing
+    @objc func saveButtonClick(_ sender: UIBarButtonItem) {
+        // save or publish the listing
+
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+
+        let publishAction = UIAlertAction(title: "Publish Now", style: .default) { alert in
+            if let token = UserDefaults.standard.string(forKey: "token") {
+                self.parkingSpace?.patch(withToken: token, parameters: [
+                    "is_active": true
+                ]) { error in
+                    if error != nil {
+                        self.presentServerErrorAlert()
+                    } else {
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+        }
+
+        let saveForLaterAction = UIAlertAction(title: "Save For Later", style: .default) { alert in
+            self.dismiss(animated: true)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alert in
+            // do nothing
+        }
+
+        optionMenu.addAction(publishAction)
+        optionMenu.addAction(saveForLaterAction)
+        optionMenu.addAction(cancelAction)
+
+        self.present(optionMenu, animated: true)
     }
 }
 

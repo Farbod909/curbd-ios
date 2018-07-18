@@ -98,6 +98,31 @@ class ParkingSpace {
         
     }
 
+    func patch(withToken token: String,
+               parameters: Parameters,
+               completion: @escaping (Error?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/spaces/\(self.id)/",
+            method: .patch,
+            parameters: parameters,
+            headers: headers).validate().responseJSON() { response in
+
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+
+        }
+
+    }
+
     func delete(withToken token: String, completion: @escaping (Error?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",

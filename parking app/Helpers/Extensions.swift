@@ -100,6 +100,22 @@ extension Date {
         }
     }
 
+    public func toHumanReadableWithYear() -> String {
+        let dateFormatter = DateFormatter()
+
+        let calendar = NSCalendar.current
+        if calendar.isDateInToday(self) {
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: self) + ", Today"
+        } else if calendar.isDateInTomorrow(self) {
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: self) + ", Tomorrow"
+        } else {
+            dateFormatter.dateFormat = "h:mm a, MMM d, YYYY"
+            return dateFormatter.string(from: self)
+        }
+    }
+
     public func timeComponentString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
