@@ -26,7 +26,9 @@ class ParkingSpaceListTableViewController: UITableViewController {
         super.viewDidLoad()
         initializeSettings()
         initializeAppearanceSettings()
-        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         if let token = UserDefaults.standard.string(forKey: "token") {
             User.getHostParkingSpaces(withToken: token) { error, parkingSpaces in
                 if let parkingSpaces = parkingSpaces {

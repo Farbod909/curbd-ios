@@ -1958,7 +1958,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="XYC-0S-omN">
                             <connections>
-                                <segue destination="0NV-5S-u23" kind="show" identifier="showParkingSpacePreview" id="yJF-Kl-9DY"/>
+                                <action selector="nextButtonClick:" destination="ikn-2O-8c4" id="ujq-mm-fcf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2306,7 +2306,7 @@
         <!--Parking Space Detail Table View Controller-->
         <scene sceneID="NoC-Rm-VQW">
             <objects>
-                <tableViewController id="0NV-5S-u23" customClass="ParkingSpaceDetailTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="parkingSpaceDetailTableViewController" id="0NV-5S-u23" customClass="ParkingSpaceDetailTableViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="V4w-R5-XIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2748,7 +2748,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1a3-9A-uUD"/>
-        <segue reference="yJF-Kl-9DY"/>
         <segue reference="b2c-sg-o82"/>
     </inferredMetricsTieBreakers>
 </document>

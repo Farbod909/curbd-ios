@@ -11,12 +11,20 @@ import SwiftyJSON
 
 class Vehicle {
 
-    static let sizes = [
+    static let sizeDescriptions = [
         1: "Motorcycle",
         2: "Compact",
         3: "Mid-sized",
         4: "Large",
         5: "Oversized",
+    ]
+
+    static let sizes = [
+        "Motorcycle": 1,
+        "Compact": 2,
+        "Mid-sized": 3,
+        "Large": 4,
+        "Oversized": 5,
     ]
 
     let id: Int
@@ -26,9 +34,9 @@ class Vehicle {
     let color: String
     let size: Int
     let licensePlate: String
-    var sizeString: String {
-        if let sizeString = Vehicle.sizes[size] {
-            return sizeString
+    var sizeDescription: String {
+        if let sizeDescription = Vehicle.sizeDescriptions[size] {
+            return sizeDescription
         } else {
             return "N/A Size"
         }

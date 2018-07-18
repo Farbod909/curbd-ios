@@ -48,6 +48,22 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     }
 
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParentViewController {
+            if isPreview {
+                if let token = UserDefaults.standard.string(forKey: "token") {
+                    parkingSpace?.delete(withToken: token) { error in
+                        if error != nil {
+                            self.presentServerErrorAlert()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -239,6 +255,15 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 show(reservationHistoryTableViewController, sender: self)
             } else if indexPath.row == 2 {
                 // TODO: delete listing
+                if let token = UserDefaults.standard.string(forKey: "token") {
+                    parkingSpace?.delete(withToken: token) { error in
+                        if error != nil {
+                            self.presentServerErrorAlert()
+                        } else {
+                            self.dismiss(animated: true)
+                        }
+                    }
+                }
             }
         }
     }

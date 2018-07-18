@@ -8,6 +8,7 @@
 
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 class ParkingSpace {
 
@@ -37,15 +38,82 @@ class ParkingSpace {
         self.is_active = json["is_active"].boolValue
     }
 
-    static func create(latitude: Double,
-                       longitude: Double,
+    static func create(withToken token: String,
+                       addressString: String,
                        available_spaces: Int,
-                       features: [String],
+                       features: Set<String>,
                        physical_type: String,
                        legal_type: String,
                        name: String,
-                       size: Int) {
+                       instructions: String,
+                       sizeDescription: String,
+                       is_active: Bool = false,
+                       completion: @escaping (Error?, ParkingSpace?) -> Void) {
+
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(addressString) { (placemarks, error) in
+            guard let placemarks = placemarks, let location = placemarks.first?.location
+            else {
+                // no location found
+                return
+            }
+
+            let headers: HTTPHeaders = [
+                "Authorization": "Token \(token)",
+            ]
+
+            let parameters: Parameters = [
+                "latitude": location.coordinate.latitude,
+                "longitude": location.coordinate.longitude,
+                "available_spaces": available_spaces,
+                "size": Vehicle.sizes[sizeDescription] ?? 2, // 2 is Mid-sized
+                "name": name,
+                "instructions": instructions,
+                "physical_type": physical_type,
+                "legal_type": legal_type,
+                "is_active": is_active,
+                "features": features.joined(separator: ", ")
+            ]
+
+            Alamofire.request(
+                baseURL + "/api/parking/spaces/",
+                method: .post,
+                parameters: parameters,
+                headers: headers).validate().responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let parkingSpace = ParkingSpace(json: JSON(value))
+                        completion(nil, parkingSpace)
+
+                    case .failure(let error):
+                        if let validationError = ValidationError(from: error, with: response.data) {
+                            completion(validationError, nil)
+                        } else {
+                            completion(error, nil)
+                        }
+                    }
+            }
+
+        }
         
+    }
+
+    func delete(withToken token: String, completion: @escaping (Error?) -> Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/spaces/\(self.id)/",
+            method: .delete,
+            headers: headers).validate().responseJSON { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
     }
 
     func getPricing(from start: Date, to end: Date, completion: @escaping (Int?) -> Void) {

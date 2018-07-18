@@ -120,9 +120,9 @@ class AddVehicleViewController: FormViewController {
             <<< PushRow<String>("size") {
                 $0.title = $0.tag?.capitalized
                 $0.options = []
-                for size in Array(Vehicle.sizes.keys).sorted() {
-                    if size != 1 {
-                        $0.options?.append(Vehicle.sizes[size]!)
+                for size in Array(Vehicle.sizeDescriptions.keys).sorted() {
+                    if size > 1 {
+                        $0.options?.append(Vehicle.sizeDescriptions[size]!)
                     }
                 }
             }.onPresent { form, selectorController in
@@ -140,7 +140,7 @@ class AddVehicleViewController: FormViewController {
             let model = (form.rowBy(tag: "model") as? PushRow<String>)?.value,
             let color = (form.rowBy(tag: "color") as? PushRow<String>)?.value,
             let sizeString = (form.rowBy(tag: "size") as? PushRow<String>)?.value,
-            let size = (Vehicle.sizes as NSDictionary).allKeys(for: sizeString).first as? Int,
+            let size = (Vehicle.sizeDescriptions as NSDictionary).allKeys(for: sizeString).first as? Int,
             let licensePlate = (form.rowBy(tag: "license plate") as? TextRow)?.value {
 
             if let token = UserDefaults.standard.string(forKey: "token") {

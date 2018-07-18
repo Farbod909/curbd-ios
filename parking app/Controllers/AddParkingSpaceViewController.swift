@@ -30,9 +30,9 @@ class AddParkingSpaceViewController: FormViewController {
                 $0.placeholder = $0.tag?.capitalized
             }
 
-            <<< TextRow("unit number") {
-                $0.placeholder = "Unit #"
-            }
+//            <<< TextRow("unit number") {
+//                $0.placeholder = "Unit #"
+//            }
 
             <<< ZipCodeRow("zip code") {
                 $0.placeholder = $0.tag?.capitalized
@@ -72,17 +72,30 @@ class AddParkingSpaceViewController: FormViewController {
                     }
             }
 
-            <<< MultipleSelectorRow<String>("features") {
+            <<< PushRow<String>("size") {
                 $0.title = $0.tag?.capitalized
-                $0.options = ["Covered", "Charging", "Guarded", "Surveillance", "Illuminated", "Gated"]
+                $0.options = []
+                for size in Array(Vehicle.sizeDescriptions.keys).sorted() {
+                    if size > 1 {
+                        $0.options?.append(Vehicle.sizeDescriptions[size]!)
+                    }
+                }
+            }.onPresent { form, selectorController in
+                selectorController.enableDeselection = false
             }
 
-            +++ SegmentedRow<String>("ptype") {
+            <<< MultipleSelectorRow<String>("features") {
+                $0.title = $0.tag?.capitalized
+                $0.options = ["Covered", "EV Charging", "Guarded",
+                              "Surveillance", "Illuminated", "Gated"]
+            }
+
+            +++ SegmentedRow<String>("physicaltype") {
                 $0.options = ["Driveway", "Garage", "Lot", "Structure", "Unpaved"]
                 $0.value = "Driveway"
             }
 
-            <<< SegmentedRow<String>("ltype") {
+            <<< SegmentedRow<String>("legaltype") {
                 $0.options = ["Residential", "Business"]
                 $0.value = "Residential"
             }
@@ -90,7 +103,7 @@ class AddParkingSpaceViewController: FormViewController {
             <<< TextRow("business name") {
                 $0.title = $0.tag?.capitalized
                 $0.placeholder = "e.g. Sam's Lot"
-                $0.hidden = "$ltype != 'Business'"
+                $0.hidden = "$legaltype != 'Business'"
             }
 
             +++ TextAreaRow("instructions") {
@@ -120,14 +133,71 @@ class AddParkingSpaceViewController: FormViewController {
 //            }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showParkingSpacePreview" {
-            let parkingSpaceDetailTableViewController = segue.destination as! ParkingSpaceDetailTableViewController
+    @IBAction func nextButtonClick(_ sender: UIBarButtonItem) {
+        let parkingSpaceDetailTableViewController = UIStoryboard(
+            name: "Main",
+            bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailTableViewController") as! ParkingSpaceDetailTableViewController
 
-            // TODO: construct ParkingSpace object and send it to next view controller
+        // TODO: construct ParkingSpace object and send it to next view controller
+        if  let streetAddress = (form.rowBy(tag: "street address") as? NameRow)?.value,
+            let zipCode = (form.rowBy(tag: "zip code") as? ZipCodeRow)?.value,
+            let city = (form.rowBy(tag: "city") as? NameRow)?.value,
+            let state = (form.rowBy(tag: "state") as? TextRow)?.value,
+            let availableSpots = (form.rowBy(tag: "available spots") as? IntRow)?.value,
+            let sizeString = (form.rowBy(tag: "size") as? PushRow<String>)?.value,
+            let featureSet = (form.rowBy(tag: "features") as? MultipleSelectorRow<String>)?.value,
+            let physicalType = (form.rowBy(tag: "physicaltype") as? SegmentedRow<String>)?.value,
+            let legalType = (form.rowBy(tag: "legaltype") as? SegmentedRow<String>)?.value,
+            let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value {
 
-            parkingSpaceDetailTableViewController.isPreview = true
+            if let token = UserDefaults.standard.string(forKey: "token") {
+
+                var name = streetAddress
+                if legalType == "Business" {
+                    if let businessName = ((form.rowBy(tag: "business name") as? TextRow)?.value) {
+                        name = businessName
+                    } else {
+                        presentSingleButtonAlert(
+                            title: "Incomplete Fields",
+                            message: "Please make sure all fields are completed.")
+                    }
+                }
+
+                let addressString =
+                    [streetAddress, city, state].joined(separator: ", ") + " \(zipCode)"
+
+                ParkingSpace.create(
+                    withToken: token,
+                    addressString: addressString,
+                    available_spaces: availableSpots,
+                    features: featureSet,
+                    physical_type: physicalType,
+                    legal_type: legalType,
+                    name: name,
+                    instructions: instructions,
+                    sizeDescription: sizeString) { error, parkingSpace in
+
+                        if let parkingSpace = parkingSpace {
+                            parkingSpaceDetailTableViewController.isPreview = true
+                            parkingSpaceDetailTableViewController.parkingSpace = parkingSpace
+                            self.show(parkingSpaceDetailTableViewController, sender: self)
+                        } else {
+                            if let error = error as? ValidationError {
+                                self.presentValidationErrorAlert(from: error)
+                            } else {
+                                self.presentServerErrorAlert()
+                            }
+                        }
+
+                }
+            }
+
+        } else {
+            presentSingleButtonAlert(
+                title: "Incomplete Fields",
+                message: "Please make sure all fields are completed.")
         }
+
     }
 
     @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {

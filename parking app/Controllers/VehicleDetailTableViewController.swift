@@ -28,7 +28,7 @@ class VehicleDetailTableViewController: UITableViewController {
             vehicleMakeCell.detailTextLabel?.text = vehicle.make
             vehicleModelCell.detailTextLabel?.text = vehicle.model
             vehicleColorCell.detailTextLabel?.text = vehicle.color
-            vehicleSizeCell.detailTextLabel?.text = vehicle.sizeString
+            vehicleSizeCell.detailTextLabel?.text = vehicle.sizeDescription
             vehicleLicensePlateCell.detailTextLabel?.text = vehicle.licensePlate
         }
     }
