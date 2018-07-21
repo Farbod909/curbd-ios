@@ -60,8 +60,6 @@ class RepeatingAvailability {
             "pricing": timeRange.pricing,
         ]
 
-        print(parameters)
-
         Alamofire.request(
             baseURL + "/api/parking/repeatingavailabilities/",
             method: .post,

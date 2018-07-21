@@ -94,9 +94,7 @@ class AddRepeatingAvailabilityViewController: FormViewController {
                 let parkingSpace = parkingSpace {
                 RepeatingAvailability.create(withToken: token, parkingSpace: parkingSpace, timeRange: range, days: days) { error, repeatingAvailability in
                     if let error = error {
-                        print("-------------------")
-                        print("ERROR: \(error)")
-                        print("-------------------")
+                        self.presentServerErrorAlert()
                     } else {
                         numRequestsCompleted += 1
                         if numRequestsCompleted == numRequests {

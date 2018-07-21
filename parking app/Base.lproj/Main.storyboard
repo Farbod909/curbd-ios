@@ -2640,8 +2640,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ucn-pL-JF6" kind="unwind" identifier="unwindToParkingSpaceDetailTableViewController" unwindAction="unwindToParkingSpaceDetailTableViewControllerWithSegue:" id="GEV-2o-I43"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKZ-fg-j1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ucn-pL-JF6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5345" y="2400"/>
         </scene>

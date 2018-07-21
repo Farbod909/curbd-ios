@@ -36,9 +36,9 @@ class AddFixedAvailabilityViewController: FormViewController {
                 $0.value = Date()
             }
 
-            +++ DecimalRow("price per hour"){
+            +++ DecimalRow("pricing"){
                 $0.useFormatterDuringInput = true
-                $0.title = $0.tag?.capitalized
+                $0.title = "Price Per Hour"
                 $0.value = 1
                 let formatter = CurrencyFormatter()
                 formatter.locale = .current
@@ -49,7 +49,27 @@ class AddFixedAvailabilityViewController: FormViewController {
     }
 
     @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)
+
+        if  let start = (form.rowBy(tag: "from") as! DateTimeInlineRow).value,
+            let end = (form.rowBy(tag: "until") as! DateTimeInlineRow).value,
+            let pricing = (form.rowBy(tag: "pricing") as! DecimalRow).value,
+            let parkingSpace = parkingSpace,
+            let token = UserDefaults.standard.string(forKey: "token") {
+
+            FixedAvailability.create(withToken: token, parkingSpace: parkingSpace, start: start, end: end, pricing: Int(pricing * 100)) { error, fixedAvailability in
+
+                if let error = error {
+                    self.presentServerErrorAlert()
+                } else {
+                    self.performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)
+                }
+                if error == nil {
+                } else {
+                    self.presentServerErrorAlert()
+                }
+
+            }
+        }
     }
 }
 
