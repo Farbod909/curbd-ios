@@ -11,6 +11,8 @@ import Eureka
 
 class AddFixedAvailabilityViewController: FormViewController {
 
+    var parkingSpace: ParkingSpace?
+
     func initializeSettings() {
         animateScroll = true
     }

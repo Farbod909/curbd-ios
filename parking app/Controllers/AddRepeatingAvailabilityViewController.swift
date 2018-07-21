@@ -11,6 +11,12 @@ import Eureka
 
 class AddRepeatingAvailabilityViewController: FormViewController {
 
+    var parkingSpace: ParkingSpace?
+
+    let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    let weekdaysFull = ["Sunday", "Monday", "Tuesday",
+                        "Wednesday", "Thursday", "Friday", "Saturday"]
+
     func initializeSettings() {
         animateScroll = true
     }
@@ -23,38 +29,84 @@ class AddRepeatingAvailabilityViewController: FormViewController {
 
     func initializeForm() {
 
-        form
-            +++ MultipleSelectorRow<String>("days") {
-                $0.title = $0.tag?.capitalized
-                $0.options =
-                    ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-            }
+        for (index, weekday) in weekdays.enumerated() {
 
-            +++ Section("Time Range")
-            <<< TimeInlineRow("from"){
-                $0.title = $0.tag?.capitalized
-                $0.value = Date()
-            }
-            <<< TimeInlineRow("until"){
-                $0.title = $0.tag?.capitalized
-                $0.value = Date()
-            }
-
-            +++ DecimalRow("price per hour"){
-                $0.useFormatterDuringInput = true
-                $0.title = $0.tag?.capitalized
-                $0.value = 1
-                let formatter = CurrencyFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .currency
-                $0.formatter = formatter
-            }
-
+            form
+                +++ (index == 0 ? Section("select weekdays") : Section())
+                <<< CheckRow(weekday) {
+                    $0.title = weekdaysFull[index]
+                    $0.value = false
+                }
+                <<< TimeInlineRow("\(weekday) start"){
+                    $0.title = "From"
+                    $0.value = Date()
+                    $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
+                }
+                <<< TimeInlineRow("\(weekday) end"){
+                    $0.title = "Until"
+                    $0.value = Date()
+                    $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
+                }
+                <<< DecimalRow("\(weekday) pricing"){
+                    $0.useFormatterDuringInput = true
+                    $0.title = "Price Per Hour"
+                    $0.value = 1
+                    let formatter = CurrencyFormatter()
+                    formatter.locale = .current
+                    formatter.numberStyle = .currency
+                    $0.formatter = formatter
+                    $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
+                }
+        }
 
     }
 
     @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)
+
+        var daysWithRange = [String: RepeatingAvailabilityTimeRange]()
+
+        for weekday in weekdays {
+            if let checked = (form.rowBy(tag: weekday) as! CheckRow).value, checked {
+                let start = (form.rowBy(tag: "\(weekday) start") as! TimeInlineRow).value
+                let end = (form.rowBy(tag: "\(weekday) end") as! TimeInlineRow).value
+                let pricing = (form.rowBy(tag: "\(weekday) pricing") as! DecimalRow).value
+
+                if let start = start, let end = end, let pricing = pricing {
+                    daysWithRange[weekday] = RepeatingAvailabilityTimeRange(
+                        start: start.timeComponentStringIso8601(),
+                        end: end.timeComponentStringIso8601(),
+                        pricing: Int(pricing * 100))
+                }
+            }
+        }
+
+        var rangesWithDays = [RepeatingAvailabilityTimeRange: [String]]()
+
+        for (weekday, range) in daysWithRange {
+            rangesWithDays[range, default: []].append(weekday)
+        }
+
+        let numRequests = rangesWithDays.count
+        var numRequestsCompleted = 0
+
+        for (range, days) in rangesWithDays {
+            if  let token = UserDefaults.standard.string(forKey: "token"),
+                let parkingSpace = parkingSpace {
+                RepeatingAvailability.create(withToken: token, parkingSpace: parkingSpace, timeRange: range, days: days) { error, repeatingAvailability in
+                    if let error = error {
+                        print("-------------------")
+                        print("ERROR: \(error)")
+                        print("-------------------")
+                    } else {
+                        numRequestsCompleted += 1
+                        if numRequestsCompleted == numRequests {
+                            self.performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 

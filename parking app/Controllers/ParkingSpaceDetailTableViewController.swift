@@ -292,7 +292,12 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             }
         } else if indexPath.section == 3 {
             if indexPath.row == 0 {
-                instantiateAndShowViewController(withIdentifier: "addAvailabilityViewController")
+                let availabilityTypeViewController = UIStoryboard(
+                    name: "Main",
+                    bundle: nil).instantiateViewController(withIdentifier: "availabilityTypeViewController") as! AvailabilityTypeViewController
+
+                availabilityTypeViewController.parkingSpace = parkingSpace
+                show(availabilityTypeViewController, sender: self)
             } else if indexPath.row == 1 {
                 let reservationHistoryTableViewController = UIStoryboard(
                     name: "Main",

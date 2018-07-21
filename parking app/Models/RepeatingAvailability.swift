@@ -6,6 +6,7 @@
 //  Copyright © 2018 Farbod Rafezy. All rights reserved.
 //
 
+import Alamofire
 import SwiftyJSON
 
 class RepeatingAvailability {
@@ -39,5 +40,46 @@ class RepeatingAvailability {
 
         self.repeating_days = json["repeating_days"].stringValue.components(separatedBy: ", ")
         self.pricing = json["pricing"].intValue
+    }
+
+    static func create(withToken token: String,
+                       parkingSpace: ParkingSpace,
+                       timeRange: RepeatingAvailabilityTimeRange,
+                       days: [String],
+                       completion: @escaping (Error?, RepeatingAvailability?) -> Void) {
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        let parameters: Parameters = [
+            "parking_space": parkingSpace.id,
+            "start_time": timeRange.start,
+            "end_time": timeRange.end,
+            "repeating_days": days.joined(separator: ", "),
+            "pricing": timeRange.pricing,
+        ]
+
+        print(parameters)
+
+        Alamofire.request(
+            baseURL + "/api/parking/repeatingavailabilities/",
+            method: .post,
+            parameters: parameters,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    let repeatingAvailability = RepeatingAvailability(json: JSON(value))
+                    completion(nil, repeatingAvailability)
+
+                case .failure(let error):
+                    if let validationError = ValidationError(from: error, with: response.data) {
+                        completion(validationError, nil)
+                    } else {
+                        completion(error, nil)
+                    }
+                }
+        }
+
     }
 }

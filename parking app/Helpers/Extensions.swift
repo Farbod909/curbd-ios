@@ -122,6 +122,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
+    public func timeComponentStringIso8601() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:00"
+        return dateFormatter.string(from: self)
+    }
+
     public func round(precision: TimeInterval) -> Date {
         return round(precision: precision, rule: .toNearestOrAwayFromZero)
     }

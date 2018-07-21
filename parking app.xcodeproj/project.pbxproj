@@ -25,6 +25,8 @@
 		8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */; };
 		8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */; };
 		8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47F5208FEEA9003451C1 /* Errors.swift */; };
+		8E4F09EE21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F09ED21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift */; };
+		8E4F09F02102968900E72FD5 /* AvailabilityTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F09EF2102968900E72FD5 /* AvailabilityTypeViewController.swift */; };
 		8E5048A320EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5048A220EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift */; };
 		8E5048A520EB38B200580232 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5048A420EB38B200580232 /* ReportTableViewController.swift */; };
 		8E5048A720EB3B9300580232 /* ReportSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5048A620EB3B9300580232 /* ReportSubmissionViewController.swift */; };
@@ -91,6 +93,8 @@
 		8E3F47D3208EFB2E003451C1 /* SignupEmailPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailPhoneViewController.swift; sourceTree = "<group>"; };
 		8E3F47D5208EFFFF003451C1 /* SignupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPasswordViewController.swift; sourceTree = "<group>"; };
 		8E3F47F5208FEEA9003451C1 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8E4F09ED21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingAvailabilityTimeRange.swift; sourceTree = "<group>"; };
+		8E4F09EF2102968900E72FD5 /* AvailabilityTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityTypeViewController.swift; sourceTree = "<group>"; };
 		8E5048A220EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceDetailTableViewController.swift; sourceTree = "<group>"; };
 		8E5048A420EB38B200580232 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		8E5048A620EB3B9300580232 /* ReportSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				8E8E78CF2097109200426E92 /* CarQuery.swift */,
 				8E5DAE6520EDB59B00341251 /* RepeatingAvailability.swift */,
 				8E5DAE6720EDB5AC00341251 /* FixedAvailability.swift */,
+				8E4F09ED21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				8E5DAE5C20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift */,
 				8E5DAE5E20EDA2C000341251 /* AddFixedAvailabilityViewController.swift */,
 				8E5DAE6920EE07DA00341251 /* ReservationHistoryTableViewController.swift */,
+				8E4F09EF2102968900E72FD5 /* AvailabilityTypeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */,
 				8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */,
 				8E8E78D02097109200426E92 /* CarQuery.swift in Sources */,
+				8E4F09EE21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift in Sources */,
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
 				8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */,
 				8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */,
@@ -488,6 +495,7 @@
 				8E5DAE5D20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
 				8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */,
+				8E4F09F02102968900E72FD5 /* AvailabilityTypeViewController.swift in Sources */,
 				8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */,
 				8E5048A320EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift in Sources */,
 				8E0CA4642084968400C9F470 /* BasicShadowButton.swift in Sources */,
