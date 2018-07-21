@@ -219,13 +219,13 @@ class ParkingSpace {
         }
     }
 
-    func getFixedAvailabilities(withToken token: String,
+    func getFutureFixedAvailabilities(withToken token: String,
                                     completion: @escaping (Error?, [FixedAvailability]?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
         ]
         Alamofire.request(
-            baseURL + "/api/parking/spaces/\(self.id)/fixedavailabilities/",
+            baseURL + "/api/parking/spaces/\(self.id)/fixedavailabilities/future/",
             headers: headers).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):

@@ -37,7 +37,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                         self.tableView.reloadData()
                     }
                 }
-                parkingSpace.getFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
+                parkingSpace.getFutureFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
                     if let fixedAvailabilities = fixedAvailabilities {
                         self.fixedAvailabilities = fixedAvailabilities
                         self.tableView.reloadData()
