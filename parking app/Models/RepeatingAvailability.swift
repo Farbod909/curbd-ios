@@ -18,6 +18,23 @@ class RepeatingAvailability {
     let repeating_days: [String]
     let pricing: Int
 
+    var humanReadableDays: String {
+
+        let everyday = Set<String>(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"])
+        let weekdays = Set<String>(["Mon", "Tue", "Wed", "Thu", "Fri"])
+        let weekends = Set<String>(["Sat", "Sun"])
+
+        if Set<String>(repeating_days) == everyday {
+            return "Everyday"
+        } else if Set<String>(repeating_days) == weekdays {
+            return "Weekdays"
+        } else if Set<String>(repeating_days) == weekends {
+            return "Weekends"
+        }
+        
+        return repeating_days.joined(separator: ", ")
+    }
+
     init(json: JSON) {
         self.id = json["id"].intValue
         self.parking_space = json["parking_space"].intValue

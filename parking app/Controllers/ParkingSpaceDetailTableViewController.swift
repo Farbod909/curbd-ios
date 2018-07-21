@@ -29,21 +29,18 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // dont get availabilities if isPreview (duh, the parking space has no availabilities yet)
-        if !isPreview {
-            if let parkingSpace = parkingSpace {
-                if let token = UserDefaults.standard.string(forKey: "token") {
-                    parkingSpace.getRepeatingAvailabilities(withToken: token) { error, repeatingAvailabilities in
-                        if let repeatingAvailabilities = repeatingAvailabilities {
-                            self.repeatingAvailabilities = repeatingAvailabilities
-                            self.tableView.reloadData()
-                        }
+        if let parkingSpace = parkingSpace {
+            if let token = UserDefaults.standard.string(forKey: "token") {
+                parkingSpace.getRepeatingAvailabilities(withToken: token) { error, repeatingAvailabilities in
+                    if let repeatingAvailabilities = repeatingAvailabilities {
+                        self.repeatingAvailabilities = repeatingAvailabilities
+                        self.tableView.reloadData()
                     }
-                    parkingSpace.getFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
-                        if let fixedAvailabilities = fixedAvailabilities {
-                            self.fixedAvailabilities = fixedAvailabilities
-                            self.tableView.reloadData()
-                        }
+                }
+                parkingSpace.getFixedAvailabilities(withToken: token) { error, fixedAvailabilities in
+                    if let fixedAvailabilities = fixedAvailabilities {
+                        self.fixedAvailabilities = fixedAvailabilities
+                        self.tableView.reloadData()
                     }
                 }
             }
@@ -109,7 +106,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if isPreview {
-            if section == 1 {
+            if section == 2 {
                 return "Specify the dates and times during which you would like your space to be available"
             }
         }
@@ -205,7 +202,9 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 let repeatingAvailabilityCell = tableView.dequeueReusableCell(
                     withIdentifier: "repeatingAvailabilityCell") as! RepeatingAvailabilityTableViewCell
                 let repeatingAvailability = repeatingAvailabilities[indexPath.row]
-                repeatingAvailabilityCell.repeatingDaysLabel.text = repeatingAvailability.repeating_days.joined(separator: ", ")
+
+                repeatingAvailabilityCell.repeatingDaysLabel.text = repeatingAvailability.humanReadableDays
+
                 repeatingAvailabilityCell.timeRangeLabel.text =
                 "\(repeatingAvailability.start_time.timeComponentString()) - \(repeatingAvailability.end_time.timeComponentString())"
 
@@ -308,16 +307,20 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 reservationHistoryTableViewController.parkingSpace = parkingSpace
                 show(reservationHistoryTableViewController, sender: self)
             } else if indexPath.row == 2 {
-                // TODO: ask "are you sure?"
-                if let token = UserDefaults.standard.string(forKey: "token") {
-                    parkingSpace?.delete(withToken: token) { error in
-                        if error != nil {
-                            self.presentServerErrorAlert()
-                        } else {
-                            self.navigationController?.popViewController(animated: true)
+                presentConfirmationAlert(
+                    title: "Are You Sure?",
+                    message: "Are you sure you would like to delete this parking space?") { action in
+                        if let token = UserDefaults.standard.string(forKey: "token") {
+                            self.parkingSpace?.delete(withToken: token) { error in
+                                if error != nil {
+                                    self.presentServerErrorAlert()
+                                } else {
+                                    self.navigationController?.popViewController(animated: true)
+                                }
+                            }
                         }
-                    }
                 }
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
     }
@@ -325,8 +328,27 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     @IBAction func unwindToParkingSpaceDetailTableViewController(segue:UIStoryboardSegue) { }
 
     @objc func saveButtonClick(_ sender: UIBarButtonItem) {
-        // save or publish the listing
 
+        if repeatingAvailabilities.isEmpty && fixedAvailabilities.isEmpty {
+            presentConfirmationAlert(
+                title: "No Availabilities Yet",
+                message: "Are you sure you'd like to save without adding availabilities? If not, tap on 'Add Availability'.") { alert in
+                    // user confirmed save
+
+                    // present option to save or publish
+                    self.showSaveOrPublishActionMenu()
+
+            }
+        } else {
+
+            // present option to save or publish
+            showSaveOrPublishActionMenu()
+
+        }
+
+    }
+
+    func showSaveOrPublishActionMenu() {
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
 
         let publishAction = UIAlertAction(title: "Publish Now", style: .default) { alert in
