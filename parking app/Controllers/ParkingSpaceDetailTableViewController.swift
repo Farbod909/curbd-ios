@@ -130,7 +130,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
                 if let parkingSpace = parkingSpace {
 
-                    parkingSpaceDetailCell.parkingSpaceNameLabel.text = parkingSpace.name
+                    parkingSpaceDetailCell.nameLabel.text = parkingSpace.name
 
                     let parkingSpaceLocation = CLLocation(
                         latitude: parkingSpace.latitude,
@@ -182,7 +182,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                         if error == nil {
                             if  let city = placemarks?[0].locality,
                                 let state = placemarks?[0].administrativeArea {
-                                parkingSpaceDetailCell.parkingSpaceCityAndStateLabel.text = "\(city), \(state)"
+                                parkingSpaceDetailCell.cityAndStateLabel.text = "\(city), \(state)"
                             }
                         }
                     }
@@ -192,6 +192,9 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                     } else {
                         parkingSpaceDetailCell.numberOfSpotsLabel.text = "\(parkingSpace.available_spaces) SPOT"
                     }
+
+                    parkingSpaceDetailCell.sizeLabel.text =
+                        Vehicle.sizeDescriptions[parkingSpace.size]?.uppercased()
 
                 }
                 return parkingSpaceDetailCell

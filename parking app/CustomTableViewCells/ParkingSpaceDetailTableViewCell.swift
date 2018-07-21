@@ -12,10 +12,11 @@ import MapKit
 class ParkingSpaceDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var parkingSpaceNameLabel: UILabel!
-    @IBOutlet weak var parkingSpaceCityAndStateLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var cityAndStateLabel: UILabel!
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
     @IBOutlet weak var numberOfSpotsLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
 
 }

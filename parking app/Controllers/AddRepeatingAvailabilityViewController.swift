@@ -32,7 +32,10 @@ class AddRepeatingAvailabilityViewController: FormViewController {
         for (index, weekday) in weekdays.enumerated() {
 
             form
-                +++ (index == 0 ? Section("select weekdays") : Section())
+                +++ (index == 0 ? Section("select weekdays") : Section() {
+                    $0.header = HeaderFooterView<UIView>(HeaderFooterProvider.class)
+                    $0.header?.height = { CGFloat.leastNormalMagnitude }
+                })
                 <<< CheckRow(weekday) {
                     $0.title = weekdaysFull[index]
                     $0.value = false
@@ -88,6 +91,10 @@ class AddRepeatingAvailabilityViewController: FormViewController {
 
         let numRequests = rangesWithDays.count
         var numRequestsCompleted = 0
+
+        if numRequests == 0 {
+            performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)
+        }
 
         for (range, days) in rangesWithDays {
             if  let token = UserDefaults.standard.string(forKey: "token"),
