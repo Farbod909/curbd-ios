@@ -25,9 +25,9 @@ class ReservationDetailTableViewController: UITableViewController {
     @IBOutlet weak var featuresStackView: UIStackView!
     @IBOutlet weak var arriveCell: UITableViewCell!
     @IBOutlet weak var leaveCell: UITableViewCell!
+    @IBOutlet weak var instructionsLabel: UILabel!
 
     func initializeAppearanceSettings() {
-//        featuresScrollView.showsHorizontalScrollIndicator = false
         parkingSpaceDetailCell.selectionStyle = .none
     }
     
@@ -93,6 +93,7 @@ class ReservationDetailTableViewController: UITableViewController {
             priceLabel.text = "$\(reservation.price) @ $\(reservation.pricePerHour) / hr"
             arriveCell.detailTextLabel?.text = reservation.start.toHumanReadable()
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
+            instructionsLabel.text = reservation.parkingSpace.instructions
         }
     }
 
@@ -103,6 +104,14 @@ class ReservationDetailTableViewController: UITableViewController {
             }
         }
         return 1
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -116,11 +125,18 @@ class ReservationDetailTableViewController: UITableViewController {
         if indexPath.section == 1 {
             if indexPath.row == 2 {
                 // "Cancel Reservation" was clicked
-                if let token = UserDefaults.standard.string(forKey: "token") {
-                    reservation?.cancel(withToken: token) { error in
-                        // TODO: complete this
+                presentConfirmationAlert(title: "Are You Sure?", message: "Are you sure you would like to cancel this reservation?") { alert in
+                    if let token = UserDefaults.standard.string(forKey: "token") {
+                        self.reservation?.cancel(withToken: token) { error in
+                            if error != nil {
+                                self.presentServerErrorAlert()
+                            } else {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        }
                     }
                 }
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
     }

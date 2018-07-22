@@ -101,7 +101,7 @@ class Reservation {
         ]
 
         Alamofire.request(
-            baseURL + "/reservations/\(id)/",
+            baseURL + "/api/parking/reservations/\(id)/",
             method: .delete,
             headers: headers).validate().responseJSON() { response in
                 switch response.result {
