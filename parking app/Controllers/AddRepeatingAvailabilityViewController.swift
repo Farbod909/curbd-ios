@@ -19,6 +19,9 @@ class AddRepeatingAvailabilityViewController: FormViewController {
 
     func initializeSettings() {
         animateScroll = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Done", style: .done, target: self, action: #selector(doneButtonClick))
     }
 
     override func viewDidLoad() {
@@ -64,7 +67,7 @@ class AddRepeatingAvailabilityViewController: FormViewController {
 
     }
 
-    @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
+    @objc func doneButtonClick(_ sender: UIBarButtonItem) {
 
         var daysWithRange = [String: RepeatingAvailabilityTimeRange]()
 

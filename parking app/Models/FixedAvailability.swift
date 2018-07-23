@@ -11,8 +11,8 @@ import SwiftyJSON
 
 class FixedAvailability {
 
-    let id: Int?
-    let parking_space: Int?
+    let id: Int
+    let parking_space: Int
     let start_datetime: Date
     let end_datetime: Date
     let pricing: Int
@@ -62,6 +62,24 @@ class FixedAvailability {
                 }
         }
 
+    }
+
+    func delete(withToken token: String, completion: @escaping (Error?) -> Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/fixedavailabilities/\(self.id)/",
+            method: .delete,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
     }
 
 }

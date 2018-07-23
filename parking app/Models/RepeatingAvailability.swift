@@ -11,8 +11,8 @@ import SwiftyJSON
 
 class RepeatingAvailability {
 
-    let id: Int?
-    let parking_space: Int?
+    let id: Int
+    let parking_space: Int
     let start_time: Date
     let end_time: Date
     let repeating_days: [String]
@@ -96,5 +96,23 @@ class RepeatingAvailability {
                 }
         }
 
+    }
+
+    func delete(withToken token: String, completion: @escaping (Error?) -> Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/repeatingavailabilities/\(self.id)/",
+            method: .delete,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
     }
 }

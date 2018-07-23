@@ -2636,13 +2636,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Repeating Availability" id="2XP-fr-7Ut">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8g8-CM-mIf">
-                            <connections>
-                                <action selector="doneButtonClick:" destination="Fg8-OE-1DK" id="QJe-dY-Ee5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Repeating Availability" id="2XP-fr-7Ut"/>
                     <connections>
                         <segue destination="SFl-LY-v5C" kind="unwind" identifier="unwindToParkingSpaceDetailTableViewController" unwindAction="unwindToParkingSpaceDetailTableViewControllerWithSegue:" id="EEl-OQ-hDw"/>
                     </connections>
@@ -2665,13 +2659,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Fixed Availability" id="LiM-G3-4Nn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="T9G-r4-TmE">
-                            <connections>
-                                <action selector="doneButtonClick:" destination="hzt-4S-1qy" id="soi-ai-LHR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Fixed Availability" id="LiM-G3-4Nn"/>
                     <connections>
                         <segue destination="ucn-pL-JF6" kind="unwind" identifier="unwindToParkingSpaceDetailTableViewController" unwindAction="unwindToParkingSpaceDetailTableViewControllerWithSegue:" id="GEV-2o-I43"/>
                     </connections>

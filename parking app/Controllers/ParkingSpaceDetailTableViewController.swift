@@ -325,6 +325,45 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1 {
+            return true
+        }
+        return false
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presentConfirmationAlert(title: "Are You Sure?", message: "Are you sure you would like to delete this availability?") { alert in
+                if let _ = tableView.cellForRow(at: indexPath) as? RepeatingAvailabilityTableViewCell {
+                    if let token = UserDefaults.standard.string(forKey: "token") {
+                        self.repeatingAvailabilities[indexPath.row].delete(withToken: token) { error in
+                            if error == nil {
+                                self.repeatingAvailabilities.remove(at: indexPath.row)
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+                            } else {
+                                self.presentServerErrorAlert()
+                            }
+                        }
+                    }
+                }
+
+                if let _ = tableView.cellForRow(at: indexPath) as? FixedAvailabilityTableViewCell {
+                    if let token = UserDefaults.standard.string(forKey: "token") {
+                        self.fixedAvailabilities[indexPath.row - self.repeatingAvailabilities.count].delete(withToken: token) { error in
+                            if error == nil {
+                                self.fixedAvailabilities.remove(at: indexPath.row - self.repeatingAvailabilities.count)
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+                            } else {
+                                self.presentServerErrorAlert()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     @IBAction func unwindToParkingSpaceDetailTableViewController(segue:UIStoryboardSegue) { }
 
     @objc func saveButtonClick(_ sender: UIBarButtonItem) {

@@ -15,6 +15,9 @@ class AddFixedAvailabilityViewController: FormViewController {
 
     func initializeSettings() {
         animateScroll = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Done", style: .done, target: self, action: #selector(doneButtonClick))
     }
 
     override func viewDidLoad() {
@@ -48,7 +51,7 @@ class AddFixedAvailabilityViewController: FormViewController {
 
     }
 
-    @IBAction func doneButtonClick(_ sender: UIBarButtonItem) {
+    @objc func doneButtonClick(_ sender: UIBarButtonItem) {
 
         if  let start = (form.rowBy(tag: "from") as! DateTimeInlineRow).value,
             let end = (form.rowBy(tag: "until") as! DateTimeInlineRow).value,
