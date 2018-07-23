@@ -55,7 +55,7 @@ class ParkingSpaceListTableViewController: UITableViewController {
             cell.parkingSpaceIsActiveLabel.textColor = UIColor.systemGreen
         } else {
             cell.parkingSpaceIsActiveLabel.text = "Inactive"
-            cell.parkingSpaceIsActiveLabel.textColor = UIColor.systemRed
+            cell.parkingSpaceIsActiveLabel.textColor = UIColor.systemGray
         }
 
         let parkingSpaceLocation = CLLocation(
@@ -95,10 +95,6 @@ class ParkingSpaceListTableViewController: UITableViewController {
                 }
             }
         }
-    }
-
-    @IBAction func dismissButtonClick(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
     }
 }
 

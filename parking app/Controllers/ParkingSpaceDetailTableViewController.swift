@@ -109,6 +109,16 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             if section == 2 {
                 return "Specify the dates and times during which you would like your space to be available"
             }
+        } else {
+            if section == 2 {
+                if let parkingSpace = parkingSpace {
+                    if parkingSpace.is_active {
+                        return "Making your listing inactive will hide it on the map and prevent customers from reserving it as long as it is inactive. You can always make your listing active again."
+                    } else {
+                        return "Making your listing active will ensure that your parking space is available for customers to reserve. You can later make your listing inactive again."
+                    }
+                }
+            }
         }
         return ""
     }

@@ -249,6 +249,10 @@ extension UIColor {
         return UIColor(hex: "db4d4d")
     }
 
+    static var systemGray: UIColor {
+        return UIColor(hex: "555555")
+    }
+
     convenience init(hex hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()

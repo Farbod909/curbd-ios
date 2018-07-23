@@ -11,6 +11,7 @@ import UIKit
 class ReservationListTableViewController: UITableViewController {
     
     var parkingSpace: ParkingSpace?
+    var isHost = false
     var currentReservations = [Reservation]()
     var previousReservations = [Reservation]()
 
@@ -47,16 +48,31 @@ class ReservationListTableViewController: UITableViewController {
                     }
                 }
             } else {
-                User.getCurrentReservations(withToken: token) { error, reservations in
-                    if let reservations = reservations {
-                        self.currentReservations = reservations
-                        self.tableView.reloadData()
+                if isHost {
+                    User.getHostCurrentReservations(withToken: token) { error, reservations in
+                        if let reservations = reservations {
+                            self.currentReservations = reservations
+                            self.tableView.reloadData()
+                        }
                     }
-                }
-                User.getPreviousReservations(withToken: token) { error, reservations in
-                    if let reservations = reservations {
-                        self.previousReservations = reservations
-                        self.tableView.reloadData()
+                    User.getHostPreviousReservations(withToken: token) { error, reservations in
+                        if let reservations = reservations {
+                            self.previousReservations = reservations
+                            self.tableView.reloadData()
+                        }
+                    }
+                } else {
+                    User.getCurrentReservations(withToken: token) { error, reservations in
+                        if let reservations = reservations {
+                            self.currentReservations = reservations
+                            self.tableView.reloadData()
+                        }
+                    }
+                    User.getPreviousReservations(withToken: token) { error, reservations in
+                        if let reservations = reservations {
+                            self.previousReservations = reservations
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
@@ -99,7 +115,11 @@ class ReservationListTableViewController: UITableViewController {
         if parkingSpace != nil {
             cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized)."
         } else {
-            cell.titleLabel.text = reservation.parkingSpace.name
+            if isHost {
+                cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized). @ \(reservation.parkingSpace.name)"
+            } else {
+                cell.titleLabel.text = reservation.parkingSpace.name
+            }
         }
         cell.priceLabel.text = "$\(reservation.price)"
         cell.vehicleLabel.text = "\(reservation.vehicle.make) \(reservation.vehicle.model) \(reservation.vehicle.licensePlate)"
