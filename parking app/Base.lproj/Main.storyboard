@@ -2535,8 +2535,12 @@
                         </connections>
                     </tableView>
                     <size key="freeformSize" width="375" height="850"/>
+                    <connections>
+                        <segue destination="I4I-bc-z1M" kind="unwind" identifier="unwindToUserMenuViewController" unwindAction="unwindToUserMenuViewControllerWithSegue:" id="Q0Z-RG-fjX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJA-4I-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="I4I-bc-z1M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4497" y="1642"/>
         </scene>

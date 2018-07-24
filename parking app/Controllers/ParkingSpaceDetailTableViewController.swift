@@ -408,14 +408,28 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                     if error != nil {
                         self.presentServerErrorAlert()
                     } else {
-                        self.dismiss(animated: true)
+                        // if user is already a host just dismiss back to listings table
+                        // else if user is a newly created host, update the user menu to
+                        // "Host Dashboard" and show it to them
+                        if UserDefaults.standard.bool(forKey: "user_is_host") {
+                            self.dismiss(animated: true)
+                        } else {
+                            self.performSegue(withIdentifier: "unwindToUserMenuViewController", sender: self)
+                        }
                     }
                 }
             }
         }
 
         let saveForLaterAction = UIAlertAction(title: "Save For Later", style: .default) { alert in
-            self.dismiss(animated: true)
+            // if user is already a host just dismiss back to listings table
+            // else if user is a newly created host, update the user menu to
+            // "Host Dashboard" and show it to them
+            if UserDefaults.standard.bool(forKey: "user_is_host") {
+                self.dismiss(animated: true)
+            } else {
+                self.performSegue(withIdentifier: "unwindToUserMenuViewController", sender: self)
+            }
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alert in

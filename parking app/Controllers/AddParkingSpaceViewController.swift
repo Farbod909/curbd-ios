@@ -138,7 +138,6 @@ class AddParkingSpaceViewController: FormViewController {
             name: "Main",
             bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailTableViewController") as! ParkingSpaceDetailTableViewController
 
-        // TODO: construct ParkingSpace object and send it to next view controller
         if  let streetAddress = (form.rowBy(tag: "street address") as? NameRow)?.value,
             let zipCode = (form.rowBy(tag: "zip code") as? ZipCodeRow)?.value,
             let city = (form.rowBy(tag: "city") as? NameRow)?.value,

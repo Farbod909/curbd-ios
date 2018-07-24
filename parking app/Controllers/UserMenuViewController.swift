@@ -33,5 +33,11 @@ class UserMenuViewController: DarkTranslucentViewController {
     @IBAction func closeButtonClick(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToMapViewController", sender: self)
     }
+
+    @IBAction func unwindToUserMenuViewController(segue:UIStoryboardSegue) {
+        UserDefaults.standard.set(true, forKey: "user_is_host")
+        listingsButton.isHidden = false
+        hostASpaceButton.isHidden = true
+    }
     
 }
