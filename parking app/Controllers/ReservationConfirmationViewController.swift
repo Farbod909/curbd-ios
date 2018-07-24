@@ -43,7 +43,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
                 forKey: "vehicle_license_plate"){
 
             vehicleLicensePlateLabel.text = vehicleLicensePlate
-            let pricePerHour = Double(pricing * 12)/100.0
+            let pricePerHour = Double(pricing)/100.0
             let formattedPricePerHour = String(format: "%.02f", pricePerHour)
             let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
             let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour

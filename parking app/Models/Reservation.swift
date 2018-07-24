@@ -20,16 +20,16 @@ class Reservation {
     let reserver: User
     var pricePerHour: String {
         // price (in dollars) calculated per hour
-        let pricePerHour = Double(pricing * 12)/100.0
+        let pricePerHour = Double(pricing)/100.0
         let formattedPricePerHour = String(format: "%.02f", pricePerHour)
         return formattedPricePerHour
     }
     var price: String {
         // price (in dollars) calculated from pricing and start to end
-        let pricePerHour = Double(pricing * 12)/100.0
+        let pricePerHour = Double(pricing) / 100.0
         let reservationTimeMinutes = end.timeIntervalSince(start) / 60
         let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-        let formattedFinalCost = String(format: "%.02f", finalCost)
+        let formattedFinalCost = String(format: "%.02f", ceil(finalCost * 100) / 100)
         return formattedFinalCost
     }
 
