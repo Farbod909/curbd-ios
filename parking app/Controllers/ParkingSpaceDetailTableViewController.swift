@@ -262,7 +262,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             } else if indexPath.row == 1 {
                 // reservation history
                 let reservationHistoryCell = tableView.dequeueReusableCell(
-                    withIdentifier: "actionCell")
+                    withIdentifier: "disclosureCell")
 
                 reservationHistoryCell?.textLabel?.text = "Reservation History"
 

@@ -277,7 +277,7 @@ class User {
     }
 
     static func getHostPreviousReservations(withToken token: String,
-                                        completion: @escaping (Error?, [Reservation]?) -> Void) {
+                                            completion: @escaping (Error?, [Reservation]?) -> Void) {
 
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
@@ -293,6 +293,28 @@ class User {
                         Reservation(json: $0)
                     }
                     completion(nil, reservations)
+
+                case .failure(let error):
+                    completion(error, nil)
+                }
+        }
+    }
+
+    static func getHostSinceDate(withToken token: String,
+                                 completion: @escaping (Error?, String?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/hosts/self/",
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    let responseJSON = JSON(value)
+                    let datestring = responseJSON["host_since"].stringValue
+                    completion(nil, datestring)
 
                 case .failure(let error):
                     completion(error, nil)

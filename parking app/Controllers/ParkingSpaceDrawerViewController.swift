@@ -58,6 +58,11 @@ class ParkingSpaceDrawerViewController: UIViewController {
                         let pricePerHour = Double(pricing * 12)/100.0
                         let formattedPricePerHour = String(format: "%.02f", pricePerHour)
                         self.pricingLabel.text = "$\(formattedPricePerHour) / hr"
+
+                        let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+                        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
+                        let formattedFinalCost = String(format: "%.02f", finalCost)
+                        self.reserveButton.setTitle("Reserve for $\(formattedFinalCost)", for: .normal)
                     }
                 }
 
@@ -91,6 +96,16 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
                 featuresStackView.addArrangedSubview(featureImageView)
             }
+
+//            if let pricing = pricing, let arriveDate = arriveDate, let leaveDate = leaveDate {
+//
+//                let pricePerHour = Double(pricing * 12)/100.0
+//
+//                let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+//                let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
+//                reserveButton.titleLabel?.text = "Reserve for $\(finalCost)"
+//            }
+
         }
     }
 
