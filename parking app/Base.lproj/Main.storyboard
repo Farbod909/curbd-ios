@@ -417,7 +417,7 @@
                     <connections>
                         <outlet property="firstNameLabel" destination="15u-Ve-1Ex" id="Dk2-AD-9VU"/>
                         <outlet property="hostASpaceButton" destination="3VN-Id-yAp" id="xV1-rt-fLT"/>
-                        <outlet property="listingsButton" destination="d4i-Ea-9d8" id="UxD-Nq-bSo"/>
+                        <outlet property="hostDashboardButton" destination="d4i-Ea-9d8" id="UxD-Nq-bSo"/>
                         <segue destination="0WB-zS-whh" kind="unwind" identifier="unwindToMapViewController" unwindAction="unwindToMapViewControllerWithSegue:" id="xRk-VI-NEi"/>
                     </connections>
                 </viewController>

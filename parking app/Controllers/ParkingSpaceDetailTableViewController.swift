@@ -47,8 +47,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         }
     }
 
-    override func viewWillDisappear(_ animated : Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
 
         if self.isMovingFromParentViewController {
             if isPreview {
@@ -61,8 +61,9 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 }
             }
         }
-    }
 
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }

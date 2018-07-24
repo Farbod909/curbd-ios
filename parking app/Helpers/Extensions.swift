@@ -237,6 +237,17 @@ extension UIView {
             animations: { self.alpha = 0.0 },
             completion: completion)
     }
+
+    func blink() {
+        UIView.animate(
+            withDuration: 0.4,
+            delay: 0.0,
+            options: [.curveLinear, .autoreverse],
+            animations: {self.alpha = 0.2}) { finished in
+                self.alpha = 1
+        }
+    }
+
 }
 
 extension UIColor {

@@ -13,7 +13,7 @@ class UserMenuViewController: DarkTranslucentViewController {
     
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var hostASpaceButton: UIButton!
-    @IBOutlet weak var listingsButton: UIButton!
+    @IBOutlet weak var hostDashboardButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +24,11 @@ class UserMenuViewController: DarkTranslucentViewController {
 
         let isHost = UserDefaults.standard.bool(forKey: "user_is_host")
         if isHost {
-            listingsButton.isHidden = false
+            hostDashboardButton.isHidden = false
         } else {
             hostASpaceButton.isHidden = false
         }
+
     }
 
     @IBAction func closeButtonClick(_ sender: UIButton) {
@@ -36,8 +37,11 @@ class UserMenuViewController: DarkTranslucentViewController {
 
     @IBAction func unwindToUserMenuViewController(segue:UIStoryboardSegue) {
         UserDefaults.standard.set(true, forKey: "user_is_host")
-        listingsButton.isHidden = false
+        hostDashboardButton.isHidden = false
         hostASpaceButton.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.hostDashboardButton.blink()
+        }
     }
     
 }
