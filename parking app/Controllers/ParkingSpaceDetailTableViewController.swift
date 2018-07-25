@@ -72,7 +72,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         if section == 0 {
             return 2
         } else if section == 1 {
-            return repeatingAvailabilities.count + fixedAvailabilities.count
+            return repeatingAvailabilities.count + fixedAvailabilities.count + 1
         } else if section == 2 {
             if isPreview {
                 return 0
@@ -81,9 +81,9 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             }
         } else if section == 3 {
             if isPreview {
-                return 1
+                return 0
             } else {
-                return 3
+                return 2
             }
         }
         return 0
@@ -107,7 +107,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if isPreview {
-            if section == 2 {
+            if section == 1 {
                 return "Specify the dates and times during which you would like your space to be available"
             }
         } else {
@@ -227,6 +227,14 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 "\(repeatingAvailability.start_time.timeComponentString()) - \(repeatingAvailability.end_time.timeComponentString())"
 
                 return repeatingAvailabilityCell
+            } else if indexPath.row == (repeatingAvailabilities.count + fixedAvailabilities.count) {
+                // add availability
+                let addAvailabilityCell = tableView.dequeueReusableCell(
+                    withIdentifier: "actionCell")
+
+                addAvailabilityCell?.textLabel?.text = "Add Availability"
+
+                return addAvailabilityCell!
             } else {
                 let fixedAvailabilityCell = tableView.dequeueReusableCell(
                     withIdentifier: "fixedAvailabilityCell") as! FixedAvailabilityTableViewCell
@@ -259,15 +267,6 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             }
         } else if indexPath.section == 3 {
             if indexPath.row == 0 {
-                // add availability
-                let addAvailabilityCell = tableView.dequeueReusableCell(
-                    withIdentifier: "actionCell")
-
-                addAvailabilityCell?.textLabel?.text = "Add Availability"
-
-                return addAvailabilityCell!
-
-            } else if indexPath.row == 1 {
                 // reservation history
                 let reservationHistoryCell = tableView.dequeueReusableCell(
                     withIdentifier: "disclosureCell")
@@ -276,7 +275,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
                 return reservationHistoryCell!
 
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 // delete listing
                 let deleteListingCell = tableView.dequeueReusableCell(
                     withIdentifier: "dangerousActionCell")
@@ -292,7 +291,14 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
+            let availabilityTypeViewController = UIStoryboard(
+                name: "Main",
+                bundle: nil).instantiateViewController(withIdentifier: "availabilityTypeViewController") as! AvailabilityTypeViewController
+
+            availabilityTypeViewController.parkingSpace = parkingSpace
+            show(availabilityTypeViewController, sender: self)
+        } else if indexPath.section == 2 {
             if indexPath.row == 0 {
                 if  let token = UserDefaults.standard.string(forKey: "token"),
                     let parkingSpace = parkingSpace {
@@ -312,19 +318,12 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             }
         } else if indexPath.section == 3 {
             if indexPath.row == 0 {
-                let availabilityTypeViewController = UIStoryboard(
-                    name: "Main",
-                    bundle: nil).instantiateViewController(withIdentifier: "availabilityTypeViewController") as! AvailabilityTypeViewController
-
-                availabilityTypeViewController.parkingSpace = parkingSpace
-                show(availabilityTypeViewController, sender: self)
-            } else if indexPath.row == 1 {
                 let reservationHistoryTableViewController = UIStoryboard(
                     name: "Main",
                     bundle: nil).instantiateViewController(withIdentifier: "reservationHistoryTableViewController") as! ReservationListTableViewController
                 reservationHistoryTableViewController.parkingSpace = parkingSpace
                 show(reservationHistoryTableViewController, sender: self)
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 presentConfirmationAlert(
                     title: "Are You Sure?",
                     message: "Are you sure you would like to delete this parking space?") { action in
