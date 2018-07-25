@@ -28,15 +28,20 @@ class AddFixedAvailabilityViewController: FormViewController {
 
     func initializeForm() {
 
+        DateTimeInlineRow.defaultCellSetup = { cell, row in
+            row.minuteInterval = 5
+            row.minimumDate = Date().ceil(precision: 300)
+        }
+
         form
             +++ Section("Time Range")
             <<< DateTimeInlineRow("from"){
                 $0.title = $0.tag?.capitalized
-                $0.value = Date()
+                $0.value = Date().ceil(precision: 300)
             }
             <<< DateTimeInlineRow("until"){
                 $0.title = $0.tag?.capitalized
-                $0.value = Date()
+                $0.value = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
             }
 
             +++ DecimalRow("pricing"){

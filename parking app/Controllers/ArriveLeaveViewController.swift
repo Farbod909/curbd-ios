@@ -22,6 +22,9 @@ class ArriveLeaveViewController: LightTranslucentViewController {
 
         arriveDatePicker.setDate(arriveDate, animated: false)
         leaveDatePicker.setDate(leaveDate, animated: false)
+
+        arriveDatePicker.minimumDate = arriveDate
+        leaveDatePicker.minimumDate = Date(timeInterval: 300, since: arriveDate)
     }
     
     @IBAction func cancelButtonClick(_ sender: UIButton) {

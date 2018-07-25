@@ -70,7 +70,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return 2
         } else if section == 1 {
             return repeatingAvailabilities.count + fixedAvailabilities.count
         } else if section == 2 {
@@ -206,6 +206,13 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
                 }
                 return parkingSpaceDetailCell
+            } else if indexPath.row == 1 {
+                let parkingSpaceInstructionsCell = tableView.dequeueReusableCell(
+                    withIdentifier: "infoCell") as! MultiLineLabelTableViewCell
+                if let parkingSpace = parkingSpace {
+                    parkingSpaceInstructionsCell.label.text = parkingSpace.instructions
+                }
+                return parkingSpaceInstructionsCell
             }
         } else if indexPath.section == 1 {
 

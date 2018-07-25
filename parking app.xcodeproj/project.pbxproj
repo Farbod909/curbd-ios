@@ -33,6 +33,7 @@
 		8E5048A920EB416700580232 /* ReservationExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5048A820EB416700580232 /* ReservationExtensionViewController.swift */; };
 		8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */; };
 		8E5AA0BA2106696400A43A1F /* HostDashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5AA0B92106696400A43A1F /* HostDashboardTableViewController.swift */; };
+		8E5AA0BE2108341F00A43A1F /* MultiLineLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5AA0BD2108341F00A43A1F /* MultiLineLabelTableViewCell.swift */; };
 		8E5DAE4F20EC9C1100341251 /* AddParkingSpaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE4E20EC9C1100341251 /* AddParkingSpaceViewController.swift */; };
 		8E5DAE5320ED45C200341251 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE5220ED45C200341251 /* ImageRow.swift */; };
 		8E5DAE5520ED45F800341251 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DAE5420ED45F800341251 /* ImagePickerController.swift */; };
@@ -101,6 +102,7 @@
 		8E5048A820EB416700580232 /* ReservationExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationExtensionViewController.swift; sourceTree = "<group>"; };
 		8E50882E1FC0F9F300508FE0 /* ArriveLeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveLeaveViewController.swift; sourceTree = "<group>"; };
 		8E5AA0B92106696400A43A1F /* HostDashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostDashboardTableViewController.swift; sourceTree = "<group>"; };
+		8E5AA0BD2108341F00A43A1F /* MultiLineLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineLabelTableViewCell.swift; sourceTree = "<group>"; };
 		8E5DAE4E20EC9C1100341251 /* AddParkingSpaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParkingSpaceViewController.swift; sourceTree = "<group>"; };
 		8E5DAE5220ED45C200341251 /* ImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		8E5DAE5420ED45F800341251 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				8E5DAE6120EDB15B00341251 /* RepeatingAvailabilityTableViewCell.swift */,
 				8E5DAE6320EDB16800341251 /* FixedAvailabilityTableViewCell.swift */,
 				8E68C46F20FB00BC00376F80 /* ParkingSpaceDetailTableViewCell.swift */,
+				8E5AA0BD2108341F00A43A1F /* MultiLineLabelTableViewCell.swift */,
 			);
 			path = CustomTableViewCells;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E8E78D62099AF5A00426E92 /* ReservationDetailTableViewController.swift in Sources */,
+				8E5AA0BE2108341F00A43A1F /* MultiLineLabelTableViewCell.swift in Sources */,
 				8E68C47020FB00BC00376F80 /* ParkingSpaceDetailTableViewCell.swift in Sources */,
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
 				8E8E78D420984A8C00426E92 /* ReservationTableViewCell.swift in Sources */,

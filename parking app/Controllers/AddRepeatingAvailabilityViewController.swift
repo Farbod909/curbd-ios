@@ -32,6 +32,10 @@ class AddRepeatingAvailabilityViewController: FormViewController {
 
     func initializeForm() {
 
+        TimeInlineRow.defaultCellSetup = { cell, row in
+            row.minuteInterval = 5
+        }
+
         for (index, weekday) in weekdays.enumerated() {
 
             form
@@ -45,12 +49,12 @@ class AddRepeatingAvailabilityViewController: FormViewController {
                 }
                 <<< TimeInlineRow("\(weekday) start"){
                     $0.title = "From"
-                    $0.value = Date()
+                    $0.value = Date().ceil(precision: 300)
                     $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
                 }
                 <<< TimeInlineRow("\(weekday) end"){
                     $0.title = "Until"
-                    $0.value = Date()
+                    $0.value = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
                     $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
                 }
                 <<< DecimalRow("\(weekday) pricing"){
