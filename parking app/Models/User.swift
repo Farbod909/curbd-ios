@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class User {
 
-    let id: Int
+    let id: UUID
     let email: String
     let firstName: String
     let lastName: String
@@ -19,7 +19,7 @@ class User {
     let isHost: Bool
 
     init(json: JSON) {
-        self.id = json["id"].intValue
+        self.id = UUID(uuidString: json["id"].stringValue)!
         self.email = json["email"].stringValue
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
@@ -323,7 +323,7 @@ class User {
     }
 
     func saveToUserDefaults() {
-        UserDefaults.standard.set(self.id, forKey: "user_id")
+        UserDefaults.standard.set(self.id.uuidString, forKey: "user_id")
         UserDefaults.standard.set(self.firstName, forKey: "user_firstname")
         UserDefaults.standard.set(self.lastName, forKey: "user_lastname")
         UserDefaults.standard.set(self.email, forKey: "user_email")

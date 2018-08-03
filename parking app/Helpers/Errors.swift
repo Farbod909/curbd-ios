@@ -18,10 +18,11 @@ struct ValidationError: Error {
             if error.isResponseValidationError {
 
                 if let data = data {
-                    let responseJSON = JSON(data: data)
-                    fields = [:]
-                    for (field, messageList):(String, JSON) in responseJSON {
-                        fields[field] = String(describing: messageList.arrayValue[0])
+                    if let responseJSON = try? JSON(data: data) {
+                        fields = [:]
+                        for (field, messageList):(String, JSON) in responseJSON {
+                            fields[field] = String(describing: messageList.arrayValue[0])
+                        }
                     }
                 }
 
