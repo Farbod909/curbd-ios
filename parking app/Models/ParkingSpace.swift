@@ -63,8 +63,9 @@ class ParkingSpace {
             ]
 
             let parameters: Parameters = [
-                "latitude": location.coordinate.latitude,
-                "longitude": location.coordinate.longitude,
+                // round latitude and longitude to 6 decimal places
+                "latitude": Double(round(1000000*location.coordinate.latitude)/1000000),
+                "longitude": Double(round(1000000*location.coordinate.longitude)/1000000),
                 "available_spaces": available_spaces,
                 "size": Vehicle.sizes[sizeDescription] ?? 2, // 2 is Mid-sized
                 "name": name,
@@ -74,6 +75,8 @@ class ParkingSpace {
                 "is_active": is_active,
                 "features": features.joined(separator: ", ")
             ]
+
+            print(parameters)
 
             Alamofire.request(
                 baseURL + "/api/parking/spaces/",
