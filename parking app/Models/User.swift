@@ -300,8 +300,8 @@ class User {
         }
     }
 
-    static func getHostSinceDate(withToken token: String,
-                                 completion: @escaping (Error?, String?) -> Void) {
+    static func getHostInfo(withToken token: String,
+                                 completion: @escaping (Error?, HostInfo?) -> Void) {
 
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
@@ -312,14 +312,14 @@ class User {
             headers: headers).validate().responseJSON() { response in
                 switch response.result {
                 case .success(let value):
-                    let responseJSON = JSON(value)
-                    let datestring = responseJSON["host_since"].stringValue
-                    completion(nil, datestring)
+                    let hostInfo = HostInfo(json: JSON(value))
+                    completion(nil, hostInfo)
 
                 case .failure(let error):
                     completion(error, nil)
                 }
         }
+
     }
 
     func saveToUserDefaults() {

@@ -72,6 +72,9 @@
 		8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */; };
 		8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC462E20844A6F00ED527F /* LoginViewController.swift */; };
 		8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC463020844D3400ED527F /* HollowTextField.swift */; };
+		8EEEDE2A2118013D00BCDA04 /* VenmoPayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */; };
+		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
+		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +148,9 @@
 		8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequiredViewController.swift; sourceTree = "<group>"; };
 		8EEC462E20844A6F00ED527F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8EEC463020844D3400ED527F /* HollowTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowTextField.swift; sourceTree = "<group>"; };
+		8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenmoPayoutViewController.swift; sourceTree = "<group>"; };
+		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
+		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +244,7 @@
 				8E5DAE6520EDB59B00341251 /* RepeatingAvailability.swift */,
 				8E5DAE6720EDB5AC00341251 /* FixedAvailability.swift */,
 				8E4F09ED21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift */,
+				8EEEDE2D211809B400BCDA04 /* HostInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +281,8 @@
 				8E5DAE5E20EDA2C000341251 /* AddFixedAvailabilityViewController.swift */,
 				8E4F09EF2102968900E72FD5 /* AvailabilityTypeViewController.swift */,
 				8E5AA0B92106696400A43A1F /* HostDashboardTableViewController.swift */,
+				8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */,
+				8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -459,6 +468,7 @@
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
 				8E8E78D420984A8C00426E92 /* ReservationTableViewCell.swift in Sources */,
 				8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */,
+				8EEEDE2A2118013D00BCDA04 /* VenmoPayoutViewController.swift in Sources */,
 				8EBEAEF120E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift in Sources */,
 				8EC8F780207AA1DA0038790E /* Globals.swift in Sources */,
 				8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */,
@@ -470,6 +480,7 @@
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
 				8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */,
 				8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */,
+				8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */,
 				8E5DAE4F20EC9C1100341251 /* AddParkingSpaceViewController.swift in Sources */,
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,
 				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,
@@ -481,6 +492,7 @@
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E0CA4622084962400C9F470 /* ShadowLabel.swift in Sources */,
 				8E5048A520EB38B200580232 /* ReportTableViewController.swift in Sources */,
+				8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */,
 				8E3F47D2208EEC87003451C1 /* SignupNameViewController.swift in Sources */,
 				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,
 				8E8E371E208C4D13003FBA50 /* ReservationConfirmationViewController.swift in Sources */,

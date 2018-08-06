@@ -1981,7 +1981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YF-JV-j6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3353" y="2567"/>
+            <point key="canvasLocation" x="4497" y="2467"/>
         </scene>
         <!--Signup Name View Controller-->
         <scene sceneID="s5R-mL-7ei">
@@ -2736,8 +2736,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="YTD Earnings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HK0-46-EMR">
-                                                    <rect key="frame" x="16" y="12" width="104" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Total Earnings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HK0-46-EMR">
+                                                    <rect key="frame" x="16" y="12" width="108" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2771,20 +2771,49 @@
                                                     <rect key="frame" x="306" y="12" width="53" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.12941176470588234" green="0.73212316176470582" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="14V-JI-CtP" style="IBUITableViewCellStyleDefault" id="hd1-bX-XR0">
-                                        <rect key="frame" x="0.0" y="245" width="375" height="44"/>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="jK6-DZ-NN5">
+                                <string key="footerTitle">'Available Balance' is the amount that can be paid out right now. 'Current Balance' Includes 'Available Balance' plus all income from future reservations that have not been completed yet.</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Q8t-CF-U9M" detailTextLabel="n3J-ri-5N0" style="IBUITableViewCellStyleValue1" id="DJq-EW-gLf">
+                                        <rect key="frame" x="0.0" y="281" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hd1-bX-XR0" id="vD0-zC-3MU">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJq-EW-gLf" id="Rh5-Bg-n4V">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Available Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q8t-CF-U9M">
+                                                    <rect key="frame" x="16" y="12" width="132.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="$10.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n3J-ri-5N0">
+                                                    <rect key="frame" x="306.5" y="12" width="52.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.73212316180000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Hvd-U1-6mn" style="IBUITableViewCellStyleDefault" id="g2b-FE-E05">
+                                        <rect key="frame" x="0.0" y="325" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g2b-FE-E05" id="ssg-jQ-K2U">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14V-JI-CtP">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hvd-U1-6mn">
                                                     <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2796,16 +2825,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="jK6-DZ-NN5">
+                            <tableViewSection id="NQR-3a-fyy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Q8t-CF-U9M" style="IBUITableViewCellStyleDefault" id="DJq-EW-gLf">
-                                        <rect key="frame" x="0.0" y="325" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="iCj-VQ-1UY" style="IBUITableViewCellStyleDefault" id="8eu-4T-dmM">
+                                        <rect key="frame" x="0.0" y="465" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJq-EW-gLf" id="Rh5-Bg-n4V">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8eu-4T-dmM" id="hFS-u2-QNQ">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Manage Listings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q8t-CF-U9M">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Manage Listings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iCj-VQ-1UY">
                                                     <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2815,17 +2844,17 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ep0-pY-cTO" kind="show" id="HuL-zw-nlc"/>
+                                            <segue destination="ep0-pY-cTO" kind="show" id="4sT-4O-fQc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Hvd-U1-6mn" style="IBUITableViewCellStyleDefault" id="g2b-FE-E05">
-                                        <rect key="frame" x="0.0" y="369" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="o0M-4W-UWF" style="IBUITableViewCellStyleDefault" id="awk-5w-fPA">
+                                        <rect key="frame" x="0.0" y="509" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g2b-FE-E05" id="ssg-jQ-K2U">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awk-5w-fPA" id="vKT-JM-QvT">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Manage Reservations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hvd-U1-6mn">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Manage Reservations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o0M-4W-UWF">
                                                     <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2835,7 +2864,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="95b-Dg-huR" kind="show" identifier="manageReservationsSegue" id="qSr-wQ-9Qi"/>
+                                            <segue destination="95b-Dg-huR" kind="show" identifier="manageReservationsSegue" id="CDh-Zr-FBR"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2854,10 +2883,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="availableBalanceLabel" destination="n3J-ri-5N0" id="q60-GI-sgQ"/>
                         <outlet property="currentBalanceLabel" destination="WC7-Mh-t5o" id="h8K-Vv-02L"/>
                         <outlet property="hostNameLabel" destination="FR3-OJ-x5G" id="r3d-HD-51m"/>
                         <outlet property="hostSinceDateLabel" destination="dt6-Hp-PEf" id="GS9-GE-Gpy"/>
-                        <outlet property="ytdEarningsLabel" destination="BH6-AW-Zpk" id="3EQ-nK-Sen"/>
+                        <outlet property="totalEarningsLabel" destination="BH6-AW-Zpk" id="3EQ-nK-Sen"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aru-Bv-RyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2880,7 +2910,105 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uag-js-QS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2588" y="2567"/>
+            <point key="canvasLocation" x="3732" y="2467"/>
+        </scene>
+        <!--Host Information-->
+        <scene sceneID="X31-Iu-gRc">
+            <objects>
+                <viewController storyboardIdentifier="hostInfoGatherViewController" title="Host Information" id="2KV-DU-UtQ" customClass="HostInfoGatherViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mQA-rU-iwM"/>
+                        <viewControllerLayoutGuide type="bottom" id="46G-JP-ZuR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6dq-tp-Znh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="ry7-jy-4hL">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="3vC-q6-DhS"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qc9-16-pkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2201" y="3222"/>
+        </scene>
+        <!--Venmo Payout View Controller-->
+        <scene sceneID="9qh-7Y-kUx">
+            <objects>
+                <tableViewController storyboardIdentifier="venmoPayoutViewController" id="DQe-fP-CHG" customClass="VenmoPayoutViewController" customModule="parking_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="W7n-K9-SN8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="R6K-35-1N5">
+                                <string key="footerTitle">We use Venmo to process payouts. If you don't have a venmo account, don't worry! Just enter your email address or phone number and you should receive an email or message prompting you to sign up and immediately accept your payment on Venmo. It only takes a few seconds to sign up!</string>
+                                <cells/>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Venmo Email/Phone" id="Je8-8d-bjH">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="VUI-n1-tfT">
+                                        <rect key="frame" x="0.0" y="183" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VUI-n1-tfT" id="IUH-sY-jI7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-ZZ-5Gp">
+                                                    <rect key="frame" x="16" y="11.5" width="343" height="21"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="S6I-ZZ-5Gp" firstAttribute="centerY" secondItem="IUH-sY-jI7" secondAttribute="centerY" id="LTK-FP-LhM"/>
+                                                <constraint firstItem="S6I-ZZ-5Gp" firstAttribute="leading" secondItem="IUH-sY-jI7" secondAttribute="leading" constant="16" id="NkX-mE-xji"/>
+                                                <constraint firstAttribute="trailing" secondItem="S6I-ZZ-5Gp" secondAttribute="trailing" constant="16" id="dGv-lf-pZg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Please allow up to one business day for payout to process" id="9ZG-rr-C11">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="mJ9-Oi-u7e" style="IBUITableViewCellStyleDefault" id="pSB-jl-aLB">
+                                        <rect key="frame" x="0.0" y="263" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pSB-jl-aLB" id="KJS-1M-8AW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Request $XX.XX Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJ9-Oi-u7e">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.73212316180000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="DQe-fP-CHG" id="YLd-Y5-fUp"/>
+                            <outlet property="delegate" destination="DQe-fP-CHG" id="MuY-xR-IcP"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="payoutButton" destination="pSB-jl-aLB" id="FsS-RL-gst"/>
+                        <outlet property="venmoEmailPhoneCell" destination="VUI-n1-tfT" id="1Ne-P9-O9Z"/>
+                        <outlet property="venmoEmailPhoneTextField" destination="S6I-ZZ-5Gp" id="OQg-Eb-eaI"/>
+                        <segue destination="dc7-dG-ZJ9" kind="unwind" identifier="unwindToHostDashboardViewController" unwindAction="unwindToHostDashboardViewControllerWithSegue:" id="Muu-1M-sCK"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmy-S3-VHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dc7-dG-ZJ9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="3221.739130434783"/>
         </scene>
         <!--Reservation History-->
         <scene sceneID="ikW-PL-1K2">
@@ -2966,7 +3094,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDV-zb-jRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4134" y="2567"/>
+            <point key="canvasLocation" x="2972" y="2467"/>
         </scene>
         <!--Dark Navigation Controller-->
         <scene sceneID="wA6-V7-WrV">
@@ -2993,7 +3121,7 @@
         <image name="user" width="23" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1a3-9A-uUD"/>
+        <segue reference="xyw-N1-5lj"/>
         <segue reference="b2c-sg-o82"/>
     </inferredMetricsTieBreakers>
 </document>
