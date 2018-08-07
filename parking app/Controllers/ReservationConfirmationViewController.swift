@@ -9,22 +9,26 @@
 import Foundation
 import MapKit
 import UIKit
+import Stripe
 
 class ReservationConfirmationViewController: DarkTranslucentViewController {
 
-    @IBOutlet weak var vehicleLicensePlateLabel: UILabel!
-    @IBOutlet weak var pricingLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var cityStateLabel: UILabel!
     @IBOutlet weak var arriveDateLabel: UILabel!
     @IBOutlet weak var leaveDateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var cityStateLabel: UILabel!
+    @IBOutlet weak var vehicleLicensePlateLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var paymentMethodButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
-    
+
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
     var pricing: Int?
+
+    var paymentContext: STPPaymentContext?
 
     func initializeAppearanceSettings() {
         mapView.layer.cornerRadius = 10
@@ -40,19 +44,33 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             let leaveDate = leaveDate,
             let pricing = pricing,
             let vehicleLicensePlate = UserDefaults.standard.string(
-                forKey: "vehicle_license_plate"){
+                forKey: "vehicle_license_plate") {
 
-            vehicleLicensePlateLabel.text = vehicleLicensePlate
-            let pricePerHour = Double(pricing)/100.0
-            let formattedPricePerHour = String(format: "%.02f", pricePerHour)
-            let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
-            let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-            let formattedFinalCost = String(format: "%.02f", finalCost)
-
-            pricingLabel.text = "$\(formattedFinalCost) @ $\(formattedPricePerHour) / hr"
+            nameLabel.text = parkingSpace.name
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
-            nameLabel.text = parkingSpace.name
+
+            let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+//            let pricePerHour = Double(pricing)/100.0
+//            let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
+//            let formattedFinalCost = String(format: "%.02f", finalCost)
+            let price = Int((Double(pricing) * (reservationTimeMinutes / 60.0) + 30) * (1.0 / (1.0-0.029)))
+
+
+            let customerContext = STPCustomerContext(keyProvider: PaymentClient.sharedClient)
+            paymentContext = STPPaymentContext(customerContext: customerContext)
+            paymentContext?.paymentAmount = price
+            paymentContext?.paymentCurrency = "usd"
+
+            paymentContext?.delegate = self
+            paymentContext?.hostViewController = self
+
+            
+            vehicleLicensePlateLabel.text = vehicleLicensePlate
+
+            totalTimeLabel.text = "\(Int(reservationTimeMinutes))min"
+
+            confirmButton.setTitle("Pay \(paymentContext?.paymentAmount.toUSDRepresentation() ?? "")", for: .normal)
 
             let parkingSpaceLocation = CLLocation(
                 latitude: parkingSpace.latitude,
@@ -77,8 +95,13 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
         }
 
     }
+    @IBAction func paymentMethodButtonClick(_ sender: UIButton) {
+        paymentContext?.presentPaymentMethodsViewController()
+    }
 
     @IBAction func confirmReservationClick(_ sender: UIButton) {
+
+        paymentContext?.requestPayment()
 
         if  let parkingSpace = parkingSpace,
             let arriveDate = arriveDate,
@@ -103,5 +126,75 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
 
     @IBAction func cancelButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
+    }
+}
+
+extension ReservationConfirmationViewController: STPPaymentContextDelegate {
+    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+        PaymentClient.sharedClient.completeCharge(paymentResult,
+                                                  amount: (self.paymentContext?.paymentAmount)!,
+                                                  statementDescriptor: "Curbd Reservation",
+//                                                  metadata: ["reservation_id": 2734],
+                                                  completion: completion)
+    }
+
+    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+        switch status {
+        case .error:
+            self.presentSingleButtonAlert(
+                title: "Error",
+                message: error?.localizedDescription ?? "")
+        case .success:
+            if  let parkingSpace = parkingSpace,
+                let arriveDate = arriveDate,
+                let leaveDate = leaveDate {
+
+                Reservation.create(
+                    for: parkingSpace,
+                    from: arriveDate,
+                    to: leaveDate) { title, message in
+                        self.presentSingleButtonAlert(
+                            title: title,
+                            message: message) { action in
+                                self.performSegue(
+                                    withIdentifier:
+                                    "unwindToMapViewControllerAfterReservationConfirmation",
+                                    sender: self)
+                        }
+                }
+            }
+        case .userCancellation:
+            return
+        }
+    }
+
+    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+        if let paymentMethod = self.paymentContext?.selectedPaymentMethod {
+            paymentMethodButton.setTitle(paymentMethod.label, for: .normal)
+        }
+        else {
+            paymentMethodButton.setTitle("Select Payment", for: .normal)
+        }
+        confirmButton.setTitle("Pay \(paymentContext.paymentAmount.toUSDRepresentation())", for: .normal)
+
+    }
+
+    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+        let alertController = UIAlertController(
+            title: "Error",
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            // Need to assign to _ because optional binding loses @discardableResult value
+            // https://bugs.swift.org/browse/SR-1681
+            _ = self.navigationController?.popViewController(animated: true)
+        })
+        let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
+            self.paymentContext?.retryLoading()
+        })
+        alertController.addAction(cancel)
+        alertController.addAction(retry)
+        self.present(alertController, animated: true, completion: nil)
     }
 }

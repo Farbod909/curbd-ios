@@ -75,6 +75,7 @@
 		8EEEDE2A2118013D00BCDA04 /* VenmoPayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */; };
 		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
 		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
+		8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenmoPayoutViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
+		8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				8E5DAE6720EDB5AC00341251 /* FixedAvailability.swift */,
 				8E4F09ED21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift */,
 				8EEEDE2D211809B400BCDA04 /* HostInfo.swift */,
+				8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -447,6 +451,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +477,7 @@
 				8EBEAEF120E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift in Sources */,
 				8EC8F780207AA1DA0038790E /* Globals.swift in Sources */,
 				8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */,
+				8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */,
 				8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */,
 				8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */,
 				8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */,

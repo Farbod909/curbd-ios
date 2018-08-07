@@ -55,14 +55,12 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 parkingSpace.getPricing(from: arriveDate, to: leaveDate) { pricing in
                     self.pricing = pricing
                     if let pricing = pricing {
-                        let pricePerHour = Double(pricing)/100.0
-                        let formattedPricePerHour = String(format: "%.02f", pricePerHour)
-                        self.pricingLabel.text = "$\(formattedPricePerHour) / hr"
+                        self.pricingLabel.text = "\(pricing.toUSDRepresentation()) / hr + processing fee"
 
-                        let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
-                        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-                        let formattedFinalCost = String(format: "%.02f", finalCost)
-                        self.reserveButton.setTitle("Reserve for $\(formattedFinalCost)", for: .normal)
+//                        let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+//                        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
+//                        let formattedFinalCost = String(format: "%.02f", finalCost)
+                        self.reserveButton.setTitle("Reserve", for: .normal)
                     }
                 }
 

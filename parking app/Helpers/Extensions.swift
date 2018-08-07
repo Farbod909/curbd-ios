@@ -288,6 +288,22 @@ extension UIColor {
 
 }
 
+extension Int {
+    func toUSDRepresentation() -> String {
+        let numberFormatter = NumberFormatter()
+        var localeComponents: [String: String] = [
+            NSLocale.Key.currencyCode.rawValue: "usd",
+            ]
+        localeComponents[NSLocale.Key.languageCode.rawValue] = NSLocale.preferredLanguages.first
+        let localeID = NSLocale.localeIdentifier(fromComponents: localeComponents)
+        numberFormatter.locale = Locale(identifier: localeID)
+        numberFormatter.numberStyle = .currency
+        numberFormatter.usesGroupingSeparator = true
+
+        return numberFormatter.string(from: NSNumber(value: Float(self)/100))!
+    }
+}
+
 /**
  Taken from: https://stackoverflow.com/questions/46437504/adding-padding-and-border-to-an-uiimageview
  */
