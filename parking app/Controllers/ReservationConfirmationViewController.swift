@@ -50,12 +50,11 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             arriveDateLabel.text = arriveDate.toHumanReadable()
             leaveDateLabel.text = leaveDate.toHumanReadable()
 
-            let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+            let reservationTimeMinutes = Int(leaveDate.timeIntervalSince(arriveDate) / 60)
 //            let pricePerHour = Double(pricing)/100.0
 //            let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
 //            let formattedFinalCost = String(format: "%.02f", finalCost)
-            let price = Int((Double(pricing) * (reservationTimeMinutes / 60.0) + 30) * (1.0 / (1.0-0.029)))
-
+            let price = PaymentClient.calculateCustomerPrice(pricing: pricing, minutes: reservationTimeMinutes)
 
             let customerContext = STPCustomerContext(keyProvider: PaymentClient.sharedClient)
             paymentContext = STPPaymentContext(customerContext: customerContext)
@@ -100,28 +99,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
     }
 
     @IBAction func confirmReservationClick(_ sender: UIButton) {
-
         paymentContext?.requestPayment()
-
-        if  let parkingSpace = parkingSpace,
-            let arriveDate = arriveDate,
-            let leaveDate = leaveDate {
-
-            Reservation.create(
-                for: parkingSpace,
-                from: arriveDate,
-                to: leaveDate) { title, message in
-                    self.presentSingleButtonAlert(
-                        title: title,
-                        message: message) { action in
-                            self.performSegue(
-                                withIdentifier:
-                                    "unwindToMapViewControllerAfterReservationConfirmation",
-                                sender: self)
-                    }
-            }
-
-        }
     }
 
     @IBAction func cancelButtonClick(_ sender: UIButton) {
@@ -152,7 +130,8 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                 Reservation.create(
                     for: parkingSpace,
                     from: arriveDate,
-                    to: leaveDate) { title, message in
+                    to: leaveDate,
+                    cost: paymentContext.paymentAmount) { title, message in
                         self.presentSingleButtonAlert(
                             title: title,
                             message: message) { action in

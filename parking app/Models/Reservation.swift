@@ -54,6 +54,7 @@ class Reservation {
     static func create(for parkingSpace: ParkingSpace,
                        from start: Date,
                        to end: Date,
+                       cost: Int,
                        completion: @escaping (String, String) -> Void) {
         if let token = UserDefaults.standard.string(forKey: "token") {
             if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
@@ -66,6 +67,8 @@ class Reservation {
                     "parking_space_id": parkingSpace.id,
                     "start_datetime": Formatter.iso8601.string(from: start),
                     "end_datetime": Formatter.iso8601.string(from: end),
+                    "cost": cost,
+                    "host_income": 0
                 ]
 
                 Alamofire.request(

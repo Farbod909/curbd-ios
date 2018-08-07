@@ -14,6 +14,12 @@ class PaymentClient: NSObject, STPEphemeralKeyProvider {
 
     static let sharedClient = PaymentClient()
 
+    static func calculateCustomerPrice(pricing: Int, minutes: Int) -> Int {
+        let preProcessingFeePrice = Double(pricing) * Double(minutes) / 60.0
+        let price = (preProcessingFeePrice + 30) * (1.0 / (1.0 - 0.029))
+        return Int(round(price))
+    }
+
     func completeCharge(_ result: STPPaymentResult,
                         amount: Int,
                         statementDescriptor: String,

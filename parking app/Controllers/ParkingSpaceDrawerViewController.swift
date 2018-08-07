@@ -57,10 +57,11 @@ class ParkingSpaceDrawerViewController: UIViewController {
                     if let pricing = pricing {
                         self.pricingLabel.text = "\(pricing.toUSDRepresentation()) / hr + processing fee"
 
-//                        let reservationTimeMinutes = leaveDate.timeIntervalSince(arriveDate) / 60
+                        let reservationTimeMinutes = Int(leaveDate.timeIntervalSince(arriveDate) / 60)
 //                        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
 //                        let formattedFinalCost = String(format: "%.02f", finalCost)
-                        self.reserveButton.setTitle("Reserve", for: .normal)
+                        let price = PaymentClient.calculateCustomerPrice(pricing: pricing, minutes: Int(reservationTimeMinutes))
+                        self.reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
                     }
                 }
 
