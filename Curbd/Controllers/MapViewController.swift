@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var currentVehicleButtonImageView: UIImageView!
     @IBOutlet weak var currentVehicleButtonLabel: UILabel!
     @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var currentLocationButtonParentView: UIView!
     @IBOutlet weak var accountButtonSpacingFromTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentVehicleButtonSpacingFromTopConstraint: NSLayoutConstraint!
 
@@ -63,6 +64,10 @@ class MapViewController: UIViewController {
         initializeSettings()
         initializeAppearanceSettings()
 
+        if #available(iOS 11.0, *) {
+            addCurrentLocationButton()
+        }
+
         locationManager.requestLocation()
     }
 
@@ -71,6 +76,12 @@ class MapViewController: UIViewController {
         // make sure vehicle button is updated every time
         // the view re appears.
         updateCurrentVehicleButton()
+    }
+
+    @available(iOS 11.0, *)
+    func addCurrentLocationButton() {
+        let currentLocationButton = MKUserTrackingButton(mapView: mapView)
+        currentLocationButtonParentView.addSubview(currentLocationButton)
     }
 
     /**

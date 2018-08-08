@@ -239,6 +239,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDB-KS-Y7f">
+                                <rect key="frame" x="326" y="362" width="33" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="0MT-T7-4iX"/>
+                                    <constraint firstAttribute="height" constant="33" id="abF-5N-xt9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hme-cl-Vo2" firstAttribute="leading" secondItem="TmL-id-wdO" secondAttribute="trailing" constant="10" id="0NG-6s-jwt"/>
@@ -247,6 +255,7 @@
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="yaX-lX-NW2" secondAttribute="top" id="2uh-lv-RDD"/>
                             <constraint firstAttribute="bottom" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" id="6yD-Np-DJm"/>
                             <constraint firstItem="OHT-lm-FCJ" firstAttribute="centerY" secondItem="sci-gn-uYZ" secondAttribute="centerY" id="Apb-DD-D2g"/>
+                            <constraint firstItem="DDB-KS-Y7f" firstAttribute="leading" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" constant="-49" id="L9Z-h3-drq"/>
                             <constraint firstItem="TmL-id-wdO" firstAttribute="top" secondItem="scs-if-RbW" secondAttribute="top" constant="8" id="PEx-fe-Xua"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="yaX-lX-NW2" secondAttribute="leading" id="PmQ-sL-Oes"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="bottom" secondItem="2SR-a5-6Ef" secondAttribute="bottom" constant="203" id="ScH-oX-A0q"/>
@@ -255,6 +264,7 @@
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="trailing" secondItem="sci-gn-uYZ" secondAttribute="trailing" constant="27" id="ZOt-Xv-hsk"/>
                             <constraint firstItem="hme-cl-Vo2" firstAttribute="centerY" secondItem="scs-if-RbW" secondAttribute="centerY" id="cPH-Gi-9dB"/>
                             <constraint firstItem="scs-if-RbW" firstAttribute="top" secondItem="lIL-Rx-ZYi" secondAttribute="top" constant="32" id="h9k-uX-2iH"/>
+                            <constraint firstItem="DDB-KS-Y7f" firstAttribute="top" secondItem="2SR-a5-6Ef" secondAttribute="bottom" constant="-35" id="hAu-tY-xJa"/>
                             <constraint firstItem="scs-if-RbW" firstAttribute="leading" secondItem="lIL-Rx-ZYi" secondAttribute="leading" constant="27" id="mMX-Au-gPp"/>
                             <constraint firstItem="TmL-id-wdO" firstAttribute="leading" secondItem="scs-if-RbW" secondAttribute="leading" constant="10" id="o9X-8i-UcJ"/>
                             <constraint firstItem="OHT-lm-FCJ" firstAttribute="centerX" secondItem="sci-gn-uYZ" secondAttribute="centerX" id="pXB-Eg-5BP"/>
@@ -263,6 +273,7 @@
                     <connections>
                         <outlet property="accountButton" destination="sci-gn-uYZ" id="zR6-Sa-RDS"/>
                         <outlet property="accountButtonSpacingFromTopConstraint" destination="2MR-bV-0y1" id="Vz6-ep-hdn"/>
+                        <outlet property="currentLocationButtonParentView" destination="DDB-KS-Y7f" id="QPn-ll-Dsf"/>
                         <outlet property="currentVehicleButton" destination="scs-if-RbW" id="tJw-tx-3wM"/>
                         <outlet property="currentVehicleButtonImageView" destination="TmL-id-wdO" id="c7Q-Sx-OBS"/>
                         <outlet property="currentVehicleButtonLabel" destination="hme-cl-Vo2" id="B7e-La-xXu"/>
@@ -274,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8U8-6E-reo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="-220"/>
+            <point key="canvasLocation" x="525.60000000000002" y="-220.3898050974513"/>
         </scene>
         <!--User Menu View Controller-->
         <scene sceneID="OhN-So-XWp">
