@@ -9,5 +9,5 @@
 import Foundation
 import UIKit
 
-let baseURL = "https://65fe9c91.ngrok.io"
+let baseURL = "http://192.168.1.136:8000"
 let iphoneX = UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436
