@@ -1,7 +1,7 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 inhibit_all_warnings!
 
-target 'parking app' do
+target 'Curbd' do
   use_frameworks!
 
   pod 'Pulley'
@@ -10,14 +10,4 @@ target 'parking app' do
   pod 'Eureka'
   pod 'Stripe'
 
-end
-
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        if target.name == 'Eureka'
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4.1'
-            end
-        end
-    end
 end
