@@ -18,20 +18,15 @@ class Reservation {
     let vehicle: Vehicle
     let parkingSpace: ParkingSpace
     let reserver: User
+    var cost: Int
+    let hostIncome: Int
     var pricePerHour: String {
         // price (in dollars) calculated per hour
         let pricePerHour = Double(pricing)/100.0
         let formattedPricePerHour = String(format: "%.02f", pricePerHour)
         return formattedPricePerHour
     }
-    var price: String {
-        // price (in dollars) calculated from pricing and start to end
-        let pricePerHour = Double(pricing) / 100.0
-        let reservationTimeMinutes = end.timeIntervalSince(start) / 60
-        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-        let formattedFinalCost = String(format: "%.02f", ceil(finalCost * 100) / 100)
-        return formattedFinalCost
-    }
+    let paymentMethodInfo: String?
 
     init(json: JSON) {
         self.id = json["id"].intValue
@@ -49,12 +44,16 @@ class Reservation {
         } else {
             self.pricing = 0
         }
+        self.cost = json["cost"].intValue
+        self.hostIncome = json["host_income"].intValue
+        self.paymentMethodInfo = json["payment_method_info"].string
     }
 
     static func create(for parkingSpace: ParkingSpace,
                        from start: Date,
                        to end: Date,
                        cost: Int,
+                       paymentMethodInfo: String,
                        completion: @escaping (String, String) -> Void) {
         if let token = UserDefaults.standard.string(forKey: "token") {
             if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
@@ -68,7 +67,8 @@ class Reservation {
                     "start_datetime": Formatter.iso8601.string(from: start),
                     "end_datetime": Formatter.iso8601.string(from: end),
                     "cost": cost,
-                    "host_income": 0
+                    "host_income": 0,
+                    "payment_method_info": paymentMethodInfo
                 ]
 
                 Alamofire.request(

@@ -114,14 +114,16 @@ class ReservationListTableViewController: UITableViewController {
         }
         if parkingSpace != nil {
             cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized)."
+            cell.priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
         } else {
             if isHost {
                 cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized). @ \(reservation.parkingSpace.name)"
+                cell.priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
             } else {
                 cell.titleLabel.text = reservation.parkingSpace.name
+                cell.priceLabel.text = "\(reservation.cost.toUSDRepresentation())"
             }
         }
-        cell.priceLabel.text = "$\(reservation.price)"
         cell.vehicleLabel.text = "\(reservation.vehicle.make) \(reservation.vehicle.model) \(reservation.vehicle.licensePlate)"
         cell.timePeriodLabel.text
             = "\(reservation.start.toHumanReadable()) - \(reservation.end.toHumanReadable())"

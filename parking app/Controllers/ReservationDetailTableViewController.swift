@@ -21,6 +21,7 @@ class ReservationDetailTableViewController: UITableViewController {
     @IBOutlet weak var parkingSpaceCityAndStateLabel: UILabel!
     @IBOutlet weak var vehicleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var paymentMethodLabel: UILabel!
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
     @IBOutlet weak var arriveCell: UITableViewCell!
@@ -90,7 +91,8 @@ class ReservationDetailTableViewController: UITableViewController {
                 }
             }
             vehicleLabel.text = "\(vehicle.make) \(vehicle.model) \(vehicle.licensePlate)"
-            priceLabel.text = "$\(reservation.price) @ $\(reservation.pricePerHour) / hr"
+            priceLabel.text = reservation.cost.toUSDRepresentation()
+            paymentMethodLabel.text = reservation.paymentMethodInfo
             arriveCell.detailTextLabel?.text = reservation.start.toHumanReadable()
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
             instructionsLabel.text = reservation.parkingSpace.instructions

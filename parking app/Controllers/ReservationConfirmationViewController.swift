@@ -131,7 +131,8 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                     for: parkingSpace,
                     from: arriveDate,
                     to: leaveDate,
-                    cost: paymentContext.paymentAmount) { title, message in
+                    cost: paymentContext.paymentAmount,
+                    paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { title, message in
                         self.presentSingleButtonAlert(
                             title: title,
                             message: message) { action in

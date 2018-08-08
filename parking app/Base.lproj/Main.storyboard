@@ -776,8 +776,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.66 @ $3.83 / hr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ant-E1-LWj">
-                                                    <rect key="frame" x="16" y="173" width="142" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.66" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ant-E1-LWj">
+                                                    <rect key="frame" x="16" y="173" width="43" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -794,12 +794,20 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visa 4242" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-Yf-Da5">
+                                                    <rect key="frame" x="281" y="173" width="78" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="v4f-Eu-Zc5" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="16T-ua-gQH"/>
+                                                <constraint firstItem="0l4-Yf-Da5" firstAttribute="top" secondItem="wrp-rr-Vu8" secondAttribute="bottom" constant="8" id="7V9-vf-0lI"/>
                                                 <constraint firstItem="wrp-rr-Vu8" firstAttribute="top" secondItem="4N9-9M-tby" secondAttribute="bottom" constant="11" id="EER-GB-pcb"/>
                                                 <constraint firstItem="ant-E1-LWj" firstAttribute="top" secondItem="wrp-rr-Vu8" secondAttribute="bottom" constant="8" id="Jxc-C8-hz3"/>
                                                 <constraint firstItem="oMq-LO-hNw" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="WjT-pc-88u"/>
+                                                <constraint firstAttribute="trailing" secondItem="0l4-Yf-Da5" secondAttribute="trailing" constant="16" id="ZqI-RN-HsE"/>
                                                 <constraint firstItem="0WC-oh-wwk" firstAttribute="top" secondItem="oMq-LO-hNw" secondAttribute="bottom" constant="16" id="bZ9-eN-EkU"/>
                                                 <constraint firstItem="wrp-rr-Vu8" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="hWE-bI-r9z"/>
                                                 <constraint firstItem="ant-E1-LWj" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="hoJ-hy-8Hp"/>
@@ -960,6 +968,7 @@
                         <outlet property="parkingSpaceCityAndStateLabel" destination="oMq-LO-hNw" id="daK-ab-YWK"/>
                         <outlet property="parkingSpaceDetailCell" destination="Bj2-e4-j11" id="aF3-UT-ULA"/>
                         <outlet property="parkingSpaceNameLabel" destination="v4f-Eu-Zc5" id="yy0-R8-Rqb"/>
+                        <outlet property="paymentMethodLabel" destination="0l4-Yf-Da5" id="t4D-ps-CDg"/>
                         <outlet property="priceLabel" destination="ant-E1-LWj" id="7me-GI-b4f"/>
                         <outlet property="vehicleLabel" destination="wrp-rr-Vu8" id="tzF-ha-5gp"/>
                     </connections>
