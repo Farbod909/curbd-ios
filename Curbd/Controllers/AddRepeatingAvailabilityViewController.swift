@@ -47,19 +47,32 @@ class AddRepeatingAvailabilityViewController: FormViewController {
                     $0.title = weekdaysFull[index]
                     $0.value = false
                 }
+                <<< SwitchRow("\(weekday) all_day") {
+                    $0.title = "All day"
+                    $0.value = true
+                    $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
+                }
                 <<< TimeInlineRow("\(weekday) start"){
                     $0.title = "From"
                     $0.value = Date().ceil(precision: 300)
-                    $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
+                    $0.hidden = Condition.function(["\(weekday)", "\(weekday) all_day"], { form in
+                        let weekdayChecked = (form.rowBy(tag: "\(weekday)") as? CheckRow)?.value ?? false
+                        let allDayChecked = (form.rowBy(tag: "\(weekday) all_day") as? SwitchRow)?.value ?? false
+                        return !weekdayChecked || allDayChecked
+                    })
                 }
                 <<< TimeInlineRow("\(weekday) end"){
                     $0.title = "Until"
                     $0.value = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
-                    $0.hidden = Condition(stringLiteral: "$\(weekday) == false")
+                    $0.hidden = Condition.function(["\(weekday)", "\(weekday) all_day"], { form in
+                        let weekdayChecked = (form.rowBy(tag: "\(weekday)") as? CheckRow)?.value ?? false
+                        let allDayChecked = (form.rowBy(tag: "\(weekday) all_day") as? SwitchRow)?.value ?? false
+                        return !weekdayChecked || allDayChecked
+                    })
                 }
                 <<< DecimalRow("\(weekday) pricing"){
                     $0.useFormatterDuringInput = true
-                    $0.title = "Price Per Hour"
+                    $0.title = "Hourly price"
                     $0.value = 1
                     let formatter = CurrencyFormatter()
                     formatter.locale = .current
@@ -77,16 +90,34 @@ class AddRepeatingAvailabilityViewController: FormViewController {
 
         for weekday in weekdays {
             if let checked = (form.rowBy(tag: weekday) as! CheckRow).value, checked {
-                let start = (form.rowBy(tag: "\(weekday) start") as! TimeInlineRow).value
-                let end = (form.rowBy(tag: "\(weekday) end") as! TimeInlineRow).value
-                let pricing = (form.rowBy(tag: "\(weekday) pricing") as! DecimalRow).value
+                let allDay = ((form.rowBy(tag: "\(weekday) all_day") as! SwitchRow).value)!
+                if allDay {
 
-                if let start = start, let end = end, let pricing = pricing {
-                    daysWithRange[weekday] = RepeatingAvailabilityTimeRange(
-                        start: start.timeComponentStringIso8601(),
-                        end: end.timeComponentStringIso8601(),
-                        pricing: Int(pricing * 100))
+                    let pricing = (form.rowBy(tag: "\(weekday) pricing") as! DecimalRow).value
+                    if let pricing = pricing {
+                        daysWithRange[weekday] = RepeatingAvailabilityTimeRange(
+                            allDay: true,
+                            start: nil,
+                            end: nil,
+                            pricing: Int(pricing * 100))
+                    }
+
+                } else {
+
+                    let start = (form.rowBy(tag: "\(weekday) start") as! TimeInlineRow).value
+                    let end = (form.rowBy(tag: "\(weekday) end") as! TimeInlineRow).value
+                    let pricing = (form.rowBy(tag: "\(weekday) pricing") as! DecimalRow).value
+
+                    if let start = start, let end = end, let pricing = pricing {
+                        daysWithRange[weekday] = RepeatingAvailabilityTimeRange(
+                            allDay: false,
+                            start: start.timeComponentStringIso8601(),
+                            end: end.timeComponentStringIso8601(),
+                            pricing: Int(pricing * 100))
+                    }
+
                 }
+
             }
         }
 

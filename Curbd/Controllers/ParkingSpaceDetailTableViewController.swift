@@ -223,8 +223,12 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
                 repeatingAvailabilityCell.repeatingDaysLabel.text = repeatingAvailability.humanReadableDays
 
-                repeatingAvailabilityCell.timeRangeLabel.text =
-                "\(repeatingAvailability.start_time.timeComponentString()) - \(repeatingAvailability.end_time.timeComponentString())"
+                if repeatingAvailability.all_day {
+                    repeatingAvailabilityCell.timeRangeLabel.text = "All day"
+                } else {
+                    repeatingAvailabilityCell.timeRangeLabel.text =
+                    "\(repeatingAvailability.start_time!.timeComponentString()) - \(repeatingAvailability.end_time!.timeComponentString())"
+                }
 
                 return repeatingAvailabilityCell
             } else if indexPath.row == (repeatingAvailabilities.count + fixedAvailabilities.count) {
