@@ -32,7 +32,7 @@ class Reservation {
         self.id = json["id"].intValue
         self.start = Formatter.iso8601.date(from: json["start_datetime"].stringValue)!
         self.end = Formatter.iso8601.date(from: json["end_datetime"].stringValue)!
-        self.vehicle = Vehicle(json: json["car_detail"])
+        self.vehicle = Vehicle(json: json["vehicle_detail"])
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
         self.reserver = User(json: json["reserver"])
         if let forRepeating = json["for_repeating"].bool {
@@ -62,7 +62,7 @@ class Reservation {
                 ]
 
                 let parameters: Parameters = [
-                    "car": currentVehicleID,
+                    "vehicle": currentVehicleID,
                     "parking_space_id": parkingSpace.id,
                     "start_datetime": Formatter.iso8601.string(from: start),
                     "end_datetime": Formatter.iso8601.string(from: end),

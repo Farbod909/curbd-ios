@@ -75,7 +75,7 @@ class Vehicle {
         ]
 
         Alamofire.request(
-            baseURL + "/api/accounts/cars/",
+            baseURL + "/api/accounts/vehicles/",
             method: .post,
             parameters: parameters,
             headers: headers).validate().responseJSON { response in
@@ -101,7 +101,7 @@ class Vehicle {
         ]
 
         Alamofire.request(
-            baseURL + "/api/accounts/cars/\(self.id)/",
+            baseURL + "/api/accounts/vehicles/\(self.id)/",
             method: .delete,
             headers: headers).validate().responseJSON { response in
                 switch response.result {

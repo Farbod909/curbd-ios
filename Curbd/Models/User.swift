@@ -171,7 +171,7 @@ class User {
                 switch response.result {
                 case .success(let value):
                     let customerJSON = JSON(value)
-                    let vehicles = customerJSON["car_set"].arrayValue.map() { Vehicle(json: $0) }
+                    let vehicles = customerJSON["vehicle_set"].arrayValue.map() { Vehicle(json: $0) }
                     completion(nil, vehicles)
                     
                 case .failure(let error):

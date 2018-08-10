@@ -60,6 +60,9 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             paymentContext = STPPaymentContext(customerContext: customerContext)
             paymentContext?.paymentAmount = price
             paymentContext?.paymentCurrency = "usd"
+            if #available(iOS 11.0, *) {
+                paymentContext?.largeTitleDisplayMode = .never
+            }
 
             paymentContext?.delegate = self
             paymentContext?.hostViewController = self
