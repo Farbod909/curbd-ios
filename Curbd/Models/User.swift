@@ -322,6 +322,46 @@ class User {
 
     }
 
+    static func updateHostVerificationInfo(withToken token: String,
+                                           address1: String,
+                                           address2: String?,
+                                           city: String,
+                                           state: String,
+                                           code: String,
+                                           dateOfBirth: String,
+                                           completion: @escaping (Error?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        var parameters: Parameters = [
+            "address1": address1,
+            "city": city,
+            "state": state,
+            "code": code,
+            "date_of_birth": dateOfBirth
+        ]
+
+        if let address2 = address2 {
+            parameters["address2"] = address2
+        }
+
+        Alamofire.request(
+            baseURL + "/api/accounts/hosts/self/verify/",
+            method: .put,
+            parameters: parameters,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    print(error)
+                    completion(error)
+                }
+        }
+    }
+
     func saveToUserDefaults() {
         UserDefaults.standard.set(self.id, forKey: "user_id")
         UserDefaults.standard.set(self.firstName, forKey: "user_firstname")

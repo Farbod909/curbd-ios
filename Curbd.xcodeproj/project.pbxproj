@@ -64,6 +64,7 @@
 		8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */; };
 		8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78C2082B22F0038790E /* Extensions.swift */; };
 		8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */; };
+		8ED92C47211EBA280039A49B /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED92C46211EBA280039A49B /* Address.swift */; };
 		8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */; };
 		8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61111F67A6F000AB6BF1 /* Main.storyboard */; };
 		8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceWithAnnotation.swift; sourceTree = "<group>"; };
 		8EC8F78C2082B22F0038790E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPulleyViewController.swift; sourceTree = "<group>"; };
+		8ED92C46211EBA280039A49B /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8EDA610A1F67A6F000AB6BF1 /* Curbd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curbd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDA61121F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				8E4F09ED21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift */,
 				8EEEDE2D211809B400BCDA04 /* HostInfo.swift */,
 				8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */,
+				8ED92C46211EBA280039A49B /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */,
 				8E5DAE5920ED8B2900341251 /* AvailabilityDetailTableViewController.swift in Sources */,
 				8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */,
+				8ED92C47211EBA280039A49B /* Address.swift in Sources */,
 				8E3F47D6208EFFFF003451C1 /* SignupPasswordViewController.swift in Sources */,
 				8E5DAE5520ED45F800341251 /* ImagePickerController.swift in Sources */,
 				8E5048A720EB3B9300580232 /* ReportSubmissionViewController.swift in Sources */,

@@ -18,7 +18,8 @@ class HostDashboardTableViewController: UITableViewController {
     @IBOutlet weak var currentBalanceLabel: UILabel!
     @IBOutlet weak var availableBalanceLabel: UILabel!
 
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if let firstName = UserDefaults.standard.string(forKey: "user_firstname"),
             let lastName = UserDefaults.standard.string(forKey: "user_lastname") {
             hostNameLabel.text = "\(firstName) \(lastName)".capitalized
@@ -28,6 +29,9 @@ class HostDashboardTableViewController: UITableViewController {
                 if let hostInfo = hostInfo {
                     self.hostInfo = hostInfo
                     self.hostSinceDateLabel.text = hostInfo.hostSince
+                    self.totalEarningsLabel.text = hostInfo.totalEarnings.toUSDRepresentation()
+                    self.currentBalanceLabel.text = hostInfo.currentBalance.toUSDRepresentation()
+                    self.availableBalanceLabel.text = hostInfo.availableBalance.toUSDRepresentation()
                 }
             }
         }

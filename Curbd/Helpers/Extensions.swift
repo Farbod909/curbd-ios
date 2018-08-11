@@ -84,6 +84,16 @@ extension String {
 
 extension Date {
 
+    public func dateComponentAsParseableString() -> String {
+        let calendar = Calendar.current
+
+        let year = calendar.component(.year, from: self)
+        let month = calendar.component(.month, from: self)
+        let day = calendar.component(.day, from: self)
+
+        return "\(month)-\(day)-\(year)"
+    }
+
     public func toHumanReadable() -> String {
         let dateFormatter = DateFormatter()
 
