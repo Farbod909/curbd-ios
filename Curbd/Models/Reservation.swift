@@ -18,6 +18,7 @@ class Reservation {
     let vehicle: Vehicle
     let parkingSpace: ParkingSpace
     let reserver: User
+    let host: User
     var cost: Int
     let hostIncome: Int
     var pricePerHour: String {
@@ -35,6 +36,7 @@ class Reservation {
         self.vehicle = Vehicle(json: json["vehicle_detail"])
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
         self.reserver = User(json: json["reserver"])
+        self.host = User(json: json["host"])
         if let forRepeating = json["for_repeating"].bool {
             if forRepeating {
                 self.pricing = json["repeating_availability"]["pricing"].intValue

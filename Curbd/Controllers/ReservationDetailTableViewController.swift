@@ -14,6 +14,7 @@ class ReservationDetailTableViewController: UITableViewController {
     var reservation: Reservation?
     // Determines if the reservation a current one or a previous one
     var isCurrent: Bool?
+    var hostContactPhone: String?
 
     @IBOutlet weak var parkingSpaceDetailCell: UITableViewCell!
     @IBOutlet weak var mapView: MKMapView!
@@ -27,6 +28,7 @@ class ReservationDetailTableViewController: UITableViewController {
     @IBOutlet weak var arriveCell: UITableViewCell!
     @IBOutlet weak var leaveCell: UITableViewCell!
     @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var hostContactCell: UITableViewCell!
 
     func initializeAppearanceSettings() {
         parkingSpaceDetailCell.selectionStyle = .none
@@ -35,7 +37,7 @@ class ReservationDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeAppearanceSettings()
-        
+
         if let reservation = reservation {
 
             parkingSpaceNameLabel.text = reservation.parkingSpace.name
@@ -96,6 +98,14 @@ class ReservationDetailTableViewController: UITableViewController {
             arriveCell.detailTextLabel?.text = reservation.start.toHumanReadable()
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
             instructionsLabel.text = reservation.parkingSpace.instructions
+
+            if let isCurrent = isCurrent {
+                if !isCurrent {
+                    hostContactCell.isHidden = true
+                }
+            }
+            hostContactCell.detailTextLabel?.text = String.format(phoneNumber: reservation.host.phoneNumber)
+            hostContactPhone = reservation.host.phoneNumber
         }
     }
 
@@ -124,7 +134,16 @@ class ReservationDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
+            if indexPath.row == 5 {
+                if let hostContactPhone = hostContactPhone {
+                    guard let number = URL(string: "tel://" + hostContactPhone) else { return }
+                    UIApplication.shared.open(number, options: [:]) { _ in
+                        tableView.deselectRow(at: indexPath, animated: true)
+                    }
+                }
+            }
+        } else if indexPath.section == 1 {
             if indexPath.row == 2 {
                 // "Cancel Reservation" was clicked
                 presentConfirmationAlert(title: "Are You Sure?", message: "Are you sure you would like to cancel this reservation?") { alert in
