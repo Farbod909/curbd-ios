@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Stripe
 
 class UserMenuViewController: DarkTranslucentViewController {
     
@@ -31,6 +32,17 @@ class UserMenuViewController: DarkTranslucentViewController {
 
     }
 
+    @IBAction func paymentButtonClick(_ sender: UIButton) {
+        let customerContext = STPCustomerContext(keyProvider: PaymentClient.sharedClient)
+
+        // Setup payment methods view controller
+        let paymentMethodsViewController = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: customerContext, delegate: self)
+
+        // Present payment methods view controller
+        let navigationController = UINavigationController(rootViewController: paymentMethodsViewController)
+        present(navigationController, animated: true)
+    }
+
     @IBAction func closeButtonClick(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToMapViewController", sender: self)
     }
@@ -44,4 +56,19 @@ class UserMenuViewController: DarkTranslucentViewController {
         }
     }
     
+}
+
+extension UserMenuViewController: STPPaymentMethodsViewControllerDelegate {
+    func paymentMethodsViewController(_ paymentMethodsViewController: STPPaymentMethodsViewController, didFailToLoadWithError error: Error) {
+        dismiss(animated: true)
+    }
+
+    func paymentMethodsViewControllerDidFinish(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
+        dismiss(animated: true)
+    }
+
+    func paymentMethodsViewControllerDidCancel(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
+        dismiss(animated: true)
+    }
+
 }
