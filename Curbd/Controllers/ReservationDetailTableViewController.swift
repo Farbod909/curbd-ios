@@ -144,7 +144,7 @@ class ReservationDetailTableViewController: UITableViewController {
                 }
             }
         } else if indexPath.section == 1 {
-            if indexPath.row == 2 {
+            if indexPath.row == 1 {
                 // "Cancel Reservation" was clicked
                 presentConfirmationAlert(title: "Are You Sure?", message: "Are you sure you would like to cancel this reservation?") { alert in
                     if let token = UserDefaults.standard.string(forKey: "token") {
