@@ -19,8 +19,13 @@ class VenmoPayoutViewController: UITableViewController, UITextFieldDelegate {
     var venmoEmail: String?
     var venmoPhone: String?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let payoutAmount = payoutAmount, payoutAmount > 0 {
+            payoutButton.isUserInteractionEnabled = true
+            payoutButton.textLabel?.textColor = UIColor(hex: "21BB2A")
+        }
 
         venmoEmailPhoneCell.selectionStyle = .none
 
@@ -33,7 +38,15 @@ class VenmoPayoutViewController: UITableViewController, UITextFieldDelegate {
         }
 
         if let payoutAmount = payoutAmount {
-            payoutButton.textLabel?.text = "Request $\(Double(payoutAmount)/100.00) Payout"
+            payoutButton.textLabel?.text = "Request \(payoutAmount.toUSDRepresentation()) Payout"
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+
+            }
         }
     }
 

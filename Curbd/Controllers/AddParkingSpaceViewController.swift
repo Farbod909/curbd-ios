@@ -26,13 +26,13 @@ class AddParkingSpaceViewController: FormViewController {
 
         form
             +++ Section("Details")
-            <<< NameRow("street address") {
-                $0.placeholder = $0.tag?.capitalized
+            <<< NameRow("address1") {
+                $0.placeholder = "Street and number"
             }
 
-//            <<< TextRow("unit number") {
-//                $0.placeholder = "Unit #"
-//            }
+            <<< TextRow("address2") {
+                $0.placeholder = "Apartment, suite #, etc."
+            }
 
             <<< ZipCodeRow("zip code") {
                 $0.placeholder = $0.tag?.capitalized
@@ -138,7 +138,7 @@ class AddParkingSpaceViewController: FormViewController {
             name: "Main",
             bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailTableViewController") as! ParkingSpaceDetailTableViewController
 
-        if  let streetAddress = (form.rowBy(tag: "street address") as? NameRow)?.value,
+        if  let address1 = (form.rowBy(tag: "address1") as? NameRow)?.value,
             let zipCode = (form.rowBy(tag: "zip code") as? ZipCodeRow)?.value,
             let city = (form.rowBy(tag: "city") as? NameRow)?.value,
             let state = (form.rowBy(tag: "state") as? TextRow)?.value,
@@ -149,9 +149,11 @@ class AddParkingSpaceViewController: FormViewController {
             let legalType = (form.rowBy(tag: "legaltype") as? SegmentedRow<String>)?.value,
             let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value {
 
+            let address2 = (form.rowBy(tag: "address2") as? TextRow)?.value
+
             if let token = UserDefaults.standard.string(forKey: "token") {
 
-                var name = streetAddress
+                var name = address1
                 if legalType == "Business" {
                     if let businessName = ((form.rowBy(tag: "business name") as? TextRow)?.value) {
                         name = businessName
@@ -162,12 +164,13 @@ class AddParkingSpaceViewController: FormViewController {
                     }
                 }
 
-                let addressString =
-                    [streetAddress, city, state].joined(separator: ", ") + " \(zipCode)"
-
                 ParkingSpace.create(
                     withToken: token,
-                    addressString: addressString,
+                    address1: address1,
+                    address2: address2,
+                    city: city,
+                    state: state,
+                    code: zipCode,
                     available_spaces: availableSpots,
                     features: featureSet,
                     physical_type: physicalType,

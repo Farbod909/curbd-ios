@@ -2814,7 +2814,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="jK6-DZ-NN5">
-                                <string key="footerTitle">'Available Balance' is the amount that can be paid out right now. 'Current Balance' Includes 'Available Balance' plus all income from future reservations that have not been completed yet.</string>
+                                <string key="footerTitle">'Available Balance' is the amount that can be paid out right now from reservations that have already ended. 'Current Balance' Includes 'Available Balance' plus all income from future reservations that have not ended yet.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Q8t-CF-U9M" detailTextLabel="n3J-ri-5N0" style="IBUITableViewCellStyleValue1" id="DJq-EW-gLf">
                                         <rect key="frame" x="0.0" y="281" width="375" height="44"/>
@@ -2862,7 +2862,7 @@
                             <tableViewSection id="NQR-3a-fyy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="iCj-VQ-1UY" style="IBUITableViewCellStyleDefault" id="8eu-4T-dmM">
-                                        <rect key="frame" x="0.0" y="465" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="481" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8eu-4T-dmM" id="hFS-u2-QNQ">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -2882,7 +2882,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="o0M-4W-UWF" style="IBUITableViewCellStyleDefault" id="awk-5w-fPA">
-                                        <rect key="frame" x="0.0" y="509" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="525" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awk-5w-fPA" id="vKT-JM-QvT">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -3007,18 +3007,18 @@
                             </tableViewSection>
                             <tableViewSection footerTitle="Please allow up to one business day for payout to process" id="9ZG-rr-C11">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="mJ9-Oi-u7e" style="IBUITableViewCellStyleDefault" id="pSB-jl-aLB">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="mJ9-Oi-u7e" style="IBUITableViewCellStyleDefault" id="pSB-jl-aLB">
                                         <rect key="frame" x="0.0" y="263" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pSB-jl-aLB" id="KJS-1M-8AW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Request $XX.XX Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJ9-Oi-u7e">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Request Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJ9-Oi-u7e">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.12941176469999999" green="0.73212316180000003" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

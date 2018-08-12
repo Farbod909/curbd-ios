@@ -39,7 +39,11 @@ class ParkingSpace {
     }
 
     static func create(withToken token: String,
-                       addressString: String,
+                       address1: String,
+                       address2: String?,
+                       city: String,
+                       state: String,
+                       code: String,
                        available_spaces: Int,
                        features: Set<String>,
                        physical_type: String,
@@ -49,6 +53,9 @@ class ParkingSpace {
                        sizeDescription: String,
                        is_active: Bool = false,
                        completion: @escaping (Error?, ParkingSpace?) -> Void) {
+
+        let addressString =
+            [address1, city, state].joined(separator: ", ") + " \(code)"
 
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(addressString) { (placemarks, error) in
@@ -64,6 +71,10 @@ class ParkingSpace {
 
             let parameters: Parameters = [
                 // round latitude and longitude to 6 decimal places
+                "address1": address1,
+                "city": city,
+                "state": state,
+                "code": code,
                 "latitude": Double(round(1000000*location.coordinate.latitude)/1000000),
                 "longitude": Double(round(1000000*location.coordinate.longitude)/1000000),
                 "available_spaces": available_spaces,
