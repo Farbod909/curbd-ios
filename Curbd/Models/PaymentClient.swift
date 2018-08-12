@@ -82,5 +82,35 @@ class PaymentClient: NSObject, STPEphemeralKeyProvider {
         }
     }
 
+    static func requestVenmoPayout(withToken token: String,
+                                   venmoEmail: String?,
+                                   completion: @escaping (Error?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        var parameters: Parameters = [:]
+
+        if let venmoEmail = venmoEmail {
+            parameters["venmo_email"] = venmoEmail
+        }
+
+
+        Alamofire.request(
+            baseURL + "/api/payment/venmo_payout/",
+            method: .post,
+            parameters: parameters,
+            headers: headers).validate().responseJSON { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
+
+    }
+
 }
 
