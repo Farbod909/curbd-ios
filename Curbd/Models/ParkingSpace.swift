@@ -70,14 +70,16 @@ class ParkingSpace {
                 "Authorization": "Token \(token)",
             ]
 
-            let parameters: Parameters = [
-                // round latitude and longitude to 6 decimal places
+            var parameters: Parameters = [
                 "address1": address1,
                 "city": city,
                 "state": state,
                 "code": code,
+
+                // round latitude and longitude to 6 decimal places
                 "latitude": Double(round(1000000*location.coordinate.latitude)/1000000),
                 "longitude": Double(round(1000000*location.coordinate.longitude)/1000000),
+
                 "available_spaces": available_spaces,
                 "size": Vehicle.sizes[sizeDescription] ?? 2, // 2 is Mid-sized
                 "name": name,
@@ -87,6 +89,10 @@ class ParkingSpace {
                 "is_active": is_active,
                 "features": features.joined(separator: ", ")
             ]
+
+            if let address2 = address2 {
+                parameters["address2"] = address2
+            }
 
             Alamofire.upload(multipartFormData: { (multipartFormData) in
                 for (key, value) in parameters {
