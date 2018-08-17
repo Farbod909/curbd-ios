@@ -81,6 +81,18 @@ extension String {
         return prefix(1).uppercased() + dropFirst()
     }
 
+    static func random(length: Int) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return randomString
+    }
+
+
     // taken from https://stackoverflow.com/questions/32364055/formattting-phone-number-in-swift
     static func format(phoneNumber sourcePhoneNumber: String) -> String? {
         // Remove any character that is not a number

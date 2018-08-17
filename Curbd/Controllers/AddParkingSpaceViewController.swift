@@ -111,26 +111,22 @@ class AddParkingSpaceViewController: FormViewController {
                 $0.textAreaHeight = .dynamic(initialTextViewHeight: 80)
             }
 
-
-
-        // TODO: uncomment this once parking space images is supported
-
-//            +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
-//                                   header: "Upload images of your space") {
-//                $0.tag = "images"
-//                $0.addButtonProvider = { section in
-//                    return ButtonRow(){
-//                        $0.title = "Add New Image"
-//                        }.cellUpdate { cell, row in
-//                            cell.textLabel?.textAlignment = .left
-//                    }
-//                }
-//                $0.multivaluedRowToInsertAt = { index in
-//                    return ImageRow() {
-//                        $0.title = "Upload Image \(index+1)"
-//                    }
-//                }
-//            }
+            +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
+                                   header: "Upload images of your space") {
+                $0.tag = "images"
+                $0.addButtonProvider = { section in
+                    return ButtonRow(){
+                        $0.title = "Add New Image"
+                    }.cellUpdate { cell, row in
+                        cell.textLabel?.textAlignment = .left
+                    }
+                }
+                $0.multivaluedRowToInsertAt = { index in
+                    return ImageRow("image \(index)") {
+                        $0.title = "Upload Image \(index+1)"
+                    }
+                }
+            }
     }
 
     @IBAction func nextButtonClick(_ sender: UIBarButtonItem) {
@@ -150,6 +146,15 @@ class AddParkingSpaceViewController: FormViewController {
             let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value {
 
             let address2 = (form.rowBy(tag: "address2") as? TextRow)?.value
+
+            var images = [UIImage]()
+            for (key, value) in form.values() {
+                if key.starts(with: "image") {
+                    if let image = value as? UIImage {
+                        images.append(image)
+                    }
+                }
+            }
 
             if let token = UserDefaults.standard.string(forKey: "token") {
 
@@ -177,7 +182,8 @@ class AddParkingSpaceViewController: FormViewController {
                     legal_type: legalType,
                     name: name,
                     instructions: instructions,
-                    sizeDescription: sizeString) { error, parkingSpace in
+                    sizeDescription: sizeString,
+                    images: images) { error, parkingSpace in
 
                         if let parkingSpace = parkingSpace {
                             parkingSpaceDetailTableViewController.isPreview = true

@@ -51,6 +51,7 @@ class ParkingSpace {
                        name: String,
                        instructions: String,
                        sizeDescription: String,
+                       images: [UIImage] = [],
                        is_active: Bool = false,
                        completion: @escaping (Error?, ParkingSpace?) -> Void) {
 
@@ -87,26 +88,70 @@ class ParkingSpace {
                 "features": features.joined(separator: ", ")
             ]
 
-            print(parameters)
+            Alamofire.upload(multipartFormData: { (multipartFormData) in
+                for (key, value) in parameters {
+                    multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+                }
 
-            Alamofire.request(
-                baseURL + "/api/parking/spaces/",
-                method: .post,
-                parameters: parameters,
-                headers: headers).validate().responseJSON { response in
-                    switch response.result {
-                    case .success(let value):
-                        let parkingSpace = ParkingSpace(json: JSON(value))
-                        completion(nil, parkingSpace)
+                for image in images {
+                    let imageData = UIImageJPEGRepresentation(image, 0.5)
+                    if let imageData = imageData {
+                        let fileFriendlyName = name.components(
+                            separatedBy: .punctuationCharacters).joined().replacingOccurrences(
+                                of: " ",
+                                with: "-") + "-\(String.random(length: 8))"
+                        multipartFormData.append(
+                            imageData,
+                            withName: "images",
+                            fileName: "\(fileFriendlyName).jpg",
+                            mimeType: "image/jpeg")
+                    }
+                }
 
-                    case .failure(let error):
-                        if let validationError = ValidationError(from: error, with: response.data) {
-                            completion(validationError, nil)
-                        } else {
-                            completion(error, nil)
+            }, usingThreshold: UInt64.init(),
+               to: baseURL + "/api/parking/spaces/",
+               method: .post,
+               headers: headers) { result in
+                switch result {
+                case .success(let upload, _, _):
+                    upload.validate().responseJSON() { response in
+                        switch response.result {
+                        case .success(let value):
+                            let parkingSpace = ParkingSpace(json: JSON(value))
+                            completion(nil, parkingSpace)
+
+                        case .failure(let error):
+                            if let validationError = ValidationError(from: error, with: response.data) {
+                                completion(validationError, nil)
+                            } else {
+                                completion(error, nil)
+                            }
                         }
                     }
+                case .failure(let error):
+                    completion(error, nil)
+                }
             }
+
+
+//            Alamofire.request(
+//                baseURL + "/api/parking/spaces/",
+//                method: .post,
+//                parameters: parameters,
+//                headers: headers).validate().responseJSON { response in
+//                    switch response.result {
+//                    case .success(let value):
+//                        let parkingSpace = ParkingSpace(json: JSON(value))
+//                        completion(nil, parkingSpace)
+//
+//                    case .failure(let error):
+//                        if let validationError = ValidationError(from: error, with: response.data) {
+//                            completion(validationError, nil)
+//                        } else {
+//                            completion(error, nil)
+//                        }
+//                    }
+//            }
 
         }
         
