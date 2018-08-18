@@ -9,5 +9,7 @@ target 'Curbd' do
   pod 'SwiftyJSON'
   pod 'Eureka'
   pod 'Stripe'
+  pod 'ImageSlideshow'
+  pod 'ImageSlideshow/Kingfisher'
 
 end

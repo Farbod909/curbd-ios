@@ -22,6 +22,7 @@ class ParkingSpace {
     let instructions: String
     let physical_type: String
     let legal_type: String
+    let images: [String]
     let is_active: Bool
 
     init(json: JSON) {
@@ -35,6 +36,7 @@ class ParkingSpace {
         self.instructions = json["instructions"].stringValue
         self.physical_type = json["physical_type"].stringValue
         self.legal_type = json["legal_type"].stringValue
+        self.images = json["images"].arrayValue.map({$0.stringValue})
         self.is_active = json["is_active"].boolValue
     }
 
@@ -214,7 +216,7 @@ class ParkingSpace {
         ]
 
         Alamofire.request(
-            baseURL + "/api/parking/spaces/\(id)/availability", //TODO: avoid forceful unwrap
+            baseURL + "/api/parking/spaces/\(id)/availability/", //TODO: avoid forceful unwrap
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
 

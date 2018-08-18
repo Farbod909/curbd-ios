@@ -1564,16 +1564,32 @@
                                     <constraint firstAttribute="width" constant="36" id="YDl-QE-hCy"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEt-NU-o6K" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="262" width="375" height="344"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIk-hO-Kgu">
+                                <rect key="frame" x="133" y="12" width="108" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="ckR-oI-LaS"/>
+                                    <constraint firstAttribute="height" constant="36" id="gg2-bM-hWe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hrX-Ku-nfl" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="16" id="0qk-7M-lND"/>
+                            <constraint firstItem="YIk-hO-Kgu" firstAttribute="centerX" secondItem="7QK-Nk-9QQ" secondAttribute="centerX" id="32F-2R-Bvk"/>
                             <constraint firstItem="hrX-Ku-nfl" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="20" id="4cq-nF-jnK"/>
                             <constraint firstAttribute="trailing" secondItem="R4p-oe-IXW" secondAttribute="trailing" constant="15" id="5Qs-Iz-oFp"/>
                             <constraint firstItem="nlx-5A-0xr" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="19" id="ACf-aF-ax9"/>
+                            <constraint firstItem="dEt-NU-o6K" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" id="BWn-os-m56"/>
                             <constraint firstAttribute="trailing" secondItem="nlx-5A-0xr" secondAttribute="trailing" constant="20" id="D9f-VG-Lci"/>
+                            <constraint firstAttribute="trailing" secondItem="dEt-NU-o6K" secondAttribute="trailing" id="JGd-ze-m9z"/>
                             <constraint firstItem="Ndb-Kt-cYn" firstAttribute="centerX" secondItem="7QK-Nk-9QQ" secondAttribute="centerX" id="RVa-Ch-RQc"/>
                             <constraint firstItem="R4p-oe-IXW" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="14" id="TWZ-sy-cbo"/>
+                            <constraint firstItem="EXd-fP-h8U" firstAttribute="top" secondItem="dEt-NU-o6K" secondAttribute="bottom" constant="61" id="W7U-gL-8g0"/>
                             <constraint firstItem="tXS-Ts-oxb" firstAttribute="top" secondItem="hrX-Ku-nfl" secondAttribute="bottom" constant="6.5" id="Yhk-Ii-KtQ"/>
                             <constraint firstItem="tXS-Ts-oxb" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="16" id="bcN-a3-8Pk"/>
                             <constraint firstItem="Ndb-Kt-cYn" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="8" id="dHA-pu-5Ov"/>
@@ -1581,20 +1597,24 @@
                             <constraint firstItem="mgg-Ma-URI" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="23" id="izV-fK-EBb"/>
                             <constraint firstItem="mgg-Ma-URI" firstAttribute="top" secondItem="R4p-oe-IXW" secondAttribute="bottom" constant="23" id="kdP-Dd-6vO"/>
                             <constraint firstAttribute="trailing" secondItem="mgg-Ma-URI" secondAttribute="trailing" constant="23" id="m3F-Xk-0fe"/>
+                            <constraint firstItem="dEt-NU-o6K" firstAttribute="top" secondItem="mgg-Ma-URI" secondAttribute="bottom" constant="21.5" id="uv3-dJ-DNA"/>
+                            <constraint firstItem="YIk-hO-Kgu" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="-8" id="wYo-eK-Cok"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="featuresScrollView" destination="R4p-oe-IXW" id="82y-sa-Ppg"/>
                         <outlet property="featuresStackView" destination="git-Ta-VFM" id="Yrr-nB-137"/>
                         <outlet property="grabber" destination="Ndb-Kt-cYn" id="3hw-eL-Hnw"/>
+                        <outlet property="grabberTapArea" destination="YIk-hO-Kgu" id="Fi1-pK-SIp"/>
                         <outlet property="nameLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
                         <outlet property="pricingLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                         <outlet property="reserveButton" destination="mgg-Ma-URI" id="dOh-Eq-YZO"/>
+                        <outlet property="slideshow" destination="dEt-NU-o6K" id="O0Z-EZ-44n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="1179"/>
+            <point key="canvasLocation" x="525.60000000000002" y="1178.8605697151424"/>
         </scene>
         <!--Reservation Confirmation View Controller-->
         <scene sceneID="djx-2L-26O">

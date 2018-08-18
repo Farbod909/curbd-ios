@@ -9,16 +9,19 @@
 import Foundation
 import Pulley
 import UIKit
+import ImageSlideshow
 
 class ParkingSpaceDrawerViewController: UIViewController {
 
     @IBOutlet weak var grabber: UIView!
+    @IBOutlet weak var grabberTapArea: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pricingLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
-    
+    @IBOutlet weak var slideshow: ImageSlideshow!
+
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
@@ -39,6 +42,14 @@ class ParkingSpaceDrawerViewController: UIViewController {
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
         grabber.layer.masksToBounds = true
+
+        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        slideshow.activityIndicator = DefaultActivityIndicator()
+        let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
+        slideshow.addGestureRecognizer(slideshowTapRecognizer)
+
+        let grabberTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(grabberClick))
+        grabberTapArea.addGestureRecognizer(grabberTapRecognizer)
     }
 
     override func viewDidLoad() {
@@ -95,6 +106,14 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
                 featuresStackView.addArrangedSubview(featureImageView)
             }
+
+            var parkingSpaceImageSources = [KingfisherSource]()
+
+            for imageUrl in parkingSpace.images {
+                parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)
+            }
+
+            slideshow.setImageInputs(parkingSpaceImageSources)
 
         }
     }
@@ -158,6 +177,21 @@ class ParkingSpaceDrawerViewController: UIViewController {
             instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
         }
     }
+
+    @objc func slideshowClick() {
+        let fullScreenController = slideshow.presentFullScreenController(from: self)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+    }
+
+    @objc func grabberClick() {
+        if let pulleyViewController = parent as? PulleyViewController {
+            if pulleyViewController.drawerPosition == .open {
+                pulleyViewController.setDrawerPosition(position: .collapsed, animated: true)
+            } else {
+                pulleyViewController.setDrawerPosition(position: .open, animated: true)
+            }
+        }
+    }
 }
 
 extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
@@ -177,10 +211,13 @@ extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
     func drawerPositionDidChange(drawer: PulleyViewController, bottomSafeArea: CGFloat) {
         if drawer.drawerPosition == .partiallyRevealed {
             featuresScrollView.isHidden = true
+            slideshow.isHidden = true
         } else if drawer.drawerPosition == .open {
             featuresScrollView.isHidden = false
+            slideshow.isHidden = false
         } else if drawer.drawerPosition == .collapsed {
             featuresScrollView.isHidden = false
+            slideshow.isHidden = true
         }
     }
 
