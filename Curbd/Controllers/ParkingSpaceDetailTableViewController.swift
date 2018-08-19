@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import ImageSlideshow
 
 class ParkingSpaceDetailTableViewController: UITableViewController {
 
@@ -70,6 +71,9 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            if let parkingSpace = parkingSpace, !parkingSpace.images.isEmpty {
+                return 3
+            }
             return 2
         } else if section == 1 {
             return repeatingAvailabilities.count + fixedAvailabilities.count + 1
@@ -213,6 +217,32 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                     parkingSpaceInstructionsCell.label.text = parkingSpace.instructions
                 }
                 return parkingSpaceInstructionsCell
+            } else if indexPath.row == 2 {
+                let slideshowCell = tableView.dequeueReusableCell(
+                    withIdentifier: "slideshowCell") as! SlideshowCell
+                slideshowCell.selectionStyle = .none
+
+                slideshowCell.slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+                slideshowCell.slideshow.activityIndicator = DefaultActivityIndicator()
+//                let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
+//                slideshowCell.slideshow.addGestureRecognizer(slideshowTapRecognizer)
+
+                if let parkingSpace = parkingSpace {
+
+                    var parkingSpaceImageSources = [KingfisherSource]()
+
+                    for imageUrl in parkingSpace.images {
+                        parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)
+                    }
+
+                    slideshowCell.slideshow.setImageInputs(parkingSpaceImageSources)
+                }
+
+//                func slideshowClick() {
+//                    let fullScreenController = slideshowCell.slideshow.presentFullScreenController(from: self)
+//                    fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+//                }
+                return slideshowCell
             }
         } else if indexPath.section == 1 {
 

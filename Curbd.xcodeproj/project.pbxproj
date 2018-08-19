@@ -65,6 +65,8 @@
 		8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78C2082B22F0038790E /* Extensions.swift */; };
 		8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */; };
 		8ED92C47211EBA280039A49B /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED92C46211EBA280039A49B /* Address.swift */; };
+		8ED92C492128ACC80039A49B /* SlideshowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED92C482128ACC80039A49B /* SlideshowCell.swift */; };
+		8ED92C4B2128D9F30039A49B /* HostReservationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED92C4A2128D9F30039A49B /* HostReservationDetailTableViewController.swift */; };
 		8EDA610E1F67A6F000AB6BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */; };
 		8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61111F67A6F000AB6BF1 /* Main.storyboard */; };
 		8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */; };
@@ -140,6 +142,8 @@
 		8EC8F78C2082B22F0038790E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPulleyViewController.swift; sourceTree = "<group>"; };
 		8ED92C46211EBA280039A49B /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		8ED92C482128ACC80039A49B /* SlideshowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowCell.swift; sourceTree = "<group>"; };
+		8ED92C4A2128D9F30039A49B /* HostReservationDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReservationDetailTableViewController.swift; sourceTree = "<group>"; };
 		8EDA610A1F67A6F000AB6BF1 /* Curbd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curbd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDA61121F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 				8E5DAE6320EDB16800341251 /* FixedAvailabilityTableViewCell.swift */,
 				8E68C46F20FB00BC00376F80 /* ParkingSpaceDetailTableViewCell.swift */,
 				8E5AA0BD2108341F00A43A1F /* MultiLineLabelTableViewCell.swift */,
+				8ED92C482128ACC80039A49B /* SlideshowCell.swift */,
 			);
 			path = CustomTableViewCells;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				8E5AA0B92106696400A43A1F /* HostDashboardTableViewController.swift */,
 				8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */,
 				8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */,
+				8ED92C4A2128D9F30039A49B /* HostReservationDetailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 				8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */,
 				8E5DAE4F20EC9C1100341251 /* AddParkingSpaceViewController.swift in Sources */,
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,
+				8ED92C4B2128D9F30039A49B /* HostReservationDetailTableViewController.swift in Sources */,
 				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,
 				8E5048A920EB416700580232 /* ReservationExtensionViewController.swift in Sources */,
 				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
@@ -539,6 +546,7 @@
 				8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */,
 				8E5DAE6220EDB15B00341251 /* RepeatingAvailabilityTableViewCell.swift in Sources */,
 				8EBEAEF320E8AD1200478A7B /* ParkingSpaceTableViewCell.swift in Sources */,
+				8ED92C492128ACC80039A49B /* SlideshowCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

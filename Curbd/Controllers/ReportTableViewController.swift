@@ -10,19 +10,38 @@ import UIKit
 
 class ReportTableViewController: UITableViewController {
 
-    let reportReasons = [
-        "Parking space not available",
-        "Can't locate parking address",
-        "Parking hazard present",
-        "Technical issue",
-        "Unresponsive host",
-        "Other",
-    ]
+
+    // a boolean flag to determine whether a host
+    // or a customer is reporting a reservation.
+    var hostIsReporting: Bool?
+
+    var reportReasons = [String]()
 
     var reservation: Reservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let hostIsReporting = hostIsReporting, hostIsReporting {
+            reportReasons = [
+                "Incorrectly positioned car",
+                "Different customer vehicle",
+                "Parked beyond reservation time",
+                "Disruptive customer"
+            ]
+        } else {
+            reportReasons = [
+                "Parking space not available",
+                "Can't locate parking address",
+                "Parking hazard present",
+                "Technical issue",
+                "Unresponsive host",
+                "Other",
+            ]
+        }
+
+        tableView.reloadData()
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

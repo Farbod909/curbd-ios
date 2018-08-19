@@ -17,6 +17,9 @@ class User {
     let lastName: String
     let phoneNumber: String
     let isHost: Bool
+    var fullName: String {
+        return firstName + " " + lastName
+    }
 
     init(json: JSON) {
         self.id = json["id"].intValue

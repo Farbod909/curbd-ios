@@ -21,6 +21,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
     @IBOutlet weak var slideshow: ImageSlideshow!
+    @IBOutlet weak var slideshowNoImagesLabel: UILabel!
 
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
@@ -108,6 +109,10 @@ class ParkingSpaceDrawerViewController: UIViewController {
             }
 
             var parkingSpaceImageSources = [KingfisherSource]()
+
+            if parkingSpace.images.isEmpty {
+                slideshowNoImagesLabel.isHidden = false
+            }
 
             for imageUrl in parkingSpace.images {
                 parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)

@@ -148,6 +148,22 @@ class ReservationListTableViewController: UITableViewController {
                     }
                 }
             }
+        } else if segue.identifier == "showHostReservationDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let selectedRow = indexPath.row
+                if let reservationDetailTableViewController =
+                    segue.destination as? HostReservationDetailTableViewController {
+                    if indexPath.section == 0 {
+                        reservationDetailTableViewController.isCurrent = true
+                        reservationDetailTableViewController.reservation =
+                            currentReservations[selectedRow]
+                    } else if indexPath.section == 1 {
+                        reservationDetailTableViewController.isCurrent = false
+                        reservationDetailTableViewController.reservation =
+                            previousReservations[selectedRow]
+                    }
+                }
+            }
         }
     }
     
