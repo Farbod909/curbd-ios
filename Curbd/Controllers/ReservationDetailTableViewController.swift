@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import ImageSlideshow
 
 class ReservationDetailTableViewController: UITableViewController {
 
@@ -28,10 +29,18 @@ class ReservationDetailTableViewController: UITableViewController {
     @IBOutlet weak var arriveCell: UITableViewCell!
     @IBOutlet weak var leaveCell: UITableViewCell!
     @IBOutlet weak var instructionsLabel: UILabel!
-    @IBOutlet weak var hostContactCell: UITableViewCell!
-
+//    @IBOutlet weak var hostContactCell: UITableViewCell!
+    @IBOutlet weak var slideshowCell: UITableViewCell!
+    @IBOutlet weak var slideshow: ImageSlideshow!
+    @IBOutlet weak var noImagesLabel: UILabel!
+    
     func initializeAppearanceSettings() {
         parkingSpaceDetailCell.selectionStyle = .none
+
+        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        slideshow.activityIndicator = DefaultActivityIndicator()
+        let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
+        slideshow.addGestureRecognizer(slideshowTapRecognizer)
     }
     
     override func viewDidLoad() {
@@ -99,14 +108,33 @@ class ReservationDetailTableViewController: UITableViewController {
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
             instructionsLabel.text = reservation.parkingSpace.instructions
 
-            if let isCurrent = isCurrent {
-                if !isCurrent {
-                    hostContactCell.isHidden = true
-                }
+//            if let isCurrent = isCurrent {
+//                if !isCurrent {
+//                    hostContactCell.isHidden = true
+//                }
+//            }
+//            hostContactCell.detailTextLabel?.text = String.format(phoneNumber: reservation.host.phoneNumber)
+//            hostContactPhone = reservation.host.phoneNumber
+
+            var parkingSpaceImageSources = [KingfisherSource]()
+
+            if reservation.parkingSpace.images.isEmpty {
+                noImagesLabel.isHidden = false
+                slideshowCell.isUserInteractionEnabled = false
             }
-            hostContactCell.detailTextLabel?.text = String.format(phoneNumber: reservation.host.phoneNumber)
-            hostContactPhone = reservation.host.phoneNumber
+
+            for imageUrl in reservation.parkingSpace.images {
+                parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)
+            }
+
+            slideshow.setImageInputs(parkingSpaceImageSources)
+
         }
+    }
+
+    @objc func slideshowClick() {
+        let fullScreenController = slideshow.presentFullScreenController(from: self)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -135,14 +163,14 @@ class ReservationDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if indexPath.row == 5 {
-                if let hostContactPhone = hostContactPhone {
-                    guard let number = URL(string: "tel://" + hostContactPhone) else { return }
-                    UIApplication.shared.open(number, options: [:]) { _ in
-                        tableView.deselectRow(at: indexPath, animated: true)
-                    }
-                }
-            }
+//            if indexPath.row == 5 {
+//                if let hostContactPhone = hostContactPhone {
+//                    guard let number = URL(string: "tel://" + hostContactPhone) else { return }
+//                    UIApplication.shared.open(number, options: [:]) { _ in
+//                        tableView.deselectRow(at: indexPath, animated: true)
+//                    }
+//                }
+//            }
         } else if indexPath.section == 1 {
             if indexPath.row == 1 {
                 // "Cancel Reservation" was clicked

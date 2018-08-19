@@ -25,7 +25,7 @@ class HostReservationDetailTableViewController: UITableViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var arriveCell: UITableViewCell!
     @IBOutlet weak var leaveCell: UITableViewCell!
-    @IBOutlet weak var customerContactCell: UITableViewCell!
+//    @IBOutlet weak var customerContactCell: UITableViewCell!
 
     func initializeAppearanceSettings() {
         parkingSpaceDetailCell.selectionStyle = .none
@@ -71,8 +71,8 @@ class HostReservationDetailTableViewController: UITableViewController {
             arriveCell.detailTextLabel?.text = reservation.start.toHumanReadable()
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
 
-            customerContactCell.detailTextLabel?.text = String.format(phoneNumber: reservation.reserver.phoneNumber)
-            customerContactPhone = reservation.reserver.phoneNumber
+//            customerContactCell.detailTextLabel?.text = String.format(phoneNumber: reservation.reserver.phoneNumber)
+//            customerContactPhone = reservation.reserver.phoneNumber
 
         }
     }
@@ -91,14 +91,14 @@ class HostReservationDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if indexPath.row == 1 {
-                if let customerContactPhone = customerContactPhone {
-                    guard let number = URL(string: "tel://" + customerContactPhone) else { return }
-                    UIApplication.shared.open(number, options: [:]) { _ in
-                        tableView.deselectRow(at: indexPath, animated: true)
-                    }
-                }
-            }
+//            if indexPath.row == 1 {
+//                if let customerContactPhone = customerContactPhone {
+//                    guard let number = URL(string: "tel://" + customerContactPhone) else { return }
+//                    UIApplication.shared.open(number, options: [:]) { _ in
+//                        tableView.deselectRow(at: indexPath, animated: true)
+//                    }
+//                }
+//            }
         }
     }
 
