@@ -71,6 +71,7 @@
 		8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61111F67A6F000AB6BF1 /* Main.storyboard */; };
 		8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */; };
 		8EDA61181F67A6F000AB6BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61161F67A6F000AB6BF1 /* LaunchScreen.storyboard */; };
+		8EDD0D32212FE9AC00C81B16 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDD0D31212FE9AC00C81B16 /* Formatters.swift */; };
 		8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */; };
 		8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC462E20844A6F00ED527F /* LoginViewController.swift */; };
 		8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC463020844D3400ED527F /* HollowTextField.swift */; };
@@ -150,6 +151,7 @@
 		8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EDA61171F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EDA61191F67A6F000AB6BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EDD0D31212FE9AC00C81B16 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequiredViewController.swift; sourceTree = "<group>"; };
 		8EEC462E20844A6F00ED527F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8EEC463020844D3400ED527F /* HollowTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowTextField.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				8EC8F77F207AA1DA0038790E /* Globals.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
 				8E3F47F5208FEEA9003451C1 /* Errors.swift */,
+				8EDD0D31212FE9AC00C81B16 /* Formatters.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				8E5DAE5D20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
 				8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */,
+				8EDD0D32212FE9AC00C81B16 /* Formatters.swift in Sources */,
 				8E4F09F02102968900E72FD5 /* AvailabilityTypeViewController.swift in Sources */,
 				8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */,
 				8E5048A320EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift in Sources */,

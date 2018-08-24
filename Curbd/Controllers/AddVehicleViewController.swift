@@ -132,6 +132,8 @@ class AddVehicleViewController: FormViewController {
             <<< TextRow("license plate") {
                 $0.title = $0.tag?.capitalized
                 $0.placeholder = "Not Publicly Displayed"
+                $0.useFormatterDuringInput = true
+                $0.formatter = UppercaseFormatter()
             }
     }
 
