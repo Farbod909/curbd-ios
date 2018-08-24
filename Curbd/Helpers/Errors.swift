@@ -23,6 +23,7 @@ struct ValidationError: Error {
                         for (field, messageList):(String, JSON) in responseJSON {
                             fields[field] = String(describing: messageList.arrayValue[0])
                         }
+                        return
                     }
                 }
 

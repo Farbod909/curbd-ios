@@ -102,7 +102,13 @@ class ReservationDetailTableViewController: UITableViewController {
                 }
             }
             vehicleLabel.text = "\(vehicle.make) \(vehicle.model) \(vehicle.licensePlate)"
-            priceLabel.text = reservation.cost.toUSDRepresentation()
+            if reservation.cancelled {
+                priceLabel.text = "Cancelled"
+                priceLabel.textColor = UIColor.systemRed
+                priceLabel.adjustsFontSizeToFitWidth = true
+            } else {
+                priceLabel.text = reservation.cost.toUSDRepresentation()
+            }
             paymentMethodLabel.text = reservation.paymentMethodInfo
             arriveCell.detailTextLabel?.text = reservation.start.toHumanReadable()
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
@@ -194,9 +200,12 @@ class ReservationDetailTableViewController: UITableViewController {
         if segue.identifier == "showReportTableViewController" {
             let reportTableViewController = segue.destination as! ReportTableViewController
             reportTableViewController.reservation = reservation
+            reportTableViewController.hostIsReporting = false
         } else if segue.identifier == "showReservationExtensionViewController" {
             let reservationExtensionViewController = segue.destination as! ReservationExtensionViewController
             reservationExtensionViewController.reservation = reservation
         }
     }
+
+    @IBAction func unwindToReservationDetailTableViewController(segue:UIStoryboardSegue) { }
 }

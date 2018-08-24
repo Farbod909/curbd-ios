@@ -11,13 +11,12 @@ import UIKit
 class ReportTableViewController: UITableViewController {
 
 
+    var reportReasons = [String]()
+    var reservation: Reservation?
     // a boolean flag to determine whether a host
     // or a customer is reporting a reservation.
     var hostIsReporting: Bool?
 
-    var reportReasons = [String]()
-
-    var reservation: Reservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +61,7 @@ class ReportTableViewController: UITableViewController {
                 let reportSubmissionViewController = segue.destination as! ReportSubmissionViewController
                 reportSubmissionViewController.reservation = reservation
                 reportSubmissionViewController.reportReason = cell.textLabel?.text
+                reportSubmissionViewController.hostIsReporting = hostIsReporting
             }
         }
     }

@@ -114,14 +114,35 @@ class ReservationListTableViewController: UITableViewController {
         }
         if parkingSpace != nil {
             cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized)."
-            cell.priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
+
+            if reservation.cancelled {
+                cell.priceLabel.text = "Cancelled"
+                cell.priceLabel.textColor = UIColor.systemRed
+                cell.priceLabel.adjustsFontSizeToFitWidth = true
+            } else {
+                cell.priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
+            }
         } else {
             if isHost {
                 cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized). @ \(reservation.parkingSpace.name)"
-                cell.priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
+
+                if reservation.cancelled {
+                    cell.priceLabel.text = "Cancelled"
+                    cell.priceLabel.textColor = UIColor.systemRed
+                    cell.priceLabel.adjustsFontSizeToFitWidth = true
+                } else {
+                    cell.priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
+                }
             } else {
                 cell.titleLabel.text = reservation.parkingSpace.name
-                cell.priceLabel.text = "\(reservation.cost.toUSDRepresentation())"
+
+                if reservation.cancelled {
+                    cell.priceLabel.text = "Cancelled"
+                    cell.priceLabel.textColor = UIColor.systemRed
+                    cell.priceLabel.adjustsFontSizeToFitWidth = true
+                } else {
+                    cell.priceLabel.text = "+\(reservation.cost.toUSDRepresentation())"
+                }
             }
         }
         cell.vehicleLabel.text = "\(reservation.vehicle.make) \(reservation.vehicle.model) \(reservation.vehicle.licensePlate)"

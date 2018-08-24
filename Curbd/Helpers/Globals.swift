@@ -9,5 +9,5 @@
 import Foundation
 import UIKit
 
-let baseURL = "https://8bf652d3.ngrok.io"
+let baseURL = "https://curbd-app.appspot.com"
 let iphoneX = UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436

@@ -66,7 +66,14 @@ class HostReservationDetailTableViewController: UITableViewController {
                 }
             }
 
-            priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
+            if reservation.cancelled {
+                priceLabel.text = "Cancelled"
+                priceLabel.textColor = UIColor.systemRed
+                priceLabel.adjustsFontSizeToFitWidth = true
+            } else {
+                priceLabel.text = "+\(reservation.hostIncome.toUSDRepresentation())"
+            }
+
 
             arriveCell.detailTextLabel?.text = reservation.start.toHumanReadable()
             leaveCell.detailTextLabel?.text = reservation.end.toHumanReadable()
@@ -110,6 +117,6 @@ class HostReservationDetailTableViewController: UITableViewController {
         }
     }
 
-
+    @IBAction func unwindToHostReservationDetailTableViewController(segue:UIStoryboardSegue) { }
 
 }

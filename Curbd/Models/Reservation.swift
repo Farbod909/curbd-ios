@@ -28,6 +28,7 @@ class Reservation {
         return formattedPricePerHour
     }
     let paymentMethodInfo: String?
+    let cancelled: Bool
 
     init(json: JSON) {
         self.id = json["id"].intValue
@@ -49,6 +50,7 @@ class Reservation {
         self.cost = json["cost"].intValue
         self.hostIncome = json["host_income"].intValue
         self.paymentMethodInfo = json["payment_method_info"].string
+        self.cancelled = json["cancelled"].boolValue
     }
 
     static func create(for parkingSpace: ParkingSpace,
@@ -100,14 +102,48 @@ class Reservation {
         }
     }
 
+    func report(withToken token: String,
+                title: String,
+                comments: String?,
+                hostIsReporting: Bool,
+                completion: @escaping (Error?) -> Void) {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        var parameters: Parameters = [
+            "title": title,
+            "reporter_type": hostIsReporting ? "host" : "customer"
+        ]
+
+        if let comments = comments {
+            parameters["comments"] = comments
+        }
+
+        Alamofire.request(
+            baseURL + "/api/parking/reservations/\(id)/report/",
+            method: .post,
+            parameters: parameters,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
+
+    }
+
     func cancel(withToken token: String, completion: @escaping (Error?) -> Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
         ]
 
         Alamofire.request(
-            baseURL + "/api/parking/reservations/\(id)/",
-            method: .delete,
+            baseURL + "/api/parking/reservations/\(id)/cancel/",
+            method: .post,
             headers: headers).validate().responseJSON() { response in
                 switch response.result {
                 case .success:

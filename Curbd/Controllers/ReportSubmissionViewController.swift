@@ -12,11 +12,37 @@ class ReportSubmissionViewController: UIViewController {
 
     var reportReason: String?
     var reservation: Reservation?
+    // a boolean flag to determine whether a host
+    // or a customer is reporting a reservation.
+    var hostIsReporting: Bool?
+
     @IBOutlet weak var commentsTextView: UITextView!
 
     @IBAction func submitButtonClick(_ sender: UIBarButtonItem) {
-        if let reportReason = reportReason {
-            // TODO: submit report
+        if let reportReason = reportReason, let reservation = reservation, let hostIsReporting = hostIsReporting {
+            if let token = UserDefaults.standard.string(forKey: "token") {
+                reservation.report(
+                    withToken: token,
+                    title: reportReason,
+                    comments: commentsTextView.text,
+                    hostIsReporting: hostIsReporting) { error in
+                        if error != nil {
+                            self.presentServerErrorAlert()
+                        } else {
+                            self.presentSingleButtonAlert(title: "Success", message: "We'll get back to you as soon as possible.", buttonText: "OK") { _ in
+                                if hostIsReporting {
+                                    self.performSegue(
+                                        withIdentifier: "unwindToHostReservationDetailTableViewController",
+                                        sender: self)
+                                } else {
+                                    self.performSegue(
+                                        withIdentifier: "unwindToReservationDetailTableViewController",
+                                        sender: self)
+                                }
+                            }
+                        }
+                }
+            }
         }
     }
     

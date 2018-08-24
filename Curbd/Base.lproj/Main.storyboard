@@ -1377,9 +1377,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="commentsTextView" destination="LfL-OK-iWE" id="cFP-cA-BHY"/>
+                        <segue destination="E2o-Mf-p2q" kind="unwind" identifier="unwindToReservationDetailTableViewController" unwindAction="unwindToReservationDetailTableViewControllerWithSegue:" id="UgS-pe-JNW"/>
+                        <segue destination="E2o-Mf-p2q" kind="unwind" identifier="unwindToHostReservationDetailTableViewController" unwindAction="unwindToHostReservationDetailTableViewControllerWithSegue:" id="9Tm-jz-e5h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5U-jY-jWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="E2o-Mf-p2q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5373.6000000000004" y="-640.02998500749629"/>
         </scene>

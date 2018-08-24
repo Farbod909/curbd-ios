@@ -52,17 +52,19 @@ class AddVehicleViewController: FormViewController {
                         CarQuery.getMakes(year: year) { error, makes in
                             if let makes = makes {
                                 makeRow.options = makes
+                                makeRow.disabled = false
+                                makeRow.evaluateDisabled()
                             }
                         }
                     }
                 }
             }
-            <<< PushRow<String>("make") {
-                $0.title = $0.tag?.capitalized
-                $0.options = []
-                $0.disabled = Condition.function(["year"], { form in
+            <<< PushRow<String>("make") { row in
+                row.title = row.tag?.capitalized
+                row.options = []
+                row.disabled = Condition.function(["year"], { form in
                     if let yearRow = form.rowBy(tag: "year") as? PushRow<Int> {
-                        return yearRow.value == nil
+                        return yearRow.value == nil || (row.options?.isEmpty)!
                     }
                     return true
                 })
@@ -76,21 +78,20 @@ class AddVehicleViewController: FormViewController {
                         CarQuery.getModels(make: make, year: year) { error, models in
                             if let models = models {
                                 modelRow.options = models
+                                modelRow.disabled = false
+                                modelRow.evaluateDisabled()
                             }
                         }
                     }
                 }
             }
-            <<< PushRow<String>("model") {
-                $0.title = $0.tag?.capitalized
-                $0.options = []
-                for i in 1...10 {
-                    $0.options?.append("model \(i)")
-                }
-                $0.disabled = Condition.function(["year", "make"], { form in
+            <<< PushRow<String>("model") { row in
+                row.title = row.tag?.capitalized
+                row.options = []
+                row.disabled = Condition.function(["year", "make"], { form in
                     if  let yearRow = form.rowBy(tag: "year") as? PushRow<Int>,
                         let makeRow = form.rowBy(tag: "make") as? PushRow<String> {
-                        return yearRow.value == nil || makeRow.value == nil
+                        return yearRow.value == nil || makeRow.value == nil || (row.options?.isEmpty)!
                     }
                     return true
                 })

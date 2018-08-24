@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // TODO: change to stripe live publishable key
         STPPaymentConfiguration.shared().publishableKey = "pk_test_5q5DlFsEzct0uumMRvd37mln"
 
         let locationManager = LocationManager.shared
