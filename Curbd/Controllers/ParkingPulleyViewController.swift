@@ -14,7 +14,7 @@ class ParkingPulleyViewController: PulleyViewController {
     // the search drawer view controller is saved in this
     // variable when the pulley sets its drawer view
     // controller to a parking space detail view controller.
-    // This allowscthe drawer to return to its original
+    // This allows the drawer to return to its original
     // state when the search drawer view controller is restored.
     var savedSearchDrawerViewController: SearchDrawerViewController? = nil
 }

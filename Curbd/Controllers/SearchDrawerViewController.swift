@@ -66,6 +66,14 @@ class SearchDrawerViewController: UIViewController {
         grabber.layer.masksToBounds = true
     }
 
+    @objc func updateArriveAndLeaveDate() {
+        arriveDate = Date().ceil(precision: 300)
+        leaveDate = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
+
+        arriveDisplayLabel.text = arriveDate.toHumanReadable()
+        leaveDisplayLabel.text = leaveDate.toHumanReadable()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeSettings()
@@ -82,6 +90,18 @@ class SearchDrawerViewController: UIViewController {
             // set initial drawer position to .partiallyRevealed
             pulleyViewController.setDrawerPosition(position: .partiallyRevealed, animated: false)
         }
+
+        updateArriveAndLeaveDate()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateArriveAndLeaveDate),
+            name: NSNotification.Name.UIApplicationWillEnterForeground,
+            object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -23,8 +23,8 @@ class ArriveLeaveViewController: LightTranslucentViewController {
         arriveDatePicker.setDate(arriveDate, animated: false)
         leaveDatePicker.setDate(leaveDate, animated: false)
 
-        arriveDatePicker.minimumDate = Date()
-        leaveDatePicker.minimumDate = Date(timeInterval: 7200, since: Date())
+        arriveDatePicker.minimumDate = Date().ceil(precision: 300)
+        leaveDatePicker.minimumDate = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
 
         arriveDatePicker.addTarget(self, action: #selector(arriveDatePickerValueChanged), for: .valueChanged)
     }
