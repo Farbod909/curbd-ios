@@ -12,4 +12,6 @@ class FixedAvailabilityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var startDateTimeLabel: UILabel!
     @IBOutlet weak var endDateTimeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+
 }

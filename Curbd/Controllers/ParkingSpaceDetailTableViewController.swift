@@ -260,6 +260,8 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                     "\(repeatingAvailability.start_time!.timeComponentString()) - \(repeatingAvailability.end_time!.timeComponentString())"
                 }
 
+                repeatingAvailabilityCell.priceLabel.text = repeatingAvailability.formattedHourlyPrice
+
                 return repeatingAvailabilityCell
             } else if indexPath.row == (repeatingAvailabilities.count + fixedAvailabilities.count) {
                 // add availability
@@ -275,6 +277,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                 let fixedAvailability = fixedAvailabilities[indexPath.row - repeatingAvailabilities.count]
                 fixedAvailabilityCell.startDateTimeLabel.text = "From: " + fixedAvailability.start_datetime.toHumanReadableWithYear()
                 fixedAvailabilityCell.endDateTimeLabel.text = "Until: " + fixedAvailability.end_datetime.toHumanReadableWithYear()
+                fixedAvailabilityCell.priceLabel.text = fixedAvailability.formattedHourlyPrice
 
                 return fixedAvailabilityCell
             }

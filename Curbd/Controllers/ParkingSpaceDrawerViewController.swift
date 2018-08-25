@@ -67,7 +67,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 parkingSpace.getPricing(from: arriveDate, to: leaveDate) { pricing in
                     self.pricing = pricing
                     if let pricing = pricing {
-                        self.pricingLabel.text = "\(pricing.toUSDRepresentation()) / hr + processing fee"
+                        self.pricingLabel.text = "\(pricing.toUSDRepresentation()) / hr"
 
                         let reservationTimeMinutes = Int(leaveDate.timeIntervalSince(arriveDate) / 60)
 //                        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour

@@ -18,6 +18,12 @@ class RepeatingAvailability {
     let end_time: Date?
     let repeating_days: [String]
     let pricing: Int
+    var formattedHourlyPrice: String {
+        // price (in dollars) calculated per hour
+        let pricePerHour = Double(pricing)/100.0
+        let formattedPricePerHour = String(format: "$%.02f / hr", pricePerHour)
+        return formattedPricePerHour
+    }
 
     var humanReadableDays: String {
 

@@ -239,14 +239,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDB-KS-Y7f">
-                                <rect key="frame" x="326" y="362" width="33" height="33"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAj-Rk-ukA" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                                <rect key="frame" x="326" y="364" width="33" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="0MT-T7-4iX"/>
-                                    <constraint firstAttribute="height" constant="33" id="abF-5N-xt9"/>
+                                    <constraint firstAttribute="width" constant="33" id="WVF-6B-rfY"/>
+                                    <constraint firstAttribute="height" constant="33" id="iyc-X1-1Hh"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" image="map marker"/>
+                                <connections>
+                                    <action selector="currentLocationButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="iUM-fR-N27"/>
+                                    <action selector="redoSearchButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="6VW-JY-ZII"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hme-cl-Vo2" firstAttribute="leading" secondItem="TmL-id-wdO" secondAttribute="trailing" constant="10" id="0NG-6s-jwt"/>
@@ -255,7 +260,7 @@
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="top" secondItem="yaX-lX-NW2" secondAttribute="top" id="2uh-lv-RDD"/>
                             <constraint firstAttribute="bottom" secondItem="lIL-Rx-ZYi" secondAttribute="bottom" id="6yD-Np-DJm"/>
                             <constraint firstItem="OHT-lm-FCJ" firstAttribute="centerY" secondItem="sci-gn-uYZ" secondAttribute="centerY" id="Apb-DD-D2g"/>
-                            <constraint firstItem="DDB-KS-Y7f" firstAttribute="leading" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" constant="-49" id="L9Z-h3-drq"/>
+                            <constraint firstItem="AAj-Rk-ukA" firstAttribute="leading" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" constant="-49" id="Hwv-at-YYr"/>
                             <constraint firstItem="TmL-id-wdO" firstAttribute="top" secondItem="scs-if-RbW" secondAttribute="top" constant="8" id="PEx-fe-Xua"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="yaX-lX-NW2" secondAttribute="leading" id="PmQ-sL-Oes"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="bottom" secondItem="2SR-a5-6Ef" secondAttribute="bottom" constant="203" id="ScH-oX-A0q"/>
@@ -264,16 +269,16 @@
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="trailing" secondItem="sci-gn-uYZ" secondAttribute="trailing" constant="27" id="ZOt-Xv-hsk"/>
                             <constraint firstItem="hme-cl-Vo2" firstAttribute="centerY" secondItem="scs-if-RbW" secondAttribute="centerY" id="cPH-Gi-9dB"/>
                             <constraint firstItem="scs-if-RbW" firstAttribute="top" secondItem="lIL-Rx-ZYi" secondAttribute="top" constant="32" id="h9k-uX-2iH"/>
-                            <constraint firstItem="DDB-KS-Y7f" firstAttribute="top" secondItem="2SR-a5-6Ef" secondAttribute="bottom" constant="-35" id="hAu-tY-xJa"/>
                             <constraint firstItem="scs-if-RbW" firstAttribute="leading" secondItem="lIL-Rx-ZYi" secondAttribute="leading" constant="27" id="mMX-Au-gPp"/>
                             <constraint firstItem="TmL-id-wdO" firstAttribute="leading" secondItem="scs-if-RbW" secondAttribute="leading" constant="10" id="o9X-8i-UcJ"/>
                             <constraint firstItem="OHT-lm-FCJ" firstAttribute="centerX" secondItem="sci-gn-uYZ" secondAttribute="centerX" id="pXB-Eg-5BP"/>
+                            <constraint firstItem="AAj-Rk-ukA" firstAttribute="top" secondItem="2SR-a5-6Ef" secondAttribute="bottom" constant="-33" id="q0i-Ks-I83"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accountButton" destination="sci-gn-uYZ" id="zR6-Sa-RDS"/>
                         <outlet property="accountButtonSpacingFromTopConstraint" destination="2MR-bV-0y1" id="Vz6-ep-hdn"/>
-                        <outlet property="currentLocationButtonParentView" destination="DDB-KS-Y7f" id="QPn-ll-Dsf"/>
+                        <outlet property="currentLocationButton" destination="AAj-Rk-ukA" id="C6H-I3-nZj"/>
                         <outlet property="currentVehicleButton" destination="scs-if-RbW" id="tJw-tx-3wM"/>
                         <outlet property="currentVehicleButtonImageView" destination="TmL-id-wdO" id="c7Q-Sx-OBS"/>
                         <outlet property="currentVehicleButtonLabel" destination="hme-cl-Vo2" id="B7e-La-xXu"/>
@@ -531,7 +536,7 @@
             <objects>
                 <tableViewController id="hpD-c7-Vww" customClass="VehicleListTableViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qcX-Zp-k4a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -548,8 +553,9 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="1aN-sx-06w">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aN-sx-06w">
                                             <rect key="frame" x="16" y="19" width="51" height="33"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="33" id="Aly-7z-QWa"/>
                                                 <constraint firstAttribute="width" constant="51" id="JI4-wB-7Cm"/>
@@ -1076,7 +1082,7 @@
             <objects>
                 <tableViewController id="i98-rk-UvS" customClass="VehicleDetailTableViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="26N-Eg-roX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1395,7 +1401,7 @@
                         <viewControllerLayoutGuide type="bottom" id="TmP-Et-i01"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZES-z2-QKT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2562,6 +2568,12 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00 / hr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cba-Em-wmh">
+                                            <rect key="frame" x="286.5" y="14" width="72.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="e8w-NT-7pu" secondAttribute="bottom" constant="9" id="49x-Hw-bmo"/>
@@ -2570,10 +2582,13 @@
                                         <constraint firstItem="e8w-NT-7pu" firstAttribute="top" secondItem="PgG-j8-kbX" secondAttribute="bottom" constant="6" id="J5B-8O-He5"/>
                                         <constraint firstItem="PgG-j8-kbX" firstAttribute="leading" secondItem="P6l-y1-1sM" secondAttribute="leading" constant="16" id="LqL-E8-vBQ"/>
                                         <constraint firstItem="e8w-NT-7pu" firstAttribute="leading" secondItem="P6l-y1-1sM" secondAttribute="leading" constant="16" id="ZqF-2n-LT3"/>
+                                        <constraint firstItem="cba-Em-wmh" firstAttribute="top" secondItem="P6l-y1-1sM" secondAttribute="top" constant="14" id="gTh-cK-c3K"/>
+                                        <constraint firstAttribute="trailing" secondItem="cba-Em-wmh" secondAttribute="trailing" constant="16" id="rjm-NQ-OCb"/>
                                         <constraint firstItem="Yaa-AI-sXX" firstAttribute="leading" secondItem="P6l-y1-1sM" secondAttribute="leading" constant="16" id="ywg-11-PFB"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="priceLabel" destination="cba-Em-wmh" id="RKQ-ui-Tu3"/>
                                     <outlet property="repeatingDaysLabel" destination="PgG-j8-kbX" id="gs6-cc-LKY"/>
                                     <outlet property="timeRangeLabel" destination="e8w-NT-7pu" id="xqZ-8i-luI"/>
                                 </connections>
@@ -2603,6 +2618,12 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00 / hr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbq-tx-dVP">
+                                            <rect key="frame" x="286.5" y="13" width="72.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="K6c-XJ-OBs" firstAttribute="leading" secondItem="xJm-xD-tFd" secondAttribute="leading" constant="16" id="CqX-9A-VLZ"/>
@@ -2611,11 +2632,14 @@
                                         <constraint firstAttribute="bottom" secondItem="K6c-XJ-OBs" secondAttribute="bottom" constant="9" id="PAK-iB-M8N"/>
                                         <constraint firstItem="K6c-XJ-OBs" firstAttribute="top" secondItem="i16-T4-qOV" secondAttribute="bottom" constant="6" id="Piz-GH-f5M"/>
                                         <constraint firstItem="i16-T4-qOV" firstAttribute="leading" secondItem="xJm-xD-tFd" secondAttribute="leading" constant="16" id="c9H-s5-45Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="Bbq-tx-dVP" secondAttribute="trailing" constant="16" id="lZu-L7-l1B"/>
                                         <constraint firstItem="2SH-Ub-8Wd" firstAttribute="leading" secondItem="xJm-xD-tFd" secondAttribute="leading" constant="16" id="lpn-qe-bo2"/>
+                                        <constraint firstItem="Bbq-tx-dVP" firstAttribute="top" secondItem="xJm-xD-tFd" secondAttribute="top" constant="13" id="xpV-fX-61g"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="endDateTimeLabel" destination="K6c-XJ-OBs" id="3sr-oe-kFE"/>
+                                    <outlet property="priceLabel" destination="Bbq-tx-dVP" id="EwF-R7-ReF"/>
                                     <outlet property="startDateTimeLabel" destination="i16-T4-qOV" id="SLk-C1-CQv"/>
                                 </connections>
                             </tableViewCell>
@@ -3445,11 +3469,12 @@
     <resources>
         <image name="car" width="26" height="22"/>
         <image name="close" width="18" height="18"/>
+        <image name="map marker" width="18" height="24"/>
         <image name="user" width="23" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xyw-N1-5lj"/>
-        <segue reference="b2c-sg-o82"/>
+        <segue reference="tUf-Ts-zqf"/>
         <segue reference="t4W-aa-c2r"/>
     </inferredMetricsTieBreakers>
 </document>

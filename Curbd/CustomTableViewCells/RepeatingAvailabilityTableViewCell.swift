@@ -12,4 +12,6 @@ class RepeatingAvailabilityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var repeatingDaysLabel: UILabel!
     @IBOutlet weak var timeRangeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+
 }

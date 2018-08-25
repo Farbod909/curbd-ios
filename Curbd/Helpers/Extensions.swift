@@ -244,7 +244,7 @@ extension Formatter {
 
 extension MKMapView {
 
-    func centerSlightlyBelow(location: CLLocation) {
+    func centerSlightlyBelow(location: CLLocation, animated: Bool = false) {
         let regionRadius: CLLocationDistance = 300
         let newCoordinate = CLLocationCoordinate2DMake(
             location.coordinate.latitude - 0.0012, // offset to account for drawer
@@ -252,17 +252,17 @@ extension MKMapView {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(
             newCoordinate,
             regionRadius * 2, regionRadius * 2)
-        self.setRegion(coordinateRegion, animated: false)
+        self.setRegion(coordinateRegion, animated: animated)
     }
 
-    func centerOn(location: CLLocation, regionRadius: CLLocationDistance = 300) {
+    func centerOn(location: CLLocation, regionRadius: CLLocationDistance = 300, animated: Bool = false) {
         let newCoordinate = CLLocationCoordinate2DMake(
             location.coordinate.latitude,
             location.coordinate.longitude)
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(
             newCoordinate,
             regionRadius * 2, regionRadius * 2)
-        self.setRegion(coordinateRegion, animated: false)
+        self.setRegion(coordinateRegion, animated: animated)
     }
 
 

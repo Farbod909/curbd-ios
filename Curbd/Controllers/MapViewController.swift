@@ -15,12 +15,12 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var redoSearchButton: UIButton!
+    @IBOutlet weak var currentLocationButton: MapButton!
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var currentVehicleButton: UIButton!
     @IBOutlet weak var currentVehicleButtonImageView: UIImageView!
     @IBOutlet weak var currentVehicleButtonLabel: UILabel!
     @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var currentLocationButtonParentView: UIView!
     @IBOutlet weak var accountButtonSpacingFromTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentVehicleButtonSpacingFromTopConstraint: NSLayoutConstraint!
 
@@ -64,9 +64,9 @@ class MapViewController: UIViewController {
         initializeSettings()
         initializeAppearanceSettings()
 
-        if #available(iOS 11.0, *) {
-            addCurrentLocationButton()
-        }
+//        if #available(iOS 11.0, *) {
+//            addCurrentLocationButton()
+//        }
 
         locationManager.requestLocation()
     }
@@ -78,11 +78,11 @@ class MapViewController: UIViewController {
         updateCurrentVehicleButton()
     }
 
-    @available(iOS 11.0, *)
-    func addCurrentLocationButton() {
-        let currentLocationButton = MKUserTrackingButton(mapView: mapView)
-        currentLocationButtonParentView.addSubview(currentLocationButton)
-    }
+//    @available(iOS 11.0, *)
+//    func addCurrentLocationButton() {
+//        let currentLocationButton = MKUserTrackingButton(mapView: mapView)
+//        currentLocationButtonParentView.addSubview(currentLocationButton)
+//    }
 
     /**
      This function hides the parking space detail view after confirming
@@ -114,6 +114,16 @@ class MapViewController: UIViewController {
     */
     @IBAction func redoSearchButtonClick(_ sender: UIButton) {
         performSearchInCurrentlyVisibleArea()
+    }
+
+    /**
+     This function is called when the currentLocationButton is clicked.
+     It then requests the user's current location and by doing
+     so triggers the map to center on the user location and
+     update parking space annotations.
+     */
+    @IBAction func currentLocationButtonClick(_ sender: UIButton) {
+        locationManager.requestLocation()
     }
 
     /**

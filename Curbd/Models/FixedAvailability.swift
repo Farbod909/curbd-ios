@@ -16,6 +16,13 @@ class FixedAvailability {
     let start_datetime: Date
     let end_datetime: Date
     let pricing: Int
+    var formattedHourlyPrice: String {
+        // price (in dollars) calculated per hour
+        let pricePerHour = Double(pricing)/100.0
+        let formattedPricePerHour = String(format: "$%.02f / hr", pricePerHour)
+        return formattedPricePerHour
+    }
+
 
     init(json: JSON) {
         self.id = json["id"].intValue
