@@ -27,7 +27,11 @@ class ParkingSpace {
 
     init(json: JSON) {
         self.id = json["id"].intValue
-        self.features = json["features"].stringValue.components(separatedBy: ", ")
+        if json["features"].stringValue != "" {
+            self.features = json["features"].stringValue.components(separatedBy: ", ")
+        } else {
+            self.features = []
+        }
         self.latitude = json["latitude"].doubleValue
         self.longitude = json["longitude"].doubleValue
         self.available_spaces = json["available_spaces"].intValue
@@ -47,7 +51,7 @@ class ParkingSpace {
                        state: String,
                        code: String,
                        available_spaces: Int,
-                       features: Set<String>,
+                       features: Set<String>?,
                        physical_type: String,
                        legal_type: String,
                        name: String,
@@ -89,11 +93,14 @@ class ParkingSpace {
                 "physical_type": physical_type,
                 "legal_type": legal_type,
                 "is_active": is_active,
-                "features": features.joined(separator: ", ")
             ]
 
             if let address2 = address2 {
                 parameters["address2"] = address2
+            }
+
+            if let features = features {
+                parameters["features"] = features.joined(separator: ", ")
             }
 
             Alamofire.upload(multipartFormData: { (multipartFormData) in

@@ -29,6 +29,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>For locating nearby parking spaces</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To take parking space pictures</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
