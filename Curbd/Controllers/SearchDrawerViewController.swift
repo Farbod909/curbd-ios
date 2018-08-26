@@ -67,9 +67,11 @@ class SearchDrawerViewController: UIViewController {
     }
 
     @objc func updateArriveAndLeaveDate() {
+        let arriveLeaveDelta = leaveDate.timeIntervalSince(arriveDate)
         arriveDate = Date().ceil(precision: 300)
-        leaveDate = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
+        leaveDate = Date(timeInterval: arriveLeaveDelta, since: arriveDate).ceil(precision: 300)
 
+        // TODO: Possibly implement reactive labels
         arriveDisplayLabel.text = arriveDate.toHumanReadable()
         leaveDisplayLabel.text = leaveDate.toHumanReadable()
     }
@@ -78,10 +80,6 @@ class SearchDrawerViewController: UIViewController {
         super.viewDidLoad()
         initializeSettings()
         initializeAppearanceSettings()
-
-        // TODO: Possibly implement reactive labels
-        arriveDisplayLabel.text = arriveDate.toHumanReadable()
-        leaveDisplayLabel.text = leaveDate.toHumanReadable()
     }
 
     override func viewWillAppear(_ animated: Bool) {
