@@ -141,7 +141,7 @@ class ReservationListTableViewController: UITableViewController {
                     cell.priceLabel.textColor = UIColor.systemRed
                     cell.priceLabel.adjustsFontSizeToFitWidth = true
                 } else {
-                    cell.priceLabel.text = "+\(reservation.cost.toUSDRepresentation())"
+                    cell.priceLabel.text = "\(reservation.cost.toUSDRepresentation())"
                 }
             }
         }

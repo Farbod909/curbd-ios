@@ -70,7 +70,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             
             vehicleLicensePlateLabel.text = vehicleLicensePlate
 
-            totalTimeLabel.text = "\(Int(reservationTimeMinutes))min"
+            totalTimeLabel.text = TimeIntervalFormatter.humanReadableStringFrom(reservationTimeMinutes)
 
             confirmButton.setTitle("Pay \(paymentContext?.paymentAmount.toUSDRepresentation() ?? "")", for: .normal)
 
@@ -112,11 +112,62 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
 
 extension ReservationConfirmationViewController: STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        PaymentClient.sharedClient.completeCharge(paymentResult,
-                                                  amount: (self.paymentContext?.paymentAmount)!,
-                                                  statementDescriptor: "Curbd Reservation",
-//                                                  metadata: ["reservation_id": 2734],
-                                                  completion: completion)
+
+        if  let parkingSpace = parkingSpace,
+            let arriveDate = arriveDate,
+            let leaveDate = leaveDate {
+
+            if let token = UserDefaults.standard.string(forKey: "token") {
+                if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
+
+                    Reservation.create(
+                        withToken: token,
+                        for: parkingSpace,
+                        withVehicle: currentVehicleID,
+                        from: arriveDate,
+                        to: leaveDate,
+                        cost: paymentContext.paymentAmount,
+                        paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { error in
+
+                            if error == nil {
+                                PaymentClient.sharedClient.completeCharge(
+                                    paymentResult,
+                                    amount: (self.paymentContext?.paymentAmount)!,
+                                    statementDescriptor: "Curbd Reservation",
+//                                    metadata: ["reservation_id": 2734],
+                                    completion: completion)
+
+                            } else {
+                                self.presentServerErrorAlert() { action in
+                                    self.performSegue(
+                                        withIdentifier:
+                                        "unwindToMapViewControllerAfterReservationConfirmation",
+                                        sender: self)
+                                }
+                            }
+                    }
+
+                } else {
+                    self.presentSingleButtonAlert(
+                        title: "Add a Vehicle First",
+                        message: "You need to add a vehicle before you can reserve a spot.") { action in
+                            self.performSegue(
+                                withIdentifier:
+                                "unwindToMapViewControllerAfterReservationConfirmation",
+                                sender: self)
+                    }
+                }
+            } else {
+                self.presentSingleButtonAlert(
+                    title: "Not Authenticated",
+                    message: "Looks like you're not logged in. Try logging in first.") { action in
+                        self.performSegue(
+                            withIdentifier:
+                            "unwindToMapViewControllerAfterReservationConfirmation",
+                            sender: self)
+                }
+            }
+        }
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
@@ -126,25 +177,13 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                 title: "Error",
                 message: error?.localizedDescription ?? "")
         case .success:
-            if  let parkingSpace = parkingSpace,
-                let arriveDate = arriveDate,
-                let leaveDate = leaveDate {
-
-                Reservation.create(
-                    for: parkingSpace,
-                    from: arriveDate,
-                    to: leaveDate,
-                    cost: paymentContext.paymentAmount,
-                    paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { title, message in
-                        self.presentSingleButtonAlert(
-                            title: title,
-                            message: message) { action in
-                                self.performSegue(
-                                    withIdentifier:
-                                    "unwindToMapViewControllerAfterReservationConfirmation",
-                                    sender: self)
-                        }
-                }
+            self.presentSingleButtonAlert(
+                title: "Successfully Reserved",
+                message: "You successfully reserved this parking space!") { action in
+                    self.performSegue(
+                        withIdentifier:
+                        "unwindToMapViewControllerAfterReservationConfirmation",
+                        sender: self)
             }
         case .userCancellation:
             return

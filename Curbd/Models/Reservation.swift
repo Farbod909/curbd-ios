@@ -53,52 +53,40 @@ class Reservation {
         self.cancelled = json["cancelled"].boolValue
     }
 
-    static func create(for parkingSpace: ParkingSpace,
+    static func create(withToken token: String,
+                       for parkingSpace: ParkingSpace,
+                       withVehicle vehicleID: String,
                        from start: Date,
                        to end: Date,
                        cost: Int,
                        paymentMethodInfo: String,
-                       completion: @escaping (String, String) -> Void) {
-        if let token = UserDefaults.standard.string(forKey: "token") {
-            if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
-                let headers: HTTPHeaders = [
-                    "Authorization": "Token \(token)",
-                ]
+                       completion: @escaping (Error?) -> Void) {
 
-                let parameters: Parameters = [
-                    "vehicle": currentVehicleID,
-                    "parking_space_id": parkingSpace.id,
-                    "start_datetime": Formatter.iso8601.string(from: start),
-                    "end_datetime": Formatter.iso8601.string(from: end),
-                    "cost": cost,
-                    "host_income": 0,
-                    "payment_method_info": paymentMethodInfo
-                ]
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
 
-                Alamofire.request(
-                    baseURL + "/api/parking/reservations/",
-                    method: .post,
-                    parameters: parameters,
-                    headers: headers).response { response in
-                        if response.response?.statusCode == 201 {
-                            completion(
-                                "Successfully Reserved",
-                                "You successfully reserved this parking space!")
-                        } else {
-                            completion(
-                                "Something Went Wrong",
-                                "Oops, looks like something went wrong.")
-                        }
+        let parameters: Parameters = [
+            "vehicle": vehicleID,
+            "parking_space_id": parkingSpace.id,
+            "start_datetime": Formatter.iso8601.string(from: start),
+            "end_datetime": Formatter.iso8601.string(from: end),
+            "cost": cost,
+            "host_income": 0,
+            "payment_method_info": paymentMethodInfo
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/reservations/",
+            method: .post,
+            parameters: parameters,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
                 }
-            } else {
-                completion(
-                    "Add a Vehicle First",
-                    "You need to add a vehicle before you can reserve a spot.")
-            }
-        } else {
-            completion(
-                "Not Authenticated",
-                "Looks like you're not logged in. Try logging in first.")
         }
     }
 

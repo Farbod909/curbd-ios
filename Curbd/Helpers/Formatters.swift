@@ -9,6 +9,19 @@
 import Foundation
 import Eureka
 
+class TimeIntervalFormatter {
+    static func humanReadableStringFrom(_ timeIntervalMinutes: Int) -> String {
+        var humanReadableString = ""
+
+        humanReadableString += String(timeIntervalMinutes / 60) + " hr"
+        if timeIntervalMinutes % 60 > 0 {
+            humanReadableString += " " + String(timeIntervalMinutes % 60) + " min"
+        }
+
+        return humanReadableString
+    }
+}
+
 /**
  Taken from https://gist.github.com/moshegutman/5e91f6b892f5ac1e4fbedc86c95e58f9
  */
