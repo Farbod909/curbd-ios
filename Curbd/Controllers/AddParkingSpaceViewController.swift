@@ -12,6 +12,8 @@ import MapKit
 
 class AddParkingSpaceViewController: FormViewController {
 
+    var loadingView = LoadingView()
+
     func initializeSettings() {
         animateScroll = true
     }
@@ -129,6 +131,23 @@ class AddParkingSpaceViewController: FormViewController {
             }
     }
 
+    func startLoading() {
+        loadingView.center = view.center
+        view.addSubview(loadingView)
+        loadingView.startLoading()
+
+        // disable 'next' button
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+
+    func stopLoading() {
+        loadingView.stopLoading()
+        loadingView.removeFromSuperview()
+
+        // enable 'next' button again
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+
     @IBAction func nextButtonClick(_ sender: UIBarButtonItem) {
         let parkingSpaceDetailTableViewController = UIStoryboard(
             name: "Main",
@@ -169,6 +188,8 @@ class AddParkingSpaceViewController: FormViewController {
                     }
                 }
 
+                startLoading()
+
                 ParkingSpace.create(
                     withToken: token,
                     address1: address1,
@@ -184,6 +205,8 @@ class AddParkingSpaceViewController: FormViewController {
                     instructions: instructions,
                     sizeDescription: sizeString,
                     images: images) { error, parkingSpace in
+
+                        self.stopLoading()
 
                         if let parkingSpace = parkingSpace {
                             parkingSpaceDetailTableViewController.isPreview = true

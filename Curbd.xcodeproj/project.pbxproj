@@ -72,6 +72,7 @@
 		8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61141F67A6F000AB6BF1 /* Assets.xcassets */; };
 		8EDA61181F67A6F000AB6BF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA61161F67A6F000AB6BF1 /* LaunchScreen.storyboard */; };
 		8EDD0D32212FE9AC00C81B16 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDD0D31212FE9AC00C81B16 /* Formatters.swift */; };
+		8EE7583A2137BF7900E4F1C9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE758392137BF7900E4F1C9 /* LoadingView.swift */; };
 		8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */; };
 		8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC462E20844A6F00ED527F /* LoginViewController.swift */; };
 		8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC463020844D3400ED527F /* HollowTextField.swift */; };
@@ -152,6 +153,7 @@
 		8EDA61171F67A6F000AB6BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EDA61191F67A6F000AB6BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EDD0D31212FE9AC00C81B16 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		8EE758392137BF7900E4F1C9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8EEC462C20840CAF00ED527F /* AuthenticationRequiredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequiredViewController.swift; sourceTree = "<group>"; };
 		8EEC462E20844A6F00ED527F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8EEC463020844D3400ED527F /* HollowTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowTextField.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				8E0CA4612084962400C9F470 /* ShadowLabel.swift */,
 				8E0CA4632084968400C9F470 /* BasicShadowButton.swift */,
 				8E2104F02085378100C0B62A /* MapButton.swift */,
+				8EE758392137BF7900E4F1C9 /* LoadingView.swift */,
 			);
 			path = StylizedUIElements;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E0CA4622084962400C9F470 /* ShadowLabel.swift in Sources */,
 				8E5048A520EB38B200580232 /* ReportTableViewController.swift in Sources */,
+				8EE7583A2137BF7900E4F1C9 /* LoadingView.swift in Sources */,
 				8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */,
 				8E3F47D2208EEC87003451C1 /* SignupNameViewController.swift in Sources */,
 				8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */,

@@ -173,6 +173,10 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         switch status {
         case .error:
+
+            // TODO: delete reservation
+            
+
             self.presentSingleButtonAlert(
                 title: "Error",
                 message: error?.localizedDescription ?? "")
