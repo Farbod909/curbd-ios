@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VehicleDetailTableViewController: UITableViewController {
+class VehicleDetailTableViewController: UITableViewController, LoadingViewProtocol {
 
     @IBOutlet weak var vehicleYearCell: UITableViewCell!
     @IBOutlet weak var vehicleMakeCell: UITableViewCell!
@@ -19,6 +19,7 @@ class VehicleDetailTableViewController: UITableViewController {
     @IBOutlet weak var vehicleLicensePlateCell: UITableViewCell!
 
     var vehicle: Vehicle?
+    var loadingView = LoadingView()
 
     override func viewDidLoad() {
         if let vehicle = vehicle {
@@ -49,12 +50,14 @@ class VehicleDetailTableViewController: UITableViewController {
                         // user confirmed deletion
                         if  let token = UserDefaults.standard.string(forKey: "token"),
                             let vehicle = self.vehicle {
+                            self.startLoading()
                             vehicle.delete(withToken: token) { error in
+                                self.stopLoading()
                                 if error == nil {
                                     if vehicle.isCurrentVehicle() {
                                         Vehicle.unsetCurrentVehicle()
                                     }
-                                    self.navigationController?.popViewController(animated: true)
+                                    self.performSegue(withIdentifier: "unwindToVehiclesListAfterModifying", sender: self)
                                 } else {
                                     self.presentServerErrorAlert()
                                 }
@@ -65,6 +68,16 @@ class VehicleDetailTableViewController: UITableViewController {
 
             }
         }
+    }
+
+    func startLoading() {
+        view.addSubview(loadingView)
+        loadingView.start()
+    }
+
+    func stopLoading() {
+        loadingView.stop()
+        loadingView.removeFromSuperview()
     }
     
 }

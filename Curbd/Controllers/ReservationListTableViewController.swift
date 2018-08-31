@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class ReservationListTableViewController: UITableViewController {
     
@@ -14,6 +15,11 @@ class ReservationListTableViewController: UITableViewController {
     var isHost = false
     var currentReservations = [Reservation]()
     var previousReservations = [Reservation]()
+    var activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .white, padding: nil)
+    // the number of requests that will be made to load resources for this page
+    // the reason we have this is to decrement it when a resources has
+    // finished loading and stop loading animations when the variable reaches 0.
+    var requestsNum = 2
 
     func initializeSettings() {
         tableView.delegate = self
@@ -34,41 +40,60 @@ class ReservationListTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         if let token = UserDefaults.standard.string(forKey: "token") {
+            if currentReservations.isEmpty && previousReservations.isEmpty {
+                self.startLoading()
+            }
             if let parkingSpace = parkingSpace {
+                // show reservations for a specific parking space
                 parkingSpace.getCurrentReservations(withToken: token) { error, reservations in
+                    self.requestsNum -= 1
+                    if self.requestsNum == 0 { self.stopLoading() }
                     if let reservations = reservations {
                         self.currentReservations = reservations
                         self.tableView.reloadData()
                     }
                 }
                 parkingSpace.getPreviousReservations(withToken: token) { error, reservations in
+                    self.requestsNum -= 1
+                    if self.requestsNum == 0 { self.stopLoading() }
                     if let reservations = reservations {
                         self.previousReservations = reservations
                         self.tableView.reloadData()
                     }
                 }
             } else {
+                // show reservations for a user
                 if isHost {
+                    // show reservations for all listings of a host
                     User.getHostCurrentReservations(withToken: token) { error, reservations in
+                        self.requestsNum -= 1
+                        if self.requestsNum == 0 { self.stopLoading() }
                         if let reservations = reservations {
                             self.currentReservations = reservations
                             self.tableView.reloadData()
                         }
                     }
                     User.getHostPreviousReservations(withToken: token) { error, reservations in
+                        self.requestsNum -= 1
+                        if self.requestsNum == 0 { self.stopLoading() }
                         if let reservations = reservations {
                             self.previousReservations = reservations
                             self.tableView.reloadData()
                         }
                     }
                 } else {
+                    // show all reservations a customer has made
                     User.getCurrentReservations(withToken: token) { error, reservations in
+                        self.requestsNum -= 1
+                        if self.requestsNum == 0 { self.stopLoading() }
                         if let reservations = reservations {
                             self.currentReservations = reservations
                             self.tableView.reloadData()
                         }
                     }
                     User.getPreviousReservations(withToken: token) { error, reservations in
+                        self.requestsNum -= 1
+                        if self.requestsNum == 0 { self.stopLoading() }
                         if let reservations = reservations {
                             self.previousReservations = reservations
                             self.tableView.reloadData()
@@ -187,5 +212,16 @@ class ReservationListTableViewController: UITableViewController {
             }
         }
     }
-    
+
+    func startLoading() {
+        navigationItem.titleView = activityIndicator
+        activityIndicator.startAnimating()
+    }
+
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        navigationItem.titleView = nil
+        navigationItem.title = "Reservations"
+    }
+
 }

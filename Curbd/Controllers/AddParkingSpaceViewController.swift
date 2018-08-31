@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import MapKit
 
-class AddParkingSpaceViewController: FormViewController {
+class AddParkingSpaceViewController: FormViewController, LoadingViewProtocol {
 
     var loadingView = LoadingView()
 
@@ -132,16 +132,15 @@ class AddParkingSpaceViewController: FormViewController {
     }
 
     func startLoading() {
-        loadingView.center = view.center
         view.addSubview(loadingView)
-        loadingView.startLoading()
+        loadingView.start()
 
         // disable 'next' button
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
 
     func stopLoading() {
-        loadingView.stopLoading()
+        loadingView.stop()
         loadingView.removeFromSuperview()
 
         // enable 'next' button again

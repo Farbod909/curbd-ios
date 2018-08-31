@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import ImageSlideshow
 
-class ReservationDetailTableViewController: UITableViewController {
+class ReservationDetailTableViewController: UITableViewController, LoadingViewProtocol {
 
     var reservation: Reservation?
     // Determines if the reservation a current one or a previous one
     var isCurrent: Bool?
     var hostContactPhone: String?
+    var loadingView = LoadingView()
 
     @IBOutlet weak var parkingSpaceDetailCell: UITableViewCell!
     @IBOutlet weak var mapView: MKMapView!
@@ -182,7 +183,9 @@ class ReservationDetailTableViewController: UITableViewController {
                 // "Cancel Reservation" was clicked
                 presentConfirmationAlert(title: "Are You Sure?", message: "Are you sure you would like to cancel this reservation?") { alert in
                     if let token = UserDefaults.standard.string(forKey: "token") {
+                        self.startLoading()
                         self.reservation?.cancel(withToken: token) { error in
+                            self.stopLoading()
                             if error != nil {
                                 self.presentServerErrorAlert()
                             } else {
@@ -208,4 +211,14 @@ class ReservationDetailTableViewController: UITableViewController {
     }
 
     @IBAction func unwindToReservationDetailTableViewController(segue:UIStoryboardSegue) { }
+
+    func startLoading() {
+        view.addSubview(loadingView)
+        loadingView.start()
+    }
+
+    func stopLoading() {
+        loadingView.removeFromSuperview()
+        loadingView.stop()
+    }
 }

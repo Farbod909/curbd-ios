@@ -8,6 +8,9 @@ PODS:
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
   - Kingfisher (4.8.1)
+  - NVActivityIndicatorView (4.3.0):
+    - NVActivityIndicatorView/Presenter (= 4.3.0)
+  - NVActivityIndicatorView/Presenter (4.3.0)
   - Pulley (2.4.3)
   - Stripe (13.1.0)
   - SwiftyJSON (4.1.0)
@@ -17,6 +20,7 @@ DEPENDENCIES:
   - Eureka
   - ImageSlideshow
   - ImageSlideshow/Kingfisher
+  - NVActivityIndicatorView
   - Pulley
   - Stripe
   - SwiftyJSON
@@ -27,6 +31,7 @@ SPEC REPOS:
     - Eureka
     - ImageSlideshow
     - Kingfisher
+    - NVActivityIndicatorView
     - Pulley
     - Stripe
     - SwiftyJSON
@@ -36,10 +41,11 @@ SPEC CHECKSUMS:
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
   Pulley: 8da0464c517b66e0c17035e23bfa432e6dfad265
   Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 83330b383d574c759a3438d800a6d27b10124e76
+PODFILE CHECKSUM: 1bc2c3a7b53ba0469c2e2f408b514914df1bfc61
 
 COCOAPODS: 1.5.3

@@ -7,22 +7,28 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+
+protocol LoadingViewProtocol {
+    var loadingView: LoadingView { get set }
+    func startLoading()
+    func stopLoading()
+}
 
 class LoadingView: UIView {
     static let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
-    var activityIndicator: UIActivityIndicatorView
+    var activityIndicator: NVActivityIndicatorView
 
     init() {
-        self.activityIndicator = UIActivityIndicatorView(frame: LoadingView.rect)
-        self.activityIndicator.hidesWhenStopped = true
-        self.activityIndicator.activityIndicatorViewStyle = .gray
+        self.activityIndicator = NVActivityIndicatorView(frame: LoadingView.rect, type: defaultLoadingStyle, color: .gray, padding: 10)
 
         super.init(frame: LoadingView.rect)
 
+        self.center = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * 0.5)
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 10
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowRadius = 8
         self.layer.shadowPath = UIBezierPath(
@@ -34,11 +40,11 @@ class LoadingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func startLoading() {
+    func start() {
         activityIndicator.startAnimating()
     }
 
-    func stopLoading() {
+    func stop() {
         activityIndicator.stopAnimating()
     }
 }

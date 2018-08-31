@@ -8,10 +8,12 @@
 
 import UIKit
 import MapKit
+import NVActivityIndicatorView
 
 class ParkingSpaceListTableViewController: UITableViewController {
 
     var parkingSpaces = [ParkingSpace]()
+    var activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .white, padding: nil)
 
     func initializeSettings() {
         tableView.delegate = self
@@ -30,7 +32,11 @@ class ParkingSpaceListTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         if let token = UserDefaults.standard.string(forKey: "token") {
+            if parkingSpaces.isEmpty {
+                startLoading()
+            }
             User.getHostParkingSpaces(withToken: token) { error, parkingSpaces in
+                self.stopLoading()
                 if let parkingSpaces = parkingSpaces {
                     self.parkingSpaces = parkingSpaces
                     self.tableView.reloadData()
@@ -95,6 +101,21 @@ class ParkingSpaceListTableViewController: UITableViewController {
                 }
             }
         }
+    }
+
+    @IBAction func unwindToParkingSpacesListAfterModifying(segue:UIStoryboardSegue) {
+        startLoading()
+    }
+
+    func startLoading() {
+        navigationItem.titleView = activityIndicator
+        activityIndicator.startAnimating()
+    }
+
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        navigationItem.titleView = nil
+        navigationItem.title = "Listings"
     }
 }
 

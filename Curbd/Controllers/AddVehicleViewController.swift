@@ -9,7 +9,9 @@
 import UIKit
 import Eureka
 
-class AddVehicleViewController: FormViewController {
+class AddVehicleViewController: FormViewController, LoadingViewProtocol {
+
+    var loadingView = LoadingView()
 
     func initializeSettings() {
         animateScroll = true
@@ -147,6 +149,7 @@ class AddVehicleViewController: FormViewController {
             let licensePlate = (form.rowBy(tag: "license plate") as? TextRow)?.value {
 
             if let token = UserDefaults.standard.string(forKey: "token") {
+                startLoading()
                 Vehicle.create(
                     withToken: token,
                     year: year,
@@ -155,10 +158,11 @@ class AddVehicleViewController: FormViewController {
                     color: color,
                     size: size,
                     licensePlate: licensePlate) { error, vehicle in
+                        self.stopLoading()
 
                         if let vehicle = vehicle {
                             vehicle.setAsCurrentVehicle()
-                            self.navigationController?.popViewController(animated: true)
+                            self.performSegue(withIdentifier: "unwindToVehiclesListAfterModifying", sender: self)
                         } else {
                             if let error = error as? ValidationError {
                                 self.presentValidationErrorAlert(from: error)
@@ -176,4 +180,21 @@ class AddVehicleViewController: FormViewController {
                 message: "Please make sure all fields are completed.")
         }
     }
+
+    func startLoading() {
+        view.addSubview(loadingView)
+        loadingView.start()
+
+        // disable 'save' button
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+
+    func stopLoading() {
+        loadingView.stop()
+        loadingView.removeFromSuperview()
+
+        // enable 'save' button again
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+
 }

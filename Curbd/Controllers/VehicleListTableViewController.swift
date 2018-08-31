@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NVActivityIndicatorView
 
 class VehicleListTableViewController: UITableViewController {
 
@@ -16,6 +17,7 @@ class VehicleListTableViewController: UITableViewController {
     // presented via clicking on "vehicles" in the user menu or if
     // it was presented via clicking on the current vehicle button.
     var presentedViaUserMenu = true
+    var activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .white, padding: nil)
 
     func initializeSettings() {
         tableView.delegate = self
@@ -41,7 +43,11 @@ class VehicleListTableViewController: UITableViewController {
         // their current vehicle, this tableview needs
         // to be updated to reflect that change.
         if let token = UserDefaults.standard.string(forKey: "token") {
+            if vehicles.isEmpty {
+                startLoading()
+            }
             User.getCustomerVehicles(withToken: token) { error, vehicles in
+                self.stopLoading()
                 if let vehicles = vehicles {
                     self.vehicles = vehicles
                     // perform this check in case user deleted the current vehicle
@@ -97,5 +103,21 @@ class VehicleListTableViewController: UITableViewController {
             }
         }
     }
+
+    @IBAction func unwindToVehiclesListAfterModifying(segue:UIStoryboardSegue) {
+        startLoading()
+    }
+
+    func startLoading() {
+        navigationItem.titleView = activityIndicator
+        activityIndicator.startAnimating()
+    }
+
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        navigationItem.titleView = nil
+        navigationItem.title = "Vehicles"
+    }
+
 
 }

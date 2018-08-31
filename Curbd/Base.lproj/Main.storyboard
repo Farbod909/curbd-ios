@@ -1289,9 +1289,11 @@
                         <outlet property="vehicleModelCell" destination="e2h-4P-Mmx" id="Hu0-BZ-Ws6"/>
                         <outlet property="vehicleSizeCell" destination="Ijq-0L-jNl" id="DmV-8J-gPO"/>
                         <outlet property="vehicleYearCell" destination="zbS-Bk-Gdz" id="45b-9Q-Ffc"/>
+                        <segue destination="SfL-AL-rdm" kind="unwind" identifier="unwindToVehiclesListAfterModifying" unwindAction="unwindToVehiclesListAfterModifyingWithSegue:" id="cP6-Eh-qIA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpM-b2-Ray" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SfL-AL-rdm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3732" y="-1348"/>
         </scene>
@@ -1406,8 +1408,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Inj-iT-E5z"/>
+                    <connections>
+                        <segue destination="4TQ-Qr-iDf" kind="unwind" identifier="unwindToVehiclesListAfterModifying" unwindAction="unwindToVehiclesListAfterModifyingWithSegue:" id="tes-wu-95b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MID-PS-0YM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4TQ-Qr-iDf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3732" y="-2053"/>
         </scene>
@@ -2704,6 +2710,7 @@
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <segue destination="I4I-bc-z1M" kind="unwind" identifier="unwindToUserMenuViewController" unwindAction="unwindToUserMenuViewControllerWithSegue:" id="Q0Z-RG-fjX"/>
+                        <segue destination="I4I-bc-z1M" kind="unwind" identifier="unwindToParkingSpacesListAfterModifying" unwindAction="unwindToParkingSpacesListAfterModifyingWithSegue:" id="jX9-40-QuK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJA-4I-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>

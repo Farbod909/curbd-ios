@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoadingViewProtocol {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+
+    var loadingView = LoadingView()
 
     override func viewDidLoad() {
         emailField.becomeFirstResponder()
@@ -34,7 +36,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonClick(_ sender: UIButton) {
+        startLoading()
         User.login(username: emailField.text!, password: passwordField.text!) { error in
+            self.stopLoading()
             if error != nil {
                 if let _ = error as? ValidationError {
                     self.presentSingleButtonAlert(
@@ -49,5 +53,15 @@ class LoginViewController: UIViewController {
                     sender: self)
             }
         }
+    }
+
+    func startLoading() {
+        view.addSubview(loadingView)
+        loadingView.start()
+    }
+
+    func stopLoading() {
+        view.removeFromSuperview()
+        loadingView.stop()
     }
 }
