@@ -9,12 +9,6 @@
 import UIKit
 import NVActivityIndicatorView
 
-protocol LoadingViewProtocol {
-    var loadingView: LoadingView { get set }
-    func startLoading()
-    func stopLoading()
-}
-
 class LoadingView: UIView {
     static let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
     var activityIndicator: NVActivityIndicatorView

@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Pulley
+import NVActivityIndicatorView
 
 class MapViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var accountButtonSpacingFromTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentVehicleButtonSpacingFromTopConstraint: NSLayoutConstraint!
+    var redoSearchActivityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .gray, padding: nil)
 
     private let locationManager: CLLocationManager = LocationManager.shared
     var currentlyDisplayedParkingSpaces = [ParkingSpaceWithAnnotation]()
@@ -214,6 +216,7 @@ class MapViewController: UIViewController {
         let bottomLeftCoordinate: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRightCoordinate: CLLocationCoordinate2D = mapView.getNECoordinate()
 
+        startLoadingRedoSearch()
         ParkingSpace.search(
             bl_lat: bottomLeftCoordinate.latitude,
             bl_long: bottomLeftCoordinate.longitude,
@@ -221,7 +224,12 @@ class MapViewController: UIViewController {
             tr_long: topRightCoordinate.longitude,
             from: startDate,
             to: endDate) { parkingSpaces in
+
                 if let parkingSpaces = parkingSpaces {
+                    self.redoSearchButton.fadeOut(0.1) { _ in
+                        self.stopLoadingRedoSearch()
+                    }
+
                     if alertIfNotFound && parkingSpaces.isEmpty {
                         // alert user that no parking spaces were found
                         self.presentSingleButtonAlert(
@@ -258,7 +266,6 @@ class MapViewController: UIViewController {
                             self.mapView.selectAnnotation(firstAnnotation, animated: false)
                         }
                     }
-                    self.redoSearchButton.fadeOut(0.1)
                 } else {
                     // http request failed. Let it fail silently. shhhh...
                 }
@@ -397,6 +404,21 @@ extension MapViewController: MKMapViewDelegate {
             isNextRegionChangeFromUserInteraction = false
             redoSearchButton.fadeIn(0.1)
         }
+    }
+
+    func startLoadingRedoSearch() {
+        redoSearchButton.isEnabled = false
+        let buttonHeight = redoSearchButton.bounds.size.height
+        let buttonWidth = redoSearchButton.bounds.size.width
+        redoSearchActivityIndicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
+        redoSearchButton.addSubview(redoSearchActivityIndicator)
+        redoSearchActivityIndicator.startAnimating()
+    }
+
+    func stopLoadingRedoSearch() {
+        redoSearchButton.isEnabled = true
+        redoSearchActivityIndicator.removeFromSuperview()
+        redoSearchActivityIndicator.stopAnimating()
     }
 
 }
