@@ -39,6 +39,9 @@ class ParkingSpaceListTableViewController: UITableViewController {
                 self.stopLoading()
                 if let parkingSpaces = parkingSpaces {
                     self.parkingSpaces = parkingSpaces
+                    if self.parkingSpaces.isEmpty {
+                        self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
+                    }
                     self.tableView.reloadData()
                 }
             }

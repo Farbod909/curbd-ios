@@ -50,6 +50,9 @@ class VehicleListTableViewController: UITableViewController {
                 self.stopLoading()
                 if let vehicles = vehicles {
                     self.vehicles = vehicles
+                    if vehicles.isEmpty {
+                        self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
+                    }
                     // perform this check in case user deleted the current vehicle
                     if !Vehicle.currentVehicleIsSet() {
                         vehicles.first?.setAsCurrentVehicle()

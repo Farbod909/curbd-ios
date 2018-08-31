@@ -17,6 +17,7 @@
 		8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */; };
 		8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C3E1F6886C1000BBBDB /* LocationManager.swift */; };
 		8E2104F12085378100C0B62A /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* MapButton.swift */; };
+		8E3D22E421393AAC00448948 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D22E321393AAC00448948 /* EmptyTableView.swift */; };
 		8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */; };
 		8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */; };
 		8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */; };
@@ -96,6 +97,7 @@
 		8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDrawerViewController.swift; sourceTree = "<group>"; };
 		8E136C3E1F6886C1000BBBDB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E2104F02085378100C0B62A /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
+		8E3D22E321393AAC00448948 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTranslucentViewController.swift; sourceTree = "<group>"; };
 		8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTranslucentViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				8E0CA4632084968400C9F470 /* BasicShadowButton.swift */,
 				8E2104F02085378100C0B62A /* MapButton.swift */,
 				8EE758392137BF7900E4F1C9 /* LoadingView.swift */,
+				8E3D22E321393AAC00448948 /* EmptyTableView.swift */,
 			);
 			path = StylizedUIElements;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				8ED92C4B2128D9F30039A49B /* HostReservationDetailTableViewController.swift in Sources */,
 				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,
 				8E5048A920EB416700580232 /* ReservationExtensionViewController.swift in Sources */,
+				8E3D22E421393AAC00448948 /* EmptyTableView.swift in Sources */,
 				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
 				8E5DAE5320ED45C200341251 /* ImageRow.swift in Sources */,
 				8E5DAE5F20EDA2C000341251 /* AddFixedAvailabilityViewController.swift in Sources */,
