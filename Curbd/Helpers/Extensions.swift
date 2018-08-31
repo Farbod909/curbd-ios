@@ -53,8 +53,8 @@ extension UIViewController {
     func presentValidationErrorAlert(from error: ValidationError,
                                      completion: ((UIAlertAction) -> Void)? = nil) {
         var message = ""
-        for (_, value) in error.fields {
-            message += "\(value)\n".firstLetterCapitalized()
+        for (key, value) in error.fields {
+            message += "\(key.replacingOccurrences(of: "_", with: " ")): \(value)\n".firstLetterCapitalized()
         }
         self.presentSingleButtonAlert(
             title: "Invalid Fields",
@@ -67,6 +67,24 @@ extension UIViewController {
             title: "Server Error",
             message: "Oops, something went wrong. Try again later!",
             completion: completion)
+    }
+
+    func startLoading(_ loadingView: LoadingView, disabledButton: UIBarButtonItem? = nil) {
+        view.addSubview(loadingView)
+        loadingView.start()
+
+        if let button = disabledButton {
+            button.isEnabled = false
+        }
+    }
+
+    func stopLoading(_ loadingView: LoadingView, disabledButton: UIBarButtonItem? = nil) {
+        loadingView.removeFromSuperview()
+        loadingView.stop()
+
+        if let button = disabledButton {
+            button.isEnabled = true
+        }
     }
 
 }

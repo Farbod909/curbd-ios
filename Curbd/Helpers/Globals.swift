@@ -11,5 +11,5 @@ import UIKit
 import NVActivityIndicatorView
 
 let baseURL = "https://curbd-app.appspot.com"
-let defaultLoadingStyle = NVActivityIndicatorType.lineScalePulseOut
+let defaultLoadingStyle = NVActivityIndicatorType.circleStrokeSpin
 let iphoneX = UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436

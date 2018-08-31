@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 
-class AddVehicleViewController: FormViewController, LoadingViewProtocol {
+class AddVehicleViewController: FormViewController {
 
     var loadingView = LoadingView()
 
@@ -149,7 +149,8 @@ class AddVehicleViewController: FormViewController, LoadingViewProtocol {
             let licensePlate = (form.rowBy(tag: "license plate") as? TextRow)?.value {
 
             if let token = UserDefaults.standard.string(forKey: "token") {
-                startLoading()
+                startLoading(loadingView, disabledButton: navigationItem.rightBarButtonItem)
+//                navigationItem.rightBarButtonItem?.isEnabled = false
                 Vehicle.create(
                     withToken: token,
                     year: year,
@@ -158,7 +159,10 @@ class AddVehicleViewController: FormViewController, LoadingViewProtocol {
                     color: color,
                     size: size,
                     licensePlate: licensePlate) { error, vehicle in
-                        self.stopLoading()
+                        self.stopLoading(
+                            self.loadingView,
+                            disabledButton: self.navigationItem.rightBarButtonItem)
+//                        self.navigationItem.rightBarButtonItem?.isEnabled = true
 
                         if let vehicle = vehicle {
                             vehicle.setAsCurrentVehicle()
@@ -180,21 +184,4 @@ class AddVehicleViewController: FormViewController, LoadingViewProtocol {
                 message: "Please make sure all fields are completed.")
         }
     }
-
-    func startLoading() {
-        view.addSubview(loadingView)
-        loadingView.start()
-
-        // disable 'save' button
-        navigationItem.rightBarButtonItem?.isEnabled = false
-    }
-
-    func stopLoading() {
-        loadingView.stop()
-        loadingView.removeFromSuperview()
-
-        // enable 'save' button again
-        navigationItem.rightBarButtonItem?.isEnabled = true
-    }
-
 }

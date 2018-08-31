@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import MapKit
 
-class AddParkingSpaceViewController: FormViewController, LoadingViewProtocol {
+class AddParkingSpaceViewController: FormViewController {
 
     var loadingView = LoadingView()
 
@@ -131,22 +131,6 @@ class AddParkingSpaceViewController: FormViewController, LoadingViewProtocol {
             }
     }
 
-    func startLoading() {
-        view.addSubview(loadingView)
-        loadingView.start()
-
-        // disable 'next' button
-        navigationItem.rightBarButtonItem?.isEnabled = false
-    }
-
-    func stopLoading() {
-        loadingView.stop()
-        loadingView.removeFromSuperview()
-
-        // enable 'next' button again
-        navigationItem.rightBarButtonItem?.isEnabled = true
-    }
-
     @IBAction func nextButtonClick(_ sender: UIBarButtonItem) {
         let parkingSpaceDetailTableViewController = UIStoryboard(
             name: "Main",
@@ -187,7 +171,7 @@ class AddParkingSpaceViewController: FormViewController, LoadingViewProtocol {
                     }
                 }
 
-                startLoading()
+                startLoading(loadingView, disabledButton: navigationItem.rightBarButtonItem)
 
                 ParkingSpace.create(
                     withToken: token,
@@ -205,7 +189,9 @@ class AddParkingSpaceViewController: FormViewController, LoadingViewProtocol {
                     sizeDescription: sizeString,
                     images: images) { error, parkingSpace in
 
-                        self.stopLoading()
+                        self.stopLoading(
+                            self.loadingView,
+                            disabledButton: self.navigationItem.rightBarButtonItem)
 
                         if let parkingSpace = parkingSpace {
                             parkingSpaceDetailTableViewController.isPreview = true

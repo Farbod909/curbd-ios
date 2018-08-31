@@ -29,6 +29,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
     var pricing: Int?
 
     var paymentContext: STPPaymentContext?
+    var loadingView = LoadingView()
 
     func initializeAppearanceSettings() {
         mapView.layer.cornerRadius = 10
@@ -120,6 +121,7 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
             if let token = UserDefaults.standard.string(forKey: "token") {
                 if let currentVehicleID = UserDefaults.standard.string(forKey: "vehicle_id") {
 
+                    startLoading(loadingView)
                     Reservation.create(
                         withToken: token,
                         for: parkingSpace,
@@ -128,7 +130,6 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                         to: leaveDate,
                         cost: paymentContext.paymentAmount,
                         paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { error in
-
                             if error == nil {
                                 PaymentClient.sharedClient.completeCharge(
                                     paymentResult,
@@ -138,6 +139,7 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                                     completion: completion)
 
                             } else {
+                                self.stopLoading(self.loadingView)
                                 self.presentServerErrorAlert() { action in
                                     self.performSegue(
                                         withIdentifier:
@@ -171,12 +173,14 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+
+        stopLoading(loadingView)
+
         switch status {
         case .error:
 
             // TODO: delete reservation
             
-
             self.presentSingleButtonAlert(
                 title: "Error",
                 message: error?.localizedDescription ?? "")

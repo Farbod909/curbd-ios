@@ -18,6 +18,7 @@ class SignupPasswordViewController: UIViewController {
     var lastName: String?
     var email: String?
     var phone: String?
+    var loadingView = LoadingView()
 
     func initializeAppearanceSettings() {
         view.backgroundColor = UIColor(hex: "222222")
@@ -39,12 +40,14 @@ class SignupPasswordViewController: UIViewController {
                     let phone = phone?.trim(),
                     let password = passwordTextField.text {
 
+                    startLoading(loadingView)
                     User.create(
                         firstName: firstName,
                         lastName: lastName,
                         email: email,
                         phone: phone,
                         password: password) { error, user in
+                            self.stopLoading(self.loadingView)
 
                             if error != nil {
                                 if let error = error as? ValidationError {
