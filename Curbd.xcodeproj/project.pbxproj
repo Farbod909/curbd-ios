@@ -62,7 +62,7 @@
 		8EC8F780207AA1DA0038790E /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F77F207AA1DA0038790E /* Globals.swift */; };
 		8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F784207ACECD0038790E /* ParkingSpace.swift */; };
 		8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78820808E070038790E /* ParkingSpaceDrawerViewController.swift */; };
-		8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */; };
+		8EC8F78B2081C7470038790E /* ParkingSpaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78A2081C7470038790E /* ParkingSpaceAnnotation.swift */; };
 		8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F78C2082B22F0038790E /* Extensions.swift */; };
 		8EC8F7912082B7D20038790E /* ParkingPulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */; };
 		8ED92C47211EBA280039A49B /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED92C46211EBA280039A49B /* Address.swift */; };
@@ -142,7 +142,7 @@
 		8EC8F77F207AA1DA0038790E /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		8EC8F784207ACECD0038790E /* ParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpace.swift; sourceTree = "<group>"; };
 		8EC8F78820808E070038790E /* ParkingSpaceDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceDrawerViewController.swift; sourceTree = "<group>"; };
-		8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceWithAnnotation.swift; sourceTree = "<group>"; };
+		8EC8F78A2081C7470038790E /* ParkingSpaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceAnnotation.swift; sourceTree = "<group>"; };
 		8EC8F78C2082B22F0038790E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8EC8F7902082B7D20038790E /* ParkingPulleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPulleyViewController.swift; sourceTree = "<group>"; };
 		8ED92C46211EBA280039A49B /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 				8E2104F02085378100C0B62A /* MapButton.swift */,
 				8EE758392137BF7900E4F1C9 /* LoadingView.swift */,
 				8E3D22E321393AAC00448948 /* EmptyTableView.swift */,
+				8EC8F78A2081C7470038790E /* ParkingSpaceAnnotation.swift */,
 			);
 			path = StylizedUIElements;
 			sourceTree = "<group>";
@@ -254,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				8EC8F784207ACECD0038790E /* ParkingSpace.swift */,
-				8EC8F78A2081C7470038790E /* ParkingSpaceWithAnnotation.swift */,
 				8E0CA45D208464C000C9F470 /* User.swift */,
 				8E7B5DF32086ECC8000926C1 /* Vehicle.swift */,
 				8E7B5DFB2089A5ED000926C1 /* Reservation.swift */,
@@ -542,7 +542,7 @@
 				8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,
 				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
-				8EC8F78B2081C7470038790E /* ParkingSpaceWithAnnotation.swift in Sources */,
+				8EC8F78B2081C7470038790E /* ParkingSpaceAnnotation.swift in Sources */,
 				8E5DAE5D20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
 				8EEC462F20844A6F00ED527F /* LoginViewController.swift in Sources */,

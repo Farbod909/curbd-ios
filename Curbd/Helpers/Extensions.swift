@@ -366,6 +366,10 @@ extension UIColor {
         return UIColor(hex: "555555")
     }
 
+    static var curbdPurple: UIColor {
+        return UIColor(hex: "8D2688")
+    }
+
     convenience init(hex hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()

@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
     var redoSearchActivityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .gray, padding: nil)
 
     private let locationManager: CLLocationManager = LocationManager.shared
-    var currentlyDisplayedParkingSpaces = [ParkingSpaceWithAnnotation]()
+    var currentlyDisplayedParkingSpaces = [ParkingSpaceAnnotation]()
     var isNextRegionChangeFromUserInteraction = false
 
     func initializeSettings() {
@@ -37,6 +37,14 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.distanceFilter = kCLDistanceFilterNone;
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+
+        if #available(iOS 11.0, *) {
+            mapView.register(
+                ParkingSpaceMarkerAnnotationView.self,
+                forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     func initializeAppearanceSettings() {
@@ -216,7 +224,7 @@ class MapViewController: UIViewController {
         let bottomLeftCoordinate: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRightCoordinate: CLLocationCoordinate2D = mapView.getNECoordinate()
 
-        startLoadingRedoSearch()
+        startRedoSearchLoadingAnimation()
         ParkingSpace.search(
             bl_lat: bottomLeftCoordinate.latitude,
             bl_long: bottomLeftCoordinate.longitude,
@@ -245,24 +253,25 @@ class MapViewController: UIViewController {
                     // space overlaps between previous search and this one
 
                     self.mapView.removeAnnotations(self.mapView.annotations)
-                    self.currentlyDisplayedParkingSpaces = []
-                    for parkingSpace in parkingSpaces {
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate = CLLocationCoordinate2DMake(
-                            parkingSpace.latitude,
-                            parkingSpace.longitude)
-
-                        annotation.title = parkingSpace.name
-                        self.mapView.addAnnotation(annotation)
-                        self.currentlyDisplayedParkingSpaces.append(
-                            ParkingSpaceWithAnnotation(
-                                parkingSpace: parkingSpace, annotation: annotation))
-                    }
+//                    self.currentlyDisplayedParkingSpaces = []
+//                    for parkingSpace in parkingSpaces {
+//                        let annotation = MKPointAnnotation()
+//                        annotation.coordinate = CLLocationCoordinate2DMake(
+//                            parkingSpace.latitude,
+//                            parkingSpace.longitude)
+//
+//                        annotation.title = parkingSpace.name
+//                        self.mapView.addAnnotation(annotation)
+//                        self.currentlyDisplayedParkingSpaces.append(
+//                            ParkingSpaceWithAnnotation(
+//                                parkingSpace: parkingSpace, annotation: annotation))
+//                    }
+                    self.currentlyDisplayedParkingSpaces = parkingSpaces.map { ParkingSpaceAnnotation($0) }
+                    self.mapView.addAnnotations(self.currentlyDisplayedParkingSpaces)
                     if selectFirstResult {
                         // if there is at least one parking space found,
                         // automatically select the first one.
-                        if let firstAnnotation =
-                            self.currentlyDisplayedParkingSpaces.first?.annotation {
+                        if let firstAnnotation = self.currentlyDisplayedParkingSpaces.first {
                             self.mapView.selectAnnotation(firstAnnotation, animated: false)
                         }
                     }
@@ -316,10 +325,10 @@ extension MapViewController: MKMapViewDelegate {
 
             // find parking space associated with selected annotation
             // and send it to the ParkingSpaceDrawerViewController.
-            for parkingSpaceWithAnnotation in currentlyDisplayedParkingSpaces {
-                if parkingSpaceWithAnnotation.annotation.isEqual(view.annotation) {
+            for parkingSpaceAnnotation in currentlyDisplayedParkingSpaces {
+                if parkingSpaceAnnotation.isEqual(view.annotation) {
                     parkingSpaceDrawerViewController.parkingSpace =
-                        parkingSpaceWithAnnotation.parkingSpace
+                        parkingSpaceAnnotation.parkingSpace
                 }
             }
 
@@ -406,7 +415,7 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
 
-    func startLoadingRedoSearch() {
+    func startRedoSearchLoadingAnimation() {
         redoSearchButton.isEnabled = false
         redoSearchButton.setTitle("", for: .normal)
         let buttonHeight = redoSearchButton.bounds.size.height
