@@ -20,6 +20,8 @@ class SearchDrawerViewController: UIViewController {
     @IBOutlet weak var arriveLeaveSeperator: UIView!
     @IBOutlet weak var leaveDisplayTitle: UILabel!
     @IBOutlet weak var leaveDisplayLabel: UILabel!
+    @IBOutlet weak var editArriveTimeButton: UIButton!
+    @IBOutlet weak var editLeaveTimeButton: UIButton!
     @IBOutlet weak var editTimesButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchResultsTableView: UITableView!
@@ -52,6 +54,13 @@ class SearchDrawerViewController: UIViewController {
 
         arriveDisplayLabel.text = arriveDate.toHumanReadable()
         leaveDisplayLabel.text = leaveDate.toHumanReadable()
+
+        let editArriveLabelTap = UITapGestureRecognizer(target: self, action: #selector(showArriveLeaveViewController))
+        let editLeaveLabelTap = UITapGestureRecognizer(target: self, action: #selector(showArriveLeaveViewController))
+        arriveDisplayLabel.isUserInteractionEnabled = true
+        arriveDisplayLabel.addGestureRecognizer(editArriveLabelTap)
+        leaveDisplayLabel.isUserInteractionEnabled = true
+        leaveDisplayLabel.addGestureRecognizer(editLeaveLabelTap)
     }
 
     func initializeAppearanceSettings() {
@@ -67,6 +76,12 @@ class SearchDrawerViewController: UIViewController {
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
         grabber.layer.masksToBounds = true
+
+        editArriveTimeButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        editArriveTimeButton.layer.cornerRadius = 4
+        editLeaveTimeButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        editLeaveTimeButton.layer.cornerRadius = 4
+
     }
 
     @objc func updateArriveAndLeaveDate() {
@@ -78,6 +93,15 @@ class SearchDrawerViewController: UIViewController {
             // TODO: Possibly implement reactive labels
             arriveDisplayLabel.text = arriveDate.toHumanReadable()
             leaveDisplayLabel.text = leaveDate.toHumanReadable()
+
+            // reperform search now that arrive and leave time have changed
+            if let mapViewController = parent?.childViewControllers[0] as? MapViewController {
+                mapViewController.locateParkingSpacesOnCurrentMapArea(
+                    from: arriveDate,
+                    to: leaveDate,
+                    alertIfNotFound: false,
+                    selectFirstResult: false)
+            }
         }
     }
 
@@ -122,6 +146,16 @@ class SearchDrawerViewController: UIViewController {
         }
     }
 
+    @objc func showArriveLeaveViewController() {
+        performSegue(withIdentifier: "showArriveLeaveVC", sender: self)
+    }
+
+    @IBAction func editArriveButtonClick(_ sender: UIButton) {
+        showArriveLeaveViewController()
+    }
+    @IBAction func editLeaveButtonClick(_ sender: UIButton) {
+        showArriveLeaveViewController()
+    }
     /**
      This function is called when another view controller unwinds back
      to this view controller. If the source is `ArriveLeaveViewController`,

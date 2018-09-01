@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import ImageSlideshow
+import Contacts
 
 class ReservationDetailTableViewController: UITableViewController {
 
@@ -142,6 +143,19 @@ class ReservationDetailTableViewController: UITableViewController {
     @objc func slideshowClick() {
         let fullScreenController = slideshow.presentFullScreenController(from: self)
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+    }
+
+    @IBAction func mapIconClick(_ sender: UIButton) {
+        if let reservation = reservation {
+            let coordinate = CLLocationCoordinate2D(
+                latitude: reservation.parkingSpace.latitude,
+                longitude: reservation.parkingSpace.longitude)
+            let placemark = MKPlacemark(coordinate: coordinate)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = reservation.parkingSpace.name
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            mapItem.openInMaps(launchOptions: launchOptions)
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

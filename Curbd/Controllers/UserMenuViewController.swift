@@ -64,7 +64,6 @@ extension UserMenuViewController: STPPaymentMethodsViewControllerDelegate {
     }
 
     func paymentMethodsViewControllerDidFinish(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
-        dismiss(animated: true)
     }
 
     func paymentMethodsViewControllerDidCancel(_ paymentMethodsViewController: STPPaymentMethodsViewController) {

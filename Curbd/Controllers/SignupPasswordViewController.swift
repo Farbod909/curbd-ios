@@ -60,13 +60,9 @@ class SignupPasswordViewController: UIViewController {
                                     if error != nil {
                                         self.presentServerErrorAlert()
                                     } else {
-                                        self.presentSingleButtonAlert(
-                                            title: "Success",
-                                            message: "Successfully created user.") { action in
-                                                self.performSegue(
-                                                    withIdentifier: "unwindToMapViewController",
-                                                    sender: self)
-                                        }
+                                        self.performSegue(
+                                            withIdentifier: "unwindToMapViewController",
+                                            sender: self)
                                     }
                                 }
                             }

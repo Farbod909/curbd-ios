@@ -60,7 +60,7 @@ class Reservation {
                        to end: Date,
                        cost: Int,
                        paymentMethodInfo: String,
-                       completion: @escaping (Error?) -> Void) {
+                       completion: @escaping (Error?, Reservation?) -> Void) {
 
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
@@ -82,10 +82,11 @@ class Reservation {
             parameters: parameters,
             headers: headers).validate().responseJSON() { response in
                 switch response.result {
-                case .success:
-                    completion(nil)
+                case .success(let value):
+                    let reservation = Reservation(json: JSON(value))
+                    completion(nil, reservation)
                 case .failure(let error):
-                    completion(error)
+                    completion(error, nil)
                 }
         }
     }
@@ -140,6 +141,25 @@ class Reservation {
                     completion(error)
                 }
         }
+    }
+
+    func delete(withToken token: String, completion: ((Error?) -> Void)? = nil) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/parking/reservations/\(id)/",
+            method: .delete,
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion?(nil)
+                case .failure(let error):
+                    completion?(error)
+                }
+        }
+
     }
 
 }

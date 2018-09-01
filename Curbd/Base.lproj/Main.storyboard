@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -86,7 +85,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpt-Tb-Aal">
                                 <rect key="frame" x="13" y="88" width="47.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.55294117649999996" green="0.14901960780000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:12 PM, Tomorrow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKN-kp-8VY">
@@ -104,7 +103,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3W2-QI-h51">
                                 <rect key="frame" x="13" y="30" width="48" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.55294117649999996" green="0.14901960780000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s64-Z5-BOf">
@@ -114,18 +113,46 @@
                                     <constraint firstAttribute="height" constant="1" id="C0D-s8-E2y"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdB-Fi-vam">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdB-Fi-vam">
                                 <rect key="frame" x="273" y="64" width="86" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Edit times"/>
+                                <state key="normal" title="Edit times">
+                                    <color key="titleColor" red="0.55294117649999996" green="0.14901960780000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="Hyf-HC-4Ea" kind="show" identifier="showArriveLeaveVC" id="ev6-9u-uBV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssK-Ow-nXr">
+                                <rect key="frame" x="180" y="53" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="bJH-Lw-oDM"/>
+                                    <constraint firstAttribute="height" constant="22" id="zt6-MU-yhh"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="chevron-right"/>
+                                <connections>
+                                    <action selector="editArriveButtonClick:" destination="693-38-st5" eventType="touchUpInside" id="aSo-4i-VB0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzH-Jw-iXF">
+                                <rect key="frame" x="153" y="111" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="Nhw-0k-oPT"/>
+                                    <constraint firstAttribute="height" constant="22" id="wRi-hA-6jW"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="chevron-right"/>
+                                <connections>
+                                    <action selector="editLeaveButtonClick:" destination="693-38-st5" eventType="touchUpInside" id="qPm-44-VQa"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="JeS-w2-EGC" firstAttribute="top" secondItem="naO-aX-tgh" secondAttribute="topMargin" constant="8" id="0BD-yy-lf5"/>
                             <constraint firstItem="s64-Z5-BOf" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leading" constant="13" id="2Rv-yk-ved"/>
+                            <constraint firstItem="ssK-Ow-nXr" firstAttribute="top" secondItem="3W2-QI-h51" secondAttribute="bottom" constant="1.5" id="2mZ-Om-Krf"/>
+                            <constraint firstItem="jzH-Jw-iXF" firstAttribute="top" secondItem="dpt-Tb-Aal" secondAttribute="bottom" constant="1.5" id="5sH-d9-3qK"/>
                             <constraint firstItem="7aW-sF-rNM" firstAttribute="top" secondItem="xKa-Ou-gBH" secondAttribute="bottom" constant="8" id="Agh-9e-hxr"/>
                             <constraint firstItem="3W2-QI-h51" firstAttribute="top" secondItem="oWd-60-di4" secondAttribute="bottom" constant="10" id="Aoc-I2-AZz"/>
                             <constraint firstItem="s64-Z5-BOf" firstAttribute="top" secondItem="WdB-Fi-vam" secondAttribute="bottom" constant="-18" id="BNJ-po-3aN"/>
@@ -134,14 +161,14 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3W2-QI-h51" secondAttribute="trailing" constant="10" id="GEQ-Mm-CWU"/>
                             <constraint firstItem="JeS-w2-EGC" firstAttribute="centerX" secondItem="naO-aX-tgh" secondAttribute="centerX" id="GU4-HI-cuR"/>
                             <constraint firstItem="jFa-1K-Lnt" firstAttribute="top" secondItem="dpt-Tb-Aal" secondAttribute="bottom" constant="1" id="GUj-eS-Bc5"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jFa-1K-Lnt" secondAttribute="trailing" constant="10" id="IqO-KZ-s0F"/>
                             <constraint firstItem="xKa-Ou-gBH" firstAttribute="trailing" secondItem="naO-aX-tgh" secondAttribute="trailingMargin" constant="6" id="JVx-8G-ghm"/>
                             <constraint firstItem="xKa-Ou-gBH" firstAttribute="top" secondItem="jFa-1K-Lnt" secondAttribute="bottom" constant="10" id="MO5-de-Srr"/>
                             <constraint firstItem="dKN-kp-8VY" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leading" constant="13" id="MWS-t6-d3Q"/>
+                            <constraint firstItem="jzH-Jw-iXF" firstAttribute="leading" secondItem="jFa-1K-Lnt" secondAttribute="trailing" constant="3.5" id="OQu-uo-lvx"/>
                             <constraint firstItem="3W2-QI-h51" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leading" constant="13" id="Waf-pA-Seo"/>
                             <constraint firstItem="dpt-Tb-Aal" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leading" constant="13" id="Wox-CU-Bps"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dpt-Tb-Aal" secondAttribute="trailing" constant="10" id="XHH-Pu-pD3"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dKN-kp-8VY" secondAttribute="trailing" constant="10" id="e9k-nt-gec"/>
+                            <constraint firstItem="ssK-Ow-nXr" firstAttribute="leading" secondItem="dKN-kp-8VY" secondAttribute="trailing" constant="3.5" id="fd1-EN-OV3"/>
                             <constraint firstAttribute="trailing" secondItem="WdB-Fi-vam" secondAttribute="trailing" constant="16" id="j6A-AO-S79"/>
                             <constraint firstItem="WdB-Fi-vam" firstAttribute="leading" secondItem="s64-Z5-BOf" secondAttribute="trailing" constant="29" id="jMA-wv-5lP"/>
                             <constraint firstItem="7aW-sF-rNM" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="-16" id="l9R-OU-anq"/>
@@ -156,6 +183,8 @@
                         <outlet property="arriveDisplayLabel" destination="dKN-kp-8VY" id="jpF-wx-uhG"/>
                         <outlet property="arriveDisplayTitle" destination="3W2-QI-h51" id="kez-yc-4tC"/>
                         <outlet property="arriveLeaveSeperator" destination="s64-Z5-BOf" id="ODE-Bu-SG2"/>
+                        <outlet property="editArriveTimeButton" destination="ssK-Ow-nXr" id="NfS-uU-IEX"/>
+                        <outlet property="editLeaveTimeButton" destination="jzH-Jw-iXF" id="SqU-hp-LCp"/>
                         <outlet property="editTimesButton" destination="WdB-Fi-vam" id="lPJ-9E-YQY"/>
                         <outlet property="grabber" destination="JeS-w2-EGC" id="hdp-Fc-Cga"/>
                         <outlet property="leaveDisplayLabel" destination="jFa-1K-Lnt" id="cBt-e9-lOW"/>
@@ -166,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl1-Cb-VAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="472"/>
+            <point key="canvasLocation" x="525.60000000000002" y="471.36431784107947"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="35q-3B-mOf">
@@ -190,7 +219,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="cBh-fF-Kv7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Search this area"/>
+                                <state key="normal" title="Search this area">
+                                    <color key="titleColor" red="0.55294117649999996" green="0.14901960780000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="redoSearchButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="zfk-Rf-cIn"/>
                                 </connections>
@@ -208,6 +239,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="OHT-lm-FCJ">
                                 <rect key="frame" x="311.5" y="40" width="28" height="28"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="4qc-Yd-e5g"/>
                                     <constraint firstAttribute="height" constant="28" id="NTS-El-UKK"/>
@@ -228,6 +260,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="TmL-id-wdO">
                                 <rect key="frame" x="37" y="40" width="28" height="28"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="99U-yJ-Lut"/>
                                     <constraint firstAttribute="height" constant="28" id="lpk-9W-YDp"/>
@@ -246,6 +279,7 @@
                                     <constraint firstAttribute="width" constant="33" id="WVF-6B-rfY"/>
                                     <constraint firstAttribute="height" constant="33" id="iyc-X1-1Hh"/>
                                 </constraints>
+                                <color key="tintColor" red="0.55294117649999996" green="0.14901960780000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="map marker"/>
                                 <connections>
                                     <action selector="currentLocationButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="iUM-fR-N27"/>
@@ -820,10 +854,23 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFw-G9-ItG">
+                                                    <rect key="frame" x="336" y="43" width="23" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="23" id="SNE-dR-iNX"/>
+                                                        <constraint firstAttribute="height" constant="23" id="uR5-9R-fwA"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="maps-icon"/>
+                                                    <connections>
+                                                        <action selector="mapIconClick:" destination="hmb-kk-bsa" eventType="touchUpInside" id="iwa-0W-FWw"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="v4f-Eu-Zc5" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="16T-ua-gQH"/>
+                                                <constraint firstItem="HFw-G9-ItG" firstAttribute="top" secondItem="v4f-Eu-Zc5" secondAttribute="bottom" constant="3" id="6d2-NN-eIf"/>
                                                 <constraint firstItem="0l4-Yf-Da5" firstAttribute="top" secondItem="wrp-rr-Vu8" secondAttribute="bottom" constant="8" id="7V9-vf-0lI"/>
+                                                <constraint firstAttribute="trailing" secondItem="HFw-G9-ItG" secondAttribute="trailing" constant="16" id="8JX-lx-ewo"/>
                                                 <constraint firstItem="wrp-rr-Vu8" firstAttribute="top" secondItem="4N9-9M-tby" secondAttribute="bottom" constant="11" id="EER-GB-pcb"/>
                                                 <constraint firstItem="ant-E1-LWj" firstAttribute="top" secondItem="wrp-rr-Vu8" secondAttribute="bottom" constant="8" id="Jxc-C8-hz3"/>
                                                 <constraint firstItem="oMq-LO-hNw" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="WjT-pc-88u"/>
@@ -1014,7 +1061,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lih-0c-HTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3732" y="-400"/>
+            <point key="canvasLocation" x="3732" y="-400.29985007496254"/>
         </scene>
         <!--Reservation Extension View Controller-->
         <scene sceneID="xwT-FK-d9t">
@@ -3475,8 +3522,10 @@
     </scenes>
     <resources>
         <image name="car" width="26" height="22"/>
+        <image name="chevron-right" width="64" height="64"/>
         <image name="close" width="18" height="18"/>
         <image name="map marker" width="18" height="24"/>
+        <image name="maps-icon" width="128" height="128"/>
         <image name="user" width="23" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

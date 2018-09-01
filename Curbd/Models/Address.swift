@@ -19,7 +19,7 @@ class Address {
     init(json: JSON) {
         self.address1 = json["address1"].stringValue
         self.address2 = json["address2"].string
-        self.city = json["venmo_phone"].stringValue
+        self.city = json["city"].stringValue
         self.state = json["state"].stringValue
         self.code = json["code"].stringValue
     }

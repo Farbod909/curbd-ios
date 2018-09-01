@@ -27,6 +27,9 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
     var arriveDate: Date?
     var leaveDate: Date?
     var pricing: Int?
+    // The reservation that has been created. Value is nil
+    // until user succesfully reserves a spot by confirming.
+    var createdReservation: Reservation?
 
     var paymentContext: STPPaymentContext?
     var loadingView = LoadingView()
@@ -129,8 +132,9 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                         from: arriveDate,
                         to: leaveDate,
                         cost: paymentContext.paymentAmount,
-                        paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { error in
-                            if error == nil {
+                        paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { error, reservation in
+                            if let reservation = reservation {
+                                self.createdReservation = reservation
                                 PaymentClient.sharedClient.completeCharge(
                                     paymentResult,
                                     amount: (self.paymentContext?.paymentAmount)!,
@@ -179,7 +183,11 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
         switch status {
         case .error:
 
-            // TODO: delete reservation
+            if let createdReservation = createdReservation {
+                if let token = UserDefaults.standard.string(forKey: "token") {
+                    createdReservation.delete(withToken: token)
+                }
+            }
             
             self.presentSingleButtonAlert(
                 title: "Error",
