@@ -46,28 +46,16 @@ class ReservationListTableViewController: UITableViewController {
             if let parkingSpace = parkingSpace {
                 // show reservations for a specific parking space
                 parkingSpace.getCurrentReservations(withToken: token) { error, reservations in
-                    self.requestsNum -= 1
-                    if self.requestsNum == 0 {
-                        self.stopLoading()
-                        if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
-                            self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
-                        }
-                    }
                     if let reservations = reservations {
                         self.currentReservations = reservations
+                        self.updateUserFeedbackIndicators()
                         self.tableView.reloadData()
                     }
                 }
                 parkingSpace.getPreviousReservations(withToken: token) { error, reservations in
-                    self.requestsNum -= 1
-                    if self.requestsNum == 0 {
-                        self.stopLoading()
-                        if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
-                            self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
-                        }
-                    }
                     if let reservations = reservations {
                         self.previousReservations = reservations
+                        self.updateUserFeedbackIndicators()
                         self.tableView.reloadData()
                     }
                 }
@@ -76,56 +64,32 @@ class ReservationListTableViewController: UITableViewController {
                 if isHost {
                     // show reservations for all listings of a host
                     User.getHostCurrentReservations(withToken: token) { error, reservations in
-                        self.requestsNum -= 1
-                        if self.requestsNum == 0 {
-                            self.stopLoading()
-                            if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
-                                self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
-                            }
-                        }
                         if let reservations = reservations {
                             self.currentReservations = reservations
+                            self.updateUserFeedbackIndicators()
                             self.tableView.reloadData()
                         }
                     }
                     User.getHostPreviousReservations(withToken: token) { error, reservations in
-                        self.requestsNum -= 1
-                        if self.requestsNum == 0 {
-                            self.stopLoading()
-                            if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
-                                self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
-                            }
-                        }
                         if let reservations = reservations {
                             self.previousReservations = reservations
+                            self.updateUserFeedbackIndicators()
                             self.tableView.reloadData()
                         }
                     }
                 } else {
                     // show all reservations a customer has made
                     User.getCurrentReservations(withToken: token) { error, reservations in
-                        self.requestsNum -= 1
-                        if self.requestsNum == 0 {
-                            self.stopLoading()
-                            if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
-                                self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
-                            }
-                        }
                         if let reservations = reservations {
                             self.currentReservations = reservations
+                            self.updateUserFeedbackIndicators()
                             self.tableView.reloadData()
                         }
                     }
                     User.getPreviousReservations(withToken: token) { error, reservations in
-                        self.requestsNum -= 1
-                        if self.requestsNum == 0 {
-                            self.stopLoading()
-                            if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
-                                self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
-                            }
-                        }
                         if let reservations = reservations {
                             self.previousReservations = reservations
+                            self.updateUserFeedbackIndicators()
                             self.tableView.reloadData()
                         }
                     }
@@ -252,6 +216,20 @@ class ReservationListTableViewController: UITableViewController {
         activityIndicator.stopAnimating()
         navigationItem.titleView = nil
         navigationItem.title = "Reservations"
+    }
+
+    /**
+     Called to check if http requests are finished and if so, stop
+     loading and/or display empty table view message appropriately
+     */
+    func updateUserFeedbackIndicators() {
+        self.requestsNum -= 1
+        if self.requestsNum == 0 {
+            self.stopLoading()
+            if self.currentReservations.isEmpty && self.previousReservations.isEmpty {
+                self.tableView.backgroundView = EmptyTableView(frame: self.tableView.frame)
+            }
+        }
     }
 
 }

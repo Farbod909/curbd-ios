@@ -18,7 +18,7 @@ class EmptyTableView: UIView {
         if let message = message {
             messageLabel.text = message
         } else {
-            messageLabel.text = "Nothing here yet"
+            messageLabel.text = "Nothing to show"
         }
         messageLabel.font = messageLabel.font.withSize(20)
         messageLabel.textColor = .gray

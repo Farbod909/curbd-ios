@@ -408,6 +408,7 @@ extension MapViewController: MKMapViewDelegate {
 
     func startLoadingRedoSearch() {
         redoSearchButton.isEnabled = false
+        redoSearchButton.setTitle("", for: .normal)
         let buttonHeight = redoSearchButton.bounds.size.height
         let buttonWidth = redoSearchButton.bounds.size.width
         redoSearchActivityIndicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
@@ -417,6 +418,7 @@ extension MapViewController: MKMapViewDelegate {
 
     func stopLoadingRedoSearch() {
         redoSearchButton.isEnabled = true
+        redoSearchButton.setTitle("Search this area", for: .normal)
         redoSearchActivityIndicator.removeFromSuperview()
         redoSearchActivityIndicator.stopAnimating()
     }
