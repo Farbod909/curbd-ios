@@ -96,6 +96,17 @@ class HostReservationDetailTableViewController: UITableViewController {
         return UITableViewAutomaticDimension
     }
 
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            if let reservation = reservation {
+                if reservation.cancelled && reservation.hostIncome > 0 {
+                    return "Due to a late cancellation by the customer, you will still receive part of the reservation cost as income (\(reservation.hostIncome.toUSDRepresentation()))"
+                }
+            }
+        }
+        return nil
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
 //            if indexPath.row == 1 {
