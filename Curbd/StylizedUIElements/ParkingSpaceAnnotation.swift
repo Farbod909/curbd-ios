@@ -10,16 +10,18 @@ import MapKit
 
 class ParkingSpaceAnnotation: NSObject, MKAnnotation {
     var parkingSpace: ParkingSpace
+    var price: Int // not hourly price; rather, full price for duration
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(
             latitude: parkingSpace.latitude, longitude: parkingSpace.longitude)
     }
     var title: String? {
-        return parkingSpace.name
+        return price.toUSDRepresentation()
     }
 
-    init(_ parkingSpace: ParkingSpace) {
-        self.parkingSpace = parkingSpace
+    init(parkingSpaceWithPricing: ParkingSpaceWithPricing, minutes: Int) {
+        self.parkingSpace = parkingSpaceWithPricing.parkingSpace
+        self.price = PaymentClient.calculateCustomerPrice(pricing: parkingSpaceWithPricing.pricing, minutes: minutes)
     }
 }
 

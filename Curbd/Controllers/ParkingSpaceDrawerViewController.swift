@@ -16,7 +16,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     @IBOutlet weak var grabber: UIView!
     @IBOutlet weak var grabberTapArea: UIView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var pricingLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
@@ -26,7 +26,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
-    var pricing: Int?
+    var price: Int?
 
     let partialRevealHeight: CGFloat = 100
     let collapsedHeight: CGFloat = 240
@@ -60,24 +60,10 @@ class ParkingSpaceDrawerViewController: UIViewController {
         if let parkingSpace = parkingSpace {
 
             nameLabel.text = parkingSpace.name
-
-            if  let arriveDate = arriveDate,
-                let leaveDate = leaveDate {
-
-                parkingSpace.getPricing(from: arriveDate, to: leaveDate) { pricing in
-                    self.pricing = pricing
-                    if let pricing = pricing {
-                        self.pricingLabel.text = "\(pricing.toUSDRepresentation()) / hr"
-
-                        let reservationTimeMinutes = Int(leaveDate.timeIntervalSince(arriveDate) / 60)
-//                        let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-//                        let formattedFinalCost = String(format: "%.02f", finalCost)
-                        let price = PaymentClient.calculateCustomerPrice(pricing: pricing, minutes: Int(reservationTimeMinutes))
-                        self.reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
-                    }
-                }
-
+            if let price = price {
+                reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
             }
+
 
             for feature in parkingSpace.features {
 
@@ -167,7 +153,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
                         reservationConfirmationViewController.parkingSpace = parkingSpace
                         reservationConfirmationViewController.arriveDate = arriveDate
                         reservationConfirmationViewController.leaveDate = leaveDate
-                        reservationConfirmationViewController.pricing = pricing
+                        reservationConfirmationViewController.price = price
 
                         show(reservationConfirmationViewController, sender: self)
                     }

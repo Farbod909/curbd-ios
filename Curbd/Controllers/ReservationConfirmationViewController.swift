@@ -26,7 +26,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
-    var pricing: Int?
+    var price: Int?
     // The reservation that has been created. Value is nil
     // until user succesfully reserves a spot by confirming.
     var createdReservation: Reservation?
@@ -46,7 +46,7 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
         if  let parkingSpace = parkingSpace,
             let arriveDate = arriveDate,
             let leaveDate = leaveDate,
-            let pricing = pricing,
+            let price = price,
             let vehicleLicensePlate = UserDefaults.standard.string(
                 forKey: "vehicle_license_plate") {
 
@@ -55,10 +55,6 @@ class ReservationConfirmationViewController: DarkTranslucentViewController {
             leaveDateLabel.text = leaveDate.toHumanReadable()
 
             let reservationTimeMinutes = Int(leaveDate.timeIntervalSince(arriveDate) / 60)
-//            let pricePerHour = Double(pricing)/100.0
-//            let finalCost = (reservationTimeMinutes / 60.0) * pricePerHour
-//            let formattedFinalCost = String(format: "%.02f", finalCost)
-            let price = PaymentClient.calculateCustomerPrice(pricing: pricing, minutes: reservationTimeMinutes)
 
             let customerContext = STPCustomerContext(keyProvider: PaymentClient.sharedClient)
             paymentContext = STPPaymentContext(customerContext: customerContext)

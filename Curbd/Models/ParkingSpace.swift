@@ -223,7 +223,7 @@ class ParkingSpace {
         ]
 
         Alamofire.request(
-            baseURL + "/api/parking/spaces/\(id)/availability/", //TODO: avoid forceful unwrap
+            baseURL + "/api/parking/spaces/\(id)/availability/",
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
 
@@ -243,7 +243,7 @@ class ParkingSpace {
                        tr_long: Double,
                        from start: Date,
                        to end: Date,
-                       completion: @escaping ([ParkingSpace]?) -> Void) {
+                       completion: @escaping ([ParkingSpaceWithPricing]?) -> Void) {
 
         let vehicleSize = UserDefaults.standard.integer(forKey: "vehicle_size")
 
@@ -258,14 +258,14 @@ class ParkingSpace {
         ]
 
          Alamofire.request(
-            baseURL + "/api/parking/spaces/",
+            baseURL + "/api/parking/spaces/search/",
             parameters: parameters,
             encoding: URLEncoding.queryString).responseJSON { response in
 
                 if let responseJSON = response.result.value {
                     let parkingSpacesJSON = JSON(responseJSON)
-                    let parkingSpaces: [ParkingSpace] =
-                        parkingSpacesJSON["results"].arrayValue.map({ ParkingSpace(json: $0) })
+                    let parkingSpaces: [ParkingSpaceWithPricing] =
+                        parkingSpacesJSON["results"].arrayValue.map({ ParkingSpaceWithPricing(json: $0) })
                     completion(parkingSpaces)
                 } else {
                     completion(nil)

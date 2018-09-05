@@ -232,14 +232,14 @@ class MapViewController: UIViewController {
             tr_lat: topRightCoordinate.latitude,
             tr_long: topRightCoordinate.longitude,
             from: startDate,
-            to: endDate) { parkingSpaces in
+            to: endDate) { parkingSpacesWithPricing in
 
-                if let parkingSpaces = parkingSpaces {
+                if let parkingSpacesWithPricing = parkingSpacesWithPricing {
                     self.redoSearchButton.fadeOut(0.1) { _ in
                         self.stopLoadingRedoSearch()
                     }
 
-                    if alertIfNotFound && parkingSpaces.isEmpty {
+                    if alertIfNotFound && parkingSpacesWithPricing.isEmpty {
                         // alert user that no parking spaces were found
                         self.presentSingleButtonAlert(
                             title: "No Nearby Parking",
@@ -254,21 +254,12 @@ class MapViewController: UIViewController {
                     // space overlaps between previous search and this one
 
                     self.mapView.removeAnnotations(self.mapView.annotations)
-//                    self.currentlyDisplayedParkingSpaces = []
-//                    for parkingSpace in parkingSpaces {
-//                        let annotation = MKPointAnnotation()
-//                        annotation.coordinate = CLLocationCoordinate2DMake(
-//                            parkingSpace.latitude,
-//                            parkingSpace.longitude)
-//
-//                        annotation.title = parkingSpace.name
-//                        self.mapView.addAnnotation(annotation)
-//                        self.currentlyDisplayedParkingSpaces.append(
-//                            ParkingSpaceWithAnnotation(
-//                                parkingSpace: parkingSpace, annotation: annotation))
-//                    }
-                    self.currentlyDisplayedParkingSpaces = parkingSpaces.map { ParkingSpaceAnnotation($0) }
+                    let minutes = Int(endDate.timeIntervalSince(startDate)) / 60
+                    self.currentlyDisplayedParkingSpaces = parkingSpacesWithPricing.map {
+                        ParkingSpaceAnnotation(parkingSpaceWithPricing: $0, minutes: minutes)
+                    }
                     self.mapView.addAnnotations(self.currentlyDisplayedParkingSpaces)
+
                     if selectFirstResult {
                         // if there is at least one parking space found,
                         // automatically select the first one.
@@ -330,6 +321,7 @@ extension MapViewController: MKMapViewDelegate {
                 if parkingSpaceAnnotation.isEqual(view.annotation) {
                     parkingSpaceDrawerViewController.parkingSpace =
                         parkingSpaceAnnotation.parkingSpace
+                    parkingSpaceDrawerViewController.price = parkingSpaceAnnotation.price
                 }
             }
 

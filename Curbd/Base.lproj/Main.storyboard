@@ -792,11 +792,24 @@
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ouv-hm-lVk">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                                 </mapView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-uA-zjC" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                                                    <rect key="frame" x="261" y="164" width="98" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="98" id="SSq-mq-0Ta"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Directions"/>
+                                                    <connections>
+                                                        <action selector="mapIconClick:" destination="hmb-kk-bsa" eventType="touchUpInside" id="D5W-4c-nil"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ouv-hm-lVk" firstAttribute="top" secondItem="7tj-qA-Dvo" secondAttribute="top" id="4Ex-I0-RkB"/>
+                                                <constraint firstItem="Sho-uA-zjC" firstAttribute="leading" secondItem="Ouv-hm-lVk" secondAttribute="trailing" constant="-114" id="7pT-eq-eLU"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ouv-hm-lVk" secondAttribute="trailing" id="O6I-DC-I7a"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ouv-hm-lVk" secondAttribute="bottom" id="cKq-di-dSA"/>
+                                                <constraint firstItem="Sho-uA-zjC" firstAttribute="top" secondItem="Ouv-hm-lVk" secondAttribute="bottom" constant="-40.5" id="cdP-GX-ysk"/>
                                                 <constraint firstItem="Ouv-hm-lVk" firstAttribute="leading" secondItem="7tj-qA-Dvo" secondAttribute="leading" id="i66-db-WLi"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -854,23 +867,10 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFw-G9-ItG">
-                                                    <rect key="frame" x="336" y="43" width="23" height="23"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="23" id="SNE-dR-iNX"/>
-                                                        <constraint firstAttribute="height" constant="23" id="uR5-9R-fwA"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="maps-icon"/>
-                                                    <connections>
-                                                        <action selector="mapIconClick:" destination="hmb-kk-bsa" eventType="touchUpInside" id="iwa-0W-FWw"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="v4f-Eu-Zc5" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="16T-ua-gQH"/>
-                                                <constraint firstItem="HFw-G9-ItG" firstAttribute="top" secondItem="v4f-Eu-Zc5" secondAttribute="bottom" constant="3" id="6d2-NN-eIf"/>
                                                 <constraint firstItem="0l4-Yf-Da5" firstAttribute="top" secondItem="wrp-rr-Vu8" secondAttribute="bottom" constant="8" id="7V9-vf-0lI"/>
-                                                <constraint firstAttribute="trailing" secondItem="HFw-G9-ItG" secondAttribute="trailing" constant="16" id="8JX-lx-ewo"/>
                                                 <constraint firstItem="wrp-rr-Vu8" firstAttribute="top" secondItem="4N9-9M-tby" secondAttribute="bottom" constant="11" id="EER-GB-pcb"/>
                                                 <constraint firstItem="ant-E1-LWj" firstAttribute="top" secondItem="wrp-rr-Vu8" secondAttribute="bottom" constant="8" id="Jxc-C8-hz3"/>
                                                 <constraint firstItem="oMq-LO-hNw" firstAttribute="leading" secondItem="LTO-rZ-jFn" secondAttribute="leading" constant="16" id="WjT-pc-88u"/>
@@ -1582,8 +1582,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading price..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-Ts-oxb">
-                                <rect key="frame" x="16" y="73" width="118" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-Ts-oxb">
+                                <rect key="frame" x="16" y="73" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1695,9 +1695,9 @@
                         <outlet property="grabberTapArea" destination="YIk-hO-Kgu" id="Fi1-pK-SIp"/>
                         <outlet property="nameLabel" destination="hrX-Ku-nfl" id="pR4-us-x4O"/>
                         <outlet property="noImagesLabel" destination="Xga-ao-dFs" id="dES-Co-Rqs"/>
-                        <outlet property="pricingLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                         <outlet property="reserveButton" destination="mgg-Ma-URI" id="dOh-Eq-YZO"/>
                         <outlet property="slideshow" destination="dEt-NU-o6K" id="O0Z-EZ-44n"/>
+                        <outlet property="subtitleLabel" destination="tXS-Ts-oxb" id="BUB-jY-fH4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSq-84-38f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3525,7 +3525,6 @@
         <image name="chevron-right" width="64" height="64"/>
         <image name="close" width="18" height="18"/>
         <image name="map marker" width="18" height="24"/>
-        <image name="maps-icon" width="128" height="128"/>
         <image name="user" width="23" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

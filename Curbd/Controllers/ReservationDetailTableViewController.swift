@@ -146,16 +146,44 @@ class ReservationDetailTableViewController: UITableViewController {
     }
 
     @IBAction func mapIconClick(_ sender: UIButton) {
-        if let reservation = reservation {
-            let coordinate = CLLocationCoordinate2D(
-                latitude: reservation.parkingSpace.latitude,
-                longitude: reservation.parkingSpace.longitude)
-            let placemark = MKPlacemark(coordinate: coordinate)
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = reservation.parkingSpace.name
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-            mapItem.openInMaps(launchOptions: launchOptions)
+
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+
+        let openInAppleMapsOption = UIAlertAction(title: "Apple Maps", style: .default) { alert in
+            if let reservation = self.reservation {
+                let coordinate = CLLocationCoordinate2D(
+                    latitude: reservation.parkingSpace.latitude,
+                    longitude: reservation.parkingSpace.longitude)
+                let placemark = MKPlacemark(coordinate: coordinate)
+                let mapItem = MKMapItem(placemark: placemark)
+                mapItem.name = reservation.parkingSpace.name
+                let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                mapItem.openInMaps(launchOptions: launchOptions)
+            }
         }
+
+        let openInGoogleMapsOption = UIAlertAction(title: "Google Maps", style: .default) { alert in
+            if let reservation = self.reservation {
+                guard let googleMapsURL = URL(string: "comgooglemaps://?daddr=\(reservation.parkingSpace.latitude),\(reservation.parkingSpace.longitude)&directionsmode=driving") else {
+                    return
+                }
+
+                if UIApplication.shared.canOpenURL(googleMapsURL) {
+                    UIApplication.shared.open(googleMapsURL, options: [:], completionHandler: nil)
+                }
+            }
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alert in
+            // do nothing
+        }
+
+        optionMenu.addAction(openInAppleMapsOption)
+        optionMenu.addAction(openInGoogleMapsOption)
+        optionMenu.addAction(cancelAction)
+
+        self.present(optionMenu, animated: true)
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

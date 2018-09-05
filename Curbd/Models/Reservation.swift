@@ -14,19 +14,12 @@ class Reservation {
     let id: Int
     let start: Date
     let end: Date
-    let pricing: Int // cost every 5 minutes (in cents)
     let vehicle: Vehicle
     let parkingSpace: ParkingSpace
     let reserver: User
     let host: User
     var cost: Int
     let hostIncome: Int
-    var pricePerHour: String {
-        // price (in dollars) calculated per hour
-        let pricePerHour = Double(pricing)/100.0
-        let formattedPricePerHour = String(format: "%.02f", pricePerHour)
-        return formattedPricePerHour
-    }
     let paymentMethodInfo: String?
     let cancelled: Bool
 
@@ -38,15 +31,6 @@ class Reservation {
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
         self.reserver = User(json: json["reserver"])
         self.host = User(json: json["host"])
-        if let forRepeating = json["for_repeating"].bool {
-            if forRepeating {
-                self.pricing = json["repeating_availability"]["pricing"].intValue
-            } else {
-                self.pricing = json["fixed_availability"]["pricing"].intValue
-            }
-        } else {
-            self.pricing = 0
-        }
         self.cost = json["cost"].intValue
         self.hostIncome = json["host_income"].intValue
         self.paymentMethodInfo = json["payment_method_info"].string
