@@ -8,13 +8,13 @@
 
 import SwiftyJSON
 
-class ParkingSpaceWithPricing {
+class ParkingSpaceWithPrice {
 
     let parkingSpace: ParkingSpace
-    let pricing: Int
+    let price: Int
 
     init(json: JSON) {
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
-        self.pricing = json["pricing"].intValue
+        self.price = json["price"].intValue
     }
 }

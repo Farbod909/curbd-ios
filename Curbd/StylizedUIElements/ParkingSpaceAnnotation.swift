@@ -19,9 +19,9 @@ class ParkingSpaceAnnotation: NSObject, MKAnnotation {
         return price.toUSDRepresentation()
     }
 
-    init(parkingSpaceWithPricing: ParkingSpaceWithPricing, minutes: Int) {
-        self.parkingSpace = parkingSpaceWithPricing.parkingSpace
-        self.price = PaymentClient.calculateCustomerPrice(pricing: parkingSpaceWithPricing.pricing, minutes: minutes)
+    init(_ parkingSpaceWithPrice: ParkingSpaceWithPrice) {
+        self.parkingSpace = parkingSpaceWithPrice.parkingSpace
+        self.price = parkingSpaceWithPrice.price
     }
 }
 

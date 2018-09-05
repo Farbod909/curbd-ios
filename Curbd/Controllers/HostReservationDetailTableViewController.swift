@@ -38,7 +38,7 @@ class HostReservationDetailTableViewController: UITableViewController {
 
         if let reservation = reservation {
 
-            customerFullNameLabel.text = reservation.reserver.fullName
+            customerFullNameLabel.text = reservation.reserver.discreetName
 
             let vehicle = reservation.vehicle
             vehicleLabel.text = "\(vehicle.make) \(vehicle.model) \(vehicle.licensePlate)"

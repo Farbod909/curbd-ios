@@ -42,7 +42,6 @@ class Reservation {
                        withVehicle vehicleID: String,
                        from start: Date,
                        to end: Date,
-                       cost: Int,
                        paymentMethodInfo: String,
                        completion: @escaping (Error?, Reservation?) -> Void) {
 
@@ -55,7 +54,6 @@ class Reservation {
             "parking_space_id": parkingSpace.id,
             "start_datetime": Formatter.iso8601.string(from: start),
             "end_datetime": Formatter.iso8601.string(from: end),
-            "cost": cost,
             "host_income": 0,
             "payment_method_info": paymentMethodInfo
         ]

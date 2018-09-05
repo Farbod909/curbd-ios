@@ -20,10 +20,10 @@ class PaymentClient: NSObject, STPEphemeralKeyProvider {
         return Int(round(price))
     }
 
-    func completeCharge(_ result: STPPaymentResult,
+    func completeReservationCharge(_ result: STPPaymentResult,
                         amount: Int,
                         statementDescriptor: String,
-//                        metadata: [String: Any],
+                        reservationId: Int,
                         completion: @escaping STPErrorBlock) {
 
         if let token = UserDefaults.standard.string(forKey: "token") {
@@ -35,11 +35,11 @@ class PaymentClient: NSObject, STPEphemeralKeyProvider {
                 "amount": amount,
                 "source": result.source.stripeID,
                 "statement_descriptor": statementDescriptor,
-//                "metadata": metadata,
+                "reservation_id": reservationId,
             ]
 
             Alamofire.request(
-                baseURL + "/api/payment/charge/",
+                baseURL + "/api/payment/charge_reservation/",
                 method: .post,
                 parameters: parameters,
                 headers: headers)

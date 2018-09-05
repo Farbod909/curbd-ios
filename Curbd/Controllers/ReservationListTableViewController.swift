@@ -132,7 +132,7 @@ class ReservationListTableViewController: UITableViewController {
             reservation = previousReservations[indexPath.row]
         }
         if parkingSpace != nil {
-            cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized)."
+            cell.titleLabel.text = reservation.reserver.discreetName
 
             if reservation.cancelled {
                 cell.priceLabel.text = "Cancelled"
@@ -143,7 +143,7 @@ class ReservationListTableViewController: UITableViewController {
             }
         } else {
             if isHost {
-                cell.titleLabel.text = "\(reservation.reserver.firstName.capitalized) \(reservation.reserver.lastName.prefix(1).capitalized). @ \(reservation.parkingSpace.name)"
+                cell.titleLabel.text = "\(reservation.reserver.discreetName) @ \(reservation.parkingSpace.name)"
 
                 if reservation.cancelled {
                     cell.priceLabel.text = "Cancelled"

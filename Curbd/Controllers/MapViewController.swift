@@ -232,14 +232,14 @@ class MapViewController: UIViewController {
             tr_lat: topRightCoordinate.latitude,
             tr_long: topRightCoordinate.longitude,
             from: startDate,
-            to: endDate) { parkingSpacesWithPricing in
+            to: endDate) { parkingSpacesWithPrice in
 
-                if let parkingSpacesWithPricing = parkingSpacesWithPricing {
+                if let parkingSpacesWithPrice = parkingSpacesWithPrice {
                     self.redoSearchButton.fadeOut(0.1) { _ in
                         self.stopLoadingRedoSearch()
                     }
 
-                    if alertIfNotFound && parkingSpacesWithPricing.isEmpty {
+                    if alertIfNotFound && parkingSpacesWithPrice.isEmpty {
                         // alert user that no parking spaces were found
                         self.presentSingleButtonAlert(
                             title: "No Nearby Parking",
@@ -254,10 +254,7 @@ class MapViewController: UIViewController {
                     // space overlaps between previous search and this one
 
                     self.mapView.removeAnnotations(self.mapView.annotations)
-                    let minutes = Int(endDate.timeIntervalSince(startDate)) / 60
-                    self.currentlyDisplayedParkingSpaces = parkingSpacesWithPricing.map {
-                        ParkingSpaceAnnotation(parkingSpaceWithPricing: $0, minutes: minutes)
-                    }
+                    self.currentlyDisplayedParkingSpaces = parkingSpacesWithPrice.map { ParkingSpaceAnnotation($0) }
                     self.mapView.addAnnotations(self.currentlyDisplayedParkingSpaces)
 
                     if selectFirstResult {

@@ -243,7 +243,7 @@ class ParkingSpace {
                        tr_long: Double,
                        from start: Date,
                        to end: Date,
-                       completion: @escaping ([ParkingSpaceWithPricing]?) -> Void) {
+                       completion: @escaping ([ParkingSpaceWithPrice]?) -> Void) {
 
         let vehicleSize = UserDefaults.standard.integer(forKey: "vehicle_size")
 
@@ -264,8 +264,8 @@ class ParkingSpace {
 
                 if let responseJSON = response.result.value {
                     let parkingSpacesJSON = JSON(responseJSON)
-                    let parkingSpaces: [ParkingSpaceWithPricing] =
-                        parkingSpacesJSON["results"].arrayValue.map({ ParkingSpaceWithPricing(json: $0) })
+                    let parkingSpaces: [ParkingSpaceWithPrice] =
+                        parkingSpacesJSON["results"].arrayValue.map({ ParkingSpaceWithPrice(json: $0) })
                     completion(parkingSpaces)
                 } else {
                     completion(nil)

@@ -20,6 +20,10 @@ class User {
     var fullName: String {
         return firstName + " " + lastName
     }
+    var discreetName: String {
+        return firstName + " " + lastName.prefix(1).capitalized + "."
+    }
+
 
     init(json: JSON) {
         self.id = json["id"].intValue

@@ -127,15 +127,14 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                         withVehicle: currentVehicleID,
                         from: arriveDate,
                         to: leaveDate,
-                        cost: paymentContext.paymentAmount,
                         paymentMethodInfo: (paymentContext.selectedPaymentMethod?.label)!) { error, reservation in
                             if let reservation = reservation {
                                 self.createdReservation = reservation
-                                PaymentClient.sharedClient.completeCharge(
+                                PaymentClient.sharedClient.completeReservationCharge(
                                     paymentResult,
                                     amount: (self.paymentContext?.paymentAmount)!,
                                     statementDescriptor: "Curbd Reservation",
-//                                    metadata: ["reservation_id": 2734],
+                                    reservationId: reservation.id,
                                     completion: completion)
 
                             } else {
@@ -187,7 +186,7 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
             
             self.presentSingleButtonAlert(
                 title: "Error",
-                message: error?.localizedDescription ?? "")
+                message: "Unable to process payment method")
         case .success:
             self.presentSingleButtonAlert(
                 title: "Successfully Reserved",
