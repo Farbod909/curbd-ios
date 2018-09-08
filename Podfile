@@ -12,5 +12,6 @@ target 'Curbd' do
   pod 'ImageSlideshow'
   pod 'ImageSlideshow/Kingfisher'
   pod 'NVActivityIndicatorView'
+  pod 'Siren'
 
 end

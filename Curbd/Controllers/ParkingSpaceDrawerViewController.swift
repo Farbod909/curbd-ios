@@ -20,6 +20,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
+    @IBOutlet weak var noFeaturesLabel: UILabel!
     @IBOutlet weak var slideshow: ImageSlideshow!
     @IBOutlet weak var noImagesLabel: UILabel!
 
@@ -64,6 +65,9 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
             }
 
+            if parkingSpace.features.isEmpty {
+                noFeaturesLabel.isHidden = false
+            }
 
             for feature in parkingSpace.features {
 
