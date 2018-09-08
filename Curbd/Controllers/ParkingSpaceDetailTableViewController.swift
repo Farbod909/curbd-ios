@@ -180,13 +180,41 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                             featureImage = #imageLiteral(resourceName: "question mark")
                         }
 
-                        let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(2, 2, 2, 2)))
+//                        let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(2, 2, 2, 2)))
+//
+//                        featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//                        featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//                        featureImageView.contentMode = .scaleAspectFit
+//                        parkingSpaceDetailCell.featuresStackView.addArrangedSubview(
+//                            featureImageView)
 
-                        featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-                        featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+                        let featureView = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+//                        featureView.backgroundColor = UIColor.lightGray
+                        featureView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+                        featureView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+
+                        let featureImageView = UIImageView(frame: CGRect(x: 10, y: 0, width: 50, height: 50))
+                        featureImageView.image = featureImage.imageWithInsets(insets: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
                         featureImageView.contentMode = .scaleAspectFit
-                        parkingSpaceDetailCell.featuresStackView.addArrangedSubview(
-                            featureImageView)
+                        featureView.addSubview(featureImageView)
+//                        featureImageView.backgroundColor = UIColor.yellow
+                        featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+                        featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                        featureImageView.topAnchor.constraint(equalTo: featureView.topAnchor).isActive = true
+
+                        let featureLabel = UILabel(frame: CGRect(x: 0, y: 50, width: 70, height: 20))
+                        featureLabel.text = feature
+                        featureLabel.textAlignment = .center
+                        featureLabel.font = UIFont(name: "Helvetica", size: 12)
+                        featureView.addSubview(featureLabel)
+                        featureLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
+                        featureLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+                        featureLabel.topAnchor.constraint(equalTo: featureImageView.bottomAnchor).isActive = true
+                        featureLabel.bottomAnchor.constraint(equalTo: featureView.bottomAnchor).isActive = true
+
+
+                        parkingSpaceDetailCell.featuresStackView.addArrangedSubview(featureView)
+
                     }
 
                     let geocoder = CLGeocoder()

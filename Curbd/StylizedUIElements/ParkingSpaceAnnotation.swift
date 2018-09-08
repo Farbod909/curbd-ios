@@ -29,7 +29,7 @@ class ParkingSpaceAnnotation: NSObject, MKAnnotation {
 class ParkingSpaceMarkerAnnotationView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
-            markerTintColor = UIColor.curbdPurple
+            markerTintColor = UIColor.curbdPurpleGradient(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
             glyphText = "P"
             displayPriority = .required
             //glyphImage = #imageLiteral(resourceName: "meter")

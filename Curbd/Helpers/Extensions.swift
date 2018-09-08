@@ -370,6 +370,10 @@ extension UIColor {
         return UIColor(hex: "8D2688")
     }
 
+    static func curbdPurpleGradient(frame: CGRect) -> UIColor {
+        return UIColor.colorWithGradient(frame: frame, colors: [UIColor(hex: "4b2f8a"), UIColor(hex: "d60e88")])
+    }
+
     convenience init(hex hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
@@ -390,6 +394,27 @@ extension UIColor {
             green: CGFloat(g) / 255,
             blue: CGFloat(b) / 255,
             alpha: CGFloat(a) / 255)
+    }
+
+    static func colorWithGradient(frame: CGRect, colors: [UIColor]) -> UIColor {
+
+        // create the background layer that will hold the gradient
+        let backgroundGradientLayer = CAGradientLayer()
+        backgroundGradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        backgroundGradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        backgroundGradientLayer.frame = frame
+
+        // we create an array of CG colors from out UIColor array
+        let cgColors = colors.map({$0.cgColor})
+
+        backgroundGradientLayer.colors = cgColors
+
+        UIGraphicsBeginImageContext(backgroundGradientLayer.bounds.size)
+        backgroundGradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let backgroundColorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return UIColor(patternImage: backgroundColorImage!)
     }
 
 }
