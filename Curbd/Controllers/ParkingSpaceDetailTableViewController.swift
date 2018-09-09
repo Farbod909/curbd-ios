@@ -413,10 +413,10 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         }
         return false
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            presentConfirmationAlert(title: "Are You Sure?", message: "Are you sure you would like to delete this availability?") { alert in
+            presentConfirmationAlert(title: "Are You Sure?", message: "WARNING: All current reservations must be honored. By deleting this availability you are preventing future reservations at these times.") { alert in
                 if let _ = tableView.cellForRow(at: indexPath) as? RepeatingAvailabilityTableViewCell {
                     if let token = UserDefaults.standard.string(forKey: "token") {
                         self.repeatingAvailabilities[indexPath.row].delete(withToken: token) { error in
