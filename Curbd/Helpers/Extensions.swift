@@ -283,6 +283,15 @@ extension MKMapView {
         self.setRegion(coordinateRegion, animated: animated)
     }
 
+    func moveCenterByOffSet(offSet: CGPoint, coordinate: CLLocationCoordinate2D) {
+        var point = self.convert(coordinate, toPointTo: self)
+
+        point.x += offSet.x
+        point.y += offSet.y
+
+        let center = self.convert(point, toCoordinateFrom: self)
+        self.setCenter(center, animated: true)
+    }
 
     func getNECoordinate() -> CLLocationCoordinate2D {
         return MKMapView.getCoordinateFromMapRectanglePoint(

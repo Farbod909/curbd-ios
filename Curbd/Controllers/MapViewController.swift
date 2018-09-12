@@ -389,6 +389,14 @@ extension MapViewController: MKMapViewDelegate {
             // regardless of fadeIn() or fadeOut()
             // function calls
             redoSearchButton.isHidden = true
+
+            // reposition map such that annotation isn't covered by parking space drawer
+            let topOfParkingSpaceDrawer = UIScreen.main.bounds.height - parkingSpaceDrawerViewController.collapsedDrawerHeight(bottomSafeArea: iphoneX ? 20 : 0)
+            if view.center.y > (topOfParkingSpaceDrawer - 50) || view.center.y < 160 {
+                let heightDifference = view.center.y - (topOfParkingSpaceDrawer / 2 + 50) // 50 pixels below the center
+                mapView.moveCenterByOffSet(offSet: CGPoint(x: 0, y: heightDifference), coordinate: mapView.centerCoordinate)
+
+            }
         }
     }
 
