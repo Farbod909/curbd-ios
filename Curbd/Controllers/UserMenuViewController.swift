@@ -16,6 +16,11 @@ class UserMenuViewController: DarkTranslucentViewController {
     @IBOutlet weak var hostASpaceButton: UIButton!
     @IBOutlet weak var hostDashboardButton: UIButton!
 
+    func initializeAppearanceSettings() {
+        firstNameLabel.textColor = UIColor.curbdPurpleBright
+        hostASpaceButton.backgroundColor = UIColor.curbdPurpleGradient(frame: hostASpaceButton.frame)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +35,11 @@ class UserMenuViewController: DarkTranslucentViewController {
             hostASpaceButton.isHidden = false
         }
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initializeAppearanceSettings()
     }
 
     @IBAction func paymentButtonClick(_ sender: UIButton) {

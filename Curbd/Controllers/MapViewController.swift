@@ -87,6 +87,13 @@ class MapViewController: UIViewController {
         // make sure vehicle button is updated every time
         // the view re appears.
         updateCurrentVehicleButton()
+//        showSearchDrawerViewController()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(showSearchDrawerViewController),
+            name: NSNotification.Name.UIApplicationWillEnterForeground,
+            object: nil)
     }
 
 //    @available(iOS 11.0, *)
@@ -182,6 +189,33 @@ class MapViewController: UIViewController {
         }
     }
 
+    @objc func showSearchDrawerViewController() {
+        if let pulleyViewController = parent as? ParkingPulleyViewController {
+            if let savedSearchDrawerViewController =
+                pulleyViewController.savedSearchDrawerViewController {
+                // load the saved SearchDrawerViewController
+                pulleyViewController.setDrawerContentViewController(
+                    controller: savedSearchDrawerViewController,
+                    animated: false)
+            } else {
+                // reload a SearchDrawerViewController from scratch
+                let searchDrawerViewController = UIStoryboard(
+                    name: "Main",
+                    bundle: nil).instantiateViewController(
+                        withIdentifier: "searchDrawerVC")
+                pulleyViewController.setDrawerContentViewController(
+                    controller: searchDrawerViewController,
+                    animated: false)
+            }
+            redoSearchButton.isHidden = false
+        }
+        if !mapView.selectedAnnotations.isEmpty {
+            mapView.deselectAnnotation(
+                mapView.selectedAnnotations[0],
+                animated: true)
+        }
+    }
+
     /**
      Performs a search of parking spaces in currently visible map
      area filtered by the dates provided in the search drawer view
@@ -250,12 +284,27 @@ class MapViewController: UIViewController {
                             """)
                     }
 
-                    // TODO: don't remove and re-add to map if a parking
-                    // space overlaps between previous search and this one
+                    let retrievedParkingSpaceAnnotations = parkingSpacesWithPrice.map { ParkingSpaceAnnotation($0) }
 
-                    self.mapView.removeAnnotations(self.mapView.annotations)
-                    self.currentlyDisplayedParkingSpaces = parkingSpacesWithPrice.map { ParkingSpaceAnnotation($0) }
-                    self.mapView.addAnnotations(self.currentlyDisplayedParkingSpaces)
+                    var optionalMapViewAnnotations = self.mapView.annotations.map() { $0 as? ParkingSpaceAnnotation }
+                    optionalMapViewAnnotations = optionalMapViewAnnotations.filter() { $0 != nil }
+                    let mapViewAnnotations = optionalMapViewAnnotations.map() { $0! }
+
+                    for parkingSpaceAnnotation in mapViewAnnotations {
+                        if !retrievedParkingSpaceAnnotations.map({ $0.parkingSpace.id }).contains(parkingSpaceAnnotation.parkingSpace.id) {
+                            self.mapView.removeAnnotation(parkingSpaceAnnotation)
+                            if let indexToRemove = self.currentlyDisplayedParkingSpaces.index(of: parkingSpaceAnnotation) {
+                                self.currentlyDisplayedParkingSpaces.remove(at: indexToRemove)
+                            }
+                        }
+                    }
+
+                    for parkingSpaceAnnotation in retrievedParkingSpaceAnnotations {
+                        if !mapViewAnnotations.map({ $0.parkingSpace.id }).contains(parkingSpaceAnnotation.parkingSpace.id) {
+                            self.mapView.addAnnotation(parkingSpaceAnnotation)
+                            self.currentlyDisplayedParkingSpaces.append(parkingSpaceAnnotation)
+                        }
+                    }
 
                     if selectFirstResult {
                         // if there is at least one parking space found,
@@ -355,25 +404,7 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
 
-        if let pulleyViewController = parent as? ParkingPulleyViewController {
-            if let savedSearchDrawerViewController =
-                pulleyViewController.savedSearchDrawerViewController {
-                // load the saved SearchDrawerViewController
-                pulleyViewController.setDrawerContentViewController(
-                    controller: savedSearchDrawerViewController,
-                    animated: false)
-            } else {
-                // reload a SearchDrawerViewController from scratch
-                let searchDrawerViewController = UIStoryboard(
-                    name: "Main",
-                    bundle: nil).instantiateViewController(
-                        withIdentifier: "searchDrawerVC")
-                pulleyViewController.setDrawerContentViewController(
-                    controller: searchDrawerViewController,
-                    animated: false)
-            }
-            redoSearchButton.isHidden = false
-        }
+        showSearchDrawerViewController()
     }
 
     /**
@@ -388,6 +419,11 @@ extension MapViewController: MKMapViewDelegate {
         for recognizer in (view?.gestureRecognizers)! {
             if recognizer.state == .began || recognizer.state == .ended {
                 isNextRegionChangeFromUserInteraction = true
+
+                if let pulleyViewController = parent as? ParkingPulleyViewController {
+                    pulleyViewController.setDrawerPosition(position: .partiallyRevealed, animated: true)
+                }
+
                 break
             }
         }
@@ -401,6 +437,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if isNextRegionChangeFromUserInteraction {
             isNextRegionChangeFromUserInteraction = false
+
             redoSearchButton.fadeIn(0.1)
         }
     }

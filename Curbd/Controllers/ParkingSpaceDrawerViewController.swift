@@ -33,21 +33,14 @@ class ParkingSpaceDrawerViewController: UIViewController {
     var price: Int?
 
     let partialRevealHeight: CGFloat = 100
-    let collapsedHeight: CGFloat = 240
+    let collapsedHeight: CGFloat = 330
     let drawerPositions: [PulleyPosition] = [
         .open,
         .partiallyRevealed,
         .collapsed,
     ]
 
-    func initializeAppearanceSettings() {
-        reserveButton.layer.cornerRadius = 10
-        featuresScrollView.showsHorizontalScrollIndicator = false
-
-        grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
-        grabber.layer.cornerRadius = 3
-        grabber.layer.masksToBounds = true
-
+    func initializeSettings() {
         slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
         slideshow.activityIndicator = DefaultActivityIndicator()
         let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
@@ -55,18 +48,32 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
         let grabberTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(grabberClick))
         grabberTapArea.addGestureRecognizer(grabberTapRecognizer)
+    }
+
+    func initializeAppearanceSettings() {
+        if let pulleyViewController = parent as? PulleyViewController {
+            pulleyViewController.backgroundDimmingOpacity = 0
+        }
+        reserveButton.layer.cornerRadius = 10
+        featuresScrollView.showsHorizontalScrollIndicator = false
+
+        grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
+        grabber.layer.cornerRadius = 3
+        grabber.layer.masksToBounds = true
 
         reserveButton.backgroundColor = UIColor.curbdPurpleGradient(frame: reserveButton.frame)
-
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeAppearanceSettings()
+        initializeSettings()
 
         if let parkingSpace = parkingSpace {
 
             nameLabel.text = parkingSpace.name
+            if let arriveDate = arriveDate, let leaveDate = leaveDate {
+                subtitleLabel.text = "\(arriveDate.toHumanReadable()) → \(leaveDate.toHumanReadable())"
+            }
             if let price = price {
                 reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
             }
@@ -151,6 +158,9 @@ class ParkingSpaceDrawerViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initializeAppearanceSettings()
+
         if let pulleyViewController = parent as? PulleyViewController {
             pulleyViewController.setDrawerPosition(position: .collapsed, animated: true)
         }
@@ -244,12 +254,18 @@ extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
         if drawer.drawerPosition == .partiallyRevealed {
             featuresScrollView.isHidden = true
             slideshow.isHidden = true
+            reserveButton.isHidden = true
+            drawer.backgroundDimmingOpacity = 0
         } else if drawer.drawerPosition == .open {
             featuresScrollView.isHidden = false
             slideshow.isHidden = false
+            reserveButton.isHidden = false
+            drawer.backgroundDimmingOpacity = 0.4
         } else if drawer.drawerPosition == .collapsed {
             featuresScrollView.isHidden = false
-            slideshow.isHidden = true
+            slideshow.isHidden = false
+            reserveButton.isHidden = false
+            drawer.backgroundDimmingOpacity = 0
         }
     }
 

@@ -366,12 +366,20 @@ extension UIColor {
         return UIColor(hex: "555555")
     }
 
-    static var curbdPurple: UIColor {
+    static var curbdPurpleMiddle: UIColor {
         return UIColor(hex: "8D2688")
     }
 
+    static var curbdPurpleDark: UIColor {
+        return UIColor(hex: "4b2f8a")
+    }
+
+    static var curbdPurpleBright: UIColor {
+        return UIColor(hex: "d60e88")
+    }
+
     static func curbdPurpleGradient(frame: CGRect) -> UIColor {
-        return UIColor.colorWithGradient(frame: frame, colors: [UIColor(hex: "4b2f8a"), UIColor(hex: "d60e88")])
+        return UIColor.colorWithGradient(frame: frame, colors: [curbdPurpleDark, curbdPurpleBright])
     }
 
     convenience init(hex hexString: String) {
