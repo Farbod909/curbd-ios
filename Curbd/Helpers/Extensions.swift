@@ -192,12 +192,12 @@ extension Date {
         let calendar = NSCalendar.current
         if calendar.isDateInToday(self) {
             dateFormatter.dateFormat = "h:mm a"
-            return dateFormatter.string(from: self) + ", Today"
+            return dateFormatter.string(from: self) + " Today"
         } else if calendar.isDateInTomorrow(self) {
             dateFormatter.dateFormat = "h:mm a"
-            return dateFormatter.string(from: self) + ", Tomorrow"
+            return dateFormatter.string(from: self) + " Tomorrow"
         } else {
-            dateFormatter.dateFormat = "h:mm a, MMM d"
+            dateFormatter.dateFormat = "h:mm a MMM d"
             return dateFormatter.string(from: self)
         }
     }
@@ -208,12 +208,12 @@ extension Date {
         let calendar = NSCalendar.current
         if calendar.isDateInToday(self) {
             dateFormatter.dateFormat = "h:mm a"
-            return dateFormatter.string(from: self) + ", Today"
+            return dateFormatter.string(from: self) + " Today"
         } else if calendar.isDateInTomorrow(self) {
             dateFormatter.dateFormat = "h:mm a"
-            return dateFormatter.string(from: self) + ", Tomorrow"
+            return dateFormatter.string(from: self) + " Tomorrow"
         } else {
-            dateFormatter.dateFormat = "h:mm a, MMM d, YYYY"
+            dateFormatter.dateFormat = "h:mm a MMM d, YYYY"
             return dateFormatter.string(from: self)
         }
     }
@@ -380,7 +380,7 @@ extension UIColor {
     }
 
     static var curbdPurpleDark: UIColor {
-        return UIColor(hex: "4b2f8a")
+        return UIColor(hex: "9d1b89")
     }
 
     static var curbdPurpleBright: UIColor {

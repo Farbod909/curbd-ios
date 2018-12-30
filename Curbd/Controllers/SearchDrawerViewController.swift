@@ -32,7 +32,7 @@ class SearchDrawerViewController: UIViewController {
     var arriveDate = Date().ceil(precision: 300)
     var leaveDate = Date(timeInterval: 7200, since: Date()).ceil(precision: 300)
 
-    let partiallyRevealedHeight: CGFloat = 183
+    let partiallyRevealedHeight: CGFloat = 193
     let collapsedHeight: CGFloat = 300
     let drawerPositions: [PulleyPosition] = [
         .open,
@@ -64,14 +64,25 @@ class SearchDrawerViewController: UIViewController {
     }
 
     func initializeAppearanceSettings() {
-        searchField.backgroundColor = UIColor.clear.withAlphaComponent(0.08)
+//        searchField.backgroundColor = UIColor.clear.withAlphaComponent(0.08)
         searchField.layer.cornerRadius = 8
-        searchField.layer.masksToBounds = true
+        searchField.layer.masksToBounds = false
         searchField.layer.borderWidth = 0
-        let searchFieldPaddingView = UIView(
-            frame: CGRect(x: 0, y: 0, width: 10, height: searchField.frame.height))
-        searchField.leftView = searchFieldPaddingView
+        let searchFieldPaddingViewLeft = UIView(
+            frame: CGRect(x: 0, y: 0, width: 12, height: searchField.frame.height))
+        searchField.leftView = searchFieldPaddingViewLeft
         searchField.leftViewMode = UITextField.ViewMode.always
+        let searchFieldPaddingViewRight = UIView(
+            frame: CGRect(x: 0, y: 0, width: 32, height: searchField.frame.height))
+        searchField.rightView = searchFieldPaddingViewRight
+        searchField.leftViewMode = UITextField.ViewMode.always
+
+
+        searchField.layer.shadowColor = UIColor.black.cgColor
+        searchField.layer.shadowOffset = CGSize(width: 0, height: 2)
+        searchField.layer.shadowOpacity = 0.25
+        searchField.layer.shadowRadius = 3
+
 
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
