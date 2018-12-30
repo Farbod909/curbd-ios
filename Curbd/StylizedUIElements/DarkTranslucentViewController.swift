@@ -26,7 +26,7 @@ class DarkTranslucentViewController: UIViewController {
 
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
 
     }
 

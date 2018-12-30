@@ -138,7 +138,7 @@ class AddRepeatingAvailabilityViewController: FormViewController {
             if  let token = UserDefaults.standard.string(forKey: "token"),
                 let parkingSpace = parkingSpace {
                 RepeatingAvailability.create(withToken: token, parkingSpace: parkingSpace, timeRange: range, days: days) { error, repeatingAvailability in
-                    if let error = error {
+                    if error != nil {
                         self.presentServerErrorAlert()
                     } else {
                         numRequestsCompleted += 1

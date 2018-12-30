@@ -5,7 +5,7 @@ target 'Curbd' do
   use_frameworks!
 
   pod 'Pulley'
-  pod 'Alamofire', '~> 4.5'
+  pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Eureka'
   pod 'Stripe'

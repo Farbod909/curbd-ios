@@ -30,7 +30,7 @@ extension UIViewController {
             preferredStyle: .alert)
         alert.addAction(UIAlertAction(
             title: buttonText,
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler: completion))
         self.present(alert, animated: true, completion: nil)
     }
@@ -267,9 +267,9 @@ extension MKMapView {
         let newCoordinate = CLLocationCoordinate2DMake(
             location.coordinate.latitude - 0.0012, // offset to account for drawer
             location.coordinate.longitude)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(
-            newCoordinate,
-            regionRadius * 2, regionRadius * 2)
+        let coordinateRegion = MKCoordinateRegion.init(
+            center: newCoordinate,
+            latitudinalMeters: regionRadius * 2, longitudinalMeters: regionRadius * 2)
         self.setRegion(coordinateRegion, animated: animated)
     }
 
@@ -277,9 +277,9 @@ extension MKMapView {
         let newCoordinate = CLLocationCoordinate2DMake(
             location.coordinate.latitude,
             location.coordinate.longitude)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(
-            newCoordinate,
-            regionRadius * 2, regionRadius * 2)
+        let coordinateRegion = MKCoordinateRegion.init(
+            center: newCoordinate,
+            latitudinalMeters: regionRadius * 2, longitudinalMeters: regionRadius * 2)
         self.setRegion(coordinateRegion, animated: animated)
     }
 
@@ -295,32 +295,32 @@ extension MKMapView {
 
     func getNECoordinate() -> CLLocationCoordinate2D {
         return MKMapView.getCoordinateFromMapRectanglePoint(
-            x: MKMapRectGetMaxX(self.visibleMapRect),
+            x: self.visibleMapRect.maxX,
             y: self.visibleMapRect.origin.y)
     }
 
     func getNWCoordinate() -> CLLocationCoordinate2D {
         return MKMapView.getCoordinateFromMapRectanglePoint(
-            x: MKMapRectGetMinX(self.visibleMapRect),
+            x: self.visibleMapRect.minX,
             y: self.visibleMapRect.origin.y)
     }
 
     func getSECoordinate() -> CLLocationCoordinate2D {
         return MKMapView.getCoordinateFromMapRectanglePoint(
-            x: MKMapRectGetMaxX(self.visibleMapRect),
-            y: MKMapRectGetMaxY(self.visibleMapRect))
+            x: self.visibleMapRect.maxX,
+            y: self.visibleMapRect.maxY)
     }
 
     func getSWCoordinate() -> CLLocationCoordinate2D {
         return MKMapView.getCoordinateFromMapRectanglePoint(
             x: self.visibleMapRect.origin.x,
-            y: MKMapRectGetMaxY(self.visibleMapRect))
+            y: self.visibleMapRect.maxY)
     }
 
     static func getCoordinateFromMapRectanglePoint(x: Double,
                                                    y: Double) -> CLLocationCoordinate2D {
-        let swMapPoint: MKMapPoint = MKMapPointMake(x, y)
-        return MKCoordinateForMapPoint(swMapPoint)
+        let swMapPoint: MKMapPoint = MKMapPoint.init(x: x, y: y)
+        return swMapPoint.coordinate
     }
 
 }
@@ -333,7 +333,7 @@ extension UIView {
         UIView.animate(
             withDuration: duration,
             delay: delay,
-            options: UIViewAnimationOptions.curveEaseIn,
+            options: UIView.AnimationOptions.curveEaseIn,
             animations: { self.alpha = 1.0 },
             completion: completion)
     }
@@ -344,7 +344,7 @@ extension UIView {
         UIView.animate(
             withDuration: duration,
             delay: delay,
-            options: UIViewAnimationOptions.curveEaseIn,
+            options: UIView.AnimationOptions.curveEaseIn,
             animations: { self.alpha = 0.0 },
             completion: completion)
     }

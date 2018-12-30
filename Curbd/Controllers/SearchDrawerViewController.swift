@@ -47,7 +47,7 @@ class SearchDrawerViewController: UIViewController {
         searchField.delegate = self
         searchField.addTarget(
             self, action: #selector(SearchDrawerViewController.searchFieldDidChange(_:)),
-            for: UIControlEvents.editingChanged)
+            for: UIControl.Event.editingChanged)
 
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
@@ -71,7 +71,7 @@ class SearchDrawerViewController: UIViewController {
         let searchFieldPaddingView = UIView(
             frame: CGRect(x: 0, y: 0, width: 10, height: searchField.frame.height))
         searchField.leftView = searchFieldPaddingView
-        searchField.leftViewMode = UITextFieldViewMode.always
+        searchField.leftViewMode = UITextField.ViewMode.always
 
         grabber.backgroundColor = UIColor.clear.withAlphaComponent(0.22)
         grabber.layer.cornerRadius = 3
@@ -95,7 +95,7 @@ class SearchDrawerViewController: UIViewController {
             leaveDisplayLabel.text = leaveDate.toHumanReadable()
 
             // reperform search now that arrive and leave time have changed
-            if let mapViewController = parent?.childViewControllers[0] as? MapViewController {
+            if let mapViewController = parent?.children[0] as? MapViewController {
                 mapViewController.locateParkingSpacesOnCurrentMapArea(
                     from: arriveDate,
                     to: leaveDate,
@@ -123,7 +123,7 @@ class SearchDrawerViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateArriveAndLeaveDate),
-            name: NSNotification.Name.UIApplicationWillEnterForeground,
+            name: UIApplication.willEnterForegroundNotification,
             object: nil)
     }
 
@@ -174,7 +174,7 @@ class SearchDrawerViewController: UIViewController {
             leaveDate = arriveLeaveViewController.leaveDate
             leaveDisplayLabel.text = leaveDate.toHumanReadable()
 
-            if let mapViewController = parent?.childViewControllers[0] as? MapViewController {
+            if let mapViewController = parent?.children[0] as? MapViewController {
                 mapViewController.locateParkingSpacesOnCurrentMapArea(
                     from: arriveDate,
                     to: leaveDate,
@@ -192,10 +192,10 @@ class SearchDrawerViewController: UIViewController {
             pulleyViewController.setDrawerPosition(position: .partiallyRevealed, animated: true)
         }
 
-        let mapViewController = parent?.childViewControllers[0] as! MapViewController
+        let mapViewController = parent?.children[0] as! MapViewController
         let completion = searchResults[rowIndex]
 
-        let searchRequest = MKLocalSearchRequest(completion: completion)
+        let searchRequest = MKLocalSearch.Request(completion: completion)
         let mapSearch = MKLocalSearch(request: searchRequest)
         mapSearch.start { response, error in
             if error != nil {

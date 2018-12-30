@@ -39,7 +39,7 @@ class ReservationDetailTableViewController: UITableViewController {
     func initializeAppearanceSettings() {
         parkingSpaceDetailCell.selectionStyle = .none
 
-        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
         slideshow.activityIndicator = DefaultActivityIndicator()
         let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
         slideshow.addGestureRecognizer(slideshowTapRecognizer)
@@ -197,7 +197,7 @@ class ReservationDetailTableViewController: UITableViewController {
                 }
 
                 if UIApplication.shared.canOpenURL(googleMapsURL) {
-                    UIApplication.shared.open(googleMapsURL, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(googleMapsURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 }
             }
         }
@@ -224,11 +224,11 @@ class ReservationDetailTableViewController: UITableViewController {
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -282,4 +282,9 @@ class ReservationDetailTableViewController: UITableViewController {
 
     @IBAction func unwindToReservationDetailTableViewController(segue:UIStoryboardSegue) { }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

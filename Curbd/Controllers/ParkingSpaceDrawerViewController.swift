@@ -41,7 +41,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
     ]
 
     func initializeSettings() {
-        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
         slideshow.activityIndicator = DefaultActivityIndicator()
         let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
         slideshow.addGestureRecognizer(slideshowTapRecognizer)
@@ -178,7 +178,7 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 controller: pulleyViewController.savedSearchDrawerViewController!,
                 animated: false)
             if let mapViewController =
-                pulleyViewController.childViewControllers[0] as? MapViewController {
+                pulleyViewController.children[0] as? MapViewController {
                 mapViewController.mapView.deselectAnnotation(
                     mapViewController.mapView.selectedAnnotations[0],
                     animated: true)

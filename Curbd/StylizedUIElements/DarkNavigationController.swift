@@ -14,7 +14,7 @@ class DarkNavigationController: UINavigationController {
         super.viewDidLoad()
         navigationBar.barTintColor = UIColor(hex: "222222")
         navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.tintColor = UIColor.white
     }
 
@@ -22,7 +22,7 @@ class DarkNavigationController: UINavigationController {
         super.viewWillAppear(animated)
         navigationBar.barTintColor = UIColor(hex: "222222")
         navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.tintColor = UIColor.white
 
         UIApplication.shared.statusBarStyle = .lightContent

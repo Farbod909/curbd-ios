@@ -19,7 +19,7 @@ class SignupNameViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor(hex: "222222")
         view.backgroundColor = UIColor(hex: "222222")
         navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: UIColor.white]
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = UIColor.white
         // set color here so the button is still visible in Interface Builder
         cancelButton.tintColor = UIColor.white

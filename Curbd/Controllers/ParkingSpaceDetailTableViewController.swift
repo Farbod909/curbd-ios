@@ -51,7 +51,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        if self.isMovingFromParentViewController {
+        if self.isMovingFromParent {
             if isPreview {
                 if let token = UserDefaults.standard.string(forKey: "token") {
                     parkingSpace?.delete(withToken: token) { error in
@@ -250,7 +250,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                     withIdentifier: "slideshowCell") as! SlideshowCell
                 slideshowCell.selectionStyle = .none
 
-                slideshowCell.slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+                slideshowCell.slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
                 slideshowCell.slideshow.activityIndicator = DefaultActivityIndicator()
 //                let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
 //                slideshowCell.slideshow.addGestureRecognizer(slideshowTapRecognizer)
@@ -414,7 +414,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
         return false
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             presentConfirmationAlert(title: "Are You Sure?", message: "WARNING: All current reservations must be honored. By deleting this availability you are preventing future reservations at these times.") { alert in
                 if let _ = tableView.cellForRow(at: indexPath) as? RepeatingAvailabilityTableViewCell {

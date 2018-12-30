@@ -66,7 +66,7 @@ class AddFixedAvailabilityViewController: FormViewController {
 
             FixedAvailability.create(withToken: token, parkingSpace: parkingSpace, start: start, end: end, pricing: Int(pricing * 100)) { error, fixedAvailability in
 
-                if let error = error {
+                if error != nil {
                     self.presentServerErrorAlert()
                 } else {
                     self.performSegue(withIdentifier: "unwindToParkingSpaceDetailTableViewController", sender: self)

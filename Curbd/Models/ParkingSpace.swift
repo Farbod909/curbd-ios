@@ -109,7 +109,7 @@ class ParkingSpace {
                 }
 
                 for image in images {
-                    let imageData = UIImageJPEGRepresentation(image, 0.5)
+                    let imageData = image.jpegData(compressionQuality: 0.5)
                     if let imageData = imageData {
                         let fileFriendlyName = name.components(
                             separatedBy: .punctuationCharacters).joined().replacingOccurrences(

@@ -92,7 +92,7 @@ class MapViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(showSearchDrawerViewController),
-            name: NSNotification.Name.UIApplicationWillEnterForeground,
+            name: UIApplication.willEnterForegroundNotification,
             object: nil)
     }
 
@@ -227,7 +227,7 @@ class MapViewController: UIViewController {
      */
     func performSearchInCurrentlyVisibleArea() {
         if let searchDrawerViewController =
-            parent?.childViewControllers[1] as? SearchDrawerViewController {
+            parent?.children[1] as? SearchDrawerViewController {
             locateParkingSpacesOnCurrentMapArea(
                 from: searchDrawerViewController.arriveDate,
                 to: searchDrawerViewController.leaveDate,
@@ -293,23 +293,24 @@ class MapViewController: UIViewController {
                     for parkingSpaceAnnotation in mapViewAnnotations {
                         if !retrievedParkingSpaceAnnotations.map({ $0.parkingSpace.id }).contains(parkingSpaceAnnotation.parkingSpace.id) {
                             self.mapView.removeAnnotation(parkingSpaceAnnotation)
-                            if let indexToRemove = self.currentlyDisplayedParkingSpaces.index(of: parkingSpaceAnnotation) {
-                                self.currentlyDisplayedParkingSpaces.remove(at: indexToRemove)
-                            }
+//                            if let indexToRemove = self.currentlyDisplayedParkingSpaces.index(of: parkingSpaceAnnotation) {
+//                                self.currentlyDisplayedParkingSpaces.remove(at: indexToRemove)
+//                            }
                         }
                     }
 
                     for parkingSpaceAnnotation in retrievedParkingSpaceAnnotations {
-                        if !mapViewAnnotations.map({ $0.parkingSpace.id }).contains(parkingSpaceAnnotation.parkingSpace.id) {
+                        if !mapViewAnnotations.map({ ($0.parkingSpace.id) }).contains(parkingSpaceAnnotation.parkingSpace.id) {
                             self.mapView.addAnnotation(parkingSpaceAnnotation)
-                            self.currentlyDisplayedParkingSpaces.append(parkingSpaceAnnotation)
+//                            self.currentlyDisplayedParkingSpaces.append(parkingSpaceAnnotation)
                         }
                     }
 
                     if selectFirstResult {
                         // if there is at least one parking space found,
                         // automatically select the first one.
-                        if let firstAnnotation = self.currentlyDisplayedParkingSpaces.first {
+//                        if let firstAnnotation = self.currentlyDisplayedParkingSpaces.first {
+                        if let firstAnnotation = self.mapView.annotations.first {
                             self.mapView.selectAnnotation(firstAnnotation, animated: false)
                         }
                     }
@@ -363,16 +364,21 @@ extension MapViewController: MKMapViewDelegate {
 
             // find parking space associated with selected annotation
             // and send it to the ParkingSpaceDrawerViewController.
-            for parkingSpaceAnnotation in currentlyDisplayedParkingSpaces {
-                if parkingSpaceAnnotation.isEqual(view.annotation) {
-                    parkingSpaceDrawerViewController.parkingSpace =
-                        parkingSpaceAnnotation.parkingSpace
-                    parkingSpaceDrawerViewController.price = parkingSpaceAnnotation.price
-                }
+//            for parkingSpaceAnnotation in currentlyDisplayedParkingSpaces {
+//                if parkingSpaceAnnotation.isEqual(view.annotation) {
+//                    parkingSpaceDrawerViewController.parkingSpace =
+//                        parkingSpaceAnnotation.parkingSpace
+//                    parkingSpaceDrawerViewController.price = parkingSpaceAnnotation.price
+//                }
+//            }
+
+            if let parkingSpaceAnnotation = view.annotation as? ParkingSpaceAnnotation {
+                parkingSpaceDrawerViewController.parkingSpace = parkingSpaceAnnotation.parkingSpace
+                parkingSpaceDrawerViewController.price = parkingSpaceAnnotation.price
             }
 
             if let searchDrawerViewController =
-                pulleyViewController.childViewControllers[1] as? SearchDrawerViewController {
+                pulleyViewController.children[1] as? SearchDrawerViewController {
 
                 parkingSpaceDrawerViewController.arriveDate = searchDrawerViewController.arriveDate
                 parkingSpaceDrawerViewController.leaveDate = searchDrawerViewController.leaveDate

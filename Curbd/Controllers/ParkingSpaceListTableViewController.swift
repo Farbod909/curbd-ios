@@ -21,7 +21,7 @@ class ParkingSpaceListTableViewController: UITableViewController {
     }
 
     func initializeAppearanceSettings() {
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func viewDidLoad() {
