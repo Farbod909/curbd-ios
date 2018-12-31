@@ -391,6 +391,10 @@ extension UIColor {
         return UIColor.colorWithGradient(frame: frame, colors: [curbdPurpleDark, curbdPurpleBright])
     }
 
+    static var curbdDarkGray: UIColor {
+        return UIColor(hex: "505050")
+    }
+
     convenience init(hex hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
