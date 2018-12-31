@@ -9,7 +9,7 @@
 import Foundation
 import Pulley
 import UIKit
-import ImageSlideshow
+import SimpleImageViewer
 
 class ParkingSpaceDrawerViewController: UIViewController {
 
@@ -34,9 +34,9 @@ class ParkingSpaceDrawerViewController: UIViewController {
     var price: Int?
 
     let partialRevealHeight: CGFloat = 100
-    let collapsedHeight: CGFloat = 350
+    var collapsedHeight: CGFloat = 350
     let drawerPositions: [PulleyPosition] = [
-        .open,
+//        .open,
         .partiallyRevealed,
         .collapsed,
     ]
@@ -88,7 +88,13 @@ class ParkingSpaceDrawerViewController: UIViewController {
             }
 
             if parkingSpace.features.isEmpty {
-//                noFeaturesLabel.isHidden = false
+                featuresScrollView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+                collapsedHeight -= 65
+            }
+
+            if parkingSpace.images.isEmpty {
+                imagesCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+                collapsedHeight -= 92
             }
 
             for feature in parkingSpace.features {
@@ -155,16 +161,16 @@ class ParkingSpaceDrawerViewController: UIViewController {
 
             }
 
-            var parkingSpaceImageSources = [KingfisherSource]()
-
-            if parkingSpace.images.isEmpty {
+//            var parkingSpaceImageSources = [KingfisherSource]()
+//
+//            if parkingSpace.images.isEmpty {
 //                noImagesLabel.isHidden = false
-            }
-
-            for imageUrl in parkingSpace.images {
-                parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)
-            }
-
+//            }
+//
+//            for imageUrl in parkingSpace.images {
+//                parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)
+//            }
+//
 //            slideshow.setImageInputs(parkingSpaceImageSources)
 
         }
@@ -293,9 +299,19 @@ extension ParkingSpaceDrawerViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "parkingSpaceImagesCollectionViewCell", for: indexPath) as! ParkingSpaceImagesCollectionViewCell
         if let parkingSpace = parkingSpace {
-            cell.image.kf.setImage(with: URL(string: parkingSpace.images[indexPath.row]))
+            cell.imageView.kf.setImage(with: URL(string: parkingSpace.images[indexPath.row]))
         }
         return cell
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ParkingSpaceImagesCollectionViewCell
+
+        let configuration = ImageViewerConfiguration { config in
+            config.imageView = cell.imageView
+        }
+
+        present(ImageViewerController(configuration: configuration), animated: true)
+    }
+
 }

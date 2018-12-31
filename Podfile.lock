@@ -12,6 +12,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
   - Pulley (2.6.2)
+  - SimpleImageViewer (1.1.1)
   - Siren (4.0.0)
   - Stripe (14.0.0)
   - SwiftyJSON (4.2.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - ImageSlideshow/Kingfisher
   - NVActivityIndicatorView
   - Pulley
+  - SimpleImageViewer
   - Siren
   - Stripe
   - SwiftyJSON
@@ -35,6 +37,7 @@ SPEC REPOS:
     - Kingfisher
     - NVActivityIndicatorView
     - Pulley
+    - SimpleImageViewer
     - Siren
     - Stripe
     - SwiftyJSON
@@ -46,10 +49,11 @@ SPEC CHECKSUMS:
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   Pulley: 2679a2b5a9714c5eb760b1fbb535d15c60e50fb4
+  SimpleImageViewer: 34c3a2cde2d9ac022146772cefc27fca14b0c8b1
   Siren: 277d198933672c55aaa7f52fea5768144f2afaf5
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: b127a65f965fb29cf76919ee5fe1ed063d297b3b
+PODFILE CHECKSUM: 8cbda28044fab60414da4fc3e3db5ed261fa813a
 
 COCOAPODS: 1.5.3

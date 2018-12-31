@@ -10,5 +10,5 @@ import UIKit
 
 class ParkingSpaceImagesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
 }

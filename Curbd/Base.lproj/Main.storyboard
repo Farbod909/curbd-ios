@@ -1674,7 +1674,7 @@
                                             <constraint firstAttribute="bottom" secondItem="rjy-zY-z26" secondAttribute="bottom" id="kEN-B1-X7J"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="rjy-zY-z26" id="8cb-CP-McU"/>
+                                            <outlet property="imageView" destination="rjy-zY-z26" id="avj-HT-Pyk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

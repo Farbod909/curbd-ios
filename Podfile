@@ -13,5 +13,6 @@ target 'Curbd' do
   pod 'ImageSlideshow/Kingfisher'
   pod 'NVActivityIndicatorView'
   pod 'Siren'
+  pod 'SimpleImageViewer'
 
 end
