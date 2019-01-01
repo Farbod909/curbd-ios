@@ -12,25 +12,22 @@ class DarkNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.barTintColor = UIColor(hex: "222222")
+        navigationBar.barTintColor = UIColor.curbdPurpleBright
         navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.tintColor = UIColor.white
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationBar.barStyle = .black
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationBar.barTintColor = UIColor(hex: "222222")
+        navigationBar.barTintColor = UIColor.curbdPurpleBright
         navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.tintColor = UIColor.white
-
-        UIApplication.shared.statusBarStyle = .lightContent
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
-    }
-    
 }

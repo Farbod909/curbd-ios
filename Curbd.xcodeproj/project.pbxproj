@@ -87,7 +87,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parking_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		748D1196CB78693300AA5D6C /* Pods-Curbd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curbd.release.xcconfig"; path = "Pods/Target Support Files/Pods-Curbd/Pods-Curbd.release.xcconfig"; sourceTree = "<group>"; };
 		8E0CA4592084534500C9F470 /* HollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowButton.swift; sourceTree = "<group>"; };
 		8E0CA45B208453BC00C9F470 /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
@@ -353,7 +352,6 @@
 		F16D7F338935A981FA484837 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A52710A2695DA256C8E2576 /* Pods_parking_app.framework */,
 				BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */,
 			);
 			name = Frameworks;

@@ -21,16 +21,6 @@ class LoginViewController: UIViewController {
         emailField.becomeFirstResponder()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
-    }
-
     @IBAction func closeButtonClick(_ sender: UIButton) {
         dismiss(animated: true)
     }
@@ -54,4 +44,9 @@ class LoginViewController: UIViewController {
             }
         }
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
 }

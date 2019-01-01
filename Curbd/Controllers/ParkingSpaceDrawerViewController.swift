@@ -272,17 +272,17 @@ extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
     func drawerPositionDidChange(drawer: PulleyViewController, bottomSafeArea: CGFloat) {
         if drawer.drawerPosition == .partiallyRevealed {
             featuresScrollView.isHidden = true
-//            slideshow.isHidden = true
+            imagesCollectionView.isHidden = true
             reserveButton.isHidden = true
             drawer.backgroundDimmingOpacity = 0
         } else if drawer.drawerPosition == .open {
             featuresScrollView.isHidden = false
-//            slideshow.isHidden = false
+            imagesCollectionView.isHidden = false
             reserveButton.isHidden = false
             drawer.backgroundDimmingOpacity = 0.4
         } else if drawer.drawerPosition == .collapsed {
             featuresScrollView.isHidden = false
-//            slideshow.isHidden = false
+            imagesCollectionView.isHidden = false
             reserveButton.isHidden = false
             drawer.backgroundDimmingOpacity = 0
         }

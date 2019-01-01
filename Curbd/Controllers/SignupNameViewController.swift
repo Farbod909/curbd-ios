@@ -32,6 +32,11 @@ class SignupNameViewController: UIViewController {
         firstNameTextField.becomeFirstResponder()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.barStyle = .black
+    }
+
     @IBAction func closeButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }

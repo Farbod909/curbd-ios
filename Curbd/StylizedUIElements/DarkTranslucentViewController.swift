@@ -13,6 +13,7 @@ class DarkTranslucentViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = .overCurrentContext
+        self.modalPresentationCapturesStatusBarAppearance = true
     }
 
     override func viewDidLoad() {
@@ -30,14 +31,8 @@ class DarkTranslucentViewController: UIViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
-    }
-    
 }

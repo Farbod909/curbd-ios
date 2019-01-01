@@ -19,18 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         Siren.shared.wail()
 
-//        Siren.shared.alertMessaging = SirenAlertMessaging(updateTitle: "New Version",
-//                                                   updateMessage: "A required update has been released. Please update to continue using the app.",
-//                                                   updateButtonMessage: "Update Now",
-//                                                   nextTimeButtonMessage: "Later",
-//                                                   skipVersionButtonMessage: "Skip")
-//
-//        Siren.shared.majorUpdateAlertType = .force
-//        Siren.shared.minorUpdateAlertType = .force
-//        Siren.shared.patchUpdateAlertType = .none
-//        Siren.shared.revisionUpdateAlertType = .none
-//
-//        Siren.shared.checkVersion(checkType: .immediately)
+        STPTheme.default().accentColor = UIColor.curbdPurpleBright
 
         // TODO: change to stripe live publishable key
         STPPaymentConfiguration.shared().publishableKey = "pk_test_5q5DlFsEzct0uumMRvd37mln"

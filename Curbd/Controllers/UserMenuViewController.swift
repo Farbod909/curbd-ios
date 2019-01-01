@@ -45,11 +45,21 @@ class UserMenuViewController: DarkTranslucentViewController {
     @IBAction func paymentButtonClick(_ sender: UIButton) {
         let customerContext = STPCustomerContext(keyProvider: PaymentClient.sharedClient)
 
+        let curbdTheme = STPTheme()
+        curbdTheme.accentColor = UIColor.white
+        curbdTheme.secondaryBackgroundColor = UIColor.curbdPurpleBright
+        curbdTheme.secondaryForegroundColor = UIColor.white
+        curbdTheme.primaryBackgroundColor = UIColor.curbdPurpleBright
+        curbdTheme.primaryForegroundColor = UIColor.white
+
         // Setup payment methods view controller
         let paymentMethodsViewController = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: customerContext, delegate: self)
 
         // Present payment methods view controller
         let navigationController = UINavigationController(rootViewController: paymentMethodsViewController)
+
+        navigationController.navigationBar.stp_theme = curbdTheme
+
         present(navigationController, animated: true)
     }
 

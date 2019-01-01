@@ -33,7 +33,7 @@
 }
 
 + (BOOL)colorIsBright:(UIColor *)color {
-    return [self perceivedBrightnessForColor:color] > 0.3;
+    return [self perceivedBrightnessForColor:color] > 0.5;
 }
 
 @end

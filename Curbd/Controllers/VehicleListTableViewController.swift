@@ -27,6 +27,7 @@ class VehicleListTableViewController: UITableViewController {
     func initializeAppearanceSettings() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.contentInset = UIEdgeInsets(top: 15,left: 0,bottom: 0,right: 0)
     }
 
 
