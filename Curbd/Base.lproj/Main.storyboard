@@ -14,8 +14,8 @@
             <objects>
                 <viewController storyboardIdentifier="mainVC" id="BYZ-38-t0r" customClass="ParkingPulleyViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="MBk-W0-vnd"/>
+                        <viewControllerLayoutGuide type="bottom" id="iYT-4H-zIG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -52,8 +52,8 @@
             <objects>
                 <viewController storyboardIdentifier="searchDrawerVC" id="693-38-st5" customClass="SearchDrawerViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oWd-60-di4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Q74-OS-dE0"/>
+                        <viewControllerLayoutGuide type="top" id="daQ-ST-f89"/>
+                        <viewControllerLayoutGuide type="bottom" id="m6Y-2b-QCp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="naO-aX-tgh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
@@ -149,9 +149,9 @@
                             <constraint firstItem="jzH-Jw-iXF" firstAttribute="centerY" secondItem="jFa-1K-Lnt" secondAttribute="centerY" id="4VE-Mn-tyI"/>
                             <constraint firstItem="jFa-1K-Lnt" firstAttribute="centerY" secondItem="dpt-Tb-Aal" secondAttribute="centerY" constant="1" id="6zY-et-8xn"/>
                             <constraint firstItem="7aW-sF-rNM" firstAttribute="top" secondItem="xKa-Ou-gBH" secondAttribute="bottom" constant="8" id="Agh-9e-hxr"/>
-                            <constraint firstItem="3W2-QI-h51" firstAttribute="top" secondItem="oWd-60-di4" secondAttribute="bottom" constant="30" id="Aoc-I2-AZz"/>
+                            <constraint firstItem="3W2-QI-h51" firstAttribute="top" secondItem="daQ-ST-f89" secondAttribute="bottom" constant="30" id="Aoc-I2-AZz"/>
                             <constraint firstItem="xKa-Ou-gBH" firstAttribute="leading" secondItem="naO-aX-tgh" secondAttribute="leadingMargin" constant="-1" id="Eec-LU-0mi"/>
-                            <constraint firstItem="Q74-OS-dE0" firstAttribute="top" secondItem="7aW-sF-rNM" secondAttribute="bottom" id="Fja-KV-P07"/>
+                            <constraint firstItem="m6Y-2b-QCp" firstAttribute="top" secondItem="7aW-sF-rNM" secondAttribute="bottom" id="Fja-KV-P07"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3W2-QI-h51" secondAttribute="trailing" constant="10" id="GEQ-Mm-CWU"/>
                             <constraint firstItem="JeS-w2-EGC" firstAttribute="centerX" secondItem="naO-aX-tgh" secondAttribute="centerX" id="GU4-HI-cuR"/>
                             <constraint firstItem="QMR-We-5Vs" firstAttribute="centerY" secondItem="xKa-Ou-gBH" secondAttribute="centerY" id="Ixa-cM-eSF"/>
@@ -197,8 +197,8 @@
             <objects>
                 <viewController storyboardIdentifier="mapVC" id="6iT-MS-gLO" customClass="MapViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YOp-Xx-vMK"/>
-                        <viewControllerLayoutGuide type="bottom" id="m16-y9-u89"/>
+                        <viewControllerLayoutGuide type="top" id="LWN-9M-MJG"/>
+                        <viewControllerLayoutGuide type="bottom" id="nwR-Z9-Btn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yaX-lX-NW2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
@@ -229,15 +229,15 @@
                                     <constraint firstAttribute="width" constant="98" id="xY4-Qf-SFB"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="accountButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="hAn-7C-cFr"/>
+                                    <action selector="menuButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="hAn-7C-cFr"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="OHT-lm-FCJ">
-                                <rect key="frame" x="327.5" y="40.5" width="28" height="28"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="329.5" y="42.5" width="24" height="24"/>
+                                <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="4qc-Yd-e5g"/>
-                                    <constraint firstAttribute="height" constant="28" id="NTS-El-UKK"/>
+                                    <constraint firstAttribute="width" constant="24" id="4qc-Yd-e5g"/>
+                                    <constraint firstAttribute="height" constant="24" id="NTS-El-UKK"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scs-if-RbW" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
@@ -255,7 +255,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="TmL-id-wdO">
                                 <rect key="frame" x="21" y="40" width="28" height="28"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="99U-yJ-Lut"/>
                                     <constraint firstAttribute="height" constant="28" id="lpk-9W-YDp"/>
@@ -263,8 +263,9 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#######" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hme-cl-Vo2">
                                 <rect key="frame" x="59" y="44" width="73" height="21"/>
+                                <color key="tintColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAj-Rk-ukA" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
@@ -305,14 +306,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="accountButton" destination="sci-gn-uYZ" id="zR6-Sa-RDS"/>
-                        <outlet property="accountButtonSpacingFromTopConstraint" destination="2MR-bV-0y1" id="Vz6-ep-hdn"/>
                         <outlet property="currentLocationButton" destination="AAj-Rk-ukA" id="C6H-I3-nZj"/>
                         <outlet property="currentVehicleButton" destination="scs-if-RbW" id="tJw-tx-3wM"/>
                         <outlet property="currentVehicleButtonImageView" destination="TmL-id-wdO" id="c7Q-Sx-OBS"/>
                         <outlet property="currentVehicleButtonLabel" destination="hme-cl-Vo2" id="B7e-La-xXu"/>
                         <outlet property="currentVehicleButtonSpacingFromTopConstraint" destination="h9k-uX-2iH" id="NHm-SE-uMW"/>
                         <outlet property="mapView" destination="lIL-Rx-ZYi" id="wax-If-2VG"/>
+                        <outlet property="menuButton" destination="sci-gn-uYZ" id="zR6-Sa-RDS"/>
+                        <outlet property="menuButtonImageView" destination="OHT-lm-FCJ" id="ady-0F-AvK"/>
+                        <outlet property="menuButtonSpacingFromTopConstraint" destination="2MR-bV-0y1" id="Vz6-ep-hdn"/>
                         <outlet property="redoSearchButton" destination="2SR-a5-6Ef" id="0D8-TT-8Xh"/>
                         <outlet property="redoSearchButtonSpacingFromBottomConstraint" destination="ScH-oX-A0q" id="StF-tV-Ssx"/>
                     </connections>
@@ -326,8 +328,8 @@
             <objects>
                 <viewController storyboardIdentifier="userMenuVC" id="Ki4-ar-JQd" customClass="UserMenuViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7S-GV-tl9"/>
-                        <viewControllerLayoutGuide type="bottom" id="4z6-gt-2Xb"/>
+                        <viewControllerLayoutGuide type="top" id="zXz-vd-AXb"/>
+                        <viewControllerLayoutGuide type="bottom" id="LbA-Ci-4Se"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dWS-4w-RiC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -348,7 +350,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-Ve-1Ex">
                                 <rect key="frame" x="33" y="72" width="74.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                <color key="textColor" red="0.80784313730000001" green="0.49019607840000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLq-hV-U2D" customClass="BasicShadowButton" customModule="Curbd" customModuleProvider="target">
@@ -400,7 +402,7 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VN-Id-yAp" customClass="SolidButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="50" y="398.5" width="275" height="47"/>
-                                <color key="backgroundColor" red="0.80784313725490198" green="0.49019607843137253" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Oci-fG-bLm"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="275" id="mPy-gN-0QU"/>
@@ -440,9 +442,9 @@
                             <constraint firstItem="3VN-Id-yAp" firstAttribute="top" secondItem="LeX-rP-cUs" secondAttribute="bottom" constant="24.5" id="BJq-15-nEK"/>
                             <constraint firstItem="gZq-bK-3mx" firstAttribute="top" secondItem="d7I-3H-Av5" secondAttribute="bottom" constant="8" id="ByG-Md-oBt"/>
                             <constraint firstItem="jLq-hV-U2D" firstAttribute="top" secondItem="15u-Ve-1Ex" secondAttribute="bottom" constant="16.5" id="C3M-XH-dRo"/>
-                            <constraint firstItem="EcV-tG-RAW" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="12" id="Cru-ld-U7M"/>
+                            <constraint firstItem="EcV-tG-RAW" firstAttribute="top" secondItem="zXz-vd-AXb" secondAttribute="bottom" constant="12" id="Cru-ld-U7M"/>
                             <constraint firstItem="d7I-3H-Av5" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="JeW-LO-c2p"/>
-                            <constraint firstItem="15u-Ve-1Ex" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="52" id="Kjs-7R-b4o"/>
+                            <constraint firstItem="15u-Ve-1Ex" firstAttribute="top" secondItem="zXz-vd-AXb" secondAttribute="bottom" constant="52" id="Kjs-7R-b4o"/>
                             <constraint firstItem="gZq-bK-3mx" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="OFr-cf-Kik"/>
                             <constraint firstItem="iZl-dW-Lk7" firstAttribute="top" secondItem="jLq-hV-U2D" secondAttribute="bottom" constant="8" id="PLZ-SS-yqA"/>
                             <constraint firstItem="jLq-hV-U2D" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="Txx-ab-GNn"/>
@@ -452,7 +454,7 @@
                             <constraint firstAttribute="trailing" secondItem="d4i-Ea-9d8" secondAttribute="trailing" constant="16" id="j02-LE-JeL"/>
                             <constraint firstAttribute="trailing" secondItem="iZl-dW-Lk7" secondAttribute="trailing" constant="16" id="nxS-kI-Zcm"/>
                             <constraint firstItem="d4i-Ea-9d8" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="49" id="rPz-Dc-1L9"/>
-                            <constraint firstItem="vZO-cI-6Ab" firstAttribute="top" secondItem="L7S-GV-tl9" secondAttribute="bottom" constant="56" id="rXe-y2-5a4"/>
+                            <constraint firstItem="vZO-cI-6Ab" firstAttribute="top" secondItem="zXz-vd-AXb" secondAttribute="bottom" constant="56" id="rXe-y2-5a4"/>
                             <constraint firstAttribute="trailing" secondItem="3VN-Id-yAp" secondAttribute="trailing" priority="750" constant="50" id="ss9-0B-2ad"/>
                             <constraint firstItem="d4i-Ea-9d8" firstAttribute="top" secondItem="LeX-rP-cUs" secondAttribute="bottom" constant="7.5" id="tUm-Xb-0rl"/>
                             <constraint firstItem="15u-Ve-1Ex" firstAttribute="leading" secondItem="dWS-4w-RiC" secondAttribute="leading" constant="33" id="uzS-dj-ynG"/>
@@ -479,8 +481,8 @@
             <objects>
                 <viewController storyboardIdentifier="authenticationRequiredVC" id="LZF-Ti-mZL" customClass="AuthenticationRequiredViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EJs-Ab-EhD"/>
-                        <viewControllerLayoutGuide type="bottom" id="rKe-Iq-Wgd"/>
+                        <viewControllerLayoutGuide type="top" id="E6N-zs-gPj"/>
+                        <viewControllerLayoutGuide type="bottom" id="7tV-lX-IyH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xqd-kv-swG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -495,7 +497,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXA-Cd-ejt" customClass="SolidButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="32" y="342.5" width="311" height="46"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="oAB-zP-7fM"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="311" id="pGk-3X-I6i"/>
@@ -538,7 +540,7 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="centerX" secondItem="Xqd-kv-swG" secondAttribute="centerX" id="2P3-fn-lhU"/>
-                            <constraint firstItem="sde-em-0ZG" firstAttribute="top" secondItem="EJs-Ab-EhD" secondAttribute="bottom" constant="12" id="60x-20-voW"/>
+                            <constraint firstItem="sde-em-0ZG" firstAttribute="top" secondItem="E6N-zs-gPj" secondAttribute="bottom" constant="12" id="60x-20-voW"/>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="centerY" secondItem="Xqd-kv-swG" secondAttribute="centerY" id="Gce-8z-KjE"/>
                             <constraint firstAttribute="trailing" secondItem="sde-em-0ZG" secondAttribute="trailing" constant="20" id="HLg-Wz-nls"/>
                             <constraint firstItem="MBl-70-t4x" firstAttribute="top" secondItem="taX-mR-Qz6" secondAttribute="bottom" priority="750" constant="8" id="KTb-KJ-FcJ"/>
@@ -565,7 +567,7 @@
             <objects>
                 <tableViewController id="hpD-c7-Vww" customClass="VehicleListTableViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qcX-Zp-k4a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -580,34 +582,34 @@
                                             <rect key="frame" x="12" y="0.0" width="351" height="100"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIY-ie-Qv4">
-                                                    <rect key="frame" x="68" y="46" width="41" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <rect key="frame" x="68" y="46" width="38.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Vehicle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDb-jS-bJI">
-                                                    <rect key="frame" x="221" y="68" width="118" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="223" y="66.5" width="112" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.083811484280000001" green="0.72427314519999997" blue="0.20909103749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpe-Rp-ewD">
-                                                    <rect key="frame" x="8" y="13" width="51" height="33"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="8" y="16" width="51" height="33"/>
+                                                    <color key="tintColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="Eo8-3T-aG1"/>
                                                         <constraint firstAttribute="width" constant="51" id="FHN-tT-gsQ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Model" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehQ-jT-YU8">
-                                                    <rect key="frame" x="68" y="13" width="114" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="68" y="13" width="116.5" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwo-l7-YpL">
-                                                    <rect key="frame" x="68" y="68" width="73.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <rect key="frame" x="68" y="66.5" width="69.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -616,17 +618,17 @@
                                             <constraints>
                                                 <constraint firstItem="kIY-ie-Qv4" firstAttribute="leading" secondItem="Rpe-Rp-ewD" secondAttribute="trailing" constant="9" id="2cO-BH-HFN"/>
                                                 <constraint firstItem="ehQ-jT-YU8" firstAttribute="leading" secondItem="Rpe-Rp-ewD" secondAttribute="trailing" constant="9" id="4Rt-Ug-DTt"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wwo-l7-YpL" secondAttribute="bottom" constant="14" id="BPD-gK-8Br"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Cgv-u9-xRa"/>
                                                 <constraint firstItem="Wwo-l7-YpL" firstAttribute="top" secondItem="kIY-ie-Qv4" secondAttribute="bottom" constant="1" id="EEk-6l-zDi"/>
                                                 <constraint firstItem="Rpe-Rp-ewD" firstAttribute="leading" secondItem="907-f4-XCU" secondAttribute="leading" constant="8" id="XMJ-WD-cEl"/>
+                                                <constraint firstItem="Rpe-Rp-ewD" firstAttribute="top" secondItem="ehQ-jT-YU8" secondAttribute="bottom" constant="-23.5" id="doR-gB-YSS"/>
                                                 <constraint firstItem="kIY-ie-Qv4" firstAttribute="top" secondItem="ehQ-jT-YU8" secondAttribute="bottom" constant="6.5" id="e9B-7x-ahQ"/>
                                                 <constraint firstAttribute="height" constant="100" id="fYs-fx-sz0"/>
                                                 <constraint firstItem="Wwo-l7-YpL" firstAttribute="leading" secondItem="Rpe-Rp-ewD" secondAttribute="trailing" constant="9" id="kbK-0f-GDB"/>
                                                 <constraint firstItem="pDb-jS-bJI" firstAttribute="centerY" secondItem="Wwo-l7-YpL" secondAttribute="centerY" id="meP-2Q-2kI"/>
-                                                <constraint firstItem="Rpe-Rp-ewD" firstAttribute="top" secondItem="907-f4-XCU" secondAttribute="top" constant="13" id="qFy-Dl-si5"/>
-                                                <constraint firstAttribute="trailing" secondItem="pDb-jS-bJI" secondAttribute="trailing" constant="12" id="qmj-0K-jdP"/>
-                                                <constraint firstAttribute="bottom" secondItem="Wwo-l7-YpL" secondAttribute="bottom" constant="11" id="sAt-Zc-C87"/>
-                                                <constraint firstItem="Rpe-Rp-ewD" firstAttribute="top" secondItem="ehQ-jT-YU8" secondAttribute="bottom" constant="-26.5" id="yrb-2E-uB4"/>
+                                                <constraint firstItem="Rpe-Rp-ewD" firstAttribute="top" secondItem="907-f4-XCU" secondAttribute="top" constant="16" id="qFy-Dl-si5"/>
+                                                <constraint firstAttribute="trailing" secondItem="pDb-jS-bJI" secondAttribute="trailing" constant="16" id="qmj-0K-jdP"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -656,7 +658,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vehicles" id="xCf-eR-ibO">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="J1r-EJ-vZk">
+                        <barButtonItem key="leftBarButtonItem" title="Dismiss" image="close" style="plain" id="J1r-EJ-vZk">
                             <connections>
                                 <action selector="dismissButtonClick:" destination="hpD-c7-Vww" id="cVO-kT-reZ"/>
                             </connections>
@@ -758,7 +760,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reservations" id="9i7-Nk-mJs">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="c3l-Bx-2vp">
+                        <barButtonItem key="leftBarButtonItem" title="Dismiss" image="close" id="c3l-Bx-2vp">
                             <connections>
                                 <action selector="dismissButtonClick:" destination="y4B-df-S7p" id="vwH-Qq-T2k"/>
                             </connections>
@@ -797,7 +799,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="98" id="SSq-mq-0Ta"/>
                                                     </constraints>
-                                                    <state key="normal" title="Directions"/>
+                                                    <state key="normal" title="Directions">
+                                                        <color key="titleColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="mapIconClick:" destination="hmb-kk-bsa" eventType="touchUpInside" id="D5W-4c-nil"/>
                                                     </connections>
@@ -1067,8 +1071,8 @@
             <objects>
                 <viewController id="lyC-Ia-JEW" customClass="ReservationExtensionViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="l5N-lV-0VY"/>
-                        <viewControllerLayoutGuide type="bottom" id="XXt-xp-LQE"/>
+                        <viewControllerLayoutGuide type="top" id="ZdQ-AO-yab"/>
+                        <viewControllerLayoutGuide type="bottom" id="WNa-it-cFa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DkZ-fU-wDh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1100,7 +1104,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Uve-r5-DKl" firstAttribute="top" secondItem="AQJ-23-DoX" secondAttribute="bottom" constant="13" id="6k5-uN-0Rz"/>
-                            <constraint firstItem="JCz-tD-Udm" firstAttribute="top" secondItem="l5N-lV-0VY" secondAttribute="bottom" constant="52" id="Fxs-1b-yAv"/>
+                            <constraint firstItem="JCz-tD-Udm" firstAttribute="top" secondItem="ZdQ-AO-yab" secondAttribute="bottom" constant="52" id="Fxs-1b-yAv"/>
                             <constraint firstItem="AQJ-23-DoX" firstAttribute="centerX" secondItem="DkZ-fU-wDh" secondAttribute="centerX" id="NvK-HN-KlE"/>
                             <constraint firstItem="Uve-r5-DKl" firstAttribute="centerX" secondItem="DkZ-fU-wDh" secondAttribute="centerX" id="bZm-iC-4aO"/>
                             <constraint firstItem="AQJ-23-DoX" firstAttribute="width" secondItem="Uve-r5-DKl" secondAttribute="width" id="k0U-MW-LWt"/>
@@ -1128,7 +1132,7 @@
             <objects>
                 <tableViewController id="i98-rk-UvS" customClass="VehicleDetailTableViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="26N-Eg-roX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -1389,8 +1393,8 @@
             <objects>
                 <viewController id="cC0-Bh-ikF" customClass="ReportSubmissionViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Oz-YN-SZl"/>
-                        <viewControllerLayoutGuide type="bottom" id="c6S-Ug-nds"/>
+                        <viewControllerLayoutGuide type="top" id="waT-NB-vaY"/>
+                        <viewControllerLayoutGuide type="bottom" id="tcy-nm-H1u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rbh-DB-qRr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1419,7 +1423,7 @@
                             <constraint firstAttribute="trailing" secondItem="LfL-OK-iWE" secondAttribute="trailing" constant="16" id="RU1-7m-Ar7"/>
                             <constraint firstItem="RZc-bs-nLH" firstAttribute="leading" secondItem="Rbh-DB-qRr" secondAttribute="leading" constant="16" id="UtD-tg-ifq"/>
                             <constraint firstItem="LfL-OK-iWE" firstAttribute="top" secondItem="RZc-bs-nLH" secondAttribute="bottom" constant="8" id="Vdj-c9-o5D"/>
-                            <constraint firstItem="RZc-bs-nLH" firstAttribute="top" secondItem="5Oz-YN-SZl" secondAttribute="bottom" constant="26" id="nR8-cU-00S"/>
+                            <constraint firstItem="RZc-bs-nLH" firstAttribute="top" secondItem="waT-NB-vaY" secondAttribute="bottom" constant="26" id="nR8-cU-00S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kZR-GF-RPU">
@@ -1445,11 +1449,11 @@
             <objects>
                 <viewController storyboardIdentifier="addVehicleViewController" id="RCe-OM-NPw" customClass="AddVehicleViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XSe-Pu-2mn"/>
-                        <viewControllerLayoutGuide type="bottom" id="TmP-Et-i01"/>
+                        <viewControllerLayoutGuide type="top" id="q5h-2J-oqm"/>
+                        <viewControllerLayoutGuide type="bottom" id="4m4-Eb-kGv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZES-z2-QKT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1468,8 +1472,8 @@
             <objects>
                 <viewController id="ymj-qE-dXg" customClass="LoginViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="drG-qZ-Bo4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rfy-ZX-wdI"/>
+                        <viewControllerLayoutGuide type="top" id="GZ6-dQ-Gfm"/>
+                        <viewControllerLayoutGuide type="bottom" id="FuI-ZE-xxT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aIu-Kh-IYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1484,7 +1488,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts5-y1-QeT" customClass="SolidButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="32" y="278.5" width="311" height="46"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="311" id="dho-gb-xJs"/>
                                     <constraint firstAttribute="height" constant="46" id="qJW-Pe-JHr"/>
@@ -1543,7 +1547,7 @@
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="top" secondItem="mxv-C0-NDn" secondAttribute="bottom" constant="8" id="QYB-Yu-7gs"/>
                             <constraint firstAttribute="trailing" secondItem="ts5-y1-QeT" secondAttribute="trailing" priority="750" constant="32" id="RIu-hV-Fkg"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="d0Z-4r-Ni8"/>
-                            <constraint firstItem="s7M-G0-71W" firstAttribute="top" secondItem="drG-qZ-Bo4" secondAttribute="bottom" constant="12" id="d5L-JK-5rc"/>
+                            <constraint firstItem="s7M-G0-71W" firstAttribute="top" secondItem="GZ6-dQ-Gfm" secondAttribute="bottom" constant="12" id="d5L-JK-5rc"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="dph-th-gJI"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="nVF-wL-4p6"/>
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="top" secondItem="Khr-a7-B0f" secondAttribute="bottom" constant="8" id="w0E-rq-IrR"/>
@@ -1568,8 +1572,8 @@
             <objects>
                 <viewController storyboardIdentifier="parkingSpaceDrawerVC" id="toh-Eb-wdA" customClass="ParkingSpaceDrawerViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hYs-Gm-BXP"/>
-                        <viewControllerLayoutGuide type="bottom" id="EXd-fP-h8U"/>
+                        <viewControllerLayoutGuide type="top" id="P3N-ea-MmH"/>
+                        <viewControllerLayoutGuide type="bottom" id="1c8-s2-Gv7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7QK-Nk-9QQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1607,7 +1611,7 @@
                                     <constraint firstAttribute="width" constant="28" id="RJi-hH-KwE"/>
                                     <constraint firstAttribute="height" constant="28" id="k9f-q9-mn2"/>
                                 </constraints>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="6yE-wK-ELD"/>
@@ -1688,8 +1692,8 @@
                         <constraints>
                             <constraint firstItem="hrX-Ku-nfl" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="16" id="0qk-7M-lND"/>
                             <constraint firstItem="YIk-hO-Kgu" firstAttribute="centerX" secondItem="7QK-Nk-9QQ" secondAttribute="centerX" id="32F-2R-Bvk"/>
-                            <constraint firstItem="hrX-Ku-nfl" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="22" id="4cq-nF-jnK"/>
-                            <constraint firstItem="nlx-5A-0xr" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="19" id="ACf-aF-ax9"/>
+                            <constraint firstItem="hrX-Ku-nfl" firstAttribute="top" secondItem="P3N-ea-MmH" secondAttribute="bottom" constant="22" id="4cq-nF-jnK"/>
+                            <constraint firstItem="nlx-5A-0xr" firstAttribute="top" secondItem="P3N-ea-MmH" secondAttribute="bottom" constant="19" id="ACf-aF-ax9"/>
                             <constraint firstAttribute="trailing" secondItem="nlx-5A-0xr" secondAttribute="trailing" constant="20" id="D9f-VG-Lci"/>
                             <constraint firstAttribute="trailing" secondItem="tgK-Ev-UwE" secondAttribute="trailing" constant="23" id="O4p-SI-2uT"/>
                             <constraint firstItem="Ndb-Kt-cYn" firstAttribute="centerX" secondItem="7QK-Nk-9QQ" secondAttribute="centerX" id="RVa-Ch-RQc"/>
@@ -1698,14 +1702,14 @@
                             <constraint firstItem="tXS-Ts-oxb" firstAttribute="top" secondItem="hrX-Ku-nfl" secondAttribute="bottom" constant="2" id="Yhk-Ii-KtQ"/>
                             <constraint firstItem="mpa-XU-Lt1" firstAttribute="top" secondItem="tXS-Ts-oxb" secondAttribute="bottom" constant="10" id="a8o-Bp-0V5"/>
                             <constraint firstItem="tXS-Ts-oxb" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="16" id="bcN-a3-8Pk"/>
-                            <constraint firstItem="Ndb-Kt-cYn" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="8" id="dHA-pu-5Ov"/>
+                            <constraint firstItem="Ndb-Kt-cYn" firstAttribute="top" secondItem="P3N-ea-MmH" secondAttribute="bottom" constant="8" id="dHA-pu-5Ov"/>
                             <constraint firstItem="mgg-Ma-URI" firstAttribute="top" secondItem="tgK-Ev-UwE" secondAttribute="bottom" constant="14" id="emR-Ld-I2G"/>
                             <constraint firstItem="tgK-Ev-UwE" firstAttribute="top" secondItem="mpa-XU-Lt1" secondAttribute="bottom" constant="10" id="en2-wh-QPR"/>
                             <constraint firstItem="mpa-XU-Lt1" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="16" id="gBw-FL-CF9"/>
                             <constraint firstItem="mgg-Ma-URI" firstAttribute="leading" secondItem="7QK-Nk-9QQ" secondAttribute="leading" constant="23" id="izV-fK-EBb"/>
                             <constraint firstItem="nlx-5A-0xr" firstAttribute="leading" secondItem="hrX-Ku-nfl" secondAttribute="trailing" constant="8" id="jqc-WQ-JZL"/>
                             <constraint firstAttribute="trailing" secondItem="mgg-Ma-URI" secondAttribute="trailing" constant="23" id="m3F-Xk-0fe"/>
-                            <constraint firstItem="YIk-hO-Kgu" firstAttribute="top" secondItem="hYs-Gm-BXP" secondAttribute="bottom" constant="-8" id="wYo-eK-Cok"/>
+                            <constraint firstItem="YIk-hO-Kgu" firstAttribute="top" secondItem="P3N-ea-MmH" secondAttribute="bottom" constant="-8" id="wYo-eK-Cok"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1728,8 +1732,8 @@
             <objects>
                 <viewController storyboardIdentifier="reservationConfirmationViewController" id="mWY-P8-Da5" customClass="ReservationConfirmationViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pc3-Nd-vaF"/>
-                        <viewControllerLayoutGuide type="bottom" id="rLb-Ts-6Oi"/>
+                        <viewControllerLayoutGuide type="top" id="Gv4-2Z-igZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ki-IC-sbU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3L1-Vq-Ryx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1786,10 +1790,10 @@
                                     <action selector="reserveButtonClick:" destination="toh-Eb-wdA" eventType="touchUpInside" id="cpZ-T4-aRA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQk-Nn-4oa">
-                                <rect key="frame" x="302" y="30" width="53" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Cancel">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQk-Nn-4oa">
+                                <rect key="frame" x="337" y="30" width="18" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="close">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1867,7 +1871,7 @@
                             <constraint firstItem="b68-pt-MOg" firstAttribute="top" secondItem="xOc-J9-QhJ" secondAttribute="bottom" constant="23" id="d3b-Qw-8j4"/>
                             <constraint firstItem="vju-z2-ih5" firstAttribute="leading" secondItem="3L1-Vq-Ryx" secondAttribute="leading" constant="16" id="df1-zQ-QY3"/>
                             <constraint firstItem="6MY-dd-K3Q" firstAttribute="leading" secondItem="NBJ-EM-1ud" secondAttribute="trailing" constant="17" id="f4e-60-F4q"/>
-                            <constraint firstItem="mQk-Nn-4oa" firstAttribute="top" secondItem="pc3-Nd-vaF" secondAttribute="bottom" constant="10" id="fnt-dV-ond"/>
+                            <constraint firstItem="mQk-Nn-4oa" firstAttribute="top" secondItem="Gv4-2Z-igZ" secondAttribute="bottom" constant="10" id="fnt-dV-ond"/>
                             <constraint firstItem="hiI-vd-7b6" firstAttribute="top" secondItem="b68-pt-MOg" secondAttribute="bottom" constant="3" id="iDB-vH-ncS"/>
                             <constraint firstItem="BRF-ec-B4L" firstAttribute="top" secondItem="NBJ-EM-1ud" secondAttribute="bottom" constant="20" id="nBO-GN-fuv"/>
                             <constraint firstAttribute="trailing" secondItem="mQk-Nn-4oa" secondAttribute="trailing" constant="20" id="pQc-AP-mdl"/>
@@ -1931,7 +1935,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Settings" id="AuB-R6-EZ0">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="bqY-H9-Mdq">
+                        <barButtonItem key="leftBarButtonItem" title="Dismiss" image="close" id="bqY-H9-Mdq">
                             <connections>
                                 <action selector="dismissButtonClick:" destination="lHn-cB-NDE" id="xeB-oL-8gA"/>
                             </connections>
@@ -1951,8 +1955,8 @@
             <objects>
                 <viewController storyboardIdentifier="arriveLeaveVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hyf-HC-4Ea" customClass="ArriveLeaveViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ge9-Zm-d7q"/>
-                        <viewControllerLayoutGuide type="bottom" id="9CF-rd-war"/>
+                        <viewControllerLayoutGuide type="top" id="Xa4-np-z3K"/>
+                        <viewControllerLayoutGuide type="bottom" id="M7p-0t-ldZ"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="dPY-2v-xHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
@@ -2128,8 +2132,8 @@
             <objects>
                 <viewController id="ikn-2O-8c4" customClass="AddParkingSpaceViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="30T-tf-WyO"/>
-                        <viewControllerLayoutGuide type="bottom" id="zzW-s3-TgE"/>
+                        <viewControllerLayoutGuide type="top" id="0Fb-rg-kfR"/>
+                        <viewControllerLayoutGuide type="bottom" id="haI-WE-Koc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E0g-md-rBC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2158,8 +2162,8 @@
             <objects>
                 <viewController id="aD9-dt-iZn" customClass="SignupNameViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pu0-zQ-Igr"/>
-                        <viewControllerLayoutGuide type="bottom" id="3zG-YC-IUn"/>
+                        <viewControllerLayoutGuide type="top" id="FyR-rJ-Dek"/>
+                        <viewControllerLayoutGuide type="bottom" id="WLX-D9-Jj0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6az-42-8tb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2194,7 +2198,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUc-Ep-xp8" customClass="SolidButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="292" y="284.5" width="63" height="38"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="Next">
@@ -2244,8 +2248,8 @@
             <objects>
                 <viewController storyboardIdentifier="signupEmailPhoneViewController" id="bIl-3Q-rWO" customClass="SignupEmailPhoneViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yt3-hb-8hm"/>
-                        <viewControllerLayoutGuide type="bottom" id="8bm-NZ-cC7"/>
+                        <viewControllerLayoutGuide type="top" id="uBs-Ly-E6c"/>
+                        <viewControllerLayoutGuide type="bottom" id="0rC-AS-iOF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pk8-HR-cwp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2280,7 +2284,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C15-Zt-cdA" customClass="SolidButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="292" y="284" width="63" height="38"/>
-                                <color key="backgroundColor" red="0.80893206596374512" green="0.48856163024902344" blue="0.91138249635696411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="Next">
@@ -2321,8 +2325,8 @@
             <objects>
                 <viewController storyboardIdentifier="signupPasswordViewController" id="Xh4-3Z-MVv" customClass="SignupPasswordViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gje-Zk-8v6"/>
-                        <viewControllerLayoutGuide type="bottom" id="EzB-H1-0kc"/>
+                        <viewControllerLayoutGuide type="top" id="Khf-QF-5Uo"/>
+                        <viewControllerLayoutGuide type="bottom" id="e0S-eR-I4d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UdM-AP-EXi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2357,7 +2361,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lu-VU-ahd" customClass="EdgeInsetButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="270" y="284" width="85" height="38"/>
-                                <color key="backgroundColor" red="0.80784313725490198" green="0.49019607843137253" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
                                 <state key="normal" title="Submit">
@@ -2853,8 +2857,8 @@
             <objects>
                 <viewController id="Fg8-OE-1DK" customClass="AddRepeatingAvailabilityViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8C2-5a-HUT"/>
-                        <viewControllerLayoutGuide type="bottom" id="gzK-qO-Ax3"/>
+                        <viewControllerLayoutGuide type="top" id="Tfu-ah-MjG"/>
+                        <viewControllerLayoutGuide type="bottom" id="mLa-l3-jhR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Je-de-sYE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2876,8 +2880,8 @@
             <objects>
                 <viewController id="hzt-4S-1qy" customClass="AddFixedAvailabilityViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RA1-ck-dDh"/>
-                        <viewControllerLayoutGuide type="bottom" id="zlh-la-SPG"/>
+                        <viewControllerLayoutGuide type="top" id="rVL-Nq-peS"/>
+                        <viewControllerLayoutGuide type="bottom" id="R1g-C1-s6a"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fnX-2G-6T3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3092,7 +3096,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dashboard" id="czn-cQ-8hQ">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="roM-9p-wEk">
+                        <barButtonItem key="leftBarButtonItem" title="Dismiss" image="close" id="roM-9p-wEk">
                             <connections>
                                 <action selector="dismissButtonClick:" destination="nRJ-eY-7Cb" id="ONU-wh-AxE"/>
                             </connections>
@@ -3133,8 +3137,8 @@
             <objects>
                 <viewController storyboardIdentifier="hostInfoGatherViewController" title="Host Information" id="2KV-DU-UtQ" customClass="HostInfoGatherViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mQA-rU-iwM"/>
-                        <viewControllerLayoutGuide type="bottom" id="46G-JP-ZuR"/>
+                        <viewControllerLayoutGuide type="top" id="Z0T-c6-R3M"/>
+                        <viewControllerLayoutGuide type="bottom" id="nYz-Li-1rF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6dq-tp-Znh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3548,7 +3552,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1a3-9A-uUD"/>
-        <segue reference="tUf-Ts-zqf"/>
-        <segue reference="t4W-aa-c2r"/>
+        <segue reference="b2c-sg-o82"/>
+        <segue reference="X0u-aZ-M8Q"/>
     </inferredMetricsTieBreakers>
 </document>

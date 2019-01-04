@@ -17,12 +17,13 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var redoSearchButton: UIButton!
     @IBOutlet weak var currentLocationButton: MapButton!
-    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var menuButtonImageView: UIImageView!
     @IBOutlet weak var currentVehicleButton: UIButton!
     @IBOutlet weak var currentVehicleButtonImageView: UIImageView!
     @IBOutlet weak var currentVehicleButtonLabel: UILabel!
     @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var accountButtonSpacingFromTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var menuButtonSpacingFromTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentVehicleButtonSpacingFromTopConstraint: NSLayoutConstraint!
     var redoSearchActivityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .gray, padding: nil)
 
@@ -57,6 +58,12 @@ class MapViewController: UIViewController {
         currentVehicleButton.addSubview(currentVehicleButtonLabel)
         currentVehicleButton.addSubview(currentVehicleButtonImageView)
 
+        currentVehicleButtonImageView.image = currentVehicleButtonImageView.image!.withRenderingMode(.alwaysTemplate)
+        currentVehicleButtonImageView.tintColor = UIColor.curbdDarkGray
+        menuButtonImageView.image = menuButtonImageView.image!.withRenderingMode(.alwaysTemplate)
+        menuButtonImageView.tintColor = UIColor.curbdDarkGray
+
+
         currentVehicleButton.isHidden = true
         currentLocationButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
 
@@ -65,7 +72,7 @@ class MapViewController: UIViewController {
         if iphoneX {
             redoSearchButtonSpacingFromBottomConstraint.constant += 26
             currentVehicleButtonSpacingFromTopConstraint.constant += 26
-            accountButtonSpacingFromTopConstraint.constant += 26
+            menuButtonSpacingFromTopConstraint.constant += 26
             view.updateConstraints()
         }
     }
@@ -145,11 +152,11 @@ class MapViewController: UIViewController {
     }
 
     /**
-     This function is called when the user account button is clicked.
+     This function is called when the user menu button is clicked.
      If a user is logged in, this function shows the user menu; if not,
      the authentication required page is shown to the user instead.
      */
-    @IBAction func accountButtonClick(_ sender: UIButton) {
+    @IBAction func menuButtonClick(_ sender: UIButton) {
         if UserDefaults.standard.string(forKey: "token") != nil {
             // if token exists (aka user is logged in)
             instantiateAndShowViewController(withIdentifier: "userMenuVC")

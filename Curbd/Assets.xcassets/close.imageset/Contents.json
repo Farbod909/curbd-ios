@@ -2,12 +2,10 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "glyphicons-208-remove.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "glyphicons-208-remove@2x.png",
       "scale" : "2x"
     },
     {

@@ -19,6 +19,8 @@ class VehicleTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        vehicleImageView.image = vehicleImageView.image!.withRenderingMode(.alwaysTemplate)
+        vehicleImageView.tintColor = UIColor.curbdPurpleBright
         view.layer.cornerRadius = 8
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -27,4 +29,41 @@ class VehicleTableViewCell: UITableViewCell {
         self.clipsToBounds = false
     }
 
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+
+        if highlighted {
+            view.backgroundColor = UIColor.curbdPurpleBright
+            vehicleImageView.tintColor = UIColor.white
+            makeAndModelLabel.textColor = UIColor.white
+            vehicleColorLabel.textColor = UIColor.white
+            licencePlateLabel.textColor = UIColor.white
+        } else {
+            view.backgroundColor = UIColor.white
+            vehicleImageView.tintColor = UIColor.curbdPurpleBright
+            makeAndModelLabel.textColor = UIColor.curbdDarkGray
+            vehicleColorLabel.textColor = UIColor.curbdDarkGray
+            licencePlateLabel.textColor = UIColor.curbdDarkGray
+        }
+
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        if selected {
+            view.backgroundColor = UIColor.curbdPurpleBright
+            vehicleImageView.tintColor = UIColor.white
+            makeAndModelLabel.textColor = UIColor.white
+            vehicleColorLabel.textColor = UIColor.white
+            licencePlateLabel.textColor = UIColor.white
+        } else {
+            view.backgroundColor = UIColor.white
+            vehicleImageView.tintColor = UIColor.curbdPurpleBright
+            makeAndModelLabel.textColor = UIColor.curbdDarkGray
+            vehicleColorLabel.textColor = UIColor.curbdDarkGray
+            licencePlateLabel.textColor = UIColor.curbdDarkGray
+        }
+
+    }
 }
