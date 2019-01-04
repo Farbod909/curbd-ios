@@ -2043,68 +2043,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parkingSpaceCell" rowHeight="124" id="EDd-78-lyj" customClass="ParkingSpaceTableViewCell" customModule="Curbd" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="parkingSpaceCell" rowHeight="124" id="EDd-78-lyj" customClass="ParkingSpaceTableViewCell" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="124"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EDd-78-lyj" id="J1k-ic-fnU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 N Boulevard Dr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoY-M3-hxi">
-                                            <rect key="frame" x="131" y="13" width="243" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrH-K8-OX3">
-                                            <rect key="frame" x="131" y="39" width="239" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUW-WO-HaG">
-                                            <rect key="frame" x="0.0" y="120" width="375" height="4"/>
-                                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERf-vW-Vae">
+                                            <rect key="frame" x="12" y="0.0" width="351" height="109"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3H-ny-fa2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="4nN-pK-Buf"/>
+                                                        <constraint firstAttribute="height" constant="109" id="SHQ-P9-cry"/>
+                                                    </constraints>
+                                                </mapView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 N Boulevard Dr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWH-Xd-hxs">
+                                                    <rect key="frame" x="117" y="8" width="168" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                    <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4B8-gE-qrZ">
+                                                    <rect key="frame" x="117" y="32" width="125" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzL-Ei-cZr">
+                                                    <rect key="frame" x="289" y="80" width="48" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="4" id="Sk5-Uk-qOE"/>
+                                                <constraint firstAttribute="bottom" secondItem="wzL-Ei-cZr" secondAttribute="bottom" constant="8" id="FEW-SK-gX9"/>
+                                                <constraint firstItem="lWH-Xd-hxs" firstAttribute="leading" secondItem="x3H-ny-fa2" secondAttribute="trailing" constant="8" id="GRW-yZ-A4J"/>
+                                                <constraint firstAttribute="trailing" secondItem="wzL-Ei-cZr" secondAttribute="trailing" constant="14" id="PBO-Nk-0fe"/>
+                                                <constraint firstItem="4B8-gE-qrZ" firstAttribute="leading" secondItem="x3H-ny-fa2" secondAttribute="trailing" constant="8" id="Y6y-4D-gpI"/>
+                                                <constraint firstItem="x3H-ny-fa2" firstAttribute="top" secondItem="ERf-vW-Vae" secondAttribute="top" id="Z0f-CB-z5z"/>
+                                                <constraint firstItem="x3H-ny-fa2" firstAttribute="leading" secondItem="ERf-vW-Vae" secondAttribute="leading" id="lgP-5V-4aB"/>
+                                                <constraint firstItem="4B8-gE-qrZ" firstAttribute="top" secondItem="lWH-Xd-hxs" secondAttribute="bottom" constant="1" id="ogu-GY-v7p"/>
+                                                <constraint firstItem="lWH-Xd-hxs" firstAttribute="top" secondItem="ERf-vW-Vae" secondAttribute="top" constant="8" id="qDa-28-VPZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="x3H-ny-fa2" secondAttribute="bottom" id="tIE-f8-Z3N"/>
                                             </constraints>
                                         </view>
-                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrk-Zc-I3F">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="120" id="0uX-4e-r5u"/>
-                                                <constraint firstAttribute="height" constant="120" id="GcX-Ak-Jek"/>
-                                            </constraints>
-                                        </mapView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIo-Bz-lhn">
-                                            <rect key="frame" x="311" y="92" width="48" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="jrH-K8-OX3" firstAttribute="leading" secondItem="Mrk-Zc-I3F" secondAttribute="trailing" constant="11" id="6vf-QL-jk8"/>
-                                        <constraint firstAttribute="bottom" secondItem="UIo-Bz-lhn" secondAttribute="bottom" constant="11" id="E6T-Js-OP3"/>
-                                        <constraint firstItem="Mrk-Zc-I3F" firstAttribute="top" secondItem="J1k-ic-fnU" secondAttribute="top" id="ILS-4t-MfC"/>
-                                        <constraint firstAttribute="trailing" secondItem="jrH-K8-OX3" secondAttribute="trailing" constant="5" id="L0J-fy-2Kh"/>
-                                        <constraint firstItem="TUW-WO-HaG" firstAttribute="top" secondItem="Mrk-Zc-I3F" secondAttribute="bottom" id="PAu-tT-TBa"/>
-                                        <constraint firstAttribute="trailing" secondItem="UIo-Bz-lhn" secondAttribute="trailing" constant="16" id="R6H-IQ-vCW"/>
-                                        <constraint firstItem="WoY-M3-hxi" firstAttribute="top" secondItem="J1k-ic-fnU" secondAttribute="top" constant="13" id="Xh4-yi-SKM"/>
-                                        <constraint firstAttribute="trailing" secondItem="WoY-M3-hxi" secondAttribute="trailing" constant="1" id="azz-k6-k0D"/>
-                                        <constraint firstItem="jrH-K8-OX3" firstAttribute="top" secondItem="WoY-M3-hxi" secondAttribute="bottom" constant="3" id="bGs-qJ-jnz"/>
-                                        <constraint firstItem="TUW-WO-HaG" firstAttribute="leading" secondItem="J1k-ic-fnU" secondAttribute="leading" id="dfY-n4-8wN"/>
-                                        <constraint firstAttribute="bottom" secondItem="TUW-WO-HaG" secondAttribute="bottom" constant="-0.5" id="ebJ-5i-7bV"/>
-                                        <constraint firstItem="WoY-M3-hxi" firstAttribute="leading" secondItem="Mrk-Zc-I3F" secondAttribute="trailing" constant="11" id="fsL-cJ-ko1"/>
-                                        <constraint firstItem="Mrk-Zc-I3F" firstAttribute="leading" secondItem="J1k-ic-fnU" secondAttribute="leading" id="u8v-At-lBA"/>
-                                        <constraint firstAttribute="trailing" secondItem="TUW-WO-HaG" secondAttribute="trailing" id="wzx-1s-sIs"/>
+                                        <constraint firstItem="ERf-vW-Vae" firstAttribute="top" secondItem="J1k-ic-fnU" secondAttribute="top" id="59R-4E-y2A"/>
+                                        <constraint firstAttribute="bottom" secondItem="ERf-vW-Vae" secondAttribute="bottom" constant="15" id="TWT-rl-QoT"/>
+                                        <constraint firstAttribute="trailing" secondItem="ERf-vW-Vae" secondAttribute="trailing" constant="12" id="Xro-0G-laL"/>
+                                        <constraint firstItem="ERf-vW-Vae" firstAttribute="leading" secondItem="J1k-ic-fnU" secondAttribute="leading" constant="12" id="sYx-7X-nxW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="mapView" destination="Mrk-Zc-I3F" id="nxV-Hi-ySj"/>
-                                    <outlet property="parkingSpaceCityAndStateLabel" destination="jrH-K8-OX3" id="Eh7-0e-BdY"/>
-                                    <outlet property="parkingSpaceIsActiveLabel" destination="UIo-Bz-lhn" id="mNX-ym-k1V"/>
-                                    <outlet property="parkingSpaceNameLabel" destination="WoY-M3-hxi" id="za8-5l-9Kb"/>
+                                    <outlet property="mapView" destination="x3H-ny-fa2" id="kQq-e7-2Nk"/>
+                                    <outlet property="parkingSpaceCityAndStateLabel" destination="4B8-gE-qrZ" id="gc4-sj-B69"/>
+                                    <outlet property="parkingSpaceIsActiveLabel" destination="wzL-Ei-cZr" id="HuF-Wg-gi1"/>
+                                    <outlet property="parkingSpaceNameLabel" destination="lWH-Xd-hxs" id="DaW-RZ-dgP"/>
+                                    <outlet property="view" destination="ERf-vW-Vae" id="Xr1-cN-W9w"/>
                                     <segue destination="0NV-5S-u23" kind="show" identifier="showParkingSpaceDetail" id="zBq-LJ-y5a"/>
                                 </connections>
                             </tableViewCell>
@@ -2125,7 +2127,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXp-AP-iL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3732" y="1724"/>
+            <point key="canvasLocation" x="3732" y="1723.9880059970017"/>
         </scene>
         <!--Add Listing-->
         <scene sceneID="ZeF-np-Vk1">
@@ -2491,7 +2493,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fS4-jc-Ft3">
                                             <rect key="frame" x="16" y="216" width="63" height="29"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 SPOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYT-M4-eTl">
@@ -3551,7 +3553,7 @@
         <image name="search" width="23.666666030883789" height="23.666666030883789"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1a3-9A-uUD"/>
+        <segue reference="xyw-N1-5lj"/>
         <segue reference="b2c-sg-o82"/>
         <segue reference="X0u-aZ-M8Q"/>
     </inferredMetricsTieBreakers>

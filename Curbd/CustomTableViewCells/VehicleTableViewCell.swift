@@ -38,12 +38,14 @@ class VehicleTableViewCell: UITableViewCell {
             makeAndModelLabel.textColor = UIColor.white
             vehicleColorLabel.textColor = UIColor.white
             licencePlateLabel.textColor = UIColor.white
+            currentVehicleIndicatorLabel.textColor = UIColor.white
         } else {
             view.backgroundColor = UIColor.white
             vehicleImageView.tintColor = UIColor.curbdPurpleBright
             makeAndModelLabel.textColor = UIColor.curbdDarkGray
             vehicleColorLabel.textColor = UIColor.curbdDarkGray
             licencePlateLabel.textColor = UIColor.curbdDarkGray
+            currentVehicleIndicatorLabel.textColor = UIColor.systemGreen
         }
 
     }
