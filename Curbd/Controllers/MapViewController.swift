@@ -60,6 +60,7 @@ class MapViewController: UIViewController {
 
         currentVehicleButtonImageView.image = currentVehicleButtonImageView.image!.withRenderingMode(.alwaysTemplate)
         currentVehicleButtonImageView.tintColor = UIColor.curbdDarkGray
+
         menuButtonImageView.image = menuButtonImageView.image!.withRenderingMode(.alwaysTemplate)
         menuButtonImageView.tintColor = UIColor.curbdDarkGray
 
@@ -82,10 +83,6 @@ class MapViewController: UIViewController {
         initializeSettings()
         initializeAppearanceSettings()
 
-//        if #available(iOS 11.0, *) {
-//            addCurrentLocationButton()
-//        }
-
         locationManager.requestLocation()
     }
 
@@ -94,7 +91,6 @@ class MapViewController: UIViewController {
         // make sure vehicle button is updated every time
         // the view re appears.
         updateCurrentVehicleButton()
-//        showSearchDrawerViewController()
 
         NotificationCenter.default.addObserver(
             self,
@@ -298,19 +294,19 @@ class MapViewController: UIViewController {
                     let mapViewAnnotations = optionalMapViewAnnotations.map() { $0! }
 
                     for parkingSpaceAnnotation in mapViewAnnotations {
-                        if !retrievedParkingSpaceAnnotations.map({ $0.parkingSpace.id }).contains(parkingSpaceAnnotation.parkingSpace.id) {
-                            self.mapView.removeAnnotation(parkingSpaceAnnotation)
-//                            if let indexToRemove = self.currentlyDisplayedParkingSpaces.index(of: parkingSpaceAnnotation) {
-//                                self.currentlyDisplayedParkingSpaces.remove(at: indexToRemove)
-//                            }
-                        }
+                        self.mapView.removeAnnotation(parkingSpaceAnnotation)
+
+//                        if !retrievedParkingSpaceAnnotations.map({ $0.parkingSpace.id }).contains(parkingSpaceAnnotation.parkingSpace.id) {
+//                            self.mapView.removeAnnotation(parkingSpaceAnnotation)
+//                        }
                     }
 
                     for parkingSpaceAnnotation in retrievedParkingSpaceAnnotations {
-                        if !mapViewAnnotations.map({ ($0.parkingSpace.id) }).contains(parkingSpaceAnnotation.parkingSpace.id) {
-                            self.mapView.addAnnotation(parkingSpaceAnnotation)
-//                            self.currentlyDisplayedParkingSpaces.append(parkingSpaceAnnotation)
-                        }
+                        self.mapView.addAnnotation(parkingSpaceAnnotation)
+
+//                        if !mapViewAnnotations.map({ ($0.parkingSpace.id) }).contains(parkingSpaceAnnotation.parkingSpace.id) {
+//                            self.mapView.addAnnotation(parkingSpaceAnnotation)
+//                        }
                     }
 
                     if selectFirstResult {
