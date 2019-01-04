@@ -158,6 +158,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
 
                     for subview in parkingSpaceDetailCell.featuresStackView.subviews {
                         parkingSpaceDetailCell.featuresStackView.removeArrangedSubview(subview)
+                        subview.removeFromSuperview()
                     }
 
                     for feature in parkingSpace.features {
