@@ -11,6 +11,7 @@ import MapKit
 
 class ParkingSpaceTableViewCell: UITableViewCell {
 
+    var parkingSpace: ParkingSpace?
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var parkingSpaceNameLabel: UILabel!
@@ -39,7 +40,10 @@ class ParkingSpaceTableViewCell: UITableViewCell {
             view.backgroundColor = UIColor.white
             parkingSpaceNameLabel.textColor = UIColor.curbdDarkGray
             parkingSpaceCityAndStateLabel.textColor = UIColor.curbdDarkGray
-            parkingSpaceIsActiveLabel.textColor = UIColor.systemGreen
+            if let isActive = parkingSpace?.is_active {
+                parkingSpaceIsActiveLabel.textColor =
+                    isActive ? UIColor.systemGreen : UIColor.systemGray
+            }
         }
 
     }
@@ -56,7 +60,10 @@ class ParkingSpaceTableViewCell: UITableViewCell {
             view.backgroundColor = UIColor.white
             parkingSpaceNameLabel.textColor = UIColor.curbdDarkGray
             parkingSpaceCityAndStateLabel.textColor = UIColor.curbdDarkGray
-            parkingSpaceIsActiveLabel.textColor = UIColor.systemGreen
+            if let isActive = parkingSpace?.is_active {
+                parkingSpaceIsActiveLabel.textColor =
+                    isActive ? UIColor.systemGreen : UIColor.systemGray
+            }
         }
 
     }

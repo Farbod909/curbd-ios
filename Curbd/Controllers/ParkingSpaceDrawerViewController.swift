@@ -129,7 +129,6 @@ class ParkingSpaceDrawerViewController: UIViewController {
 //                featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
 
                 let featureView = UIView(frame: CGRect(x: 0, y: 0, width: 65, height: 65))
-//                featureView.backgroundColor = UIColor.lightGray
                 featureView.widthAnchor.constraint(equalToConstant: 65).isActive = true
                 featureView.heightAnchor.constraint(equalToConstant: 65).isActive = true
 
@@ -140,7 +139,6 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 featureImageView.tintColor = UIColor.curbdDarkGray
                 featureImageView.contentMode = .scaleAspectFit
                 featureView.addSubview(featureImageView)
-//                featureImageView.backgroundColor = UIColor.yellow
                 featureImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
                 featureImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
                 featureImageView.topAnchor.constraint(equalTo: featureView.topAnchor).isActive = true

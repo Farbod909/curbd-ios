@@ -57,6 +57,7 @@ class ParkingSpaceListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "parkingSpaceCell") as! ParkingSpaceTableViewCell
         let parkingSpace = parkingSpaces[indexPath.row]
+        cell.parkingSpace = parkingSpace
 
         cell.parkingSpaceNameLabel.text = parkingSpace.name
 

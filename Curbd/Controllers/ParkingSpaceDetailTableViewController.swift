@@ -181,38 +181,31 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                             featureImage = #imageLiteral(resourceName: "question mark")
                         }
 
-//                        let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(2, 2, 2, 2)))
-//
-//                        featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//                        featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//                        featureImageView.contentMode = .scaleAspectFit
-//                        parkingSpaceDetailCell.featuresStackView.addArrangedSubview(
-//                            featureImageView)
+                        let featureView = UIView(frame: CGRect(x: 0, y: 0, width: 65, height: 65))
+                        featureView.widthAnchor.constraint(equalToConstant: 65).isActive = true
+                        featureView.heightAnchor.constraint(equalToConstant: 65).isActive = true
 
-                        let featureView = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
-//                        featureView.backgroundColor = UIColor.lightGray
-                        featureView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-                        featureView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-
-                        let featureImageView = UIImageView(frame: CGRect(x: 10, y: 0, width: 50, height: 50))
+                        let featureImageView = UIImageView(frame: CGRect(x: 10, y: 0, width: 45, height: 45))
+                        featureImageView.tintColor = UIColor.magenta
                         featureImageView.image = featureImage.imageWithInsets(insets: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+                        featureImageView.image = featureImageView.image!.withRenderingMode(.alwaysTemplate)
+                        featureImageView.tintColor = UIColor.curbdDarkGray
                         featureImageView.contentMode = .scaleAspectFit
                         featureView.addSubview(featureImageView)
-//                        featureImageView.backgroundColor = UIColor.yellow
-                        featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-                        featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                        featureImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
+                        featureImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
                         featureImageView.topAnchor.constraint(equalTo: featureView.topAnchor).isActive = true
 
-                        let featureLabel = UILabel(frame: CGRect(x: 0, y: 50, width: 70, height: 20))
+                        let featureLabel = UILabel(frame: CGRect(x: 0, y: 45, width: 65, height: 20))
                         featureLabel.text = feature
                         featureLabel.textAlignment = .center
-                        featureLabel.font = UIFont(name: "Helvetica", size: 12)
+                        featureLabel.font = UIFont(name: "Helvetica", size: 11)
+                        featureLabel.textColor = UIColor.curbdDarkGray
                         featureView.addSubview(featureLabel)
-                        featureLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
+                        featureLabel.widthAnchor.constraint(equalToConstant: 65).isActive = true
                         featureLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
                         featureLabel.topAnchor.constraint(equalTo: featureImageView.bottomAnchor).isActive = true
                         featureLabel.bottomAnchor.constraint(equalTo: featureView.bottomAnchor).isActive = true
-
 
                         parkingSpaceDetailCell.featuresStackView.addArrangedSubview(featureView)
 
