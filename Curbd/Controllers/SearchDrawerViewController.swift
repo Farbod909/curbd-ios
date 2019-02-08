@@ -50,7 +50,7 @@ class SearchDrawerViewController: UIViewController {
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
 
-        arriveDisplayLabel.text = arriveDate.toHumanReadable()
+        arriveDisplayLabel.text = "Now"
         leaveDisplayLabel.text = leaveDate.toHumanReadable()
 
         let editArriveLabelTap = UITapGestureRecognizer(target: self, action: #selector(showArriveLeaveViewController))
