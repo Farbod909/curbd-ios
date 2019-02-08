@@ -207,7 +207,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lIL-Rx-ZYi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-a5-6Ef" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-a5-6Ef" customClass="OnMapButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="115" y="354" width="145" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -221,7 +221,7 @@
                                     <action selector="redoSearchButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="zfk-Rf-cIn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sci-gn-uYZ" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sci-gn-uYZ" customClass="OnMapButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="314" y="32" width="98" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -240,7 +240,7 @@
                                     <constraint firstAttribute="height" constant="24" id="NTS-El-UKK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scs-if-RbW" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scs-if-RbW" customClass="OnMapButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="-29" y="32" width="173" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -268,7 +268,7 @@
                                 <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAj-Rk-ukA" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAj-Rk-ukA" customClass="OnMapButton" customModule="Curbd" customModuleProvider="target">
                                 <rect key="frame" x="326" y="354" width="33" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -282,6 +282,14 @@
                                     <action selector="redoSearchButtonClick:" destination="6iT-MS-gLO" eventType="touchUpInside" id="6VW-JY-ZII"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d09-I0-QbW" customClass="OnMapView" customModule="Curbd" customModuleProvider="target">
+                                <rect key="frame" x="16" y="354" width="33" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="L0s-w2-eCE"/>
+                                    <constraint firstAttribute="height" constant="33" id="vMt-TF-xUE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hme-cl-Vo2" firstAttribute="leading" secondItem="TmL-id-wdO" secondAttribute="trailing" constant="10" id="0NG-6s-jwt"/>
@@ -297,12 +305,14 @@
                             <constraint firstItem="2SR-a5-6Ef" firstAttribute="centerX" secondItem="lIL-Rx-ZYi" secondAttribute="centerX" id="Tnl-wg-dZX"/>
                             <constraint firstAttribute="trailing" secondItem="lIL-Rx-ZYi" secondAttribute="trailing" id="Y3s-7V-289"/>
                             <constraint firstItem="lIL-Rx-ZYi" firstAttribute="trailing" secondItem="sci-gn-uYZ" secondAttribute="trailing" constant="-37" id="ZOt-Xv-hsk"/>
+                            <constraint firstItem="lIL-Rx-ZYi" firstAttribute="leading" secondItem="d09-I0-QbW" secondAttribute="trailing" constant="-49" id="aT9-2y-745"/>
                             <constraint firstItem="hme-cl-Vo2" firstAttribute="centerY" secondItem="scs-if-RbW" secondAttribute="centerY" id="cPH-Gi-9dB"/>
                             <constraint firstItem="scs-if-RbW" firstAttribute="top" secondItem="lIL-Rx-ZYi" secondAttribute="top" constant="32" id="h9k-uX-2iH"/>
                             <constraint firstItem="scs-if-RbW" firstAttribute="leading" secondItem="lIL-Rx-ZYi" secondAttribute="leading" constant="-29" id="mMX-Au-gPp"/>
                             <constraint firstItem="TmL-id-wdO" firstAttribute="leading" secondItem="scs-if-RbW" secondAttribute="leading" constant="50" id="o9X-8i-UcJ"/>
                             <constraint firstItem="OHT-lm-FCJ" firstAttribute="centerX" secondItem="sci-gn-uYZ" secondAttribute="centerX" constant="-21.5" id="pXB-Eg-5BP"/>
-                            <constraint firstItem="AAj-Rk-ukA" firstAttribute="top" secondItem="2SR-a5-6Ef" secondAttribute="bottom" constant="-33" id="q0i-Ks-I83"/>
+                            <constraint firstItem="d09-I0-QbW" firstAttribute="bottom" secondItem="2SR-a5-6Ef" secondAttribute="bottom" id="pY9-aE-e9A"/>
+                            <constraint firstItem="AAj-Rk-ukA" firstAttribute="bottom" secondItem="2SR-a5-6Ef" secondAttribute="bottom" id="q0i-Ks-I83"/>
                         </constraints>
                     </view>
                     <connections>
@@ -311,6 +321,7 @@
                         <outlet property="currentVehicleButtonImageView" destination="TmL-id-wdO" id="c7Q-Sx-OBS"/>
                         <outlet property="currentVehicleButtonLabel" destination="hme-cl-Vo2" id="B7e-La-xXu"/>
                         <outlet property="currentVehicleButtonSpacingFromTopConstraint" destination="h9k-uX-2iH" id="NHm-SE-uMW"/>
+                        <outlet property="loadingIndicatorView" destination="d09-I0-QbW" id="PzS-ui-2J8"/>
                         <outlet property="mapView" destination="lIL-Rx-ZYi" id="wax-If-2VG"/>
                         <outlet property="menuButton" destination="sci-gn-uYZ" id="zR6-Sa-RDS"/>
                         <outlet property="menuButtonImageView" destination="OHT-lm-FCJ" id="ady-0F-AvK"/>
@@ -793,7 +804,7 @@
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ouv-hm-lVk">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                                 </mapView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-uA-zjC" customClass="MapButton" customModule="Curbd" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-uA-zjC" customClass="OnMapButton" customModule="Curbd" customModuleProvider="target">
                                                     <rect key="frame" x="214" y="148" width="188" height="44"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
