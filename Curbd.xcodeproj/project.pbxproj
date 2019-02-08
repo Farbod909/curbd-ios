@@ -16,7 +16,7 @@
 		8E136C371F67C037000BBBDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C361F67C037000BBBDB /* MapViewController.swift */; };
 		8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */; };
 		8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C3E1F6886C1000BBBDB /* LocationManager.swift */; };
-		8E2104F12085378100C0B62A /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* MapButton.swift */; };
+		8E2104F12085378100C0B62A /* OnMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* OnMapButton.swift */; };
 		8E3D22E421393AAC00448948 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D22E321393AAC00448948 /* EmptyTableView.swift */; };
 		8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */; };
 		8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */; };
@@ -58,6 +58,7 @@
 		8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78D12098459200426E92 /* ReservationListTableViewController.swift */; };
 		8E8E78D420984A8C00426E92 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78D320984A8C00426E92 /* ReservationTableViewCell.swift */; };
 		8E8E78D62099AF5A00426E92 /* ReservationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78D52099AF5A00426E92 /* ReservationDetailTableViewController.swift */; };
+		8EAAE3F3220DFB5500885FAB /* OnMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAAE3F2220DFB5500885FAB /* OnMapView.swift */; };
 		8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */; };
 		8EBEAEF120E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBEAEF020E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift */; };
 		8EBEAEF320E8AD1200478A7B /* ParkingSpaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBEAEF220E8AD1200478A7B /* ParkingSpaceTableViewCell.swift */; };
@@ -97,7 +98,7 @@
 		8E136C361F67C037000BBBDB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDrawerViewController.swift; sourceTree = "<group>"; };
 		8E136C3E1F6886C1000BBBDB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		8E2104F02085378100C0B62A /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
+		8E2104F02085378100C0B62A /* OnMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnMapButton.swift; sourceTree = "<group>"; };
 		8E3D22E321393AAC00448948 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTranslucentViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		8E8E78D12098459200426E92 /* ReservationListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListTableViewController.swift; sourceTree = "<group>"; };
 		8E8E78D320984A8C00426E92 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		8E8E78D52099AF5A00426E92 /* ReservationDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailTableViewController.swift; sourceTree = "<group>"; };
+		8EAAE3F2220DFB5500885FAB /* OnMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnMapView.swift; sourceTree = "<group>"; };
 		8EB01ED72095B03100D3E82C /* AddVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewController.swift; sourceTree = "<group>"; };
 		8EBEAEF020E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceListTableViewController.swift; sourceTree = "<group>"; };
 		8EBEAEF220E8AD1200478A7B /* ParkingSpaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -202,10 +204,11 @@
 				8E0CA45B208453BC00C9F470 /* SolidButton.swift */,
 				8E0CA4612084962400C9F470 /* ShadowLabel.swift */,
 				8E0CA4632084968400C9F470 /* BasicShadowButton.swift */,
-				8E2104F02085378100C0B62A /* MapButton.swift */,
+				8E2104F02085378100C0B62A /* OnMapButton.swift */,
 				8EE758392137BF7900E4F1C9 /* LoadingView.swift */,
 				8E3D22E321393AAC00448948 /* EmptyTableView.swift */,
 				8EC8F78A2081C7470038790E /* ParkingSpaceAnnotation.swift */,
+				8EAAE3F2220DFB5500885FAB /* OnMapView.swift */,
 			);
 			path = StylizedUIElements;
 			sourceTree = "<group>";
@@ -520,9 +523,10 @@
 				8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */,
 				8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */,
 				8E5DAE4F20EC9C1100341251 /* AddParkingSpaceViewController.swift in Sources */,
+				8EAAE3F3220DFB5500885FAB /* OnMapView.swift in Sources */,
 				8EC8F78920808E070038790E /* ParkingSpaceDrawerViewController.swift in Sources */,
 				8ED92C4B2128D9F30039A49B /* HostReservationDetailTableViewController.swift in Sources */,
-				8E2104F12085378100C0B62A /* MapButton.swift in Sources */,
+				8E2104F12085378100C0B62A /* OnMapButton.swift in Sources */,
 				8E5048A920EB416700580232 /* ReservationExtensionViewController.swift in Sources */,
 				8E3D22E421393AAC00448948 /* EmptyTableView.swift in Sources */,
 				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
