@@ -17,12 +17,10 @@ class SearchDrawerViewController: UIViewController {
     @IBOutlet weak var grabber: UIView!
     @IBOutlet weak var arriveDisplayTitle: UILabel!
     @IBOutlet weak var arriveDisplayLabel: UILabel!
-    @IBOutlet weak var arriveLeaveSeperator: UIView!
     @IBOutlet weak var leaveDisplayTitle: UILabel!
     @IBOutlet weak var leaveDisplayLabel: UILabel!
     @IBOutlet weak var editArriveTimeButton: UIButton!
     @IBOutlet weak var editLeaveTimeButton: UIButton!
-    @IBOutlet weak var editTimesButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchResultsTableView: UITableView!
 
