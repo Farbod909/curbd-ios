@@ -2305,7 +2305,6 @@
                         <outlet property="cancelButton" destination="bQe-bl-FcB" id="NoO-Q2-uUi"/>
                         <outlet property="firstNameTextField" destination="inc-e3-kaQ" id="Mhx-9Z-R7z"/>
                         <outlet property="lastNameTextField" destination="gxc-Ve-k8W" id="TRb-cF-yqa"/>
-                        <segue destination="bIl-3Q-rWO" kind="show" id="QBt-Vq-9O0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C03-kl-5UE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2407,7 +2406,6 @@
                         <outlet property="instructionsBottomConstraint" destination="dsF-2b-3Th" id="u1n-OM-ths"/>
                         <outlet property="instructionsLabel" destination="cdH-W1-5Kz" id="Bhb-s9-wDN"/>
                         <outlet property="phoneTextField" destination="bas-ej-Uqb" id="TAe-vf-YQJ"/>
-                        <segue destination="Xh4-3Z-MVv" kind="show" id="dyP-zX-Ymp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVB-qz-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
