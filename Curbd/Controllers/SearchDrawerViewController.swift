@@ -242,6 +242,13 @@ extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
         if drawer.drawerPosition == .partiallyRevealed {
             searchResultsTableView.isHidden = true
             searchField.resignFirstResponder()
+
+            if let pulleyViewController = parent as? ParkingPulleyViewController {
+                if let mapViewController =
+                    pulleyViewController.children[0] as? MapViewController {
+                    mapViewController.redoSearchButtonSpacingFromBottomConstraint.constant = drawer.partialRevealDrawerHeight(bottomSafeArea: bottomSafeArea) + 10
+                }
+            }
         } else if drawer.drawerPosition == .open {
             searchResultsTableView.isHidden = false
         }

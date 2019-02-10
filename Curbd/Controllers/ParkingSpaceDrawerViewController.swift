@@ -273,6 +273,14 @@ extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
             imagesCollectionView.isHidden = true
             reserveButton.isHidden = true
             drawer.backgroundDimmingOpacity = 0
+
+            if let pulleyViewController = parent as? ParkingPulleyViewController {
+                if let mapViewController =
+                    pulleyViewController.children[0] as? MapViewController {
+                    mapViewController.redoSearchButtonSpacingFromBottomConstraint.constant = drawer.partialRevealDrawerHeight(bottomSafeArea: bottomSafeArea) + 10
+                }
+            }
+
         } else if drawer.drawerPosition == .open {
             featuresScrollView.isHidden = false
             imagesCollectionView.isHidden = false
@@ -283,6 +291,13 @@ extension ParkingSpaceDrawerViewController: PulleyDrawerViewControllerDelegate {
             imagesCollectionView.isHidden = false
             reserveButton.isHidden = false
             drawer.backgroundDimmingOpacity = 0
+
+            if let pulleyViewController = parent as? ParkingPulleyViewController {
+                if let mapViewController =
+                    pulleyViewController.children[0] as? MapViewController {
+                    mapViewController.redoSearchButtonSpacingFromBottomConstraint.constant = drawer.collapsedDrawerHeight(bottomSafeArea: bottomSafeArea) + 10
+                }
+            }
         }
     }
 
