@@ -67,4 +67,8 @@ class SignupNameViewController: UIViewController {
 
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+
 }

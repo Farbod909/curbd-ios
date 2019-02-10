@@ -518,7 +518,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UO8-H8-KFQ" kind="presentation" modalPresentationStyle="overCurrentContext" id="uvO-jV-3mA"/>
+                                    <segue destination="UO8-H8-KFQ" kind="presentation" id="uvO-jV-3mA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taX-mR-Qz6" customClass="HollowButton" customModule="Curbd" customModuleProvider="target">
@@ -1540,7 +1540,7 @@
                                     <constraint firstAttribute="width" constant="240" id="fpr-2V-cf0"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts5-y1-QeT" customClass="ButtonWithShadow" customModule="Curbd" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts5-y1-QeT">
                                 <rect key="frame" x="32" y="278.5" width="311" height="46"/>
                                 <color key="backgroundColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1555,7 +1555,7 @@
                                     <action selector="loginButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="ikP-4N-7Wk"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Khr-a7-B0f" customClass="HollowTextField" customModule="Curbd" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Khr-a7-B0f">
                                 <rect key="frame" x="32" y="224.5" width="311" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="311" id="PnO-4k-Jo9"/>
@@ -1565,7 +1565,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-C0-NDn" customClass="HollowTextField" customModule="Curbd" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mxv-C0-NDn">
                                 <rect key="frame" x="32" y="170.5" width="311" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="311" id="7iW-dg-bZ0"/>
@@ -1581,14 +1581,14 @@
                                     <constraint firstAttribute="width" constant="28" id="Gc2-Xl-jHT"/>
                                     <constraint firstAttribute="height" constant="28" id="J9c-Tl-Sjy"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="xd9-cV-E7N"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="0Zs-hq-tTA"/>
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="AW1-UV-4rS"/>
@@ -2576,6 +2576,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wEs-FQ-gjH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="aD9-dt-iZn" kind="relationship" relationship="rootViewController" id="3g4-5w-d1z"/>
                     </connections>
