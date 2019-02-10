@@ -238,6 +238,19 @@ class MapViewController: UIViewController {
                 to: searchDrawerViewController.leaveDate,
                 alertIfNotFound: false,
                 selectFirstResult: false)
+        } else {
+
+            // make sure redo search button works when the visible drawer
+            // is the parking space drawer instead of search drawer.
+            if let pulleyViewController = parent as? ParkingPulleyViewController {
+                if let searchDrawerViewController = pulleyViewController.savedSearchDrawerViewController {
+                    locateParkingSpacesOnCurrentMapArea(
+                        from: searchDrawerViewController.arriveDate,
+                        to: searchDrawerViewController.leaveDate,
+                        alertIfNotFound: false,
+                        selectFirstResult: false)
+                }
+            }
         }
     }
 
@@ -395,11 +408,6 @@ extension MapViewController: MKMapViewDelegate {
             pulleyViewController.setDrawerContentViewController(
                 controller: parkingSpaceDrawerViewController,
                 animated: false)
-
-            // make sure redo search button is hidden
-            // regardless of fadeIn() or fadeOut()
-            // function calls
-            redoSearchButton.isHidden = true
 
             // reposition map such that annotation isn't covered by parking space drawer
             let topOfParkingSpaceDrawer = UIScreen.main.bounds.height - parkingSpaceDrawerViewController.collapsedDrawerHeight(bottomSafeArea: iphoneX ? 20 : 0)
