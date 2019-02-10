@@ -18,10 +18,12 @@ class SignupPasswordViewController: UIViewController {
     var lastName: String?
     var email: String?
     var phone: String?
-    var loadingView = LoadingView()
+    var loadingView = LoadingView(heightMultiplier: 0.8)
 
     func initializeAppearanceSettings() {
-        view.backgroundColor = UIColor(hex: "222222")
+        view.backgroundColor = UIColor.white
+        passwordTextField.underlined()
+        confirmPasswordTextField.underlined()
     }
 
     override func viewDidLoad() {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA4592084534500C9F470 /* HollowButton.swift */; };
-		8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45B208453BC00C9F470 /* SolidButton.swift */; };
+		8E0CA45C208453BC00C9F470 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45B208453BC00C9F470 /* ButtonWithShadow.swift */; };
 		8E0CA45E208464C000C9F470 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45D208464C000C9F470 /* User.swift */; };
 		8E0CA460208477D900C9F470 /* UserMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA45F208477D900C9F470 /* UserMenuViewController.swift */; };
 		8E0CA4622084962400C9F470 /* ShadowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CA4612084962400C9F470 /* ShadowLabel.swift */; };
@@ -90,7 +90,7 @@
 /* Begin PBXFileReference section */
 		748D1196CB78693300AA5D6C /* Pods-Curbd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curbd.release.xcconfig"; path = "Pods/Target Support Files/Pods-Curbd/Pods-Curbd.release.xcconfig"; sourceTree = "<group>"; };
 		8E0CA4592084534500C9F470 /* HollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowButton.swift; sourceTree = "<group>"; };
-		8E0CA45B208453BC00C9F470 /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
+		8E0CA45B208453BC00C9F470 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
 		8E0CA45D208464C000C9F470 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8E0CA45F208477D900C9F470 /* UserMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuViewController.swift; sourceTree = "<group>"; };
 		8E0CA4612084962400C9F470 /* ShadowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLabel.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				8E3F47CE208EB6AA003451C1 /* LightTranslucentViewController.swift */,
 				8EEC463020844D3400ED527F /* HollowTextField.swift */,
 				8E0CA4592084534500C9F470 /* HollowButton.swift */,
-				8E0CA45B208453BC00C9F470 /* SolidButton.swift */,
+				8E0CA45B208453BC00C9F470 /* ButtonWithShadow.swift */,
 				8E0CA4612084962400C9F470 /* ShadowLabel.swift */,
 				8E0CA4632084968400C9F470 /* BasicShadowButton.swift */,
 				8E2104F02085378100C0B62A /* OnMapButton.swift */,
@@ -511,7 +511,7 @@
 				8EEEDE2A2118013D00BCDA04 /* VenmoPayoutViewController.swift in Sources */,
 				8EBEAEF120E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift in Sources */,
 				8EC8F780207AA1DA0038790E /* Globals.swift in Sources */,
-				8E0CA45C208453BC00C9F470 /* SolidButton.swift in Sources */,
+				8E0CA45C208453BC00C9F470 /* ButtonWithShadow.swift in Sources */,
 				8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */,
 				8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */,
 				8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */,
