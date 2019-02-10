@@ -14,6 +14,8 @@ class AddParkingSpaceViewController: FormViewController {
 
     var loadingView = LoadingView()
 
+    var openedFromHostDashboard = false
+
     func initializeSettings() {
         animateScroll = true
     }
@@ -135,6 +137,8 @@ class AddParkingSpaceViewController: FormViewController {
         let parkingSpaceDetailTableViewController = UIStoryboard(
             name: "Main",
             bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailTableViewController") as! ParkingSpaceDetailTableViewController
+
+        parkingSpaceDetailTableViewController.openedFromHostDashboard = self.openedFromHostDashboard
 
         if  let address1 = (form.rowBy(tag: "address1") as? NameRow)?.value,
             let zipCode = (form.rowBy(tag: "zip code") as? ZipCodeRow)?.value,
