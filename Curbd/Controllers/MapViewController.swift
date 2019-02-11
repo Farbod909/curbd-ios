@@ -123,6 +123,7 @@ class MapViewController: UIViewController {
             redoSearchButton.isHidden = false
             performSearchInCurrentlyVisibleArea()
         }
+        self.presentPopup()
     }
 
     @IBAction func unwindToMapViewController(segue:UIStoryboardSegue) {
