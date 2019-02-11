@@ -187,7 +187,7 @@ class SearchDrawerViewController: UIViewController {
                 mapViewController.locateParkingSpacesOnCurrentMapArea(
                     from: arriveDate,
                     to: leaveDate,
-                    alertIfNotFound: false,
+                    alertIfNotFound: true,
                     selectFirstResult: false)
             }
         }

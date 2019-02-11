@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 import UIKit
+import SwiftEntryKit
 
 extension UIViewController {
 
@@ -67,6 +68,23 @@ extension UIViewController {
             title: "Server Error",
             message: "Oops, something went wrong. Try again later!",
             completion: completion)
+    }
+
+    func presentNote(text: String) {
+        let style = EKProperty.LabelStyle(font: UIFont(name: "Helvetica", size: 16)!, color: .white, alignment: .center)
+        let labelContent = EKProperty.LabelContent(text: text, style: style)
+
+        let contentView = EKNoteMessageView(with: labelContent)
+
+        var attributes = EKAttributes()
+        attributes = .topNote
+        attributes.statusBar = .light
+        attributes.displayDuration = 4
+        attributes.entryBackground = .color(color: .curbdPurpleBright)
+        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 10, offset: .zero))
+
+
+        SwiftEntryKit.display(entry: contentView, using: attributes)
     }
 
     func startLoading(_ loadingView: LoadingView, disabledButton: UIBarButtonItem? = nil) {
