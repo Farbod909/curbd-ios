@@ -266,8 +266,7 @@ extension SearchDrawerViewController: UITextFieldDelegate {
     @objc func searchFieldDidChange(_ textField: UITextField) {
         if textField.text! == "" {
             searchCompleter.queryFragment = " "
-        }
-        else {
+        } else {
             searchCompleter.queryFragment = textField.text!
         }
     }
