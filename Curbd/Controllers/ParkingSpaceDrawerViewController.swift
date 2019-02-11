@@ -9,7 +9,7 @@
 import Foundation
 import Pulley
 import UIKit
-import SimpleImageViewer
+import ImageViewer
 
 class ParkingSpaceDrawerViewController: UIViewController {
 
@@ -320,11 +320,31 @@ extension ParkingSpaceDrawerViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ParkingSpaceImagesCollectionViewCell
 
-        let configuration = ImageViewerConfiguration { config in
-            config.imageView = cell.imageView
-        }
-
-        present(ImageViewerController(configuration: configuration), animated: true)
+//        let configuration = ImageViewerConfiguration { config in
+//            config.imageView = cell.imageView
+//        }
+//
+//        present(ImageViewerController(configuration: configuration), animated: true)
+        self.presentImageGallery(GalleryViewController(startIndex: indexPath.row, itemsDataSource: self, configuration: [GalleryConfigurationItem.deleteButtonMode(.none), .thumbnailsButtonMode(.none)]))
     }
 
 }
+
+extension ParkingSpaceDrawerViewController: GalleryItemsDataSource {
+    func itemCount() -> Int {
+        return parkingSpace?.images.count ?? 0
+
+    }
+
+    func provideGalleryItem(_ index: Int) -> GalleryItem {
+        let indexPath = IndexPath(row: index, section: 0)
+        let cell = imagesCollectionView.cellForItem(at: indexPath) as! ParkingSpaceImagesCollectionViewCell
+        let image = cell.imageView.image ?? UIImage(named: "question mark")
+
+        GalleryConfigurationItem.deleteButtonMode(.none)
+
+        return GalleryItem.image { $0(image) }
+    }
+
+}
+
