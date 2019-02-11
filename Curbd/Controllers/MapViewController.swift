@@ -236,7 +236,7 @@ class MapViewController: UIViewController {
             locateParkingSpacesOnCurrentMapArea(
                 from: searchDrawerViewController.arriveDate,
                 to: searchDrawerViewController.leaveDate,
-                alertIfNotFound: false,
+                alertIfNotFound: true,
                 selectFirstResult: false)
         } else {
 
@@ -247,7 +247,7 @@ class MapViewController: UIViewController {
                     locateParkingSpacesOnCurrentMapArea(
                         from: searchDrawerViewController.arriveDate,
                         to: searchDrawerViewController.leaveDate,
-                        alertIfNotFound: false,
+                        alertIfNotFound: true,
                         selectFirstResult: false)
                 }
             }
@@ -292,14 +292,7 @@ class MapViewController: UIViewController {
                     }
 
                     if alertIfNotFound && parkingSpacesWithPrice.isEmpty {
-                        // alert user that no parking spaces were found
-                        self.presentSingleButtonAlert(
-                            title: "No Nearby Parking",
-                            message:
-                            """
-                            It looks like there aren't any parking spots
-                            available during this time and location.
-                            """)
+                        self.presentNote(text: "It looks like there aren't any parking spots available during this time and location.")
                     }
 
                     let retrievedParkingSpaceAnnotations = parkingSpacesWithPrice.map { ParkingSpaceAnnotation($0) }
