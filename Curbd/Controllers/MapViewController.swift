@@ -123,6 +123,7 @@ class MapViewController: UIViewController {
             redoSearchButton.isHidden = false
             performSearchInCurrentlyVisibleArea()
         }
+        self.presentPopup()
     }
 
     @IBAction func unwindToMapViewController(segue:UIStoryboardSegue) {
@@ -292,7 +293,7 @@ class MapViewController: UIViewController {
                     }
 
                     if alertIfNotFound && parkingSpacesWithPrice.isEmpty {
-                        self.presentNote(text: "It looks like there aren't any parking spots available during this time and location.")
+                        self.presentNote(text: "It looks like there aren't any parking spots available here during this time.")
                     }
 
                     let retrievedParkingSpaceAnnotations = parkingSpacesWithPrice.map { ParkingSpaceAnnotation($0) }
