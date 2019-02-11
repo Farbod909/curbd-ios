@@ -264,7 +264,12 @@ extension SearchDrawerViewController: UITextFieldDelegate {
     }
 
     @objc func searchFieldDidChange(_ textField: UITextField) {
-        searchCompleter.queryFragment = textField.text!
+        if textField.text! == "" {
+            searchCompleter.queryFragment = " "
+        }
+        else {
+            searchCompleter.queryFragment = textField.text!
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
