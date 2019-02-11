@@ -484,12 +484,3 @@ extension UITextField {
         self.layer.masksToBounds = true
     }
 }
-
-extension UINavigationController {
-
-    override open var childForStatusBarStyle: UIViewController? {
-        return self.topViewController
-    }
-
-}
-
