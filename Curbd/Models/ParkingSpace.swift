@@ -55,7 +55,7 @@ class ParkingSpace {
                        physical_type: String,
                        legal_type: String,
                        name: String,
-                       instructions: String,
+                       instructions: String?,
                        sizeDescription: String,
                        images: [UIImage] = [],
                        is_active: Bool = false,
@@ -89,7 +89,6 @@ class ParkingSpace {
                 "available_spaces": available_spaces,
                 "size": Vehicle.sizes[sizeDescription] ?? 2, // 2 is Mid-sized
                 "name": name,
-                "instructions": instructions,
                 "physical_type": physical_type,
                 "legal_type": legal_type,
                 "is_active": is_active,
@@ -101,6 +100,10 @@ class ParkingSpace {
 
             if let features = features {
                 parameters["features"] = features.joined(separator: ", ")
+            }
+            
+            if let instructions = instructions {
+                parameters["instructions"] = instructions
             }
 
             Alamofire.upload(multipartFormData: { (multipartFormData) in

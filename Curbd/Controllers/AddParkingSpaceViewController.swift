@@ -147,9 +147,9 @@ class AddParkingSpaceViewController: FormViewController {
             let availableSpots = (form.rowBy(tag: "available spots") as? IntRow)?.value,
             let sizeString = (form.rowBy(tag: "size") as? PushRow<String>)?.value,
             let physicalType = (form.rowBy(tag: "physicaltype") as? SegmentedRow<String>)?.value,
-            let legalType = (form.rowBy(tag: "legaltype") as? SegmentedRow<String>)?.value,
-            let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value {
-
+            let legalType = (form.rowBy(tag: "legaltype") as? SegmentedRow<String>)?.value {
+            
+            let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value
             let address2 = (form.rowBy(tag: "address2") as? TextRow)?.value
             let featureSet = (form.rowBy(tag: "features") as? MultipleSelectorRow<String>)?.value
 
