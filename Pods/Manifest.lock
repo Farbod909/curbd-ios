@@ -20,6 +20,7 @@ PODS:
   - SwiftEntryKit (0.8.8):
     - QuickLayout (= 2.1.1)
   - SwiftyJSON (4.2.0)
+  - SwiftySound (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Stripe
   - SwiftEntryKit (= 0.8.8)
   - SwiftyJSON
+  - SwiftySound
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -49,6 +51,7 @@ SPEC REPOS:
     - Stripe
     - SwiftEntryKit
     - SwiftyJSON
+    - SwiftySound
 
 EXTERNAL SOURCES:
   ImageViewer:
@@ -74,7 +77,8 @@ SPEC CHECKSUMS:
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
   SwiftEntryKit: c50f25a14772713ded1591c852d1c1dc74c95b9e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftySound: b9c3370956fd4ed65ed79d45563070077a50a2cd
 
-PODFILE CHECKSUM: 68474331894ea9926cc3c4c755fc5b59901c5435
+PODFILE CHECKSUM: db31adf8e35736ff12a582e2532f92472e35a24f
 
 COCOAPODS: 1.5.3

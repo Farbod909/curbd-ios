@@ -87,7 +87,7 @@ extension UIViewController {
         SwiftEntryKit.display(entry: contentView, using: attributes)
     }
 
-    func presentPopup() {
+    func presentSuccessfulReservationPopup() {
 
         var themeImage: EKPopUpMessage.ThemeImage?
 
