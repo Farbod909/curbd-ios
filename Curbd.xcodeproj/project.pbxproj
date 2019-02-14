@@ -51,6 +51,7 @@
 		8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF32086ECC8000926C1 /* Vehicle.swift */; };
 		8E7B5DF620883D7D000926C1 /* VehicleDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */; };
 		8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B5DFB2089A5ED000926C1 /* Reservation.swift */; };
+		8E843B742214EA9200E827B6 /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E843B732214EA9100E827B6 /* success.wav */; };
 		8E85A739213E55E500336DE8 /* ParkingSpaceWithPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E85A738213E55E500336DE8 /* ParkingSpaceWithPrice.swift */; };
 		8E8E371E208C4D13003FBA50 /* ReservationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */; };
 		8E8E78CD2096F79600426E92 /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */; };
@@ -133,6 +134,7 @@
 		8E7B5DF32086ECC8000926C1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailTableViewController.swift; sourceTree = "<group>"; };
 		8E7B5DFB2089A5ED000926C1 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		8E843B732214EA9100E827B6 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = success.wav; path = ../../../../../Downloads/success.wav; sourceTree = "<group>"; };
 		8E85A738213E55E500336DE8 /* ParkingSpaceWithPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceWithPrice.swift; sourceTree = "<group>"; };
 		8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmationViewController.swift; sourceTree = "<group>"; };
 		8E8E78CC2096F79600426E92 /* DarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		8EDA610C1F67A6F000AB6BF1 /* Curbd */ = {
 			isa = PBXGroup;
 			children = (
+				8E843B732214EA9100E827B6 /* success.wav */,
 				8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */,
 				8EDA61111F67A6F000AB6BF1 /* Main.storyboard */,
 				8EC8F787207ACEE00038790E /* Controllers */,
@@ -431,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E843B742214EA9200E827B6 /* success.wav in Resources */,
 				8EDA61181F67A6F000AB6BF1 /* LaunchScreen.storyboard in Resources */,
 				8EDA61151F67A6F000AB6BF1 /* Assets.xcassets in Resources */,
 				8EDA61131F67A6F000AB6BF1 /* Main.storyboard in Resources */,
@@ -478,6 +482,7 @@
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -494,6 +499,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
