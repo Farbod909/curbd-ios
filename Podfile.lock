@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.0)
   - Eureka (4.3.1)
   - ImageSlideshow (1.7.0):
     - ImageSlideshow/Core (= 1.7.0)
@@ -7,35 +7,27 @@ PODS:
   - ImageSlideshow/Kingfisher (1.7.0):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
-  - ImageViewer (5.0.0)
-  - Kingfisher (5.1.0)
-  - NVActivityIndicatorView (4.6.1):
-    - NVActivityIndicatorView/Presenter (= 4.6.1)
-  - NVActivityIndicatorView/Presenter (4.6.1)
+  - Kingfisher (5.0.1)
+  - NVActivityIndicatorView (4.5.1):
+    - NVActivityIndicatorView/Presenter (= 4.5.1)
+  - NVActivityIndicatorView/Presenter (4.5.1)
   - Pulley (2.6.2)
-  - QuickLayout (2.1.1)
   - SimpleImageViewer (1.1.1)
-  - Siren (4.2.1)
+  - Siren (4.0.0)
   - Stripe (14.0.0)
-  - SwiftEntryKit (0.8.8):
-    - QuickLayout (= 2.1.1)
   - SwiftyJSON (4.2.0)
-  - SwiftySound (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Eureka
   - ImageSlideshow
   - ImageSlideshow/Kingfisher
-  - ImageViewer (from `https://github.com/MailOnline/ImageViewer.git`, commit `ffe41dffb2ec0d6506d622b10099dc5e5eaeea43`)
   - NVActivityIndicatorView
   - Pulley
   - SimpleImageViewer
   - Siren
   - Stripe
-  - SwiftEntryKit (= 0.8.8)
   - SwiftyJSON
-  - SwiftySound
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -45,40 +37,23 @@ SPEC REPOS:
     - Kingfisher
     - NVActivityIndicatorView
     - Pulley
-    - QuickLayout
     - SimpleImageViewer
     - Siren
     - Stripe
-    - SwiftEntryKit
     - SwiftyJSON
-    - SwiftySound
-
-EXTERNAL SOURCES:
-  ImageViewer:
-    :commit: ffe41dffb2ec0d6506d622b10099dc5e5eaeea43
-    :git: https://github.com/MailOnline/ImageViewer.git
-
-CHECKOUT OPTIONS:
-  ImageViewer:
-    :commit: ffe41dffb2ec0d6506d622b10099dc5e5eaeea43
-    :git: https://github.com/MailOnline/ImageViewer.git
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
-  ImageViewer: 997018c2f4f7f9830602349bbcc3b2b776424942
-  Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
-  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
+  NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   Pulley: 2679a2b5a9714c5eb760b1fbb535d15c60e50fb4
-  QuickLayout: 9af2b7fd89a6552828f51a5aba28d1bcdb8b340c
   SimpleImageViewer: 34c3a2cde2d9ac022146772cefc27fca14b0c8b1
-  Siren: 69253e2420c47d68f1757360ed2766bf759f662f
+  Siren: 277d198933672c55aaa7f52fea5768144f2afaf5
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
-  SwiftEntryKit: c50f25a14772713ded1591c852d1c1dc74c95b9e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  SwiftySound: b9c3370956fd4ed65ed79d45563070077a50a2cd
 
-PODFILE CHECKSUM: db31adf8e35736ff12a582e2532f92472e35a24f
+PODFILE CHECKSUM: 8cbda28044fab60414da4fc3e3db5ed261fa813a
 
 COCOAPODS: 1.5.3

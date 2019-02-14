@@ -16,7 +16,6 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
     var repeatingAvailabilities = [RepeatingAvailability]()
     var fixedAvailabilities = [FixedAvailability]()
 
-    var openedFromHostDashboard = false
     var isPreview = false
 
     override func viewDidLoad() {
@@ -479,11 +478,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
                         // else if user is a newly created host, update the user menu to
                         // "Host Dashboard" and show it to them
                         if UserDefaults.standard.bool(forKey: "user_is_host") {
-                            if self.openedFromHostDashboard {
-                                self.performSegue(withIdentifier: "unwindToHostDashboardAfterAddingListing", sender: self)
-                            } else {
-                                self.performSegue(withIdentifier: "unwindToParkingSpacesListAfterModifying", sender: self)
-                            }
+                            self.performSegue(withIdentifier: "unwindToParkingSpacesListAfterModifying", sender: self)
                         } else {
                             self.performSegue(withIdentifier: "unwindToUserMenuViewController", sender: self)
                         }
@@ -497,11 +492,7 @@ class ParkingSpaceDetailTableViewController: UITableViewController {
             // else if user is a newly created host, update the user menu to
             // "Host Dashboard" and show it to them
             if UserDefaults.standard.bool(forKey: "user_is_host") {
-                if self.openedFromHostDashboard {
-                    self.performSegue(withIdentifier: "unwindToHostDashboardAfterAddingListing", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "unwindToParkingSpacesListAfterModifying", sender: self)
-                }
+                self.performSegue(withIdentifier: "unwindToParkingSpacesListAfterModifying", sender: self)
             } else {
                 self.performSegue(withIdentifier: "unwindToUserMenuViewController", sender: self)
             }

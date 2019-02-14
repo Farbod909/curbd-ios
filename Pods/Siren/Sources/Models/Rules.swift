@@ -46,11 +46,6 @@ public struct Rules {
         return Rules(promptFrequency: .daily, forAlertType: .skip)
     }
 
-    /// Performs a version check weekly, but allows the user to skip updating the app until the next time the app becomes active.
-    public static var hinting: Rules {
-        return Rules(promptFrequency: .weekly, forAlertType: .option)
-    }
-
     /// Performs a version check daily, but allows the user to skip updating the app until the next time the app becomes active.
     public static var persistent: Rules {
         return Rules(promptFrequency: .daily, forAlertType: .option)

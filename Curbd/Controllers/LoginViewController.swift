@@ -17,13 +17,7 @@ class LoginViewController: UIViewController {
 
     var loadingView = LoadingView()
 
-    func initializeAppearanceSettings() {
-        emailField.underlined()
-        passwordField.underlined()
-    }
-
     override func viewDidLoad() {
-        initializeAppearanceSettings()
         emailField.becomeFirstResponder()
     }
 
@@ -52,7 +46,7 @@ class LoginViewController: UIViewController {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        return .lightContent
     }
 
 }

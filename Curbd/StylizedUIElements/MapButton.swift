@@ -1,21 +1,16 @@
 //
-//  OnMapView.swift
+//  MapButton.swift
 //  Curbd
 //
-//  Created by Farbod Rafezy on 2/8/19.
-//  Copyright © 2019 Farbod Rafezy. All rights reserved.
+//  Created by Farbod Rafezy on 4/16/18.
+//  Copyright © 2018 Farbod Rafezy. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-/**
- UIView that has been subclassed to look good on
- top of a map
- */
-
-class OnMapView: UIView {
-
+class MapButton: UIButton {
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
