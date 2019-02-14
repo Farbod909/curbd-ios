@@ -11,12 +11,13 @@ import MapKit
 import CoreLocation
 import Pulley
 import NVActivityIndicatorView
+import SwiftySound
 
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var redoSearchButton: UIButton!
-    @IBOutlet weak var currentLocationButton: MapButton!
+    @IBOutlet weak var currentLocationButton: OnMapButton!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var menuButtonImageView: UIImageView!
     @IBOutlet weak var currentVehicleButton: UIButton!
@@ -25,7 +26,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var redoSearchButtonSpacingFromBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuButtonSpacingFromTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentVehicleButtonSpacingFromTopConstraint: NSLayoutConstraint!
-    var redoSearchActivityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .gray, padding: nil)
+    @IBOutlet weak var loadingIndicatorView: OnMapView!
+    var searchLoadingActivityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20), type: defaultLoadingStyle, color: .gray, padding: nil)
 
     private let locationManager: CLLocationManager = LocationManager.shared
     var currentlyDisplayedParkingSpaces = [ParkingSpaceAnnotation]()
@@ -51,6 +53,7 @@ class MapViewController: UIViewController {
     func initializeAppearanceSettings() {
         // set redo search button alpha to 0 so we can fade it in later
         redoSearchButton.alpha = 0
+        loadingIndicatorView.alpha = 0
 
         // this is so that when we hide -or do anything else to- the
         // current vehicle button, it also gets applied to the button's
@@ -121,6 +124,8 @@ class MapViewController: UIViewController {
             redoSearchButton.isHidden = false
             performSearchInCurrentlyVisibleArea()
         }
+        Sound.play(file: "success.wav")
+        self.presentSuccessfulReservationPopup()
     }
 
     @IBAction func unwindToMapViewController(segue:UIStoryboardSegue) {
@@ -234,8 +239,21 @@ class MapViewController: UIViewController {
             locateParkingSpacesOnCurrentMapArea(
                 from: searchDrawerViewController.arriveDate,
                 to: searchDrawerViewController.leaveDate,
-                alertIfNotFound: false,
+                alertIfNotFound: true,
                 selectFirstResult: false)
+        } else {
+
+            // make sure redo search button works when the visible drawer
+            // is the parking space drawer instead of search drawer.
+            if let pulleyViewController = parent as? ParkingPulleyViewController {
+                if let searchDrawerViewController = pulleyViewController.savedSearchDrawerViewController {
+                    locateParkingSpacesOnCurrentMapArea(
+                        from: searchDrawerViewController.arriveDate,
+                        to: searchDrawerViewController.leaveDate,
+                        alertIfNotFound: true,
+                        selectFirstResult: false)
+                }
+            }
         }
     }
 
@@ -262,7 +280,7 @@ class MapViewController: UIViewController {
         let bottomLeftCoordinate: CLLocationCoordinate2D = mapView.getSWCoordinate()
         let topRightCoordinate: CLLocationCoordinate2D = mapView.getNECoordinate()
 
-        startRedoSearchLoadingAnimation()
+        startMapLoadingAnimation()
         ParkingSpace.search(
             bl_lat: bottomLeftCoordinate.latitude,
             bl_long: bottomLeftCoordinate.longitude,
@@ -273,18 +291,11 @@ class MapViewController: UIViewController {
 
                 if let parkingSpacesWithPrice = parkingSpacesWithPrice {
                     self.redoSearchButton.fadeOut(0.1) { _ in
-                        self.stopLoadingRedoSearch()
+                        self.stopMapLoadingAnimation()
                     }
 
                     if alertIfNotFound && parkingSpacesWithPrice.isEmpty {
-                        // alert user that no parking spaces were found
-                        self.presentSingleButtonAlert(
-                            title: "No Nearby Parking",
-                            message:
-                            """
-                            It looks like there aren't any parking spots
-                            available during this time and location.
-                            """)
+                        self.presentNote(text: "It looks like there aren't any parking spots available here during this time.")
                     }
 
                     let retrievedParkingSpaceAnnotations = parkingSpacesWithPrice.map { ParkingSpaceAnnotation($0) }
@@ -394,11 +405,6 @@ extension MapViewController: MKMapViewDelegate {
                 controller: parkingSpaceDrawerViewController,
                 animated: false)
 
-            // make sure redo search button is hidden
-            // regardless of fadeIn() or fadeOut()
-            // function calls
-            redoSearchButton.isHidden = true
-
             // reposition map such that annotation isn't covered by parking space drawer
             let topOfParkingSpaceDrawer = UIScreen.main.bounds.height - parkingSpaceDrawerViewController.collapsedDrawerHeight(bottomSafeArea: iphoneX ? 20 : 0)
             if view.center.y > (topOfParkingSpaceDrawer - 50) || view.center.y < 160 {
@@ -459,21 +465,20 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
 
-    func startRedoSearchLoadingAnimation() {
-        redoSearchButton.isEnabled = false
-        redoSearchButton.setTitle("", for: .normal)
-        let buttonHeight = redoSearchButton.bounds.size.height
-        let buttonWidth = redoSearchButton.bounds.size.width
-        redoSearchActivityIndicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
-        redoSearchButton.addSubview(redoSearchActivityIndicator)
-        redoSearchActivityIndicator.startAnimating()
+    func startMapLoadingAnimation() {
+        let buttonHeight = loadingIndicatorView.bounds.size.height
+        let buttonWidth = loadingIndicatorView.bounds.size.width
+        searchLoadingActivityIndicator.center = CGPoint(x: buttonWidth/2, y: buttonHeight/2)
+        loadingIndicatorView.addSubview(searchLoadingActivityIndicator)
+        searchLoadingActivityIndicator.startAnimating()
+        loadingIndicatorView.fadeIn(0.1)
     }
 
-    func stopLoadingRedoSearch() {
-        redoSearchButton.isEnabled = true
-        redoSearchButton.setTitle("Search this area", for: .normal)
-        redoSearchActivityIndicator.removeFromSuperview()
-        redoSearchActivityIndicator.stopAnimating()
+    func stopMapLoadingAnimation() {
+        loadingIndicatorView.fadeOut(0.1) { _ in
+            self.searchLoadingActivityIndicator.removeFromSuperview()
+            self.searchLoadingActivityIndicator.stopAnimating()
+        }
     }
 
 }

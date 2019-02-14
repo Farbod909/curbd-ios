@@ -188,14 +188,14 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                 title: "Error",
                 message: "Unable to process payment method")
         case .success:
-            self.presentSingleButtonAlert(
-                title: "Successfully Reserved",
-                message: "You successfully reserved this parking space!") { action in
+//            self.presentSingleButtonAlert(
+//                title: "Successfully Reserved",
+//                message: "You successfully reserved this parking space!") { action in
                     self.performSegue(
                         withIdentifier:
                         "unwindToMapViewControllerAfterReservationConfirmation",
                         sender: self)
-            }
+//            }
         case .userCancellation:
             return
         }

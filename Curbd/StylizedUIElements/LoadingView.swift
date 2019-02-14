@@ -13,12 +13,12 @@ class LoadingView: UIView {
     static let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
     var activityIndicator: NVActivityIndicatorView
 
-    init() {
+    init(heightMultiplier: CGFloat = 0.5) {
         self.activityIndicator = NVActivityIndicatorView(frame: LoadingView.rect, type: defaultLoadingStyle, color: .gray, padding: 10)
 
         super.init(frame: LoadingView.rect)
 
-        self.center = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * 0.5)
+        self.center = CGPoint(x: UIScreen.main.bounds.size.width * 0.5, y: UIScreen.main.bounds.size.height * (1-heightMultiplier))
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 10
         self.layer.shadowColor = UIColor.black.cgColor

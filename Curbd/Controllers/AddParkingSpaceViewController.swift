@@ -14,6 +14,8 @@ class AddParkingSpaceViewController: FormViewController {
 
     var loadingView = LoadingView()
 
+    var openedFromHostDashboard = false
+
     func initializeSettings() {
         animateScroll = true
     }
@@ -136,6 +138,8 @@ class AddParkingSpaceViewController: FormViewController {
             name: "Main",
             bundle: nil).instantiateViewController(withIdentifier: "parkingSpaceDetailTableViewController") as! ParkingSpaceDetailTableViewController
 
+        parkingSpaceDetailTableViewController.openedFromHostDashboard = self.openedFromHostDashboard
+
         if  let address1 = (form.rowBy(tag: "address1") as? NameRow)?.value,
             let zipCode = (form.rowBy(tag: "zip code") as? ZipCodeRow)?.value,
             let city = (form.rowBy(tag: "city") as? NameRow)?.value,
@@ -143,9 +147,9 @@ class AddParkingSpaceViewController: FormViewController {
             let availableSpots = (form.rowBy(tag: "available spots") as? IntRow)?.value,
             let sizeString = (form.rowBy(tag: "size") as? PushRow<String>)?.value,
             let physicalType = (form.rowBy(tag: "physicaltype") as? SegmentedRow<String>)?.value,
-            let legalType = (form.rowBy(tag: "legaltype") as? SegmentedRow<String>)?.value,
-            let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value {
-
+            let legalType = (form.rowBy(tag: "legaltype") as? SegmentedRow<String>)?.value {
+            
+            let instructions = (form.rowBy(tag: "instructions") as? TextAreaRow)?.value
             let address2 = (form.rowBy(tag: "address2") as? TextRow)?.value
             let featureSet = (form.rowBy(tag: "features") as? MultipleSelectorRow<String>)?.value
 

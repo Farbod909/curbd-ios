@@ -10,6 +10,8 @@ import UIKit
 
 class SignupEmailPhoneViewController: UIViewController {
 
+    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var instructionsBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
 
@@ -17,7 +19,16 @@ class SignupEmailPhoneViewController: UIViewController {
     var lastName: String?
 
     func initializeAppearanceSettings() {
-        view.backgroundColor = UIColor(hex: "222222")
+        view.backgroundColor = UIColor.white
+        emailTextField.underlined()
+        phoneTextField.underlined()
+
+        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height < 1334 {
+            instructionsBottomConstraint.constant = 10
+            instructionsLabel.font = instructionsLabel.font.withSize(18)
+
+        }
+
     }
 
     override func viewDidLoad() {
@@ -25,6 +36,10 @@ class SignupEmailPhoneViewController: UIViewController {
         initializeAppearanceSettings()
 
         emailTextField.becomeFirstResponder()
+        if let firstName = firstName {
+            instructionsLabel.text = "Hi \(firstName)! We need your contact info."
+        }
+
     }
 
     @IBAction func nextButtonClick(_ sender: UIButton) {
