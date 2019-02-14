@@ -89,6 +89,7 @@
 		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
 		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
 		8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */; };
+		94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */; };
 		DCACD68A8EFC3758C00F7A9C /* Pods_Curbd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +180,7 @@
 		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
 		8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
+		94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		9AF8BEE6E787FFD42A248528 /* Pods-Curbd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curbd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curbd/Pods-Curbd.debug.xcconfig"; sourceTree = "<group>"; };
 		BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Curbd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -324,6 +326,7 @@
 				8EEEDE292118013D00BCDA04 /* VenmoPayoutViewController.swift */,
 				8ED92C4A2128D9F30039A49B /* HostReservationDetailTableViewController.swift */,
 				8E843B71221492AB00E827B6 /* ResetPasswordViewController.swift */,
+				94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,
 				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
+				94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceAnnotation.swift in Sources */,
 				8E5DAE5D20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
