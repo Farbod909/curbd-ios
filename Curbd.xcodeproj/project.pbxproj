@@ -134,7 +134,6 @@
 		8E7B5DF32086ECC8000926C1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		8E7B5DF520883D7D000926C1 /* VehicleDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailTableViewController.swift; sourceTree = "<group>"; };
 		8E7B5DFB2089A5ED000926C1 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
-		8E843B70221488A400E827B6 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
 		8E843B71221492AB00E827B6 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		8E85A738213E55E500336DE8 /* ParkingSpaceWithPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceWithPrice.swift; sourceTree = "<group>"; };
 		8E8E371D208C4D13003FBA50 /* ReservationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -343,7 +342,6 @@
 			children = (
 				8EDA610D1F67A6F000AB6BF1 /* AppDelegate.swift */,
 				8EDA61111F67A6F000AB6BF1 /* Main.storyboard */,
-				8E843B70221488A400E827B6 /* success.wav */,
 				8EC8F787207ACEE00038790E /* Controllers */,
 				8EC8F783207AC5A30038790E /* Models */,
 				8EC8F77E207AA1C10038790E /* Helpers */,

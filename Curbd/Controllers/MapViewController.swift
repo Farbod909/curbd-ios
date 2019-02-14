@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 import Pulley
 import NVActivityIndicatorView
-import SwiftySound
 
 class MapViewController: UIViewController {
 
@@ -124,7 +123,6 @@ class MapViewController: UIViewController {
             redoSearchButton.isHidden = false
             performSearchInCurrentlyVisibleArea()
         }
-        Sound.play(file: "success.wav")
         self.presentSuccessfulReservationPopup()
     }
 
