@@ -46,11 +46,6 @@ class HostDashboardTableViewController: UITableViewController {
             let reservationListTableViewController = segue.destination as! ReservationListTableViewController
             reservationListTableViewController.isHost = true
         }
-        if segue.identifier == "newListingSegue" {
-            if let destinationNavigationController = segue.destination as? UINavigationController, let addParkingSpaceViewController = destinationNavigationController.topViewController as? AddParkingSpaceViewController {
-                addParkingSpaceViewController.openedFromHostDashboard = true
-            }
-        }
     }
 
     @IBAction func unwindToHostDashboardViewController(segue:UIStoryboardSegue) { }
@@ -88,10 +83,5 @@ class HostDashboardTableViewController: UITableViewController {
             }
         }
     }
-
-    @IBAction func unwindToHostDashboardAfterAddingListing(segue:UIStoryboardSegue) {
-        DispatchQueue.main.async(){
-            self.performSegue(withIdentifier: "showListingsSegue", sender: self)
-        }
-    }
+    
 }

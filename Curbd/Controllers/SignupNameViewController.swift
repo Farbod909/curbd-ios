@@ -16,17 +16,13 @@ class SignupNameViewController: UIViewController {
 
     func initializeAppearanceSettings() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.white
-        view.backgroundColor = UIColor.white
+        navigationController?.navigationBar.barTintColor = UIColor(hex: "222222")
+        view.backgroundColor = UIColor(hex: "222222")
         navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor.curbdPurpleBright]
-        navigationController?.navigationBar.tintColor = UIColor.curbdPurpleBright
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
         // set color here so the button is still visible in Interface Builder
-        cancelButton.tintColor = UIColor.curbdPurpleBright
-
-        firstNameTextField.underlined()
-        lastNameTextField.underlined()
-
+        cancelButton.tintColor = UIColor.white
     }
 
     override func viewDidLoad() {
@@ -53,8 +49,8 @@ class SignupNameViewController: UIViewController {
                 bundle: nil).instantiateViewController(
                     withIdentifier: "signupEmailPhoneViewController") as? SignupEmailPhoneViewController {
 
-                signupEmailPhoneViewController.firstName = firstNameTextField.text?.trim()
-                signupEmailPhoneViewController.lastName = lastNameTextField.text?.trim()
+                signupEmailPhoneViewController.firstName = firstNameTextField.text
+                signupEmailPhoneViewController.lastName = lastNameTextField.text
 
                 show(signupEmailPhoneViewController, sender: self)
             }
@@ -65,10 +61,6 @@ class SignupNameViewController: UIViewController {
 
         }
 
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
     }
 
 }

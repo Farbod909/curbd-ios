@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ButtonWithShadow: UIButton {
+class SolidButton: UIButton {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

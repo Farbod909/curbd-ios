@@ -17,10 +17,12 @@ class SearchDrawerViewController: UIViewController {
     @IBOutlet weak var grabber: UIView!
     @IBOutlet weak var arriveDisplayTitle: UILabel!
     @IBOutlet weak var arriveDisplayLabel: UILabel!
+    @IBOutlet weak var arriveLeaveSeperator: UIView!
     @IBOutlet weak var leaveDisplayTitle: UILabel!
     @IBOutlet weak var leaveDisplayLabel: UILabel!
     @IBOutlet weak var editArriveTimeButton: UIButton!
     @IBOutlet weak var editLeaveTimeButton: UIButton!
+    @IBOutlet weak var editTimesButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchResultsTableView: UITableView!
 
@@ -50,7 +52,7 @@ class SearchDrawerViewController: UIViewController {
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
 
-        arriveDisplayLabel.text = "Now"
+        arriveDisplayLabel.text = arriveDate.toHumanReadable()
         leaveDisplayLabel.text = leaveDate.toHumanReadable()
 
         let editArriveLabelTap = UITapGestureRecognizer(target: self, action: #selector(showArriveLeaveViewController))
@@ -187,7 +189,7 @@ class SearchDrawerViewController: UIViewController {
                 mapViewController.locateParkingSpacesOnCurrentMapArea(
                     from: arriveDate,
                     to: leaveDate,
-                    alertIfNotFound: true,
+                    alertIfNotFound: false,
                     selectFirstResult: false)
             }
         }
@@ -242,13 +244,6 @@ extension SearchDrawerViewController: PulleyDrawerViewControllerDelegate {
         if drawer.drawerPosition == .partiallyRevealed {
             searchResultsTableView.isHidden = true
             searchField.resignFirstResponder()
-
-            if let pulleyViewController = parent as? ParkingPulleyViewController {
-                if let mapViewController =
-                    pulleyViewController.children[0] as? MapViewController {
-                    mapViewController.redoSearchButtonSpacingFromBottomConstraint.constant = drawer.partialRevealDrawerHeight(bottomSafeArea: bottomSafeArea) + 10
-                }
-            }
         } else if drawer.drawerPosition == .open {
             searchResultsTableView.isHidden = false
         }
@@ -264,11 +259,7 @@ extension SearchDrawerViewController: UITextFieldDelegate {
     }
 
     @objc func searchFieldDidChange(_ textField: UITextField) {
-        if textField.text! == "" {
-            searchCompleter.queryFragment = " "
-        } else {
-            searchCompleter.queryFragment = textField.text!
-        }
+        searchCompleter.queryFragment = textField.text!
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

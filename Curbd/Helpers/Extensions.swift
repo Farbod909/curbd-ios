@@ -9,7 +9,6 @@
 import Foundation
 import MapKit
 import UIKit
-import SwiftEntryKit
 
 extension UIViewController {
 
@@ -68,67 +67,6 @@ extension UIViewController {
             title: "Server Error",
             message: "Oops, something went wrong. Try again later!",
             completion: completion)
-    }
-
-    func presentNote(text: String) {
-        let style = EKProperty.LabelStyle(font: UIFont(name: "Helvetica", size: 16)!, color: .white, alignment: .center)
-        let labelContent = EKProperty.LabelContent(text: text, style: style)
-
-        let contentView = EKNoteMessageView(with: labelContent)
-
-        var attributes = EKAttributes()
-        attributes = .topNote
-        attributes.statusBar = .light
-        attributes.displayDuration = 4
-        attributes.entryBackground = .color(color: .curbdPurpleBright)
-        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 10, offset: .zero))
-
-
-        SwiftEntryKit.display(entry: contentView, using: attributes)
-    }
-
-    func presentSuccessfulReservationPopup() {
-
-        var themeImage: EKPopUpMessage.ThemeImage?
-
-        let image = UIImage(named: "checkmark-pink")
-
-        if let image = image {
-            themeImage = .init(image: .init(image: image, size: CGSize(width: 60, height: 60), contentMode: .scaleAspectFit))
-
-        }
-
-        let title = EKProperty.LabelContent(text: "Successfully Reserved!", style: .init(font: UIFont(name: "Helvetica", size: 24)!, color: UIColor.curbdPurpleBright, alignment: .center))
-        let description = EKProperty.LabelContent(text: "You can see the details of your reservation from the menu in the top right of your screen", style: .init(font: UIFont(name: "Helvetica", size: 16)!, color: UIColor.systemGray, alignment: .center))
-        let button = EKProperty.ButtonContent(label: .init(text: "OK", style: .init(font: UIFont(name: "Helvetica", size: 16)!, color: UIColor.white)), backgroundColor: UIColor.curbdPurpleBright, highlightedBackgroundColor: UIColor.curbdPurpleBright.withAlphaComponent(0.05))
-        let message = EKPopUpMessage(themeImage: themeImage, title: title, description: description, button: button) {
-            SwiftEntryKit.dismiss()
-        }
-
-        var attributes = EKAttributes.centerFloat
-        attributes.hapticFeedbackType = .success
-        attributes.displayDuration = .infinity
-        attributes.entryBackground = .color(color: UIColor.white)
-        attributes.screenBackground = .color(color: UIColor(white: 50.0/255.0, alpha: 0.3))
-        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 8))
-        attributes.screenInteraction = .dismiss
-        attributes.entryInteraction = .absorbTouches
-        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
-        attributes.roundCorners = .all(radius: 8)
-        attributes.entranceAnimation = .init(translate: .init(duration: 0.7, spring: .init(damping: 0.7, initialVelocity: 0)),
-                                             scale: .init(from: 0.7, to: 1, duration: 0.4, spring: .init(damping: 1, initialVelocity: 0)))
-        attributes.exitAnimation = .init(translate: .init(duration: 0.2))
-        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.35)))
-        attributes.positionConstraints.size = .init(width: .offset(value: 20), height: .intrinsic)
-//        attributes.positionConstraints.maxSize = .init(width: .constant(value: UIScreen.main.minEdge), height: .intrinsic)
-        attributes.statusBar = .dark
-
-
-
-        let contentView = EKPopUpMessageView(with: message)
-        SwiftEntryKit.display(entry: contentView, using: attributes)
-
-
     }
 
     func startLoading(_ loadingView: LoadingView, disabledButton: UIBarButtonItem? = nil) {
@@ -532,17 +470,5 @@ extension UIImage {
         let imageWithInsets = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return imageWithInsets
-    }
-}
-
-extension UITextField {
-    func underlined(){
-        let border = CALayer()
-        let width = CGFloat(2.0)
-        border.borderColor = UIColor(hex: "DDDDDD").cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
-        border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
     }
 }
