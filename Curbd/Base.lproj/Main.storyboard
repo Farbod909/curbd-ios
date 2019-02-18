@@ -1591,6 +1591,7 @@
                                 <rect key="frame" x="81.5" y="60.5" width="212" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="212" id="BaV-dW-PKD"/>
+                                    <constraint firstAttribute="width" secondItem="veq-AQ-pO2" secondAttribute="height" multiplier="53:25" id="hNz-2P-yQp"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="toT-fd-EZX"/>
                                 </constraints>
                             </imageView>
