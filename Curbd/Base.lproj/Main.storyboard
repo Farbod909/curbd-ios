@@ -1587,6 +1587,14 @@
                                     <action selector="closeButtonClick:" destination="ymj-qE-dXg" eventType="touchUpInside" id="xd9-cV-E7N"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-on-white" translatesAutoresizingMaskIntoConstraints="NO" id="veq-AQ-pO2">
+                                <rect key="frame" x="81.5" y="60.5" width="212" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="BaV-dW-PKD"/>
+                                    <constraint firstAttribute="width" secondItem="veq-AQ-pO2" secondAttribute="height" multiplier="53:25" id="hNz-2P-yQp"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="toT-fd-EZX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1598,11 +1606,14 @@
                             <constraint firstAttribute="trailing" secondItem="mxv-C0-NDn" secondAttribute="trailing" priority="750" constant="32" id="IiO-dT-vye"/>
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="K4P-h6-5x0"/>
                             <constraint firstAttribute="trailing" secondItem="s7M-G0-71W" secondAttribute="trailing" constant="20" id="Oat-dg-DhZ"/>
+                            <constraint firstItem="veq-AQ-pO2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GZ6-dQ-Gfm" secondAttribute="bottom" constant="20" id="Ocy-3n-cPS"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="top" secondItem="mxv-C0-NDn" secondAttribute="bottom" constant="8" id="QYB-Yu-7gs"/>
                             <constraint firstAttribute="trailing" secondItem="ts5-y1-QeT" secondAttribute="trailing" priority="750" constant="32" id="RIu-hV-Fkg"/>
+                            <constraint firstItem="mxv-C0-NDn" firstAttribute="top" secondItem="veq-AQ-pO2" secondAttribute="bottom" constant="10" id="cMD-Ob-TGS"/>
                             <constraint firstItem="Khr-a7-B0f" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="d0Z-4r-Ni8"/>
                             <constraint firstItem="s7M-G0-71W" firstAttribute="top" secondItem="GZ6-dQ-Gfm" secondAttribute="bottom" constant="12" id="d5L-JK-5rc"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="leading" secondItem="aIu-Kh-IYa" secondAttribute="leading" priority="750" constant="32" id="dph-th-gJI"/>
+                            <constraint firstItem="veq-AQ-pO2" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="kU7-nj-YGF"/>
                             <constraint firstItem="mxv-C0-NDn" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="nVF-wL-4p6"/>
                             <constraint firstItem="ts5-y1-QeT" firstAttribute="top" secondItem="Khr-a7-B0f" secondAttribute="bottom" constant="8" id="w0E-rq-IrR"/>
                             <constraint firstItem="LKI-aX-UrA" firstAttribute="centerX" secondItem="aIu-Kh-IYa" secondAttribute="centerX" id="x45-LC-ZHG"/>
@@ -1619,7 +1630,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahr-rH-B5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YS5-IZ-ln5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1023" y="139"/>
+            <point key="canvasLocation" x="-1023.2" y="138.98050974512745"/>
         </scene>
         <!--Parking Space Drawer View Controller-->
         <scene sceneID="jK5-F6-JbO">
@@ -3691,6 +3702,7 @@
         <image name="close" width="18" height="18"/>
         <image name="hamburger" width="220" height="220"/>
         <image name="location" width="46" height="46"/>
+        <image name="logo-on-white" width="1500" height="714"/>
         <image name="maps-icon" width="128" height="128"/>
         <image name="search" width="23.666666030883789" height="23.666666030883789"/>
     </resources>
