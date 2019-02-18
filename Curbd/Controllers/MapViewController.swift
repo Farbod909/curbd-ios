@@ -124,10 +124,7 @@ class MapViewController: UIViewController {
             redoSearchButton.isHidden = false
             performSearchInCurrentlyVisibleArea()
         }
-<<<<<<< HEAD
-=======
         Sound.play(file: "success.wav")
->>>>>>> 26d463009c01db34b1ce2cf082550e2c25139518
         self.presentSuccessfulReservationPopup()
     }
 
