@@ -1804,6 +1804,7 @@
                             <constraint firstItem="AtS-BN-Ur1" firstAttribute="leading" secondItem="foh-UM-Obk" secondAttribute="leading" priority="750" constant="32" id="anZ-Gt-dLh"/>
                             <constraint firstItem="sgq-2b-JMk" firstAttribute="leading" secondItem="foh-UM-Obk" secondAttribute="leading" priority="750" constant="32" id="b0U-j2-WKl"/>
                             <constraint firstItem="AtS-BN-Ur1" firstAttribute="leading" secondItem="sgq-2b-JMk" secondAttribute="leading" id="dCL-kF-fqS"/>
+                            <constraint firstItem="sgq-2b-JMk" firstAttribute="centerX" secondItem="foh-UM-Obk" secondAttribute="centerX" id="db6-jz-9kR"/>
                             <constraint firstAttribute="trailing" secondItem="AtS-BN-Ur1" secondAttribute="trailing" priority="750" constant="32" id="fht-QW-E7B"/>
                             <constraint firstItem="TsY-Hj-2bY" firstAttribute="leading" secondItem="AtS-BN-Ur1" secondAttribute="leading" constant="-10" id="rAG-4m-kbz"/>
                             <constraint firstItem="qiH-Ov-3un" firstAttribute="top" secondItem="5iw-y7-Rvp" secondAttribute="bottom" constant="12" id="tM6-rf-zWv"/>

@@ -25,7 +25,6 @@ class ResetPasswordViewController: UIViewController {
 
     @IBAction func resetPasswordButtonClick(_ sender: UIButton) {
         if let email = emailTextField.text, email.isValidEmail() {
-            //validate email locally
             self.presentSingleButtonAlert(title: "Email Sent", message: "We've sent an email to \(email.lowercased()). \nPlease check your inbox. This may take a few minutes.")
         } else {
             self.presentSingleButtonAlert(title: "Invalid Email", message: "Please enter a valid email.")
