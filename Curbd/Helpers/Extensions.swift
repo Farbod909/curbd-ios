@@ -234,6 +234,17 @@ extension String {
 
         return String(self[substringStartIndex ..< substringEndIndex])
     }
+    
+    /**
+     Taken from: https://stackoverflow.com/questions/12259322/validate-the-email-address-in-uitextfield-in-iphone/12259525
+    */
+    func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,10}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        let result = emailTest.evaluate(with: self)
+        return result
+    }
 }
 
 extension Date {
