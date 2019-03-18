@@ -245,6 +245,11 @@ extension String {
         let result = emailTest.evaluate(with: self)
         return result
     }
+    
+//    func isValidPassword() -> Bool {
+//        let passwordRegEx = "(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}"
+//        let pwTest = NSRegul
+//    }
 }
 
 extension Date {

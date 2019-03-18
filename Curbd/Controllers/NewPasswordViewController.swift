@@ -24,7 +24,12 @@ class NewPasswordViewController: UIViewController {
     }
     
     @IBAction func resetPasswordButtonClick(_ sender: UIButton) {
-        
+        let newPassword = newPasswordTextField.text
+        if newPassword == newPasswordConfirmationTextField.text {
+//            if newPassword != "" && newPassword.isValidPassword() {
+//                
+//            }
+        }
     }
     
     @IBAction func closeButtonClick(_ sender: UIButton) {
