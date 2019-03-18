@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 class NewPasswordViewController: UIViewController {
+
+    var passwordResetToken: String? = nil
+
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordConfirmationTextField: UITextField!
     
@@ -24,11 +27,28 @@ class NewPasswordViewController: UIViewController {
     }
     
     @IBAction func resetPasswordButtonClick(_ sender: UIButton) {
-        let newPassword = newPasswordTextField.text
-        if newPassword == newPasswordConfirmationTextField.text {
-//            if newPassword != "" && newPassword.isValidPassword() {
-//                
-//            }
+        if let newPassword = newPasswordTextField.text,
+            let newPasswordConfirmation = newPasswordConfirmationTextField.text,
+            let passwordResetToken = passwordResetToken {
+            if newPassword == newPasswordConfirmation {
+    //        if newPassword != "" && newPassword.isValidPassword() {
+                User.confirmForgetPasswordReset(token: passwordResetToken, newPassword: newPassword) { error in
+                    if error == nil {
+                        self.presentSingleButtonAlert(title: "Success", message: "Your password was reset successfully.", buttonText: "OK") { action in
+                            self.dismiss(animated: true)
+                        }
+                    } else {
+                        self.presentServerErrorAlert()
+                    }
+                }
+    //        }
+            } else {
+                presentSingleButtonAlert(
+                    title: "Password Mismatch",
+                    message: "The password fields do not match.")
+            }
+        } else {
+            print("Error")
         }
     }
     

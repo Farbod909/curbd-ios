@@ -30,6 +30,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let incomingURL = userActivity.webpageURL,
+            let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true),
+            let params = components.queryItems else {
+                return false
+        }
+
+        if let passwordResetToken = params.first(where: { $0.name == "token" } )?.value {
+
+            // set mainVC as the root view controller then add login view controller and
+            // new password view controller on to the view controller hierarchy so that
+            // when a user dismisses the new password view controller, the login view controller
+            // is shown.
+
+            let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as UIViewController
+            let newPasswordViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPasswordViewController") as! NewPasswordViewController
+            newPasswordViewController.passwordResetToken = passwordResetToken
+            let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+
+            window?.rootViewController = mainVC
+            mainVC.present(loginViewController, animated: false)
+            loginViewController.present(newPasswordViewController, animated: false)
+
+            window?.makeKeyAndVisible()
+            return true
+        } else {
+            print("Token is missing")
+            return false
+        }
+    }
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

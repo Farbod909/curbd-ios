@@ -1524,7 +1524,7 @@
         <!--Login View Controller-->
         <scene sceneID="mJW-xV-RCq">
             <objects>
-                <viewController id="ymj-qE-dXg" customClass="LoginViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="ymj-qE-dXg" customClass="LoginViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GZ6-dQ-Gfm"/>
                         <viewControllerLayoutGuide type="bottom" id="FuI-ZE-xxT"/>
@@ -1717,7 +1717,7 @@
         <!--New Password View Controller-->
         <scene sceneID="veN-R6-VYF">
             <objects>
-                <viewController id="aYg-Vu-cQC" customClass="NewPasswordViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewPasswordViewController" id="aYg-Vu-cQC" customClass="NewPasswordViewController" customModule="Curbd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5iw-y7-Rvp"/>
                         <viewControllerLayoutGuide type="bottom" id="Ilz-5N-EM8"/>
