@@ -25,24 +25,3 @@ enum DatabaseUrl: String {
     case repeatingAvailabilities = "/api/parking/repeatingavailabilities/"
     case reservations = "/api/parking/reservations/"
 }
-
-//func delete(path: String, withToken token: String?, completion: @escaping (Error?) -> Void) {
-//    let headers: HTTPHeaders = [
-//        "Authorization": "Token \(token)",
-//    ]
-//
-//    Alamofire.request(
-//        baseURL + "/api/parking/spaces/\(self.id)/",
-//        method: .delete,
-//        headers: headers).validate().responseJSON { response in
-//            switch response.result {
-//            case .success:
-//                completion(nil)
-//            case .failure(let error):
-//                completion(error)
-//            }
-//    }
-//}
-//
-//
-//doSomething(withToken: token, and: that)
