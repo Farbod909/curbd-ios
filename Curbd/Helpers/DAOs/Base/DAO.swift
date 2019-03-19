@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 enum DatabaseUrl: String {
     case api = "/api/"
@@ -25,3 +26,60 @@ enum DatabaseUrl: String {
     case repeatingAvailabilities = "/api/parking/repeatingavailabilities/"
     case reservations = "/api/parking/reservations/"
 }
+
+func DAOget(path: String,
+         parameters: Parameters = [:],
+         token: String? = nil,
+         encoding: URLEncoding = URLEncoding.default,
+         completion: @escaping (Error?, JSON?) -> Void) {
+    
+    var headers: HTTPHeaders = [:]
+    
+    if let token = token {
+        headers = [
+            "Authorization": "Token \(token)",
+        ]
+    }
+    Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
+        response in
+        switch response.result {
+        case .success(let value):
+            completion(nil, JSON(value))
+        case .failure(let error):
+            completion(error, nil)
+        }
+    }
+}
+
+func getArray(path: String,
+              parameters: Parameters,
+              token: String?,
+              arrayKey: String = "results",
+              encoding: URLEncoding = URLEncoding.default,
+              completion: @escaping (Error?, JSON?) -> Void) {
+    var headers: HTTPHeaders = [:]
+    
+    if let token = token {
+        headers = [
+            "Authorization": "Token \(token)",
+        ]
+    }
+    Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
+        response in
+        switch response.result {
+        case .success(let value):
+            completion(nil, JSON(value)[arrayKey])
+        case .failure(let error):
+            completion(error, nil)
+        }
+    }
+}
+
+//func post
+//
+//func put
+//
+//func patch
+//
+//func delete
+//
