@@ -369,6 +369,46 @@ class User {
         }
     }
 
+    static func sendResetPasswordEmail(email: String, completion: @escaping (Error?) -> Void) {
+
+        let parameters: Parameters = [
+            "email": email
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/user/reset_password/",
+            method: .post,
+            parameters: parameters).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+
+        }
+    }
+
+    static func confirmForgetPasswordReset(token: String, newPassword: String, completion: @escaping (Error?) -> Void) {
+        let parameters: Parameters = [
+            "token": token,
+            "password": newPassword
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/forget_password/confirm/",
+            method: .post,
+            parameters: parameters).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+
+        }
+    }
+
     func saveToUserDefaults() {
         UserDefaults.standard.set(self.id, forKey: "user_id")
         UserDefaults.standard.set(self.firstName, forKey: "user_firstname")
