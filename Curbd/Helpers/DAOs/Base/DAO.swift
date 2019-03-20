@@ -43,8 +43,7 @@ class Networking {
             ]
         }
         
-        Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
-            response in
+        Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let responseJSON = JSON(value)
@@ -71,8 +70,7 @@ class Networking {
             ]
         }
         
-        Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
-            response in
+        Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let resultJSON = JSON(value)[arrayKey]
