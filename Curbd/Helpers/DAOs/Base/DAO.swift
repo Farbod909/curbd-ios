@@ -85,6 +85,24 @@ class Networking {
             }
         }
     }
+
+    static func delete(path: String, token: String?, completion: @escaping (Error?) -> Void) {
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+        
+        Alamofire.request(path, method: .delete, headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+        }
+    }
 }
 
 //func post
