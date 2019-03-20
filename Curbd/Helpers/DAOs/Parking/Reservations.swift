@@ -22,7 +22,7 @@ class ReservationTable {
     let url = baseURL + DatabaseUrl.reservations.rawValue
     let request: ReservationRequest
     var id = -1
-    init(request: ReservationRequest, id: Int?) {
+    init(request: ReservationRequest, id: Int? = nil) {
         self.request = request
         if let id = id {
             self.id = id

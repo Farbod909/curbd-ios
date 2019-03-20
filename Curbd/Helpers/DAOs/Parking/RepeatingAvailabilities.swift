@@ -20,7 +20,7 @@ class RepeatingAvailabilitiesTable {
     let url = baseURL + DatabaseUrl.repeatingAvailabilities.rawValue
     let request: RepeatingAvailabilitiesRequest
     var id = -1
-    init(request: RepeatingAvailabilitiesRequest, id: Int?) {
+    init(request: RepeatingAvailabilitiesRequest, id: Int? = nil) {
         self.request = request
         if let id = id {
             self.id = id

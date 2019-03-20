@@ -20,7 +20,7 @@ class FixedAvailabilitiesTable {
     let url = baseURL + DatabaseUrl.fixedAvailabilities.rawValue
     let request: FixedAvailabilitiesRequest
     var id = -1
-    init(request: FixedAvailabilitiesRequest, id: Int?) {
+    init(request: FixedAvailabilitiesRequest, id: Int? = nil) {
         self.request = request
         if let id = id {
             self.id = id

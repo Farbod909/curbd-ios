@@ -27,7 +27,7 @@ class ParkingSpaceTable {
     let url = baseURL + DatabaseUrl.spaces.rawValue
     let request: ParkingSpaceRequest
     var id = -1
-    init(request: ParkingSpaceRequest, id: Int?) {
+    init(request: ParkingSpaceRequest, id: Int? = nil) {
         self.request = request
         if let id = id {
             self.id = id
