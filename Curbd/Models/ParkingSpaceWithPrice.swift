@@ -8,12 +8,12 @@
 
 import SwiftyJSON
 
-class ParkingSpaceWithPrice {
+class ParkingSpaceWithPrice: JSONSerializable {
 
     let parkingSpace: ParkingSpace
     let price: Int
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.parkingSpace = ParkingSpace(json: json["parking_space"])
         self.price = json["price"].intValue
     }

@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class ParkingSpace {
+class ParkingSpace: JSONSerializable {
 
     let id: Int
     let features: [String]
@@ -25,7 +25,7 @@ class ParkingSpace {
     let images: [String]
     let is_active: Bool
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         if json["features"].stringValue != "" {
             self.features = json["features"].stringValue.components(separatedBy: ", ")

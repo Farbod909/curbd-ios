@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class User {
+class User: JSONSerializable {
 
     let id: Int
     let email: String
@@ -25,7 +25,7 @@ class User {
     }
 
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         self.email = json["email"].stringValue
         self.firstName = json["first_name"].stringValue
@@ -308,25 +308,16 @@ class User {
     }
 
     static func getHostInfo(withToken token: String,
-                                 completion: @escaping (Error?, HostInfo?) -> Void) {
-
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(token)",
-        ]
-
-        Alamofire.request(
-            baseURL + "/api/accounts/hosts/self/",
-            headers: headers).validate().responseJSON() { response in
-                switch response.result {
-                case .success(let value):
-                    let hostInfo = HostInfo(json: JSON(value))
-                    completion(nil, hostInfo)
-
-                case .failure(let error):
-                    completion(error, nil)
-                }
+                            completion: @escaping (Error?, HostInfo?) -> Void) {
+        let url = HostTable(request: HostRequest.getSelf).path
+        Networking.getObject(path: url, objectType: HostInfo.self, token: token) {
+            error, responseJSON in
+            if let responseJSON = responseJSON {
+                completion(nil, responseJSON)
+            } else if let error = error {
+                completion(error, nil)
+            }
         }
-
     }
 
     static func updateHostVerificationInfo(withToken token: String,

@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class Reservation {
+class Reservation: JSONSerializable {
 
     let id: Int
     let start: Date
@@ -23,7 +23,7 @@ class Reservation {
     let paymentMethodInfo: String?
     let cancelled: Bool
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         self.start = Formatter.iso8601.date(from: json["start_datetime"].stringValue)!
         self.end = Formatter.iso8601.date(from: json["end_datetime"].stringValue)!

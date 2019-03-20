@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class FixedAvailability {
+class FixedAvailability: JSONSerializable {
 
     let id: Int
     let parking_space: Int
@@ -24,7 +24,7 @@ class FixedAvailability {
     }
 
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         self.parking_space = json["parking_space"].intValue
         self.start_datetime = Formatter.iso8601.date(from: json["start_datetime"].stringValue)!

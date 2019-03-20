@@ -9,14 +9,14 @@
 import Alamofire
 import SwiftyJSON
 
-class Address {
+class Address: JSONSerializable {
     let address1: String
     let address2: String?
     let city: String
     let state: String
     let code: String
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.address1 = json["address1"].stringValue
         self.address2 = json["address2"].string
         self.city = json["city"].stringValue

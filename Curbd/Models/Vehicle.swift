@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class Vehicle {
+class Vehicle: JSONSerializable {
 
     static let sizeDescriptions = [
         1: "Motorcycle",
@@ -42,7 +42,7 @@ class Vehicle {
         }
     }
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         self.year = json["year"].intValue
         self.make = json["make"].stringValue
