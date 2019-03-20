@@ -113,31 +113,6 @@ class Networking {
         }
     }
 
-
-    static func delete(
-        path: String,
-        token: String?,
-        completion: @escaping (Error?) -> Void) {
-
-        var headers: HTTPHeaders = [:]
-        if let token = token {
-            headers = [
-                "Authorization": "Token \(token)",
-            ]
-        }
-
-        Alamofire.request(path, method: .delete, headers: headers).validate().responseJSON() { response in
-            switch response.result {
-            case .success:
-                completion(nil)
-            case .failure(let error):
-                completion(error)
-            }
-        }
-    }
-
-
-
     static func put(
         path: String,
         parameters: Parameters,
@@ -162,5 +137,51 @@ class Networking {
             }
         }
     }
+
+    static func patch(
+        path: String,
+        parameters: Parameters,
+        token: String?,
+        encoding: URLEncoding = .default,
+        completion: @escaping (Error?) -> Void) {
+
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+
+        Alamofire.request(path, method: .patch, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON() { response in
+            switch response.result {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error)
+            }
+        }
+    }
         
+    static func delete(
+        path: String,
+        token: String?,
+        completion: @escaping (Error?) -> Void) {
+
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+
+        Alamofire.request(path, method: .delete, headers: headers).validate().responseJSON() { response in
+            switch response.result {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }
