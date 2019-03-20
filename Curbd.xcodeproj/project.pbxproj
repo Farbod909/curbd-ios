@@ -17,7 +17,7 @@
 		8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */; };
 		8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C3E1F6886C1000BBBDB /* LocationManager.swift */; };
 		8E2104F12085378100C0B62A /* OnMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* OnMapButton.swift */; };
-		8E21FB9B2241EA5E0008FA9D /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21FB9A2241EA5E0008FA9D /* DAO.swift */; };
+		8E21FB9B2241EA5E0008FA9D /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21FB9A2241EA5E0008FA9D /* Networking.swift */; };
 		8E3D22E421393AAC00448948 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D22E321393AAC00448948 /* EmptyTableView.swift */; };
 		8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */; };
 		8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */; };
@@ -87,7 +87,7 @@
 		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
 		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
 		8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */; };
-		94149B4522409C4A0039472F /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4422409C4A0039472F /* DAO.swift */; };
+		94149B4522409C4A0039472F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4422409C4A0039472F /* Networking.swift */; };
 		94149B492240B0850039472F /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B482240B0850039472F /* Users.swift */; };
 		94149B4B2240B0E00039472F /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4A2240B0E00039472F /* Customers.swift */; };
 		94149B4D2240BE160039472F /* Hosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4C2240BE160039472F /* Hosts.swift */; };
@@ -113,7 +113,7 @@
 		8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDrawerViewController.swift; sourceTree = "<group>"; };
 		8E136C3E1F6886C1000BBBDB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E2104F02085378100C0B62A /* OnMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnMapButton.swift; sourceTree = "<group>"; };
-		8E21FB9A2241EA5E0008FA9D /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		8E21FB9A2241EA5E0008FA9D /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8E3D22E321393AAC00448948 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTranslucentViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
 		8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
-		94149B4422409C4A0039472F /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		94149B4422409C4A0039472F /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		94149B482240B0850039472F /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		94149B4A2240B0E00039472F /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		94149B4C2240BE160039472F /* Hosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hosts.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 		8E21FB992241EA5E0008FA9D /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8E21FB9A2241EA5E0008FA9D /* DAO.swift */,
+				8E21FB9A2241EA5E0008FA9D /* Networking.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 		94149B472240B0550039472F /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				94149B4422409C4A0039472F /* DAO.swift */,
+				94149B4422409C4A0039472F /* Networking.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -626,7 +626,7 @@
 				8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */,
 				8E8E78D02097109200426E92 /* CarQuery.swift in Sources */,
 				8E4F09EE21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift in Sources */,
-				94149B4522409C4A0039472F /* DAO.swift in Sources */,
+				94149B4522409C4A0039472F /* Networking.swift in Sources */,
 				94149B552240C2920039472F /* FixedAvailabilities.swift in Sources */,
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
 				8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */,
@@ -676,7 +676,7 @@
 				8EDD0D32212FE9AC00C81B16 /* Formatters.swift in Sources */,
 				8E4F09F02102968900E72FD5 /* AvailabilityTypeViewController.swift in Sources */,
 				8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */,
-				8E21FB9B2241EA5E0008FA9D /* DAO.swift in Sources */,
+				8E21FB9B2241EA5E0008FA9D /* Networking.swift in Sources */,
 				8E5048A320EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift in Sources */,
 				8E0CA4642084968400C9F470 /* BasicShadowButton.swift in Sources */,
 				8E64C74621DA1AEC003BA76C /* ParkingSpaceImagesCollectionViewCell.swift in Sources */,
