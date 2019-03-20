@@ -25,7 +25,7 @@ class UserTable {
     let url = baseURL + DatabaseUrl.users.rawValue
     let request: UserRequest
     var id = -1
-    init(request: UserRequest, id: Int?) {
+    init(request: UserRequest, id: Int? = nil) {
         self.request = request
         if let id = id {
             self.id = id

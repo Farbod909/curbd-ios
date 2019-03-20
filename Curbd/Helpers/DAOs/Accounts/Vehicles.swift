@@ -20,7 +20,7 @@ class VehicleTable {
     let url = baseURL + DatabaseUrl.vehicles.rawValue
     let request: VehicleRequest
     var id = -1
-    init(request: VehicleRequest, id: Int?) {
+    init(request: VehicleRequest, id: Int? = nil) {
         self.request = request
         if let id = id {
             self.id = id

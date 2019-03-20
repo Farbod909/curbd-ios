@@ -25,7 +25,7 @@ class HostTable {
     let url = baseURL + DatabaseUrl.hosts.rawValue
     let request: HostRequest
     var id = -1
-    init(request: HostRequest, id: Int?){
+    init(request: HostRequest, id: Int? = nil){
         self.request = request
         if let id = id {
             self.id = id

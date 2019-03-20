@@ -23,7 +23,7 @@ class CustomerTable {
     let url = baseURL + DatabaseUrl.customers.rawValue
     let request: CustomerRequest
     var id = -1
-    init(request: CustomerRequest, id: Int?){
+    init(request: CustomerRequest, id: Int? = nil){
         self.request = request
         if let id = id {
             self.id = id
