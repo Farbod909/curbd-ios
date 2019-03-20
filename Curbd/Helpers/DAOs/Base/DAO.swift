@@ -27,50 +27,63 @@ enum DatabaseUrl: String {
     case reservations = "/api/parking/reservations/"
 }
 
-func DAOget(path: String,
+class Networking {
+    static func getObject<T: JSONSerializable>
+        (path: String,
+         objectType: T.Type,
          parameters: Parameters = [:],
          token: String? = nil,
          encoding: URLEncoding = URLEncoding.default,
-         completion: @escaping (Error?, JSON?) -> Void) {
-    
-    var headers: HTTPHeaders = [:]
-    
-    if let token = token {
-        headers = [
-            "Authorization": "Token \(token)",
-        ]
-    }
-    Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
-        response in
-        switch response.result {
-        case .success(let value):
-            completion(nil, JSON(value))
-        case .failure(let error):
-            completion(error, nil)
+         completion: @escaping (Error?, T?) -> Void) {
+        
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+        
+        Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
+            response in
+            switch response.result {
+            case .success(let value):
+                let responseJSON = JSON(value)
+                let obj = T(json: responseJSON)
+                completion(nil, obj)
+            case .failure(let error):
+                completion(error, nil)
+            }
         }
     }
-}
-
-func getArray(path: String,
-              parameters: Parameters,
-              token: String?,
-              arrayKey: String = "results",
-              encoding: URLEncoding = URLEncoding.default,
-              completion: @escaping (Error?, JSON?) -> Void) {
-    var headers: HTTPHeaders = [:]
     
-    if let token = token {
-        headers = [
-            "Authorization": "Token \(token)",
-        ]
-    }
-    Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
-        response in
-        switch response.result {
-        case .success(let value):
-            completion(nil, JSON(value)[arrayKey])
-        case .failure(let error):
-            completion(error, nil)
+    static func getArray<T: JSONSerializable>
+        (path: String,
+         parameters: Parameters,
+         token: String?,
+         arrayKey: String = "results",
+         encoding: URLEncoding = URLEncoding.default,
+         completion: @escaping (Error?, [T]?) -> Void) {
+        
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+        
+        Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON {
+            response in
+            switch response.result {
+            case .success(let value):
+                let resultJSON = JSON(value)[arrayKey]
+                
+                let objects = resultJSON.arrayValue.map() {
+                    T(json: $0)
+                }
+                completion(nil, objects)
+            case .failure(let error):
+                completion(error, nil)
+            }
         }
     }
 }
