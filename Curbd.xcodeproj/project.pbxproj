@@ -87,6 +87,15 @@
 		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
 		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
 		8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */; };
+		94149B4522409C4A0039472F /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4422409C4A0039472F /* DAO.swift */; };
+		94149B492240B0850039472F /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B482240B0850039472F /* Users.swift */; };
+		94149B4B2240B0E00039472F /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4A2240B0E00039472F /* Customers.swift */; };
+		94149B4D2240BE160039472F /* Hosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4C2240BE160039472F /* Hosts.swift */; };
+		94149B4F2240BED20039472F /* Vehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B4E2240BED20039472F /* Vehicles.swift */; };
+		94149B532240C03D0039472F /* Spaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B522240C03D0039472F /* Spaces.swift */; };
+		94149B552240C2920039472F /* FixedAvailabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B542240C2920039472F /* FixedAvailabilities.swift */; };
+		94149B572240C3B60039472F /* RepeatingAvailabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B562240C3B60039472F /* RepeatingAvailabilities.swift */; };
+		94149B592240C3EE0039472F /* Reservations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94149B582240C3ED0039472F /* Reservations.swift */; };
 		8EF1D2A42241EAD600FBE1E6 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D2A32241EAD500FBE1E6 /* JSONSerializable.swift */; };
 		94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */; };
 		DCACD68A8EFC3758C00F7A9C /* Pods_Curbd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */; };
@@ -177,6 +186,15 @@
 		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
 		8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
+		94149B4422409C4A0039472F /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		94149B482240B0850039472F /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		94149B4A2240B0E00039472F /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
+		94149B4C2240BE160039472F /* Hosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hosts.swift; sourceTree = "<group>"; };
+		94149B4E2240BED20039472F /* Vehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicles.swift; sourceTree = "<group>"; };
+		94149B522240C03D0039472F /* Spaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaces.swift; sourceTree = "<group>"; };
+		94149B542240C2920039472F /* FixedAvailabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAvailabilities.swift; sourceTree = "<group>"; };
+		94149B562240C3B60039472F /* RepeatingAvailabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingAvailabilities.swift; sourceTree = "<group>"; };
+		94149B582240C3ED0039472F /* Reservations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservations.swift; sourceTree = "<group>"; };
 		8EF1D2A32241EAD500FBE1E6 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		9AF8BEE6E787FFD42A248528 /* Pods-Curbd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curbd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curbd/Pods-Curbd.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,7 +294,7 @@
 		8EC8F77E207AA1C10038790E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8E21FB982241EA5E0008FA9D /* DAOs */,
+				94149B462240B0160039472F /* Networking */,
 				8E136C3E1F6886C1000BBBDB /* LocationManager.swift */,
 				8EC8F77F207AA1DA0038790E /* Globals.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
@@ -383,6 +401,46 @@
 				8EDA61191F67A6F000AB6BF1 /* Info.plist */,
 			);
 			path = Curbd;
+			sourceTree = "<group>";
+		};
+		94149B462240B0160039472F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				94149B512240C00B0039472F /* Parking */,
+				94149B502240BFF30039472F /* Accounts */,
+				94149B472240B0550039472F /* Base */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		94149B472240B0550039472F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				94149B4422409C4A0039472F /* DAO.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		94149B502240BFF30039472F /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				94149B482240B0850039472F /* Users.swift */,
+				94149B4A2240B0E00039472F /* Customers.swift */,
+				94149B4C2240BE160039472F /* Hosts.swift */,
+				94149B4E2240BED20039472F /* Vehicles.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		94149B512240C00B0039472F /* Parking */ = {
+			isa = PBXGroup;
+			children = (
+				94149B522240C03D0039472F /* Spaces.swift */,
+				94149B542240C2920039472F /* FixedAvailabilities.swift */,
+				94149B562240C3B60039472F /* RepeatingAvailabilities.swift */,
+				94149B582240C3ED0039472F /* Reservations.swift */,
+			);
+			path = Parking;
 			sourceTree = "<group>";
 		};
 		F16D7F338935A981FA484837 /* Frameworks */ = {
@@ -549,20 +607,27 @@
 				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E8E78D62099AF5A00426E92 /* ReservationDetailTableViewController.swift in Sources */,
 				8E5AA0BE2108341F00A43A1F /* MultiLineLabelTableViewCell.swift in Sources */,
+				94149B4B2240B0E00039472F /* Customers.swift in Sources */,
 				8E68C47020FB00BC00376F80 /* ParkingSpaceDetailTableViewCell.swift in Sources */,
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
 				8E8E78D420984A8C00426E92 /* ReservationTableViewCell.swift in Sources */,
+				94149B4F2240BED20039472F /* Vehicles.swift in Sources */,
+				94149B4D2240BE160039472F /* Hosts.swift in Sources */,
 				8EC8F785207ACECD0038790E /* ParkingSpace.swift in Sources */,
 				8EEEDE2A2118013D00BCDA04 /* VenmoPayoutViewController.swift in Sources */,
 				8EBEAEF120E8ABAA00478A7B /* ParkingSpaceListTableViewController.swift in Sources */,
+				94149B492240B0850039472F /* Users.swift in Sources */,
 				8EC8F780207AA1DA0038790E /* Globals.swift in Sources */,
 				8E0CA45C208453BC00C9F470 /* ButtonWithShadow.swift in Sources */,
 				8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */,
+				94149B532240C03D0039472F /* Spaces.swift in Sources */,
 				8EEC463120844D3400ED527F /* HollowTextField.swift in Sources */,
 				8E3F47F6208FEEA9003451C1 /* Errors.swift in Sources */,
 				8E7B5DF22086A3C3000926C1 /* VehicleListTableViewController.swift in Sources */,
 				8E8E78D02097109200426E92 /* CarQuery.swift in Sources */,
 				8E4F09EE21025ADA00E72FD5 /* RepeatingAvailabilityTimeRange.swift in Sources */,
+				94149B4522409C4A0039472F /* DAO.swift in Sources */,
+				94149B552240C2920039472F /* FixedAvailabilities.swift in Sources */,
 				8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */,
 				8E8E78D22098459200426E92 /* ReservationListTableViewController.swift in Sources */,
 				8EB01ED82095B03100D3E82C /* AddVehicleViewController.swift in Sources */,
@@ -577,6 +642,7 @@
 				8E0CA45E208464C000C9F470 /* User.swift in Sources */,
 				8E5DAE5320ED45C200341251 /* ImageRow.swift in Sources */,
 				8E5DAE5F20EDA2C000341251 /* AddFixedAvailabilityViewController.swift in Sources */,
+				94149B572240C3B60039472F /* RepeatingAvailabilities.swift in Sources */,
 				8E7B5DF02086A268000926C1 /* VehicleTableViewCell.swift in Sources */,
 				8EC8F78D2082B22F0038790E /* Extensions.swift in Sources */,
 				8E85A739213E55E500336DE8 /* ParkingSpaceWithPrice.swift in Sources */,
@@ -599,6 +665,7 @@
 				8E5048A720EB3B9300580232 /* ReportSubmissionViewController.swift in Sources */,
 				8E3F47CF208EB6AA003451C1 /* LightTranslucentViewController.swift in Sources */,
 				8EEC462D20840CAF00ED527F /* AuthenticationRequiredViewController.swift in Sources */,
+				94149B592240C3EE0039472F /* Reservations.swift in Sources */,
 				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
 				94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceAnnotation.swift in Sources */,
