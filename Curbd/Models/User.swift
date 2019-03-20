@@ -309,15 +309,24 @@ class User: JSONSerializable {
 
     static func getHostInfo(withToken token: String,
                             completion: @escaping (Error?, HostInfo?) -> Void) {
-        let url = HostTable(request: HostRequest.getSelf).path
-        Networking.getObject(path: url, objectType: HostInfo.self, token: token) {
-            error, responseJSON in
-            if let responseJSON = responseJSON {
-                completion(nil, responseJSON)
-            } else if let error = error {
-                completion(error, nil)
-            }
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Token \(token)",
+        ]
+
+        Alamofire.request(
+            baseURL + "/api/accounts/hosts/self/",
+            headers: headers).validate().responseJSON() { response in
+                switch response.result {
+                case .success(let value):
+                    let hostInfo = HostInfo(json: JSON(value))
+                    completion(nil, hostInfo)
+
+                case .failure(let error):
+                    completion(error, nil)
+                }
         }
+
     }
 
     static func updateHostVerificationInfo(withToken token: String,

@@ -86,6 +86,10 @@
 		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
 		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
 		8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */; };
+		9479254E2240DA880006E38E /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9479254D2240DA870006E38E /* DAO.swift */; };
+		947925502240DA8B0006E38E /* Spaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9479254F2240DA8A0006E38E /* Spaces.swift */; };
+		947925522240DCC40006E38E /* Hosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947925512240DCC40006E38E /* Hosts.swift */; };
+		947925562241D2610006E38E /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947925552241D2610006E38E /* JSONSerializable.swift */; };
 		94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */; };
 		DCACD68A8EFC3758C00F7A9C /* Pods_Curbd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */; };
 /* End PBXBuildFile section */
@@ -174,6 +178,10 @@
 		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
 		8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
+		9479254D2240DA870006E38E /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		9479254F2240DA8A0006E38E /* Spaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaces.swift; sourceTree = "<group>"; };
+		947925512240DCC40006E38E /* Hosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hosts.swift; sourceTree = "<group>"; };
+		947925552241D2610006E38E /* JSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		9AF8BEE6E787FFD42A248528 /* Pods-Curbd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curbd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curbd/Pods-Curbd.debug.xcconfig"; sourceTree = "<group>"; };
 		BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Curbd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,11 +264,14 @@
 		8EC8F77E207AA1C10038790E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				947925532240E14B0006E38E /* DAOs */,
+				9479254F2240DA8A0006E38E /* Spaces.swift */,
 				8E136C3E1F6886C1000BBBDB /* LocationManager.swift */,
 				8EC8F77F207AA1DA0038790E /* Globals.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
 				8E3F47F5208FEEA9003451C1 /* Errors.swift */,
 				8EDD0D31212FE9AC00C81B16 /* Formatters.swift */,
+				947925512240DCC40006E38E /* Hosts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -280,6 +291,7 @@
 				8EEEDE2D211809B400BCDA04 /* HostInfo.swift */,
 				8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */,
 				8ED92C46211EBA280039A49B /* Address.swift */,
+				947925552241D2610006E38E /* JSONSerializable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +373,23 @@
 				8EDA61191F67A6F000AB6BF1 /* Info.plist */,
 			);
 			path = Curbd;
+			sourceTree = "<group>";
+		};
+		947925532240E14B0006E38E /* DAOs */ = {
+			isa = PBXGroup;
+			children = (
+				947925542240E15D0006E38E /* Base */,
+			);
+			name = DAOs;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		947925542240E15D0006E38E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9479254D2240DA870006E38E /* DAO.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		F16D7F338935A981FA484837 /* Frameworks */ = {
@@ -526,6 +555,7 @@
 			files = (
 				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E8E78D62099AF5A00426E92 /* ReservationDetailTableViewController.swift in Sources */,
+				947925562241D2610006E38E /* JSONSerializable.swift in Sources */,
 				8E5AA0BE2108341F00A43A1F /* MultiLineLabelTableViewCell.swift in Sources */,
 				8E68C47020FB00BC00376F80 /* ParkingSpaceDetailTableViewCell.swift in Sources */,
 				8E50882F1FC0F9F300508FE0 /* ArriveLeaveViewController.swift in Sources */,
@@ -580,6 +610,7 @@
 				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
 				94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceAnnotation.swift in Sources */,
+				947925522240DCC40006E38E /* Hosts.swift in Sources */,
 				8E5DAE5D20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
 				8E843B72221492AB00E827B6 /* ResetPasswordViewController.swift in Sources */,
@@ -587,6 +618,8 @@
 				8EDD0D32212FE9AC00C81B16 /* Formatters.swift in Sources */,
 				8E4F09F02102968900E72FD5 /* AvailabilityTypeViewController.swift in Sources */,
 				8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */,
+				9479254E2240DA880006E38E /* DAO.swift in Sources */,
+				947925502240DA8B0006E38E /* Spaces.swift in Sources */,
 				8E5048A320EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift in Sources */,
 				8E0CA4642084968400C9F470 /* BasicShadowButton.swift in Sources */,
 				8E64C74621DA1AEC003BA76C /* ParkingSpaceImagesCollectionViewCell.swift in Sources */,
