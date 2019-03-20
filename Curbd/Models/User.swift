@@ -308,7 +308,7 @@ class User: JSONSerializable {
     }
 
     static func getHostInfo(withToken token: String,
-                                completion: @escaping (Error?, HostInfo?) -> Void) {
+                                 completion: @escaping (Error?, HostInfo?) -> Void) {
 
         let headers: HTTPHeaders = [
             "Authorization": "Token \(token)",
