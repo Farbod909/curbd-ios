@@ -274,7 +274,7 @@
 		8EC8F77E207AA1C10038790E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				94149B462240B0160039472F /* DAOs */,
+				94149B462240B0160039472F /* Networking */,
 				8E136C3E1F6886C1000BBBDB /* LocationManager.swift */,
 				8EC8F77F207AA1DA0038790E /* Globals.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
@@ -382,14 +382,14 @@
 			path = Curbd;
 			sourceTree = "<group>";
 		};
-		94149B462240B0160039472F /* DAOs */ = {
+		94149B462240B0160039472F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				94149B512240C00B0039472F /* Parking */,
 				94149B502240BFF30039472F /* Accounts */,
 				94149B472240B0550039472F /* Base */,
 			);
-			path = DAOs;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		94149B472240B0550039472F /* Base */ = {
