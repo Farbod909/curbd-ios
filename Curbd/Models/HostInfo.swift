@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-class HostInfo {
+class HostInfo: JSONSerializable {
     let hostSince: String // date string in the form of MM-DD-YYYY
     let venmoEmail: String?
     let venmoPhone: String?
@@ -24,7 +24,7 @@ class HostInfo {
     // sum of all of host's income that has not been paid out and is available for pay out
     let availableBalance: Int
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.hostSince = json["host_since"].stringValue
         self.venmoEmail = json["venmo_email"].string
         self.venmoPhone = json["venmo_phone"].string

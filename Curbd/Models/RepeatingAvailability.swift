@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class RepeatingAvailability {
+class RepeatingAvailability: JSONSerializable {
 
     let id: Int
     let parking_space: Int
@@ -42,7 +42,7 @@ class RepeatingAvailability {
         return repeating_days.joined(separator: ", ")
     }
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         self.parking_space = json["parking_space"].intValue
 

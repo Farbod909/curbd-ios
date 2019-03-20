@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class User {
+class User: JSONSerializable {
 
     let id: Int
     let email: String
@@ -25,7 +25,7 @@ class User {
     }
 
 
-    init(json: JSON) {
+    required init(json: JSON) {
         self.id = json["id"].intValue
         self.email = json["email"].stringValue
         self.firstName = json["first_name"].stringValue

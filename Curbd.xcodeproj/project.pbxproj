@@ -300,6 +300,7 @@
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
 				8E3F47F5208FEEA9003451C1 /* Errors.swift */,
 				8EDD0D31212FE9AC00C81B16 /* Formatters.swift */,
+				947925512240DCC40006E38E /* Hosts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -320,6 +321,7 @@
 				8EEEDE2D211809B400BCDA04 /* HostInfo.swift */,
 				8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */,
 				8ED92C46211EBA280039A49B /* Address.swift */,
+				947925552241D2610006E38E /* JSONSerializable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -606,6 +608,7 @@
 			files = (
 				8E7B5DF42086ECC8000926C1 /* Vehicle.swift in Sources */,
 				8E8E78D62099AF5A00426E92 /* ReservationDetailTableViewController.swift in Sources */,
+				947925562241D2610006E38E /* JSONSerializable.swift in Sources */,
 				8E5AA0BE2108341F00A43A1F /* MultiLineLabelTableViewCell.swift in Sources */,
 				94149B4B2240B0E00039472F /* Customers.swift in Sources */,
 				8E68C47020FB00BC00376F80 /* ParkingSpaceDetailTableViewCell.swift in Sources */,
@@ -669,6 +672,7 @@
 				8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */,
 				94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */,
 				8EC8F78B2081C7470038790E /* ParkingSpaceAnnotation.swift in Sources */,
+				947925522240DCC40006E38E /* Hosts.swift in Sources */,
 				8E5DAE5D20EDA2A800341251 /* AddRepeatingAvailabilityViewController.swift in Sources */,
 				8E0CA45A2084534500C9F470 /* HollowButton.swift in Sources */,
 				8E843B72221492AB00E827B6 /* ResetPasswordViewController.swift in Sources */,
