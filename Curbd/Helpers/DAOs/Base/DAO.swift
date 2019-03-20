@@ -114,7 +114,11 @@ class Networking {
     }
 
 
-    static func delete(path: String, token: String?, completion: @escaping (Error?) -> Void) {
+    static func delete(
+        path: String,
+        token: String?,
+        completion: @escaping (Error?) -> Void) {
+
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
