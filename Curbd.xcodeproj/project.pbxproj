@@ -17,6 +17,7 @@
 		8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */; };
 		8E136C3F1F6886C1000BBBDB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E136C3E1F6886C1000BBBDB /* LocationManager.swift */; };
 		8E2104F12085378100C0B62A /* OnMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2104F02085378100C0B62A /* OnMapButton.swift */; };
+		8E21FB9B2241EA5E0008FA9D /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E21FB9A2241EA5E0008FA9D /* DAO.swift */; };
 		8E3D22E421393AAC00448948 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D22E321393AAC00448948 /* EmptyTableView.swift */; };
 		8E3F47C9208C7126003451C1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */; };
 		8E3F47CB208EB1C7003451C1 /* DarkTranslucentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */; };
@@ -86,6 +87,7 @@
 		8EEEDE2C2118017600BCDA04 /* HostInfoGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */; };
 		8EEEDE2E211809B400BCDA04 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2D211809B400BCDA04 /* HostInfo.swift */; };
 		8EEEDE302119320700BCDA04 /* PaymentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */; };
+		8EF1D2A42241EAD600FBE1E6 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1D2A32241EAD500FBE1E6 /* JSONSerializable.swift */; };
 		94A392592215DA9B00F7EEB2 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */; };
 		DCACD68A8EFC3758C00F7A9C /* Pods_Curbd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +104,7 @@
 		8E136C381F67C069000BBBDB /* SearchDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDrawerViewController.swift; sourceTree = "<group>"; };
 		8E136C3E1F6886C1000BBBDB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8E2104F02085378100C0B62A /* OnMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnMapButton.swift; sourceTree = "<group>"; };
+		8E21FB9A2241EA5E0008FA9D /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		8E3D22E321393AAC00448948 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		8E3F47C8208C7126003451C1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E3F47CA208EB1C7003451C1 /* DarkTranslucentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTranslucentViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 		8EEEDE2B2118017600BCDA04 /* HostInfoGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoGatherViewController.swift; sourceTree = "<group>"; };
 		8EEEDE2D211809B400BCDA04 /* HostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
 		8EEEDE2F2119320700BCDA04 /* PaymentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentClient.swift; sourceTree = "<group>"; };
+		8EF1D2A32241EAD500FBE1E6 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		94A392582215DA9B00F7EEB2 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		9AF8BEE6E787FFD42A248528 /* Pods-Curbd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curbd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curbd/Pods-Curbd.debug.xcconfig"; sourceTree = "<group>"; };
 		BAD7E81B853A8BC9BD499901 /* Pods_Curbd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Curbd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +224,22 @@
 			path = StylizedUIElements;
 			sourceTree = "<group>";
 		};
+		8E21FB982241EA5E0008FA9D /* DAOs */ = {
+			isa = PBXGroup;
+			children = (
+				8E21FB992241EA5E0008FA9D /* Base */,
+			);
+			path = DAOs;
+			sourceTree = "<group>";
+		};
+		8E21FB992241EA5E0008FA9D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8E21FB9A2241EA5E0008FA9D /* DAO.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		8E5DAE5020ED458800341251 /* CustomEurekaRows */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +276,7 @@
 		8EC8F77E207AA1C10038790E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8E21FB982241EA5E0008FA9D /* DAOs */,
 				8E136C3E1F6886C1000BBBDB /* LocationManager.swift */,
 				8EC8F77F207AA1DA0038790E /* Globals.swift */,
 				8EC8F78C2082B22F0038790E /* Extensions.swift */,
@@ -268,6 +289,7 @@
 		8EC8F783207AC5A30038790E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8EF1D2A32241EAD500FBE1E6 /* JSONSerializable.swift */,
 				8EC8F784207ACECD0038790E /* ParkingSpace.swift */,
 				8E85A738213E55E500336DE8 /* ParkingSpaceWithPrice.swift */,
 				8E0CA45D208464C000C9F470 /* User.swift */,
@@ -587,6 +609,7 @@
 				8EDD0D32212FE9AC00C81B16 /* Formatters.swift in Sources */,
 				8E4F09F02102968900E72FD5 /* AvailabilityTypeViewController.swift in Sources */,
 				8E7B5DFC2089A5ED000926C1 /* Reservation.swift in Sources */,
+				8E21FB9B2241EA5E0008FA9D /* DAO.swift in Sources */,
 				8E5048A320EA1B2300580232 /* ParkingSpaceDetailTableViewController.swift in Sources */,
 				8E0CA4642084968400C9F470 /* BasicShadowButton.swift in Sources */,
 				8E64C74621DA1AEC003BA76C /* ParkingSpaceImagesCollectionViewCell.swift in Sources */,
@@ -595,6 +618,7 @@
 				8E7B5DF620883D7D000926C1 /* VehicleDetailTableViewController.swift in Sources */,
 				8E5AA0BA2106696400A43A1F /* HostDashboardTableViewController.swift in Sources */,
 				8E136C391F67C069000BBBDB /* SearchDrawerViewController.swift in Sources */,
+				8EF1D2A42241EAD600FBE1E6 /* JSONSerializable.swift in Sources */,
 				8E5DAE6420EDB16800341251 /* FixedAvailabilityTableViewCell.swift in Sources */,
 				8E3F47D4208EFB2E003451C1 /* SignupEmailPhoneViewController.swift in Sources */,
 				8E5DAE6220EDB15B00341251 /* RepeatingAvailabilityTableViewCell.swift in Sources */,

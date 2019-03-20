@@ -29,12 +29,12 @@ enum DatabaseUrl: String {
 
 class Networking {
     static func getObject<T: JSONSerializable>(
-         path: String,
-         objectType: T.Type,
-         parameters: Parameters = [:],
-         token: String? = nil,
-         encoding: URLEncoding = URLEncoding.default,
-         completion: @escaping (Error?, T?) -> Void) {
+        path: String,
+        objectType: T.Type,
+        parameters: Parameters = [:],
+        token: String? = nil,
+        encoding: URLEncoding = URLEncoding.default,
+        completion: @escaping (Error?, T?) -> Void) {
         
         var headers: HTTPHeaders = [:]
         if let token = token {
@@ -56,13 +56,13 @@ class Networking {
     }
     
     static func getArray<T: JSONSerializable>(
-         path: String,
-         objectType: T.Type,
-         parameters: Parameters,
-         token: String?,
-         arrayKey: String = "results",
-         encoding: URLEncoding = URLEncoding.default,
-         completion: @escaping (Error?, [T]?) -> Void) {
+        path: String,
+        objectType: T.Type,
+        parameters: Parameters,
+        token: String?,
+        arrayKey: String = "results",
+        encoding: URLEncoding = .default,
+        completion: @escaping (Error?, [T]?) -> Void) {
         
         var headers: HTTPHeaders = [:]
         if let token = token {
@@ -86,6 +86,34 @@ class Networking {
         }
     }
 
+    static func post<T: JSONSerializable>(
+        path: String,
+        objectType: T.Type,
+        parameters: Parameters,
+        token: String?,
+        encoding: URLEncoding = .default,
+        completion: @escaping (Error?, T?) -> Void) {
+
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+
+        Alamofire.request(path, method: .post, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let responseJSON = JSON(value)
+                let obj = T(json: responseJSON)
+                completion(nil, obj)
+            case .failure(let error):
+                completion(error, nil)
+            }
+        }
+    }
+
+
     static func delete(path: String, token: String?, completion: @escaping (Error?) -> Void) {
         var headers: HTTPHeaders = [:]
         if let token = token {
@@ -93,23 +121,42 @@ class Networking {
                 "Authorization": "Token \(token)",
             ]
         }
-        
+
         Alamofire.request(path, method: .delete, headers: headers).validate().responseJSON() { response in
-                switch response.result {
-                case .success:
-                    completion(nil)
-                case .failure(let error):
-                    completion(error)
-                }
+            switch response.result {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
         }
     }
-}
 
-//func post
-//
-//func put
-//
-//func patch
-//
-//func delete
-//
+
+
+    static func put(
+        path: String,
+        parameters: Parameters,
+        token: String?,
+        encoding: URLEncoding = .default,
+        completion: @escaping (Error?) -> Void) {
+
+        var headers: HTTPHeaders = [:]
+        if let token = token {
+            headers = [
+                "Authorization": "Token \(token)",
+            ]
+        }
+
+        Alamofire.request(path, method: .put, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON() { response in
+            switch response.result {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error)
+            }
+        }
+    }
+        
+}
