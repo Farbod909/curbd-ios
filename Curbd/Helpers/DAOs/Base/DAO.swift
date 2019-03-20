@@ -28,8 +28,8 @@ enum DatabaseUrl: String {
 }
 
 class Networking {
-    static func getObject<T: JSONSerializable>
-        (path: String,
+    static func getObject<T: JSONSerializable>(
+         path: String,
          objectType: T.Type,
          parameters: Parameters = [:],
          token: String? = nil,
@@ -56,8 +56,8 @@ class Networking {
         }
     }
     
-    static func getArray<T: JSONSerializable>
-        (path: String,
+    static func getArray<T: JSONSerializable>(
+         path: String,
          parameters: Parameters,
          token: String?,
          arrayKey: String = "results",
