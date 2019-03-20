@@ -57,6 +57,7 @@ class Networking {
     
     static func getArray<T: JSONSerializable>(
          path: String,
+         objectType: T.Type,
          parameters: Parameters,
          token: String?,
          arrayKey: String = "results",
