@@ -10,7 +10,6 @@
 		00234F2D2C7DA6A1FD2EAFB3F120DADF /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8674CA104CD034DFEB4CB0675A87A992 /* Rules.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		00913A281598DE3F0B1A7D218363F0DA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34BA2EB3150D19BB6D8D2C72643720 /* Section.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		00E153632A414101E0A66AE23569802B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C975F8D9C397BB673394BB830619061 /* Result.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0105C0C21C5210DF50FD0AD4A043D638 /* KingfisherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B42FD094B549FF2ACB1D44C714317 /* KingfisherSource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		015883D883B4A38AB00D34B1D7EEF0CB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE2B9F3C5C6FDEB3F0DBF179E45CF1 /* ImageProcessor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		015D05733A55756464B57B7BABF3B4AC /* SwiftEntryKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3ABFFF2712E6A771D19CC60C09D771 /* SwiftEntryKit-dummy.m */; };
 		01A1D27692439789DBA2C07D1C863B17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECC9B76178E5BD1B665CDB822BB543FE /* Localizable.strings */; };
@@ -396,6 +395,7 @@
 		8E4F6F7A7727DA654394C5EC2D8AD2FC /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A358462B602370CE8A5D809180D1B03 /* CGRect.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8E79700B4865C33633A1F8358223E673 /* STPAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AE60549AA6C97F2B000A155EFD20E4 /* STPAPIClient.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8E84CC12FC6212279A3F62EC1855E451 /* EKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29C17B86D74712BE5ACDAB2157BC9E /* EKTextField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8E9EF74C224F77EB000DFEE9 /* KingfisherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B42FD094B549FF2ACB1D44C714317 /* KingfisherSource.swift */; };
 		8EF7C8D1F45CBC26AB617F579A615D51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1CCED9F2678A4C85379032DF5C6BC1 /* Foundation.framework */; };
 		8F401A1C68D7EC5450F649130EC2786B /* PerformCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A81B4969F1C51B06DDDC0FD236FF0B /* PerformCheck.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8F5C0849D2757FC5A7C81B81BA3813C3 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC43A29410E512D4CCFD98AD10533B97 /* ResponseSerialization.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -3512,7 +3512,17 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
+				de,
+				es,
+				fi,
+				fr,
+				it,
+				ja,
+				nb,
+				nl,
+				"zh-Hans",
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 0DDE1615033B9C1F08659F0BCE2E74F0 /* Products */;
@@ -3882,9 +3892,9 @@
 				7F6CCFF7CA90AC6DBD8248DD21C6F07B /* ImageSlideshow.swift in Sources */,
 				0305C5E5A6F338D01450FD6DFA886E18 /* ImageSlideshowItem.swift in Sources */,
 				74A616FC8CD0497EC11EE1D005377EF6 /* InputSource.swift in Sources */,
-				0105C0C21C5210DF50FD0AD4A043D638 /* KingfisherSource.swift in Sources */,
 				48AF528DDCA400FA79DF945FF95EE866 /* PageIndicator.swift in Sources */,
 				839EB6C7F70F52475C49CABB871F2736 /* PageIndicatorPosition.swift in Sources */,
+				8E9EF74C224F77EB000DFEE9 /* KingfisherSource.swift in Sources */,
 				C0395EEB2B8B9A03340053BACCA9A1F3 /* SwiftSupport.swift in Sources */,
 				2AB84452235D99115D9201AF49190D5C /* UIImage+AspectFit.swift in Sources */,
 				928FDB6DA7AB902B570D04032B429AF5 /* UIImageView+Tools.swift in Sources */,
@@ -4535,7 +4545,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ImageViewer/ImageViewer-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ImageViewer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ImageViewer/ImageViewer.modulemap";
 				PRODUCT_MODULE_NAME = ImageViewer;
@@ -4779,7 +4789,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ImageViewer/ImageViewer-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ImageViewer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ImageViewer/ImageViewer.modulemap";
 				PRODUCT_MODULE_NAME = ImageViewer;
