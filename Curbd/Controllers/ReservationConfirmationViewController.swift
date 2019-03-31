@@ -139,11 +139,20 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
 
                             } else {
                                 self.stopLoading(self.loadingView)
-                                self.presentServerErrorAlert() { action in
-                                    self.performSegue(
-                                        withIdentifier:
-                                        "unwindToMapViewController",
-                                        sender: self)
+                                if let error = error as? ValidationError {
+                                    self.presentValidationErrorAlert(from: error) { _ in
+                                        self.performSegue(
+                                            withIdentifier:
+                                            "unwindToMapViewController",
+                                            sender: self)
+                                    }
+                                } else {
+                                    self.presentServerErrorAlert() { action in
+                                        self.performSegue(
+                                            withIdentifier:
+                                            "unwindToMapViewController",
+                                            sender: self)
+                                    }
                                 }
                             }
                     }

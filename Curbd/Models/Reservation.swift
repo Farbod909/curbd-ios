@@ -68,7 +68,11 @@ class Reservation: JSONSerializable {
                     let reservation = Reservation(json: JSON(value))
                     completion(nil, reservation)
                 case .failure(let error):
-                    completion(error, nil)
+                    if let validationError = ValidationError(from: error, with: response.data) {
+                        completion(validationError, nil)
+                    } else {
+                        completion(error, nil)
+                    }
                 }
         }
     }
