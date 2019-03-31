@@ -139,11 +139,20 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
 
                             } else {
                                 self.stopLoading(self.loadingView)
-                                self.presentServerErrorAlert() { action in
-                                    self.performSegue(
-                                        withIdentifier:
-                                        "unwindToMapViewControllerAfterReservationConfirmation",
-                                        sender: self)
+                                if let error = error as? ValidationError {
+                                    self.presentValidationErrorAlert(from: error) { _ in
+                                        self.performSegue(
+                                            withIdentifier:
+                                            "unwindToMapViewController",
+                                            sender: self)
+                                    }
+                                } else {
+                                    self.presentServerErrorAlert() { action in
+                                        self.performSegue(
+                                            withIdentifier:
+                                            "unwindToMapViewController",
+                                            sender: self)
+                                    }
                                 }
                             }
                     }
@@ -154,7 +163,7 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                         message: "You need to add a vehicle before you can reserve a spot.") { action in
                             self.performSegue(
                                 withIdentifier:
-                                "unwindToMapViewControllerAfterReservationConfirmation",
+                                "unwindToMapViewController",
                                 sender: self)
                     }
                 }
@@ -164,7 +173,7 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                     message: "Looks like you're not logged in. Try logging in first.") { action in
                         self.performSegue(
                             withIdentifier:
-                            "unwindToMapViewControllerAfterReservationConfirmation",
+                            "unwindToMapViewController",
                             sender: self)
                 }
             }
@@ -188,14 +197,10 @@ extension ReservationConfirmationViewController: STPPaymentContextDelegate {
                 title: "Error",
                 message: "Unable to process payment method")
         case .success:
-//            self.presentSingleButtonAlert(
-//                title: "Successfully Reserved",
-//                message: "You successfully reserved this parking space!") { action in
-                    self.performSegue(
-                        withIdentifier:
-                        "unwindToMapViewControllerAfterReservationConfirmation",
-                        sender: self)
-//            }
+            self.performSegue(
+                withIdentifier:
+                "unwindToMapViewControllerAfterReservationConfirmation",
+                sender: self)
         case .userCancellation:
             return
         }
