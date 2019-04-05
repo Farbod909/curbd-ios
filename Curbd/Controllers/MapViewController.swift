@@ -101,11 +101,6 @@ class MapViewController: UIViewController {
             object: nil)
     }
 
-//    @available(iOS 11.0, *)
-//    func addCurrentLocationButton() {
-//        let currentLocationButton = MKUserTrackingButton(mapView: mapView)
-//        currentLocationButtonParentView.addSubview(currentLocationButton)
-//    }
 
     /**
      This function hides the parking space detail view after confirming
