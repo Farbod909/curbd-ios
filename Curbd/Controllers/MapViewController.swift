@@ -133,7 +133,7 @@ class MapViewController: UIViewController {
      visible map area.
     */
     @IBAction func redoSearchButtonClick(_ sender: UIButton) {
-        performSearchInCurrentlyVisibleArea()
+        performSearchInCurrentlyVisibleArea(alertIfNotFound: true)
     }
 
     /**
@@ -227,13 +227,13 @@ class MapViewController: UIViewController {
 
      This does not automatically select the first result.
      */
-    func performSearchInCurrentlyVisibleArea() {
+    func performSearchInCurrentlyVisibleArea(alertIfNotFound: Bool = false) {
         if let searchDrawerViewController =
             parent?.children[1] as? SearchDrawerViewController {
             locateParkingSpacesOnCurrentMapArea(
                 from: searchDrawerViewController.arriveDate,
                 to: searchDrawerViewController.leaveDate,
-                alertIfNotFound: true,
+                alertIfNotFound: alertIfNotFound,
                 selectFirstResult: false)
         } else {
 
@@ -244,7 +244,7 @@ class MapViewController: UIViewController {
                     locateParkingSpacesOnCurrentMapArea(
                         from: searchDrawerViewController.arriveDate,
                         to: searchDrawerViewController.leaveDate,
-                        alertIfNotFound: true,
+                        alertIfNotFound: alertIfNotFound,
                         selectFirstResult: false)
                 }
             }
