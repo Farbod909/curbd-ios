@@ -140,23 +140,20 @@ class SearchDrawerViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showArriveLeaveVC" {
-            if let arriveLeaveViewController = segue.destination as? ArriveLeaveViewController {
-                // set the arrive and leave dates of the arriveLeaveViewController
-                // based on the arrive leave dates of the current view controller.
-                arriveLeaveViewController.arriveDate = arriveDate
-                arriveLeaveViewController.leaveDate = leaveDate
-
-                // this is so that the arriveLeaveViewController can have a
-                // translucent background
-                arriveLeaveViewController.modalPresentationStyle = .overCurrentContext
-            }
-        }
-    }
-
     @objc func showArriveLeaveViewController() {
-        performSegue(withIdentifier: "showArriveLeaveVC", sender: self)
+
+        let arriveLeaveViewController = UIStoryboard(
+            name: "Main",
+            bundle: nil).instantiateViewController(withIdentifier: "arriveLeaveVC")
+
+        if let arriveLeaveViewController = arriveLeaveViewController as? ArriveLeaveViewController {
+            arriveLeaveViewController.arriveDate = arriveDate
+            arriveLeaveViewController.leaveDate = leaveDate
+
+            arriveLeaveViewController.modalPresentationStyle = .overCurrentContext
+            show(arriveLeaveViewController, sender: self)
+        }
+
     }
 
     @IBAction func editArriveButtonClick(_ sender: UIButton) {
