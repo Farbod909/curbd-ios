@@ -129,15 +129,6 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-aE-plu">
-                                <rect key="frame" x="310" y="13" width="50" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                <state key="normal" title="don't delete this"/>
-                                <connections>
-                                    <segue destination="Hyf-HC-4Ea" kind="show" identifier="showArriveLeaveVC" id="fq2-0j-U0o"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="QMR-We-5Vs">
                                 <rect key="frame" x="317" y="138.5" width="23" height="23"/>
                                 <color key="tintColor" red="0.83921568629999999" green="0.054901960780000002" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2226,11 +2217,11 @@
                         <viewControllerLayoutGuide type="bottom" id="M7p-0t-ldZ"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="dPY-2v-xHN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8x-cJ-Ynu">
-                                <rect key="frame" x="241.5" y="515" width="61" height="36"/>
+                                <rect key="frame" x="241.5" y="548.5" width="61" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
@@ -2238,7 +2229,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtW-cx-mmA">
-                                <rect key="frame" x="72.5" y="515" width="61" height="36"/>
+                                <rect key="frame" x="72.5" y="548.5" width="61" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -2246,7 +2237,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="bmx-PS-HKA">
-                                <rect key="frame" x="27.5" y="86" width="320" height="186"/>
+                                <rect key="frame" x="27.5" y="119.5" width="320" height="186"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="186" id="QKU-S8-Xaz"/>
                                 </constraints>
@@ -2255,7 +2246,7 @@
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="B2Q-Vs-QRL">
-                                <rect key="frame" x="27.5" y="317" width="320" height="186"/>
+                                <rect key="frame" x="27.5" y="350.5" width="320" height="186"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="186" id="f0I-We-VWr"/>
                                 </constraints>
@@ -2264,12 +2255,12 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfM-eN-rVa">
-                                <rect key="frame" x="158.5" y="55" width="58.5" height="28"/>
+                                <rect key="frame" x="158.5" y="88.5" width="58.5" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQk-fQ-TLS">
-                                <rect key="frame" x="158" y="286" width="59.5" height="28"/>
+                                <rect key="frame" x="158" y="319.5" width="59.5" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="highlightedColor"/>
                             </label>
