@@ -73,11 +73,10 @@ class MapViewController: UIViewController {
 
         mapView.showsCompass = false
 
-        if iphoneX {
-            redoSearchButtonSpacingFromBottomConstraint.constant += 26
-            currentVehicleButtonSpacingFromTopConstraint.constant += 26
-            menuButtonSpacingFromTopConstraint.constant += 26
-            view.updateConstraints()
+        if #available(iOS 11.0, *) {
+            menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 14).isActive = true
+            currentVehicleButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 14).isActive = true
+            redoSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 214).isActive = true
         }
     }
 
@@ -406,7 +405,7 @@ extension MapViewController: MKMapViewDelegate {
                 animated: false)
 
             // reposition map such that annotation isn't covered by parking space drawer
-            let topOfParkingSpaceDrawer = UIScreen.main.bounds.height - parkingSpaceDrawerViewController.collapsedDrawerHeight(bottomSafeArea: iphoneX ? 20 : 0)
+            let topOfParkingSpaceDrawer = UIScreen.main.bounds.height - parkingSpaceDrawerViewController.collapsedDrawerHeight(bottomSafeArea: 0)
             if view.center.y > (topOfParkingSpaceDrawer - 50) || view.center.y < 160 {
                 let heightDifference = view.center.y - (topOfParkingSpaceDrawer / 2 + 50) // 50 pixels below the center
                 mapView.moveCenterByOffSet(offSet: CGPoint(x: 0, y: heightDifference), coordinate: mapView.centerCoordinate)
