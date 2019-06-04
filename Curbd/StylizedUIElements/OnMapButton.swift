@@ -19,7 +19,7 @@ class OnMapButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = 5
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowOpacity = 0.25

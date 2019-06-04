@@ -47,7 +47,7 @@ class UserMenuViewController: DarkTranslucentViewController {
 
         let curbdTheme = STPTheme()
         curbdTheme.accentColor = UIColor.white
-        curbdTheme.secondaryBackgroundColor = UIColor.curbdPurpleBright
+        curbdTheme.secondaryBackgroundColor = UIColor.curbdPurpleBright.adjustedForPaymentsNavigationController
         curbdTheme.secondaryForegroundColor = UIColor.white
         curbdTheme.primaryBackgroundColor = UIColor.curbdPurpleBright
         curbdTheme.primaryForegroundColor = UIColor.white

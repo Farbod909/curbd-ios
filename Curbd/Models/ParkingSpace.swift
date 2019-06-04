@@ -279,78 +279,26 @@ class ParkingSpace: JSONSerializable {
 
     func getRepeatingAvailabilities(withToken token: String,
                                     completion: @escaping (Error?, [RepeatingAvailability]?) -> Void) {
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(token)",
-        ]
-        Alamofire.request(
-            baseURL + "/api/parking/spaces/\(self.id)/repeatingavailabilities/",
-            headers: headers).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let repeatingAvailabilitiesJSON = JSON(value)
-                    let repeatingAvailabilities: [RepeatingAvailability] = repeatingAvailabilitiesJSON["results"].arrayValue.map({ RepeatingAvailability(json: $0) })
-                    completion(nil, repeatingAvailabilities)
-                case .failure(let error):
-                    completion(error, nil)
-                }
-        }
+        let path = ParkingSpaceTable(self.id).path("repeating")
+        Networking.getArray(path, RepeatingAvailability.self, token: token, completion)
     }
 
     func getFutureFixedAvailabilities(withToken token: String,
                                     completion: @escaping (Error?, [FixedAvailability]?) -> Void) {
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(token)",
-        ]
-        Alamofire.request(
-            baseURL + "/api/parking/spaces/\(self.id)/fixedavailabilities/future/",
-            headers: headers).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let fixedAvailabilitiesJSON = JSON(value)
-                    let fixedAvailabilities: [FixedAvailability] = fixedAvailabilitiesJSON["results"].arrayValue.map({ FixedAvailability(json: $0) })
-                    completion(nil, fixedAvailabilities)
-                case .failure(let error):
-                    completion(error, nil)
-                }
-        }
+        let path = ParkingSpaceTable(self.id).path("future")
+        Networking.getArray(path, FixedAvailability.self, token: token, completion)
     }
 
     func getCurrentReservations(withToken token: String,
                                 completion: @escaping (Error?, [Reservation]?) -> Void) {
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(token)",
-        ]
-        Alamofire.request(
-            baseURL + "/api/parking/spaces/\(self.id)/reservations/current/",
-            headers: headers).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let reservationsJSON = JSON(value)
-                    let reservations: [Reservation] = reservationsJSON["results"].arrayValue.map({ Reservation(json: $0) })
-                    completion(nil, reservations)
-                case .failure(let error):
-                    completion(error, nil)
-                }
-        }
+        let path = ParkingSpaceTable(self.id).path("current")
+        Networking.getArray(path, Reservation.self, token: token, completion)
     }
 
     func getPreviousReservations(withToken token: String,
                                 completion: @escaping (Error?, [Reservation]?) -> Void) {
-        let headers: HTTPHeaders = [
-            "Authorization": "Token \(token)",
-        ]
-        Alamofire.request(
-            baseURL + "/api/parking/spaces/\(self.id)/reservations/previous/",
-            headers: headers).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let reservationsJSON = JSON(value)
-                    let reservations: [Reservation] = reservationsJSON["results"].arrayValue.map({ Reservation(json: $0) })
-                    completion(nil, reservations)
-                case .failure(let error):
-                    completion(error, nil)
-                }
-        }
+        let path = ParkingSpaceTable(self.id).path("previous")
+        Networking.getArray(path, Reservation.self, token: token, completion)
     }
 
 }

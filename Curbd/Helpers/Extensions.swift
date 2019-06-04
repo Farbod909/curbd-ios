@@ -516,6 +516,21 @@ extension UIColor {
         return UIColor(patternImage: backgroundColorImage!)
     }
 
+    var adjustedForPaymentsNavigationController: UIColor {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+
+        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        red = ((red * 255) + 5) / 255
+        green = ((green * 255) + 34) / 255
+        blue = ((blue * 255) + 16) / 255
+
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+
 }
 
 extension Int {

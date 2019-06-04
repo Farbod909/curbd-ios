@@ -56,13 +56,13 @@ class Networking {
     }
     
     static func getArray<T: JSONSerializable>(
-        path: String,
-        objectType: T.Type,
-        parameters: Parameters,
-        token: String?,
+        _ path: String,
+        _ objectType: T.Type,
+        parameters: Parameters = [:],
+        token: String? = "",
         arrayKey: String = "results",
         encoding: URLEncoding = .default,
-        completion: @escaping (Error?, [T]?) -> Void) {
+        _ completion: @escaping (Error?, [T]?) -> Void) {
         
         var headers: HTTPHeaders = [:]
         if let token = token {
