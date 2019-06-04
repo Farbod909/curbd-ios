@@ -56,13 +56,13 @@ class Networking {
     }
     
     static func getArray<T: JSONSerializable>(
-        path: String,
-        objectType: T.Type,
-        parameters: Parameters,
-        token: String?,
+        _ path: String,
+        _ objectType: T.Type,
+        parameters: Parameters = [:],
+        token: String? = "",
         arrayKey: String = "results",
         encoding: URLEncoding = .default,
-        completion: @escaping (Error?, [T]?) -> Void) {
+        _ completion: @escaping (Error?, [T]?) -> Void) {
         
         var headers: HTTPHeaders = [:]
         if let token = token {
@@ -85,7 +85,7 @@ class Networking {
             }
         }
     }
-
+    
     static func post<T: JSONSerializable>(
         path: String,
         objectType: T.Type,
@@ -93,14 +93,14 @@ class Networking {
         token: String?,
         encoding: URLEncoding = .default,
         completion: @escaping (Error?, T?) -> Void) {
-
+        
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
                 "Authorization": "Token \(token)",
             ]
         }
-
+        
         Alamofire.request(path, method: .post, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -112,21 +112,21 @@ class Networking {
             }
         }
     }
-
+    
     static func put(
         path: String,
         parameters: Parameters,
         token: String?,
         encoding: URLEncoding = .default,
         completion: @escaping (Error?) -> Void) {
-
+        
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
                 "Authorization": "Token \(token)",
             ]
         }
-
+        
         Alamofire.request(path, method: .put, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON() { response in
             switch response.result {
             case .success:
@@ -137,21 +137,21 @@ class Networking {
             }
         }
     }
-
+    
     static func patch(
         path: String,
         parameters: Parameters,
         token: String?,
         encoding: URLEncoding = .default,
         completion: @escaping (Error?) -> Void) {
-
+        
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
                 "Authorization": "Token \(token)",
             ]
         }
-
+        
         Alamofire.request(path, method: .patch, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON() { response in
             switch response.result {
             case .success:
@@ -162,19 +162,19 @@ class Networking {
             }
         }
     }
-        
+    
     static func delete(
         path: String,
         token: String?,
         completion: @escaping (Error?) -> Void) {
-
+        
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
                 "Authorization": "Token \(token)",
             ]
         }
-
+        
         Alamofire.request(path, method: .delete, headers: headers).validate().responseJSON() { response in
             switch response.result {
             case .success:

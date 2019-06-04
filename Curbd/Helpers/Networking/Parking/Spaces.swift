@@ -8,40 +8,48 @@
 
 import Foundation
 
-enum ParkingSpaceRequest: String {
+class ParkingSpaceTable {
+    var url = baseURL + DatabaseUrl.spaces.rawValue
     // literal
-    case get = ""
-    case search = "search/"
+    let search = "search/"
     
     // id
-    case id = "/"
-    case availability = "/availability/"
-    case repeatingAvailabilities = "/repeatingavailabilities/"
-    case fixedAvailabilities = "/fixedavailabilities/"
-    case futureFixedAvailabilities = "/fixedavailabilities/future/"
-    case currentReservations = "/reservations/current/"
-    case previousReservations = "/reservations/previous/"
-}
-
-class ParkingSpaceTable {
-    let url = baseURL + DatabaseUrl.spaces.rawValue
-    let request: ParkingSpaceRequest
-    var id = -1
-    init(request: ParkingSpaceRequest, id: Int? = nil) {
-        self.request = request
-        if let id = id {
-            self.id = id
+    let id = "/"
+    let availability = "/availability/"
+    let repeatingAvailabilities = "/repeatingavailabilities/"
+    let fixedAvailabilities = "/fixedavailabilities/"
+    let futureFixedAvailabilities = "/fixedavailabilities/future/"
+    let currentReservations = "/reservations/current/"
+    let previousReservations = "/reservations/previous/"
+    
+    init(_ id: Int? = nil){
+        if let id = id{
+            self.url += String(id)
         }
     }
     
-    var path: String {
-        get {
-            switch(self.request) {
-            case .get, .search:
-                return self.url + request.rawValue
-            default:
-                return self.url + "\(self.id)" + request.rawValue
-            }
+    func path(_ pathtype: String) -> String{
+        switch pathtype {
+        case "id":
+            return self.url + self.id
+        case "search":
+            return self.url + self.search
+        case "availability":
+            return self.url + self.availability
+        case "repeating":
+            return self.url + self.repeatingAvailabilities
+        case "fixed":
+            return self.url + self.fixedAvailabilities
+        case "future":
+            return self.url + self.futureFixedAvailabilities
+        case "current":
+            return self.url + self.currentReservations
+        case "previous":
+            return self.url + self.previousReservations
+        default:
+            return self.url
         }
     }
 }
+
+var temp = ParkingSpaceTable().getPath(ParkingSpaceRequest.id, 123)
