@@ -35,14 +35,14 @@ class Networking {
         token: String? = nil,
         encoding: URLEncoding = URLEncoding.default,
         completion: @escaping (Error?, T?) -> Void) {
-        
+
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
                 "Authorization": "Token \(token)",
             ]
         }
-        
+
         Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -54,23 +54,23 @@ class Networking {
             }
         }
     }
-    
+
     static func getArray<T: JSONSerializable>(
-        path: String,
-        objectType: T.Type,
-        parameters: Parameters,
+        _ path: String,
+        _ objectType: T.Type,
+        parameters: Parameters = [:],
         token: String?,
         arrayKey: String = "results",
         encoding: URLEncoding = .default,
-        completion: @escaping (Error?, [T]?) -> Void) {
-        
+        _ completion: @escaping (Error?, [T]?) -> Void) {
+
         var headers: HTTPHeaders = [:]
         if let token = token {
             headers = [
                 "Authorization": "Token \(token)",
             ]
         }
-        
+
         Alamofire.request(path, method: .get, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -162,7 +162,7 @@ class Networking {
             }
         }
     }
-        
+
     static func delete(
         path: String,
         token: String?,
