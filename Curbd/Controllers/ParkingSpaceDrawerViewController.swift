@@ -10,6 +10,7 @@ import Foundation
 import Pulley
 import UIKit
 import ImageViewer
+import Kingfisher
 
 class ParkingSpaceDrawerViewController: UIViewController {
 
@@ -21,17 +22,12 @@ class ParkingSpaceDrawerViewController: UIViewController {
     @IBOutlet weak var featuresScrollView: UIScrollView!
     @IBOutlet weak var featuresStackView: UIStackView!
     @IBOutlet weak var imagesCollectionView: UICollectionView!
-    //    @IBOutlet weak var noFeaturesLabel: UILabel!
-//    @IBOutlet weak var slideshow: ImageSlideshow!
-//    @IBOutlet weak var noImagesLabel: UILabel!
-
-//    @IBOutlet weak var testScrollView: UIScrollView!
-//    @IBOutlet weak var testStackView: UIStackView!
 
     var parkingSpace: ParkingSpace?
     var arriveDate: Date?
     var leaveDate: Date?
     var price: Int?
+    var images = Array<UIImage?>()
 
     let partialRevealHeight: CGFloat = 100
     var collapsedHeight: CGFloat = 350
@@ -42,11 +38,6 @@ class ParkingSpaceDrawerViewController: UIViewController {
     ]
 
     func initializeSettings() {
-//        slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
-//        slideshow.activityIndicator = DefaultActivityIndicator()
-//        let slideshowTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideshowClick))
-//        slideshow.addGestureRecognizer(slideshowTapRecognizer)
-
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
 
@@ -78,6 +69,21 @@ class ParkingSpaceDrawerViewController: UIViewController {
         initializeSettings()
 
         if let parkingSpace = parkingSpace {
+
+            self.images = Array<UIImage?>(repeating: nil, count: parkingSpace.images.count)
+
+            for (i, imagePath) in parkingSpace.images.enumerated() {
+                KingfisherManager.shared.retrieveImage(with: URL(string: imagePath)!) { result in
+                    switch result {
+                    case .success(let value):
+                        self.images[i] = value.image
+                        self.imagesCollectionView.reloadData()
+                    case .failure(let error):
+                        self.images[i] = nil
+                        print(error)
+                    }
+                }
+            }
 
             nameLabel.text = parkingSpace.name
             if let arriveDate = arriveDate, let leaveDate = leaveDate {
@@ -117,17 +123,6 @@ class ParkingSpaceDrawerViewController: UIViewController {
                     featureImage = #imageLiteral(resourceName: "question mark")
                 }
 
-//                let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(2, 2, 2, 2)))
-//
-//                featureImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-//                featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//                featureImageView.contentMode = .scaleAspectFit
-
-//                let featureImageView = UIImageView(image: featureImage.imageWithInsets(insets: UIEdgeInsetsMake(0, 0, 0, 0)))
-//                featureImageView.contentMode = .scaleAspectFit
-//                featureImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//                featureImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-
                 let featureView = UIView(frame: CGRect(x: 0, y: 0, width: 65, height: 65))
                 featureView.widthAnchor.constraint(equalToConstant: 65).isActive = true
                 featureView.heightAnchor.constraint(equalToConstant: 65).isActive = true
@@ -158,18 +153,6 @@ class ParkingSpaceDrawerViewController: UIViewController {
                 featuresStackView.addArrangedSubview(featureView)
 
             }
-
-//            var parkingSpaceImageSources = [KingfisherSource]()
-//
-//            if parkingSpace.images.isEmpty {
-//                noImagesLabel.isHidden = false
-//            }
-//
-//            for imageUrl in parkingSpace.images {
-//                parkingSpaceImageSources.append(KingfisherSource(urlString: imageUrl)!)
-//            }
-//
-//            slideshow.setImageInputs(parkingSpaceImageSources)
 
         }
     }
@@ -236,11 +219,6 @@ class ParkingSpaceDrawerViewController: UIViewController {
             instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
         }
     }
-
-//    @objc func slideshowClick() {
-//        let fullScreenController = slideshow.presentFullScreenController(from: self)
-//        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
-//    }
 
     @objc func grabberClick() {
         if let pulleyViewController = parent as? PulleyViewController {
@@ -311,21 +289,21 @@ extension ParkingSpaceDrawerViewController: UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "parkingSpaceImagesCollectionViewCell", for: indexPath) as! ParkingSpaceImagesCollectionViewCell
-        if let parkingSpace = parkingSpace {
-            cell.imageView.kf.setImage(with: URL(string: parkingSpace.images[indexPath.row]))
-        }
+        cell.imageView.image = self.images[indexPath.row]
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! ParkingSpaceImagesCollectionViewCell
-
-//        let configuration = ImageViewerConfiguration { config in
-//            config.imageView = cell.imageView
-//        }
-//
-//        present(ImageViewerController(configuration: configuration), animated: true)
-        self.presentImageGallery(GalleryViewController(startIndex: indexPath.row, itemsDataSource: self, configuration: [GalleryConfigurationItem.deleteButtonMode(.none), .thumbnailsButtonMode(.none)]))
+        self.presentImageGallery(
+            GalleryViewController(
+                startIndex: indexPath.row,
+                itemsDataSource: self,
+                configuration: [
+                    GalleryConfigurationItem.deleteButtonMode(.none),
+                    .thumbnailsButtonMode(.none)
+                ]
+            )
+        )
     }
 
 }
@@ -337,12 +315,7 @@ extension ParkingSpaceDrawerViewController: GalleryItemsDataSource {
     }
 
     func provideGalleryItem(_ index: Int) -> GalleryItem {
-        let indexPath = IndexPath(row: index, section: 0)
-        let cell = imagesCollectionView.cellForItem(at: indexPath) as! ParkingSpaceImagesCollectionViewCell
-        let image = cell.imageView.image ?? UIImage(named: "question mark")
-
-        GalleryConfigurationItem.deleteButtonMode(.none)
-
+        let image: UIImage? = self.images[index]
         return GalleryItem.image { $0(image) }
     }
 
