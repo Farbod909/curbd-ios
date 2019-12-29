@@ -24,6 +24,7 @@ class ParkingSpace: JSONSerializable {
     let legal_type: String
     let images: [String]
     let is_active: Bool
+    let is_third_party: Bool
 
     required init(json: JSON) {
         self.id = json["id"].intValue
@@ -42,6 +43,7 @@ class ParkingSpace: JSONSerializable {
         self.legal_type = json["legal_type"].stringValue
         self.images = json["images"].arrayValue.map({$0.stringValue})
         self.is_active = json["is_active"].boolValue
+        self.is_third_party = json["host"] == JSON.null
     }
 
     static func create(withToken token: String,

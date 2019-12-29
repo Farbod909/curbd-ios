@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 import NVActivityIndicatorView
 
-//let baseURL = "http://172.31.99.23:8000"
+//let baseURL = "http://192.168.0.16:8000"
 let baseURL = "https://curbd-app.appspot.com"
 let defaultLoadingStyle = NVActivityIndicatorType.circleStrokeSpin

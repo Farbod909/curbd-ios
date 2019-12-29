@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Siren.shared.wail()
         STPTheme.default().accentColor = UIColor.curbdPurpleBright
 
-        // TODO: change to stripe live publishable key
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_5q5DlFsEzct0uumMRvd37mln"
+//        STPPaymentConfiguration.shared().publishableKey = "pk_test_5q5DlFsEzct0uumMRvd37mln"
+        STPPaymentConfiguration.shared().publishableKey = "pk_live_HQpg1PkqWK6iKHAcdWk2Ilo1"
 
         let locationManager = LocationManager.shared
         locationManager.requestWhenInUseAuthorization()

@@ -58,6 +58,7 @@ class HostDashboardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             if indexPath.row == 1 {
+                // User tapped "Payout"
                 if let hostInfo = hostInfo {
                     if hostInfo.hasAddress && hostInfo.hasDateOfBirth {
                         let venmoPayoutViewController = UIStoryboard(

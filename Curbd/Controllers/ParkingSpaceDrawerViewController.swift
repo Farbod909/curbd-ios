@@ -11,6 +11,7 @@ import Pulley
 import UIKit
 import ImageViewer
 import Kingfisher
+import MapKit
 
 class ParkingSpaceDrawerViewController: UIViewController {
 
@@ -89,9 +90,19 @@ class ParkingSpaceDrawerViewController: UIViewController {
             if let arriveDate = arriveDate, let leaveDate = leaveDate {
                 subtitleLabel.text = "\(arriveDate.toHumanReadable()) → \(leaveDate.toHumanReadable())"
             }
-            if let price = price {
-                reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
+
+            if parkingSpace.is_third_party {
+                subtitleLabel.text = "This is an unaffiliated spot"
+                reserveButton.setTitle("Directions", for: .normal)
+                DispatchQueue.main.async {
+                    self.reserveButton.backgroundColor = UIColor(hex: "#f09311")
+                }
+            } else {
+                if let price = price {
+                    reserveButton.setTitle("Reserve for \(price.toUSDRepresentation())", for: .normal)
+                }
             }
+
 
             if parkingSpace.features.isEmpty {
                 featuresScrollView.heightAnchor.constraint(equalToConstant: 0).isActive = true
@@ -188,35 +199,71 @@ class ParkingSpaceDrawerViewController: UIViewController {
     }
 
     @IBAction func reserveButtonClick(_ sender: UIButton) {
-        if UserDefaults.standard.string(forKey: "token") != nil {
-            if UserDefaults.standard.string(forKey: "vehicle_license_plate") != nil {
-                if  let parkingSpace = parkingSpace,
-                    let arriveDate = arriveDate,
-                    let leaveDate = leaveDate {
+        if let parkingSpace = parkingSpace {
+            if parkingSpace.is_third_party {
+                let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
 
-                    if let reservationConfirmationViewController = UIStoryboard(
-                        name: "Main",
-                        bundle: nil).instantiateViewController(
-                            withIdentifier: "reservationConfirmationViewController") as?
-                            ReservationConfirmationViewController {
-                        reservationConfirmationViewController.modalPresentationStyle =
-                            .overCurrentContext
-                        reservationConfirmationViewController.parkingSpace = parkingSpace
-                        reservationConfirmationViewController.arriveDate = arriveDate
-                        reservationConfirmationViewController.leaveDate = leaveDate
-                        reservationConfirmationViewController.price = price
+                let openInAppleMapsOption = UIAlertAction(title: "Apple Maps", style: .default) { alert in
+                    let coordinate = CLLocationCoordinate2D(
+                        latitude: parkingSpace.latitude,
+                        longitude: parkingSpace.longitude)
+                    let placemark = MKPlacemark(coordinate: coordinate)
+                    let mapItem = MKMapItem(placemark: placemark)
+                    mapItem.name = parkingSpace.name
+                    let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                    mapItem.openInMaps(launchOptions: launchOptions)
+                }
 
-                        show(reservationConfirmationViewController, sender: self)
+                let openInGoogleMapsOption = UIAlertAction(title: "Google Maps", style: .default) { alert in
+                    guard let googleMapsURL = URL(string: "comgooglemaps://?daddr=\(parkingSpace.latitude),\(parkingSpace.longitude)&directionsmode=driving") else {
+                        return
                     }
 
+                    if UIApplication.shared.canOpenURL(googleMapsURL) {
+                        UIApplication.shared.open(googleMapsURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+                    }
                 }
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alert in
+                    // do nothing
+                }
+
+                optionMenu.addAction(openInAppleMapsOption)
+                optionMenu.addAction(openInGoogleMapsOption)
+                optionMenu.addAction(cancelAction)
+
+                self.present(optionMenu, animated: true)
             } else {
-                presentSingleButtonAlert(
-                    title: "No Vehicle Selected",
-                    message: "Please add a vehicle first.")
+                if UserDefaults.standard.string(forKey: "token") != nil {
+                    if UserDefaults.standard.string(forKey: "vehicle_license_plate") != nil {
+                        if  let arriveDate = arriveDate,
+                            let leaveDate = leaveDate {
+
+                            if let reservationConfirmationViewController = UIStoryboard(
+                                name: "Main",
+                                bundle: nil).instantiateViewController(
+                                    withIdentifier: "reservationConfirmationViewController") as?
+                                    ReservationConfirmationViewController {
+                                reservationConfirmationViewController.modalPresentationStyle =
+                                    .overCurrentContext
+                                reservationConfirmationViewController.parkingSpace = parkingSpace
+                                reservationConfirmationViewController.arriveDate = arriveDate
+                                reservationConfirmationViewController.leaveDate = leaveDate
+                                reservationConfirmationViewController.price = price
+
+                                show(reservationConfirmationViewController, sender: self)
+                            }
+
+                        }
+                    } else {
+                        presentSingleButtonAlert(
+                            title: "No Vehicle Selected",
+                            message: "Please add a vehicle first.")
+                    }
+                } else {
+                    instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
+                }
             }
-        } else {
-            instantiateAndShowViewController(withIdentifier: "authenticationRequiredVC")
         }
     }
 
@@ -321,3 +368,8 @@ extension ParkingSpaceDrawerViewController: GalleryItemsDataSource {
 
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

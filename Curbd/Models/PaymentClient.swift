@@ -83,7 +83,8 @@ class PaymentClient: NSObject, STPEphemeralKeyProvider {
     }
 
     static func requestVenmoPayout(withToken token: String,
-                                   venmoEmail: String?,
+                                   venmoAddress: String?,
+                                   venmoAddressType: String?,
                                    completion: @escaping (Error?) -> Void) {
 
         let headers: HTTPHeaders = [
@@ -92,8 +93,9 @@ class PaymentClient: NSObject, STPEphemeralKeyProvider {
 
         var parameters: Parameters = [:]
 
-        if let venmoEmail = venmoEmail {
-            parameters["venmo_email"] = venmoEmail
+        if let venmoAddress = venmoAddress, let venmoAddressType = venmoAddressType {
+            parameters["venmo_address"] = venmoAddress
+            parameters["venmo_address_type"] = venmoAddressType
         }
 
 

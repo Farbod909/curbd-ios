@@ -16,7 +16,11 @@ class ParkingSpaceAnnotation: NSObject, MKAnnotation {
             latitude: parkingSpace.latitude, longitude: parkingSpace.longitude)
     }
     var title: String? {
-        return price.toUSDRepresentation()
+        if parkingSpace.is_third_party {
+            return ""
+        } else {
+            return price.toUSDRepresentation()
+        }
     }
 
     init(_ parkingSpaceWithPrice: ParkingSpaceWithPrice) {
@@ -28,12 +32,19 @@ class ParkingSpaceAnnotation: NSObject, MKAnnotation {
 @available(iOS 11.0, *)
 class ParkingSpaceMarkerAnnotationView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
-        willSet {
-//            markerTintColor = UIColor.curbdPurpleGradient(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
-            markerTintColor = UIColor(hex: "#D60E88")
+        willSet(newAnnotation) {
+            if let parkingSpaceAnnotation = newAnnotation as? ParkingSpaceAnnotation {
+                if parkingSpaceAnnotation.parkingSpace.is_third_party {
+                    markerTintColor = UIColor(hex: "#f09311")
+                } else {
+                    markerTintColor = UIColor(hex: "#D60E88")
+
+                }
+            } else {
+                markerTintColor = UIColor(hex: "#D60E88")
+            }
             glyphText = "P"
             displayPriority = .required
-            //glyphImage = #imageLiteral(resourceName: "meter")
         }
     }
 }

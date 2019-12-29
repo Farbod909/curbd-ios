@@ -46,17 +46,21 @@ class VenmoPayoutViewController: UITableViewController, UITextFieldDelegate {
         if indexPath.section == 2 {
             if indexPath.row == 0 {
                 if let token = UserDefaults.standard.string(forKey: "token") {
-                    PaymentClient.requestVenmoPayout(
-                        withToken: token,
-                        venmoEmail: venmoEmailPhoneTextField.text) { error in
+                    if let venmoAddress = venmoEmailPhoneTextField.text {
+                        PaymentClient.requestVenmoPayout(
+                            withToken: token,
+                            venmoAddress: venmoAddress,
+                            venmoAddressType: venmoAddress.isValidEmail() ? "email" : "phone") { error in
 
-                            if error == nil {
-                                self.presentSingleButtonAlert(title: "Request Sent", message: "Your request has been sent. Please allow one business day for your request to be processed. Thank you.") { _ in
-                                    self.performSegue(withIdentifier: "unwindToHostDashboardViewController", sender: self)
+                                if error == nil {
+                                    self.presentSingleButtonAlert(title: "Request Sent", message: "Your request has been sent. Please allow one business day for your request to be processed. Thank you.") { _ in
+                                        self.performSegue(withIdentifier: "unwindToHostDashboardViewController", sender: self)
+                                    }
+                                } else {
+                                    self.presentServerErrorAlert()
                                 }
-                            } else {
-                                self.presentServerErrorAlert()
-                            }
+
+                        }
 
                     }
 

@@ -60,6 +60,8 @@ class UserMenuViewController: DarkTranslucentViewController {
 
         navigationController.navigationBar.stp_theme = curbdTheme
 
+        print("hello")
+
         present(navigationController, animated: true)
     }
 

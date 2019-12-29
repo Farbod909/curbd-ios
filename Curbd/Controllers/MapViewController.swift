@@ -308,7 +308,6 @@ class MapViewController: UIViewController {
 
                     for parkingSpaceAnnotation in retrievedParkingSpaceAnnotations {
                         self.mapView.addAnnotation(parkingSpaceAnnotation)
-
 //                        if !mapViewAnnotations.map({ ($0.parkingSpace.id) }).contains(parkingSpaceAnnotation.parkingSpace.id) {
 //                            self.mapView.addAnnotation(parkingSpaceAnnotation)
 //                        }
